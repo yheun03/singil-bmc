@@ -248,5 +248,11 @@
       "save": 0
     }
   ],
-  "youtube": null
+  "youtube": {
+    "videoCode": "uaVwOn0_kXA",
+    "title": "다윗D조 5/2일 19시",
+    "publishedAt": "2026-05-02",
+    "youtubeUrl": "https://www.youtube.com/watch?v=uaVwOn0_kXA",
+    "thumbnail": "https://i.ytimg.com/vi/uaVwOn0_kXA/hq720.jpg"
+  }
 }

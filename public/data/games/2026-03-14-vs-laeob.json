@@ -228,5 +228,11 @@
       "save": 0
     }
   ],
-  "youtube": null
+  "youtube": {
+    "videoCode": "9hXt1I94Ves",
+    "title": "다윗A조 3/14일 토",
+    "publishedAt": "2026-03-14",
+    "youtubeUrl": "https://www.youtube.com/watch?v=9hXt1I94Ves",
+    "thumbnail": "https://i.ytimg.com/vi/9hXt1I94Ves/hq720.jpg"
+  }
 }

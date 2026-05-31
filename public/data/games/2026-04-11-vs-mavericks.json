@@ -259,5 +259,11 @@
       "save": 0
     }
   ],
-  "youtube": null
+  "youtube": {
+    "videoCode": "KlNeh6USsR8",
+    "title": "26.4.11 토 D조",
+    "publishedAt": "2026-04-11",
+    "youtubeUrl": "https://www.youtube.com/watch?v=KlNeh6USsR8",
+    "thumbnail": "https://i.ytimg.com/vi/KlNeh6USsR8/hq720.jpg"
+  }
 }

@@ -13,7 +13,7 @@
     "gameId": "2026-05-30-vs-11stwyverns",
     "youtube": {
       "videoCode": "v9PPNTJB5lE",
-      "title": "2026.05.30 11번가 와이번스전 경기 영상",
+      "title": "다윗D조 5/30 토 7시경기",
       "publishedAt": "2026-05-30",
       "youtubeUrl": "https://www.youtube.com/watch?v=v9PPNTJB5lE",
       "thumbnail": "https://i.ytimg.com/vi/v9PPNTJB5lE/hq720.jpg"
@@ -33,7 +33,7 @@
     "gameId": "2026-05-23-vs-koreauniv",
     "youtube": {
       "videoCode": "jWTJ8OXmQig",
-      "title": "2026.05.23 고려대학교전 경기 영상",
+      "title": "다윗A조 5/23 토 19시경기",
       "publishedAt": "2026-05-23",
       "youtubeUrl": "https://www.youtube.com/watch?v=jWTJ8OXmQig",
       "thumbnail": "https://i.ytimg.com/vi/jWTJ8OXmQig/hq720.jpg"
@@ -65,7 +65,13 @@
     "content": "<p>다윗 야구 선교단은 Mavericks전에서 11안타 0홈런 17도루를 기록했습니다.</p><p>주요 기록은 3루타 이홍일(3회), 2루타 박의현(3회) 은영환(4회)입니다.</p><p><a href=\"/games/2026-05-02-vs-mavericks\">경기 상세 기록 보기</a></p>",
     "link": "/games/2026-05-02-vs-mavericks",
     "gameId": "2026-05-02-vs-mavericks",
-    "youtube": null
+    "youtube": {
+      "videoCode": "uaVwOn0_kXA",
+      "title": "다윗D조 5/2일 19시",
+      "publishedAt": "2026-05-02",
+      "youtubeUrl": "https://www.youtube.com/watch?v=uaVwOn0_kXA",
+      "thumbnail": "https://i.ytimg.com/vi/uaVwOn0_kXA/hq720.jpg"
+    }
   },
   {
     "id": "game-2026-04-18-vs-sungnamob",
@@ -79,7 +85,13 @@
     "content": "<p>다윗 야구 선교단은 성남OB전에서 9안타 1홈런 11도루를 기록했습니다.</p><p>주요 기록은 홈런 권태헌(3회), 3루타 반석훈(1회)입니다.</p><p><a href=\"/games/2026-04-18-vs-sungnamob\">경기 상세 기록 보기</a></p>",
     "link": "/games/2026-04-18-vs-sungnamob",
     "gameId": "2026-04-18-vs-sungnamob",
-    "youtube": null
+    "youtube": {
+      "videoCode": "YOEK-uy5Mz4",
+      "title": "다윗A 4/18토",
+      "publishedAt": "2026-04-18",
+      "youtubeUrl": "https://www.youtube.com/watch?v=YOEK-uy5Mz4",
+      "thumbnail": "https://i.ytimg.com/vi/YOEK-uy5Mz4/hq720.jpg"
+    }
   },
   {
     "id": "game-2026-04-18-vs-yooshin",
@@ -93,7 +105,13 @@
     "content": "<p>다윗 야구 선교단은 (유신)블루후디스전에서 10안타 1홈런 5도루를 기록했습니다.</p><p>주요 기록은 홈런 박의현(4회), 3루타 반석훈(3회,4회)입니다.</p><p><a href=\"/games/2026-04-18-vs-yooshin\">경기 상세 기록 보기</a></p>",
     "link": "/games/2026-04-18-vs-yooshin",
     "gameId": "2026-04-18-vs-yooshin",
-    "youtube": null
+    "youtube": {
+      "videoCode": "MZa97sM6ESE",
+      "title": "다윗D 4/18토",
+      "publishedAt": "2026-04-18",
+      "youtubeUrl": "https://www.youtube.com/watch?v=MZa97sM6ESE",
+      "thumbnail": "https://i.ytimg.com/vi/MZa97sM6ESE/hq720.jpg"
+    }
   },
   {
     "id": "game-2026-04-11-vs-mavericks",
@@ -107,7 +125,13 @@
     "content": "<p>다윗 야구 선교단은 Mavericks전에서 4안타 0홈런 7도루를 기록했습니다.</p><p>주요 기록은 2루타 정선호(3회) 김재영(1회), 도루 곽우섭(1회,2회,4회) 서상원(1회,4회) 신상윤(4회) 정선호(1회,3회) 지성찬(3회) 김희열(2회) 노혁진(2회) 선예환(2회)입니다.</p><p><a href=\"/games/2026-04-11-vs-mavericks\">경기 상세 기록 보기</a></p>",
     "link": "/games/2026-04-11-vs-mavericks",
     "gameId": "2026-04-11-vs-mavericks",
-    "youtube": null
+    "youtube": {
+      "videoCode": "KlNeh6USsR8",
+      "title": "26.4.11 토 D조",
+      "publishedAt": "2026-04-11",
+      "youtubeUrl": "https://www.youtube.com/watch?v=KlNeh6USsR8",
+      "thumbnail": "https://i.ytimg.com/vi/KlNeh6USsR8/hq720.jpg"
+    }
   },
   {
     "id": "game-2026-04-11-vs-nom",
@@ -121,7 +145,13 @@
     "content": "<p>다윗 야구 선교단은 서강가브리엘스전에서 9안타 0홈런 7도루를 기록했습니다.</p><p>주요 기록은 3루타 오치송(1회) 은영환(1회), 2루타 이효재(2회) 은영환(2회) 김명선(1회)입니다.</p><p><a href=\"/games/2026-04-11-vs-nom\">경기 상세 기록 보기</a></p>",
     "link": "/games/2026-04-11-vs-nom",
     "gameId": "2026-04-11-vs-nom",
-    "youtube": null
+    "youtube": {
+      "videoCode": "iujwrHxdOgE",
+      "title": "26.4.11 토 A조",
+      "publishedAt": "2026-04-11",
+      "youtubeUrl": "https://www.youtube.com/watch?v=iujwrHxdOgE",
+      "thumbnail": "https://i.ytimg.com/vi/iujwrHxdOgE/hq720.jpg"
+    }
   },
   {
     "id": "game-2026-03-28-vs-daslgis",
@@ -135,7 +165,13 @@
     "content": "<p>다윗 야구 선교단은 다슬기스OB전에서 8안타 0홈런 5도루를 기록했습니다.</p><p>주요 기록은 3루타 은영환(3회), 2루타 이영빈(2회) 이원재(2회) 조상호(1회) 오세주(2회)입니다.</p><p><a href=\"/games/2026-03-28-vs-daslgis\">경기 상세 기록 보기</a></p>",
     "link": "/games/2026-03-28-vs-daslgis",
     "gameId": "2026-03-28-vs-daslgis",
-    "youtube": null
+    "youtube": {
+      "videoCode": "MSCHCzSJfYs",
+      "title": "다윗A 3/28 7시경기",
+      "publishedAt": "2026-03-28",
+      "youtubeUrl": "https://www.youtube.com/watch?v=MSCHCzSJfYs",
+      "thumbnail": "https://i.ytimg.com/vi/MSCHCzSJfYs/hq720.jpg"
+    }
   },
   {
     "id": "game-2026-03-14-vs-laeob",
@@ -149,7 +185,13 @@
     "content": "<p>다윗 야구 선교단은 동국대학교 LAE OB전에서 9안타 0홈런 3도루를 기록했습니다.</p><p>주요 기록은 2루타 김재영(4회) 선예환(3회) 김명선(3회) 성백동(2회), 도루 선예환(4회) 성백동(3회) 이효재(4회) 최영규(1회) 이용성(4회) 윤재선(2회,4회)입니다.</p><p><a href=\"/games/2026-03-14-vs-laeob\">경기 상세 기록 보기</a></p>",
     "link": "/games/2026-03-14-vs-laeob",
     "gameId": "2026-03-14-vs-laeob",
-    "youtube": null
+    "youtube": {
+      "videoCode": "9hXt1I94Ves",
+      "title": "다윗A조 3/14일 토",
+      "publishedAt": "2026-03-14",
+      "youtubeUrl": "https://www.youtube.com/watch?v=9hXt1I94Ves",
+      "thumbnail": "https://i.ytimg.com/vi/9hXt1I94Ves/hq720.jpg"
+    }
   },
   {
     "id": "game-2026-02-28-vs-stone",
@@ -163,7 +205,13 @@
     "content": "<p>다윗 야구 선교단은 돌멩이야구단 D전에서 6안타 0홈런 5도루를 기록했습니다.</p><p>주요 기록은 3루타 이용관(3회) 박세찬(4회), 2루타 전광(3회) 홍태화(4회) 오치송(3회)입니다.</p><p><a href=\"/games/2026-02-28-vs-stone\">경기 상세 기록 보기</a></p>",
     "link": "/games/2026-02-28-vs-stone",
     "gameId": "2026-02-28-vs-stone",
-    "youtube": null
+    "youtube": {
+      "videoCode": "cib8TRpE1J0",
+      "title": "다윗야구선교단D조 (19시) · 돌멩이전",
+      "publishedAt": "2026-02-28",
+      "youtubeUrl": "https://www.youtube.com/watch?v=cib8TRpE1J0",
+      "thumbnail": "https://i.ytimg.com/vi/cib8TRpE1J0/hq720.jpg"
+    }
   },
   {
     "id": "game-2026-02-21-vs-nom",
@@ -177,7 +225,13 @@
     "content": "<p>다윗 야구 선교단은 N.O.M (Need Our Moment)전에서 17안타 2홈런 4도루를 기록했습니다.</p><p>주요 기록은 홈런 선예환(4회) 박의현(2회), 3루타 최정훈(2회)입니다.</p><p><a href=\"/games/2026-02-21-vs-nom\">경기 상세 기록 보기</a></p>",
     "link": "/games/2026-02-21-vs-nom",
     "gameId": "2026-02-21-vs-nom",
-    "youtube": null
+    "youtube": {
+      "videoCode": "WmThvON9E3Y",
+      "title": "다윗야구선교단 (2/21일 토 13시경기) A조",
+      "publishedAt": "2026-02-21",
+      "youtubeUrl": "https://www.youtube.com/watch?v=WmThvON9E3Y",
+      "thumbnail": "https://i.ytimg.com/vi/WmThvON9E3Y/hq720.jpg"
+    }
   },
   {
     "id": "game-2026-01-31-vs-sogang",

@@ -252,5 +252,11 @@
       "save": 0
     }
   ],
-  "youtube": null
+  "youtube": {
+    "videoCode": "MZa97sM6ESE",
+    "title": "다윗D 4/18토",
+    "publishedAt": "2026-04-18",
+    "youtubeUrl": "https://www.youtube.com/watch?v=MZa97sM6ESE",
+    "thumbnail": "https://i.ytimg.com/vi/MZa97sM6ESE/hq720.jpg"
+  }
 }

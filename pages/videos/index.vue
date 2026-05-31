@@ -47,13 +47,22 @@ const videos = ref<VideoItem[]>([]);
 const pending = ref(true);
 const error = ref('');
 
+function sortVideosByDateDesc(items: VideoItem[]) {
+    return [...items].sort((a, b) => {
+        if (!a.date && !b.date) return 0;
+        if (!a.date) return 1;
+        if (!b.date) return -1;
+        return Date.parse(b.date) - Date.parse(a.date);
+    });
+}
+
 onMounted(async () => {
     try {
         const [generatedVideos, manualVideos] = await Promise.all([
             fetchJson<VideoItem[]>('generated/videos.json').catch(() => []),
             fetchJson<VideoItem[]>('meta/videos.json'),
         ]);
-        videos.value = [...generatedVideos, ...manualVideos];
+        videos.value = sortVideosByDateDesc([...generatedVideos, ...manualVideos]);
     } catch (err) {
         error.value = err instanceof Error ? err.message : '영상 데이터를 불러오지 못했습니다.';
     } finally {

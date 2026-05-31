@@ -265,5 +265,11 @@
       "save": 0
     }
   ],
-  "youtube": null
+  "youtube": {
+    "videoCode": "MSCHCzSJfYs",
+    "title": "다윗A 3/28 7시경기",
+    "publishedAt": "2026-03-28",
+    "youtubeUrl": "https://www.youtube.com/watch?v=MSCHCzSJfYs",
+    "thumbnail": "https://i.ytimg.com/vi/MSCHCzSJfYs/hq720.jpg"
+  }
 }

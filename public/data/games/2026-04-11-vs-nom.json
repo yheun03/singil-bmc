@@ -285,5 +285,11 @@
       "save": 1
     }
   ],
-  "youtube": null
+  "youtube": {
+    "videoCode": "iujwrHxdOgE",
+    "title": "26.4.11 토 A조",
+    "publishedAt": "2026-04-11",
+    "youtubeUrl": "https://www.youtube.com/watch?v=iujwrHxdOgE",
+    "thumbnail": "https://i.ytimg.com/vi/iujwrHxdOgE/hq720.jpg"
+  }
 }

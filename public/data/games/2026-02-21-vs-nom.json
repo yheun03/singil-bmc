@@ -239,5 +239,11 @@
       "save": 0
     }
   ],
-  "youtube": null
+  "youtube": {
+    "videoCode": "WmThvON9E3Y",
+    "title": "다윗야구선교단 (2/21일 토 13시경기) A조",
+    "publishedAt": "2026-02-21",
+    "youtubeUrl": "https://www.youtube.com/watch?v=WmThvON9E3Y",
+    "thumbnail": "https://i.ytimg.com/vi/WmThvON9E3Y/hq720.jpg"
+  }
 }

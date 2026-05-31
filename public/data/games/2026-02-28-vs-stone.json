@@ -268,5 +268,11 @@
       "save": 0
     }
   ],
-  "youtube": null
+  "youtube": {
+    "videoCode": "cib8TRpE1J0",
+    "title": "다윗야구선교단D조 (19시) · 돌멩이전",
+    "publishedAt": "2026-02-28",
+    "youtubeUrl": "https://www.youtube.com/watch?v=cib8TRpE1J0",
+    "thumbnail": "https://i.ytimg.com/vi/cib8TRpE1J0/hq720.jpg"
+  }
 }
