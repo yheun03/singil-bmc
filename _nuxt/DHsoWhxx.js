@@ -1,1 +1,0 @@
-import{d as t,o as a,c as o,O as s,D as n,g as c,t as l}from"./C1tq-5NW.js";const p=t({__name:"SiteLoading",props:{error:{type:Boolean}},setup(e){return(r,m)=>(a(),o("p",{class:s(["bmc-state",{"bmc-state--error":e.error}])},[n(r.$slots,"default",{},()=>[c(l(e.error||"데이터를 불러오는 중..."),1)])],2))}});export{p as _};
