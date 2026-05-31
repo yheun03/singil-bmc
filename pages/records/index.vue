@@ -41,7 +41,7 @@
 
 <script setup lang="ts">
 import type { ColDef } from 'ag-grid-community';
-import { mergeBattingRowsByName, mergePitchingRowsByName } from '~/utils/record-aggregate';
+import { mergeBattingRowsByPlayerId, mergePitchingRowsByPlayerId } from '~/utils/record-aggregate';
 
 type TeamTotal = {
     totalGames: number;
@@ -100,8 +100,8 @@ const { data: pitching, pending: pitchingPending, error: pitchingError } = useSi
 const pending = computed(() => teamPending.value || battingPending.value || pitchingPending.value);
 const error = computed(() => teamError.value || battingError.value || pitchingError.value);
 
-const battingRows = computed(() => mergeBattingRowsByName(batting.value ?? []));
-const pitchingRows = computed(() => mergePitchingRowsByName(pitching.value ?? []));
+const battingRows = computed(() => mergeBattingRowsByPlayerId(batting.value ?? []));
+const pitchingRows = computed(() => mergePitchingRowsByPlayerId(pitching.value ?? []));
 
 const defaultColDef: ColDef = {
     flex: 1,

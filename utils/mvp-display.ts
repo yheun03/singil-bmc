@@ -1,6 +1,6 @@
 import {
-    mergeBattingRowsByName,
-    mergePitchingRowsByName,
+    mergeBattingRowsByPlayerId,
+    mergePitchingRowsByPlayerId,
     type BattingAggregateRow,
     type PeriodRecordSlice,
     type PitchingAggregateRow,
@@ -106,8 +106,8 @@ function buildMergedMvpGroupBlock(
     periodRecord?: PeriodRecordSlice,
 ) {
     if (periodRecord) {
-        const batting = mergeBattingRowsByName(periodRecord.batting as BattingAggregateRow[]);
-        const pitching = mergePitchingRowsByName(periodRecord.pitching as PitchingAggregateRow[]);
+        const batting = mergeBattingRowsByPlayerId(periodRecord.batting as BattingAggregateRow[]);
+        const pitching = mergePitchingRowsByPlayerId(periodRecord.pitching as PitchingAggregateRow[]);
         return {
             group: 'all',
             batting: pickMvpBattingLeaders(batting, periodKey),

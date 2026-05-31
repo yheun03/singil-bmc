@@ -89,12 +89,19 @@ function addNumericFields(target: CountingRecord, source: CountingRecord, fields
     }
 }
 
-export function mergeBattingRowsByName<T extends BattingAggregateRow>(rows: T[]): BattingAggregateRow[] {
+function mergeKey(row: { playerId?: string; name: string }) {
+    const playerId = String(row.playerId ?? '').trim();
+    if (playerId) return playerId;
+    return `name:${normalizePlayerName(row.name)}`;
+}
+
+/** 조 구분 없이 같은 playerId(등록) 기준으로 합산. 이름만 같고 id가 다르면 별도 행 유지 */
+export function mergeBattingRowsByPlayerId<T extends BattingAggregateRow>(rows: T[]): BattingAggregateRow[] {
     const map = new Map<string, BattingAggregateRow>();
 
     for (const row of rows) {
-        const key = normalizePlayerName(row.name);
-        if (!key) continue;
+        const key = mergeKey(row);
+        if (!key || key === 'name:') continue;
 
         const current = map.get(key) ?? {
             playerId: row.playerId,
@@ -133,15 +140,16 @@ export function mergeBattingRowsByName<T extends BattingAggregateRow>(rows: T[])
                 ops: formatAvg(derived.ops),
             };
         })
-        .sort((a, b) => b.ab - a.ab);
+        .sort((a, b) => b.ab - a.ab || a.name.localeCompare(b.name, 'ko'));
 }
 
-export function mergePitchingRowsByName<T extends PitchingAggregateRow>(rows: T[]): PitchingAggregateRow[] {
+/** 조 구분 없이 같은 playerId(등록) 기준으로 합산. 이름만 같고 id가 다르면 별도 행 유지 */
+export function mergePitchingRowsByPlayerId<T extends PitchingAggregateRow>(rows: T[]): PitchingAggregateRow[] {
     const map = new Map<string, PitchingAggregateRow>();
 
     for (const row of rows) {
-        const key = normalizePlayerName(row.name);
-        if (!key) continue;
+        const key = mergeKey(row);
+        if (!key || key === 'name:') continue;
 
         const current = map.get(key) ?? {
             playerId: row.playerId,
@@ -177,8 +185,14 @@ export function mergePitchingRowsByName<T extends PitchingAggregateRow>(rows: T[
                 whip: formatRate(derived.whip),
             };
         })
-        .sort((a, b) => b.outs - a.outs);
+        .sort((a, b) => b.outs - a.outs || a.name.localeCompare(b.name, 'ko'));
 }
+
+/** @deprecated mergeBattingRowsByPlayerId 사용 */
+export const mergeBattingRowsByName = mergeBattingRowsByPlayerId;
+
+/** @deprecated mergePitchingRowsByPlayerId 사용 */
+export const mergePitchingRowsByName = mergePitchingRowsByPlayerId;
 
 export type PeriodRecordSlice = {
     games: number;
@@ -189,7 +203,7 @@ export type PeriodRecordSlice = {
     groups?: Record<string, PeriodRecordSlice>;
 };
 
-/** 전체: 이름 기준 통합 / 조 선택: 해당 조 기록 */
+/** 전체: playerId 기준 통합(재등록 시 별도 행) / 조 선택: 해당 조 기록 */
 export function buildPeriodRecordView(record: PeriodRecordSlice | null, groupId: string) {
     if (!record) return null;
 
@@ -201,7 +215,7 @@ export function buildPeriodRecordView(record: PeriodRecordSlice | null, groupId:
         games: record.games,
         hits: record.hits,
         runs: record.runs,
-        batting: mergeBattingRowsByName(record.batting as BattingAggregateRow[]),
-        pitching: mergePitchingRowsByName(record.pitching as PitchingAggregateRow[]),
+        batting: mergeBattingRowsByPlayerId(record.batting as BattingAggregateRow[]),
+        pitching: mergePitchingRowsByPlayerId(record.pitching as PitchingAggregateRow[]),
     };
 }
