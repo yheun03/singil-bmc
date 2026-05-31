@@ -5,6 +5,7 @@
   "year": 2026,
   "month": 4,
   "opponent": "sungnamob",
+  "opponentName": "성남OB",
   "group": "A",
   "status": "completed",
   "score": {
@@ -255,7 +256,7 @@
   ],
   "youtube": {
     "videoCode": "YOEK-uy5Mz4",
-    "title": "다윗A 4/18토",
+    "title": "26.04.18 A조 vs 성남OB",
     "publishedAt": "2026-04-18",
     "youtubeUrl": "https://www.youtube.com/watch?v=YOEK-uy5Mz4",
     "thumbnail": "https://i.ytimg.com/vi/YOEK-uy5Mz4/hq720.jpg"

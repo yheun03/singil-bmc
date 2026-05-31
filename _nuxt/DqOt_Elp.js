@@ -1,0 +1,1 @@
+import{d as a,a as t,c as o,z as s,T as n,e as c,t as l}from"./DJTr0IuG.js";const p=a({__name:"SiteLoading",props:{error:{type:Boolean}},setup(e){return(r,m)=>(t(),o("p",{class:s(["bmc-state",{"bmc-state--error":e.error}])},[n(r.$slots,"default",{},()=>[c(l(e.error||"데이터를 불러오는 중..."),1)])],2))}});export{p as _};
