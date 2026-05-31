@@ -507,6 +507,13 @@
 }
 
 .bmc-roster {
+    &__summary {
+        margin: 0 0 20px;
+        font-size: 0.9375rem;
+        font-weight: 700;
+        color: $bmc-gray-500;
+    }
+
     &__grid {
         display: grid;
         grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -549,6 +556,11 @@
         box-shadow: 0 16px 32px rgba($bmc-navy-900, 0.12);
     }
 
+    &--dual {
+        border-color: rgba($bmc-blue-500, 0.35);
+        box-shadow: 0 12px 28px rgba($bmc-blue-500, 0.1);
+    }
+
     &__photo {
         position: relative;
         aspect-ratio: 4 / 5;
@@ -562,18 +574,48 @@
             object-fit: cover;
             object-position: top center;
         }
+
+        .bmc-roster-card__number-slot {
+            position: absolute;
+            right: 12px;
+            bottom: 8px;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .bmc-roster-card__number {
+            display: block;
+            font-size: clamp(2.5rem, 6vw, 3.5rem);
+            font-weight: 900;
+            line-height: 1;
+            color: rgba($bmc-white, 0.92);
+            text-shadow: 0 2px 12px rgba($bmc-navy-900, 0.45);
+            letter-spacing: -0.04em;
+        }
     }
 
-    &__number {
+    &__groups {
         position: absolute;
-        right: 12px;
-        bottom: 8px;
-        font-size: clamp(2.5rem, 6vw, 3.5rem);
-        font-weight: 900;
-        line-height: 1;
-        color: rgba($bmc-white, 0.92);
-        text-shadow: 0 2px 12px rgba($bmc-navy-900, 0.45);
-        letter-spacing: -0.04em;
+        top: 12px;
+        left: 12px;
+        z-index: 1;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    &__group-pill {
+        display: inline-flex;
+        align-items: center;
+        min-height: 26px;
+        padding: 0 10px;
+        border-radius: 999px;
+        background: rgba($bmc-navy-900, 0.82);
+        color: $bmc-white;
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        backdrop-filter: blur(6px);
     }
 
     &__body {
@@ -583,6 +625,19 @@
         padding: 16px 18px 18px;
         border-top: 1px solid $bmc-gray-200;
         background: linear-gradient(180deg, $bmc-white, #f8fafc);
+    }
+
+    &__badge {
+        margin: 0;
+        width: fit-content;
+        padding: 4px 10px;
+        border-radius: 999px;
+        background: rgba($bmc-blue-500, 0.12);
+        color: $bmc-blue-500;
+        font-size: 0.6875rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
     }
 
     &__position {
@@ -609,9 +664,15 @@
         color: $bmc-gray-500;
     }
 
+    &__profiles {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+    }
+
     &__profile {
         justify-self: start;
-        margin-top: 8px;
     }
 }
 
