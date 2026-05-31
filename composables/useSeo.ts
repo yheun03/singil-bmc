@@ -16,6 +16,9 @@ export function setSeoPageOverride(options: Partial<UseSeoOptions> | null) {
     useSeoPageState().value = options;
 }
 
+/** schema.org JSON-LD 객체 (페이지별 확장·기본 스키마 공통) */
+export type JsonLdSchema = Record<string, unknown>;
+
 export type UseSeoOptions = {
     /** 페이지 제목 (홈·빈 값이면 사이트명만) */
     title?: string;
@@ -29,7 +32,7 @@ export type UseSeoOptions = {
     /** 경로 기본값 조회 생략 */
     skipDefaults?: boolean;
     /** article 등 페이지 전용 JSON-LD */
-    jsonLd?: Record<string, unknown> | Record<string, unknown>[] | null;
+    jsonLd?: JsonLdSchema | JsonLdSchema[] | null;
 };
 
 function normalizeSitePath(path: string): string {
@@ -68,7 +71,7 @@ export function shouldSeoNoindex(path: string): boolean {
     return seoNoindexPrefixes.some((prefix) => path === prefix || path.startsWith(`${prefix}/`));
 }
 
-function buildOrganizationJsonLd(siteUrl: string, locale: SeoLocale) {
+function buildOrganizationJsonLd(siteUrl: string, locale: SeoLocale): JsonLdSchema {
     const orgUrl = `${siteUrl}${seoConfig.organizationId}`;
     return {
         '@context': 'https://schema.org',
@@ -83,7 +86,7 @@ function buildOrganizationJsonLd(siteUrl: string, locale: SeoLocale) {
     };
 }
 
-function buildWebsiteJsonLd(siteUrl: string, locale: SeoLocale) {
+function buildWebsiteJsonLd(siteUrl: string, locale: SeoLocale): JsonLdSchema {
     const websiteUrl = `${siteUrl}${seoConfig.websiteId}`;
     const orgUrl = `${siteUrl}${seoConfig.organizationId}`;
     return {
@@ -132,9 +135,12 @@ export function useSeo(options: MaybeRefOrGetter<UseSeoOptions> = {}) {
         const imageUrl = resolveAbsoluteAssetUrl(imagePath, seoConfig.siteUrl);
         const keywords = seoKeywords[locale].join(', ');
 
-        const jsonLdBase = [buildOrganizationJsonLd(seoConfig.siteUrl, locale), buildWebsiteJsonLd(seoConfig.siteUrl, locale)];
+        const jsonLdBase: JsonLdSchema[] = [
+            buildOrganizationJsonLd(seoConfig.siteUrl, locale),
+            buildWebsiteJsonLd(seoConfig.siteUrl, locale),
+        ];
         const pageJsonLd = input.jsonLd;
-        const jsonLdScripts = [...jsonLdBase];
+        const jsonLdScripts: JsonLdSchema[] = [...jsonLdBase];
         if (pageJsonLd) {
             const extras = Array.isArray(pageJsonLd) ? pageJsonLd : [pageJsonLd];
             jsonLdScripts.push(...extras);
