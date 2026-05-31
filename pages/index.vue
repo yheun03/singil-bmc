@@ -108,9 +108,9 @@
                         <strong>전체 기록</strong>
                         <span>타자·투수 누적 기록 확인</span>
                     </NuxtLink>
-                    <NuxtLink class="bmc-link-card" to="/mvp/monthly">
+                    <NuxtLink class="bmc-link-card" to="/mvp">
                         <span class="bmc-link-card__icon">🏆</span>
-                        <strong>월간 MVP</strong>
+                        <strong>MVP</strong>
                         <span>월별·주간 MVP 수상자</span>
                     </NuxtLink>
                     <NuxtLink class="bmc-link-card" to="/gallery/team">

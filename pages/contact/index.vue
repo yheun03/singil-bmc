@@ -10,6 +10,10 @@
                 <li><strong>대표 감독</strong> · 노재흥</li>
                 <li><strong>D조 감독</strong> · 성백동 집사</li>
                 <li><strong>총무</strong> · 노승원 집사</li>
+                <li>
+                    <strong>홈페이지 담당</strong> · 은영환 청년 ·
+                    <a href="mailto:eyh208@naver.com">eyh208@naver.com</a>
+                </li>
                 <li><strong>활동</strong> · 정기 연습, 친선·리그 경기, 교제</li>
             </ul>
             <div style="margin-top:20px;display:flex;gap:10px;flex-wrap:wrap;">

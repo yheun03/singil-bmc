@@ -7,7 +7,7 @@
             </p>
             <div class="bmc-footer__links">
                 <NuxtLink to="/records">기록</NuxtLink>
-                <NuxtLink to="/gallery/team">단체사진</NuxtLink>
+                <!-- <NuxtLink to="/gallery/team">단체사진</NuxtLink> -->
                 <NuxtLink to="/videos">YouTube</NuxtLink>
                 <NuxtLink to="/contact">문의</NuxtLink>
                 <a :href="YOUTUBE_CHANNEL_URL" target="_blank" rel="noopener noreferrer">

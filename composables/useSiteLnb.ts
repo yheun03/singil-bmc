@@ -18,22 +18,6 @@ export const siteLnbMenus: SiteLnbMenu[] = [
         ],
     },
     {
-        matcher: /^\/records/,
-        items: [
-            { label: '전체 기록', to: '/records' },
-            { label: '연도별 기록', to: '/records/yearly' },
-            { label: '월별 기록', to: '/records/monthly' },
-            { label: '조별 기록', to: '/records/groups' },
-        ],
-    },
-    {
-        matcher: /^\/mvp/,
-        items: [
-            { label: '월별 MVP', to: '/mvp/monthly' },
-            { label: '주간 MVP', to: '/mvp/weekly' },
-        ],
-    },
-    {
         matcher: /^\/players/,
         items: [
             { label: '전체', to: '/players' },
@@ -42,17 +26,21 @@ export const siteLnbMenus: SiteLnbMenu[] = [
         ],
     },
     {
+        matcher: /^\/(records|mvp)/,
+        items: [
+            { label: '전체 기록', to: '/records' },
+            { label: '연도별', to: '/records/yearly' },
+            { label: '월별', to: '/records/monthly' },
+            { label: '조별', to: '/records/groups' },
+            { label: 'MVP', to: '/mvp' },
+        ],
+    },
+    {
         matcher: /^\/(videos|gallery|news)/,
         items: [
             { label: 'David TV', to: '/videos' },
             { label: '갤러리', to: '/gallery/team' },
             { label: '구단소식', to: '/news' },
-        ],
-    },
-    {
-        matcher: /^\/contact/,
-        items: [
-            { label: '문의하기', to: '/contact' },
         ],
     },
 ];

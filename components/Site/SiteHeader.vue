@@ -28,53 +28,39 @@
             </button>
 
             <nav class="bmc-header__nav" :class="{ 'is-open': menuOpen }" aria-label="주요 메뉴">
-                <NuxtLink class="bmc-header__link" to="/" @click="menuOpen = false">HOME</NuxtLink>
-                <NuxtLink class="bmc-header__link" to="/games" @click="menuOpen = false">MATCHES</NuxtLink>
+                <template v-for="(item, index) in siteHeaderNav" :key="index">
+                    <NuxtLink
+                        v-if="item.type === 'link'"
+                        class="bmc-header__link"
+                        :to="item.to"
+                        @click="menuOpen = false"
+                    >
+                        {{ item.label }}
+                    </NuxtLink>
 
-                <div class="bmc-header__dropdown">
-                    <span class="bmc-header__link">BMC</span>
-                    <div class="bmc-header__submenu">
-                        <NuxtLink class="bmc-header__sublink" to="/about" @click="menuOpen = false">소개</NuxtLink>
-                        <NuxtLink class="bmc-header__sublink" to="/about/leaders" @click="menuOpen = false">조직/섬김이
-                        </NuxtLink>
-                        <NuxtLink class="bmc-header__sublink" to="/about/history" @click="menuOpen = false">히스토리
-                        </NuxtLink>
+                    <div v-else class="bmc-header__dropdown">
+                        <span class="bmc-header__trigger">{{ item.label }}</span>
+                        <div class="bmc-header__submenu">
+                            <NuxtLink
+                                v-for="child in item.children"
+                                :key="child.to"
+                                class="bmc-header__sublink"
+                                :to="child.to"
+                                @click="menuOpen = false"
+                            >
+                                {{ child.label }}
+                            </NuxtLink>
+                        </div>
                     </div>
-                </div>
-
-                <div class="bmc-header__dropdown">
-                    <span class="bmc-header__link">RECORDS</span>
-                    <div class="bmc-header__submenu">
-                        <NuxtLink class="bmc-header__sublink" to="/records" @click="menuOpen = false">전체 기록</NuxtLink>
-                        <NuxtLink class="bmc-header__sublink" to="/records/yearly" @click="menuOpen = false">연도별
-                        </NuxtLink>
-                        <NuxtLink class="bmc-header__sublink" to="/records/monthly" @click="menuOpen = false">월별
-                        </NuxtLink>
-                        <NuxtLink class="bmc-header__sublink" to="/records/groups" @click="menuOpen = false">조별
-                        </NuxtLink>
-                    </div>
-                </div>
-
-                <div class="bmc-header__dropdown">
-                    <span class="bmc-header__link">MVP</span>
-                    <div class="bmc-header__submenu">
-                        <NuxtLink class="bmc-header__sublink" to="/mvp/monthly" @click="menuOpen = false">월별 MVP
-                        </NuxtLink>
-                        <NuxtLink class="bmc-header__sublink" to="/mvp/weekly" @click="menuOpen = false">주간 MVP
-                        </NuxtLink>
-                    </div>
-                </div>
-
-                <NuxtLink class="bmc-header__link" to="/players" @click="menuOpen = false">PLAYERS</NuxtLink>
-                <NuxtLink class="bmc-header__link" to="/videos" @click="menuOpen = false">David TV</NuxtLink>
-                <NuxtLink class="bmc-header__link" to="/news" @click="menuOpen = false">NEWS</NuxtLink>
-                <NuxtLink class="bmc-header__link" to="/contact" @click="menuOpen = false">CONTACT</NuxtLink>
+                </template>
             </nav>
         </div>
     </header>
 </template>
 
 <script setup lang="ts">
+import { siteHeaderNav } from '~/composables/useSiteNav';
+
 const { getAssetPath } = useBasePath();
 const teamLogoUrl = computed(() => getAssetPath('icons/logo.png'));
 const menuOpen = ref(false);

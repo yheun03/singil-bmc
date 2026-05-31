@@ -89,23 +89,13 @@ const MENU_SEED: MenuSeedEntity[] = [
         isActive: true,
     },
 
-    { id: 'MENU_MVP', parentId: null, depth: 1, order: 4, to: '', labelKey: 'nav.mvp', isActive: true },
     {
-        id: 'MENU_MVP_MONTHLY',
-        parentId: 'MENU_MVP',
+        id: 'MENU_RECORDS_MVP',
+        parentId: 'MENU_RECORDS',
         depth: 2,
-        order: 1,
-        to: '/mvp/monthly',
-        labelKey: 'nav.mvp.monthly',
-        isActive: true,
-    },
-    {
-        id: 'MENU_MVP_WEEKLY',
-        parentId: 'MENU_MVP',
-        depth: 2,
-        order: 2,
-        to: '/mvp/weekly',
-        labelKey: 'nav.mvp.weekly',
+        order: 5,
+        to: '/mvp',
+        labelKey: 'nav.mvp',
         isActive: true,
     },
 

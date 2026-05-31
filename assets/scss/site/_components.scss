@@ -110,21 +110,28 @@
 
     &__nav {
         display: flex;
-        align-items: center;
+        align-items: stretch;
         gap: 4px;
     }
 
-    &__link {
+    &__link,
+    &__trigger {
+        display: inline-flex;
+        align-items: center;
+        min-height: 76px;
         color: $bmc-navy-900;
         text-decoration: none;
         font-size: 0.9375rem;
         font-weight: 900;
         letter-spacing: 0.02em;
-        padding: 28px 12px;
+        padding: 0 12px;
         border-radius: 0;
         white-space: nowrap;
         border-bottom: 3px solid transparent;
+        box-sizing: border-box;
+    }
 
+    &__link {
         &:hover,
         &.router-link-active,
         &.router-link-exact-active {
@@ -133,8 +140,21 @@
         }
     }
 
+    &__trigger {
+        cursor: default;
+        user-select: none;
+
+        .bmc-header__dropdown:hover &,
+        .bmc-header__dropdown:focus-within & {
+            color: $bmc-blue-500;
+            border-bottom-color: $bmc-blue-500;
+        }
+    }
+
     &__dropdown {
         position: relative;
+        display: flex;
+        align-self: stretch;
 
         &:hover .bmc-header__submenu,
         &:focus-within .bmc-header__submenu {
@@ -147,6 +167,7 @@
         position: absolute;
         top: 100%;
         left: 0;
+        margin-top: 0;
         min-width: 178px;
         padding: 10px;
         border-radius: 0;
@@ -198,7 +219,9 @@
             }
         }
 
-        &__link {
+        &__link,
+        &__trigger {
+            min-height: auto;
             padding: 14px 0;
         }
 
@@ -798,7 +821,251 @@
     }
 }
 
-.bmc-mvp-card,
+.bmc-mvp-board {
+    display: grid;
+    gap: 20px;
+
+    &__toolbar {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    &__period {
+        display: grid;
+        gap: 8px;
+        min-width: 0;
+    }
+
+    &__period-label {
+        display: block;
+        margin-bottom: 6px;
+        font-size: 0.75rem;
+        font-weight: 800;
+        letter-spacing: 0.04em;
+        color: $bmc-gray-500;
+        text-transform: uppercase;
+    }
+
+    &__period-select {
+        min-width: min(100%, 220px);
+        min-height: 42px;
+        padding: 0 12px;
+        border: 1px solid #d8dee9;
+        border-radius: 8px;
+        background: $bmc-white;
+        color: $bmc-navy-900;
+        font-size: 0.9375rem;
+        font-weight: 700;
+    }
+
+    &__groups {
+        flex: 1 1 auto;
+        justify-content: flex-end;
+    }
+
+    &__rules {
+        padding: 12px 16px;
+        border: 1px solid #d8dee9;
+        border-radius: 8px;
+        background: #f8fafc;
+        color: $bmc-gray-500;
+        font-size: 0.875rem;
+        line-height: 1.6;
+
+        summary {
+            cursor: pointer;
+            font-weight: 800;
+            color: $bmc-navy-900;
+        }
+
+        p {
+            margin: 10px 0 0;
+        }
+    }
+
+    &__period-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    &__period-title {
+        margin: 0;
+        font-size: 1.375rem;
+        font-weight: 900;
+        color: $bmc-navy-900;
+        letter-spacing: -0.02em;
+    }
+
+    &__expand {
+        border: 1px solid #d8dee9;
+        border-radius: 999px;
+        background: $bmc-white;
+        color: $bmc-blue-500;
+        font-size: 0.8125rem;
+        font-weight: 700;
+        padding: 8px 14px;
+        cursor: pointer;
+
+        &:hover {
+            border-color: $bmc-blue-500;
+        }
+    }
+
+    &__period-block {
+        display: grid;
+        gap: 16px;
+    }
+
+    &__subperiod {
+        margin: 0;
+        padding-top: 8px;
+        font-size: 1.0625rem;
+        font-weight: 800;
+        color: $bmc-navy-900;
+        border-top: 1px solid #e5e7eb;
+    }
+
+    &__columns {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+    }
+
+    &__column {
+        display: grid;
+        gap: 12px;
+        min-width: 0;
+    }
+
+    &__group-label {
+        margin: 0;
+        font-size: 0.8125rem;
+        font-weight: 900;
+        letter-spacing: 0.06em;
+        color: $bmc-blue-500;
+        text-transform: uppercase;
+    }
+
+    &__panels {
+        display: grid;
+        gap: 12px;
+    }
+
+    &__panel {
+        @include bmc-card;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    &__panel-title {
+        margin: 0;
+        padding: 12px 16px;
+        background: linear-gradient(90deg, rgba($bmc-navy-900, 0.04), transparent);
+        border-bottom: 1px solid #e5e7eb;
+        font-size: 0.875rem;
+        font-weight: 800;
+        color: $bmc-navy-900;
+    }
+
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.875rem;
+
+        th,
+        td {
+            padding: 10px 12px;
+            text-align: left;
+            vertical-align: top;
+            border-bottom: 1px solid #eef2f7;
+        }
+
+        th {
+            font-size: 0.75rem;
+            font-weight: 800;
+            letter-spacing: 0.03em;
+            color: $bmc-gray-500;
+            background: #fafbfc;
+        }
+
+        tbody tr:last-child td {
+            border-bottom: 0;
+        }
+
+        tbody tr.is-top {
+            background: rgba($bmc-gold-500, 0.08);
+        }
+    }
+
+    &__rank {
+        display: inline-flex;
+        min-width: 2.5rem;
+        justify-content: center;
+        padding: 2px 8px;
+        border-radius: 999px;
+        background: #eef2f7;
+        font-size: 0.75rem;
+        font-weight: 800;
+        color: $bmc-navy-900;
+
+        &[data-rank='1'] {
+            background: rgba($bmc-gold-500, 0.22);
+            color: #92680d;
+        }
+    }
+
+    &__name {
+        font-weight: 800;
+        color: $bmc-navy-900;
+        white-space: nowrap;
+    }
+
+    &__stats {
+        color: $bmc-gray-500;
+        line-height: 1.45;
+
+        span {
+            display: block;
+        }
+
+        small {
+            display: block;
+            margin-top: 2px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: $bmc-blue-500;
+        }
+    }
+
+    &__empty {
+        margin: 0;
+        padding: 16px;
+        color: $bmc-gray-500;
+        font-size: 0.875rem;
+    }
+
+    @media (max-width: 860px) {
+        &__toolbar {
+            flex-direction: column;
+            align-items: stretch;
+        }
+
+        &__groups {
+            justify-content: flex-start;
+        }
+
+        &__columns {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
 .bmc-gallery-card,
 .bmc-news-card {
     @include bmc-card;
