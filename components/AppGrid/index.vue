@@ -77,6 +77,7 @@ const gridAttrs = computed(() => {
     } = a;
 
     const id = gridId ?? gridIdKebab;
+    const rowData = (rest.rowData ?? rest['row-data']) as unknown[] | undefined;
     const userGetRowClass = (getRowClass ?? getRowClassKebab) as ((params: RowClassParams) => string | string[] | undefined) | undefined;
     const userOnFilterChanged = (onFilterChanged ?? onFilterChangedKebab) as ((event: FilterChangedEvent) => void) | undefined;
     const userOnSortChanged = (onSortChanged ?? onSortChangedKebab) as ((event: SortChangedEvent) => void) | undefined;
@@ -87,7 +88,7 @@ const gridAttrs = computed(() => {
         overlayNoRowsTemplate: '<div class="ag-overlay-no-rows">검색된 결과가 없습니다</div>',
         rowHeight: (rest.rowHeight as number | undefined) ?? 42,
         getRowHeight: rest.getRowHeight ?? rest['get-row-height'],
-        columnDefs: enhanceGridColumnDefs((columnDefs ?? columnDefsKebab) as GridOptions['columnDefs']),
+        columnDefs: enhanceGridColumnDefs((columnDefs ?? columnDefsKebab) as GridOptions['columnDefs'], rowData),
         defaultColDef: enhanceGridDefaultColDef((defaultColDef ?? defaultColDefKebab) as GridOptions['defaultColDef']),
         getRowClass: combineGridRowClass(getGridRowStripeClass, userGetRowClass),
         onFilterChanged(params: FilterChangedEvent) {

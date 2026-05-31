@@ -1,16 +1,10 @@
-import type { ColDef, ColDefField, RowClassParams, ValueFormatterParams } from 'ag-grid-community';
-
-/** 타율·OPS·ERA 등 문자열로 저장된 소수 통계 필드 */
-export const DECIMAL_STAT_FIELDS = new Set([
-    'avg',
-    'obp',
-    'slg',
-    'ops',
-    'ip',
-    'era',
-    'whip',
-    'teamAvg',
-]);
+import type {
+    ColDef,
+    ColDefField,
+    ColGroupDef,
+    RowClassParams,
+    ValueFormatterParams,
+} from 'ag-grid-community';
 
 export function parseDecimalStatValue(value: unknown): number | null {
     if (value === null || value === undefined || value === '') {
@@ -49,62 +43,129 @@ export function compareDecimalStatValues(a: unknown, b: unknown): number {
     return numA - numB;
 }
 
-export function decimalStatComparator(valueA: unknown, valueB: unknown): number {
-    return compareDecimalStatValues(valueA, valueB);
+/** 숫자로 해석 가능하면 숫자 정렬, 아니면 문자열 정렬 */
+export function smartGridComparator(valueA: unknown, valueB: unknown): number {
+    const numA = parseDecimalStatValue(valueA);
+    const numB = parseDecimalStatValue(valueB);
+
+    if (numA !== null || numB !== null) {
+        return compareDecimalStatValues(valueA, valueB);
+    }
+
+    if (valueA == null && valueB == null) {
+        return 0;
+    }
+    if (valueA == null) {
+        return 1;
+    }
+    if (valueB == null) {
+        return -1;
+    }
+
+    return String(valueA).localeCompare(String(valueB), 'ko');
 }
+
+/** @deprecated smartGridComparator 사용 */
+export const decimalStatComparator = smartGridComparator;
 
 function fieldName<T>(col: ColDef<T>): string | undefined {
     const field = col.field ?? col.colId;
     return typeof field === 'string' ? field : undefined;
 }
 
-function isDecimalStatColumn<T>(col: ColDef<T>): boolean {
-    const name = fieldName(col);
-    return Boolean(name && DECIMAL_STAT_FIELDS.has(name));
+function sampleFieldValues(rows: unknown[] | null | undefined, field: string): unknown[] {
+    if (!rows?.length) {
+        return [];
+    }
+
+    return rows
+        .map((row) => (row as Record<string, unknown> | undefined)?.[field])
+        .filter((value) => value !== null && value !== undefined && value !== '');
 }
 
-export function enhanceGridColumnDefs<T = unknown>(columns: ColDef<T>[] | undefined): ColDef<T>[] {
+/** 샘플 데이터 기준: 비어 있지 않은 값이 모두 숫자로 파싱되면 숫자 컬럼 */
+function isNumericColumnBySample(field: string, rows: unknown[] | null | undefined): boolean {
+    const values = sampleFieldValues(rows, field);
+    if (!values.length) {
+        return false;
+    }
+
+    return values.every((value) => parseDecimalStatValue(value) !== null);
+}
+
+function shouldEnhanceNumericColumn<T>(col: ColDef<T>, rows: unknown[] | null | undefined): boolean {
+    if (col.valueGetter || col.cellDataType === 'text') {
+        return false;
+    }
+
+    const field = fieldName(col);
+    if (!field) {
+        return false;
+    }
+
+    return isNumericColumnBySample(field, rows);
+}
+
+function enhanceColumnDef<T>(col: ColDef<T>, rows: unknown[] | null | undefined): ColDef<T> {
+    if (!shouldEnhanceNumericColumn(col, rows)) {
+        return col;
+    }
+
+    const field = fieldName(col) as ColDefField<T>;
+
+    const readRaw = (params: { data?: unknown }) => {
+        const data = params.data as Record<string, unknown> | undefined;
+        return data?.[field as string];
+    };
+
+    const readDecimal = (params: { data?: unknown }) => parseDecimalStatValue(readRaw(params));
+
+    const formatRawValue =
+        col.valueFormatter ??
+        ((params: ValueFormatterParams) => {
+            const raw = readRaw(params);
+            return raw == null || raw === '' ? '' : String(raw);
+        });
+
+    return {
+        ...col,
+        cellDataType: col.cellDataType ?? false,
+        filter: col.filter ?? 'agNumberColumnFilter',
+        comparator: col.comparator ?? smartGridComparator,
+        filterValueGetter: col.filterValueGetter ?? readDecimal,
+        valueGetter: col.valueGetter ?? readDecimal,
+        valueFormatter: formatRawValue,
+    };
+}
+
+function isColumnGroup<T>(col: ColDef<T> | ColGroupDef<T>): col is ColGroupDef<T> {
+    return Array.isArray((col as ColGroupDef<T>).children);
+}
+
+export function enhanceGridColumnDefs<T = unknown>(
+    columns: (ColDef<T> | ColGroupDef<T>)[] | null | undefined,
+    rowData?: unknown[] | null,
+): ColDef<T>[] {
     if (!columns?.length) {
         return [];
     }
 
     return columns.map((col) => {
-        if (!isDecimalStatColumn(col)) {
-            return col;
+        if (isColumnGroup(col)) {
+            return {
+                ...col,
+                children: enhanceGridColumnDefs(col.children, rowData),
+            };
         }
 
-        const field = fieldName(col) as ColDefField<T>;
-
-        const readRaw = (params: { data?: unknown }) => {
-            const data = params.data as Record<string, unknown> | undefined;
-            return data?.[field as string];
-        };
-
-        const readDecimal = (params: { data?: unknown }) => parseDecimalStatValue(readRaw(params));
-
-        const formatRawValue =
-            col.valueFormatter ??
-            ((params: ValueFormatterParams) => {
-                const raw = readRaw(params);
-                return raw == null || raw === '' ? '' : String(raw);
-            });
-
-        return {
-            ...col,
-            // 자동 text 추론 시 문자열 정렬이 우선되어 숫자 comparator가 무시될 수 있음
-            cellDataType: col.cellDataType ?? false,
-            filter: col.filter ?? 'agNumberColumnFilter',
-            comparator: col.comparator ?? decimalStatComparator,
-            filterValueGetter: col.filterValueGetter ?? readDecimal,
-            valueGetter: col.valueGetter ?? readDecimal,
-            valueFormatter: formatRawValue,
-        };
-    });
+        return enhanceColumnDef(col, rowData);
+    }) as ColDef<T>[];
 }
 
 export function enhanceGridDefaultColDef<T = unknown>(defaultColDef: ColDef<T> | undefined): ColDef<T> {
     return {
         ...defaultColDef,
+        comparator: defaultColDef?.comparator ?? smartGridComparator,
     };
 }
 
