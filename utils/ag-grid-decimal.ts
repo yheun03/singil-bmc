@@ -1,4 +1,4 @@
-import type { ColDef, ColDefField, RowClassParams } from 'ag-grid-community';
+import type { ColDef, ColDefField, RowClassParams, ValueFormatterParams } from 'ag-grid-community';
 
 /** 타율·OPS·ERA 등 문자열로 저장된 소수 통계 필드 */
 export const DECIMAL_STAT_FIELDS = new Set([
@@ -74,16 +74,29 @@ export function enhanceGridColumnDefs<T = unknown>(columns: ColDef<T>[] | undefi
 
         const field = fieldName(col) as ColDefField<T>;
 
-        const readDecimal = (params: { data?: unknown }) => {
+        const readRaw = (params: { data?: unknown }) => {
             const data = params.data as Record<string, unknown> | undefined;
-            return parseDecimalStatValue(data?.[field as string]);
+            return data?.[field as string];
         };
+
+        const readDecimal = (params: { data?: unknown }) => parseDecimalStatValue(readRaw(params));
+
+        const formatRawValue =
+            col.valueFormatter ??
+            ((params: ValueFormatterParams) => {
+                const raw = readRaw(params);
+                return raw == null || raw === '' ? '' : String(raw);
+            });
 
         return {
             ...col,
+            // 자동 text 추론 시 문자열 정렬이 우선되어 숫자 comparator가 무시될 수 있음
+            cellDataType: col.cellDataType ?? false,
             filter: col.filter ?? 'agNumberColumnFilter',
             comparator: col.comparator ?? decimalStatComparator,
             filterValueGetter: col.filterValueGetter ?? readDecimal,
+            valueGetter: col.valueGetter ?? readDecimal,
+            valueFormatter: formatRawValue,
         };
     });
 }
