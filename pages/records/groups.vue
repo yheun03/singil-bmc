@@ -24,11 +24,18 @@ type GroupRecords = Record<string, GroupRecord>;
 definePageMeta({ title: '조별 기록' });
 
 const { data: groupRecords, pending, error } = useSiteData<GroupRecords>('summary/group-records.json');
-const selectedGroup = ref('A');
-const groupTabItems = [
-    { id: 'A', title: 'A조', bodyRenderer: () => null },
-    { id: 'D', title: 'D조', bodyRenderer: () => null },
-];
+const { allGroupTabItems } = useSeasonTeams();
+const groupTabItems = computed(() => allGroupTabItems(false));
+const selectedGroup = ref('');
+watch(
+    groupTabItems,
+    (tabs) => {
+        if (!selectedGroup.value && tabs.length) {
+            selectedGroup.value = tabs[0].id;
+        }
+    },
+    { immediate: true },
+);
 const selectedRecord = computed(() => groupRecords.value?.[selectedGroup.value] ?? null);
 </script>
 

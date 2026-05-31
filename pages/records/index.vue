@@ -95,11 +95,8 @@ const pending = computed(() => teamPending.value || battingPending.value || pitc
 const error = computed(() => teamError.value || battingError.value || pitchingError.value);
 
 const selectedGroup = ref('all');
-const groupTabItems = [
-    { id: 'all', title: '전체', bodyRenderer: () => null },
-    { id: 'A', title: 'A조', bodyRenderer: () => null },
-    { id: 'D', title: 'D조', bodyRenderer: () => null },
-];
+const { allGroupTabItems } = useSeasonTeams();
+const groupTabItems = computed(() => allGroupTabItems());
 const battingRows = computed(() =>
     (batting.value ?? []).filter((row) => selectedGroup.value === 'all' || row.group === selectedGroup.value),
 );

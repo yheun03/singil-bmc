@@ -7,10 +7,33 @@ import {
     resolvePlayer,
     createEmptyBattingRow,
     createEmptyPitchingRow,
+    normalizeTeamText,
 } from './records-utils.js';
+import {
+    createSeasonTeamsResolver,
+    DEFAULT_SEASON_TEAMS_CONFIG,
+    loadSeasonTeamsConfig,
+} from './season-teams.js';
 
-/** 우리팀명 — 포함 여부로만 판단 (상대팀명 제외 방식 사용 금지) */
+/** @deprecated season-teams.json 사용. 하위 호환용 기본값 */
 export const OUR_TEAM_NAMES = ['다윗 야구 선교단', 'Davids 야구 선교단'];
+
+let cachedDefaultTeamsResolver = null;
+
+function resolveTeamsContext(teamsResolver) {
+    if (teamsResolver) {
+        return teamsResolver;
+    }
+
+    if (!cachedDefaultTeamsResolver) {
+        cachedDefaultTeamsResolver = createSeasonTeamsResolver(
+            DEFAULT_SEASON_TEAMS_CONFIG,
+            new Date().getFullYear(),
+        );
+    }
+
+    return cachedDefaultTeamsResolver;
+}
 
 const ROMAN_OUT_MAP = {
     '⅓': 1,
@@ -21,10 +44,7 @@ const ROMAN_OUT_MAP = {
     '⅘': 4,
 };
 
-/** h3 텍스트용 정규화 (공백 하나로 합침) */
-export function normalizeTeamText(text = '') {
-    return String(text ?? '').replace(/\s+/g, ' ').trim();
-}
+export { normalizeTeamText };
 
 export function isGameoneFormat($) {
     return (
@@ -51,13 +71,12 @@ export function parseGameoneIp(value) {
     return ipToOuts(text);
 }
 
-export function isOurTeamName(teamName = '') {
-    const normalized = normalizeTeamText(teamName);
-    return OUR_TEAM_NAMES.some((name) => normalized.includes(name));
+export function isOurTeamName(teamName = '', teamsResolver = null) {
+    return resolveTeamsContext(teamsResolver).isOurTeamName(teamName);
 }
 
 /** 게임요약 score_sum의 h4 중 우리팀이 아닌 팀명 = 상대팀 */
-export function extractOpponentTeamName($) {
+export function extractOpponentTeamName($, teamsResolver = null) {
     const scoreArea = $('.summary .score_sum').first();
     if (!scoreArea.length) {
         return '';
@@ -67,7 +86,7 @@ export function extractOpponentTeamName($) {
 
     scoreArea.find('.team').each((_, teamEl) => {
         const teamName = normalizeTeamText($(teamEl).find('h4').first().text());
-        if (teamName && !isOurTeamName(teamName)) {
+        if (teamName && !isOurTeamName(teamName, teamsResolver)) {
             opponentName = teamName;
             return false;
         }
@@ -89,14 +108,9 @@ function mapSummaryLabel(label = '') {
     return '';
 }
 
-/** 팀명 → 조 (다윗=D, Davids=A) */
-export function getGroupFromTeamName(teamName = '') {
-    const normalized = normalizeTeamText(teamName);
-
-    if (normalized.includes('Davids')) return 'A';
-    if (normalized.includes('다윗')) return 'D';
-
-    return '';
+/** 팀명 → 조 (연도별 season-teams.json 기준) */
+export function getGroupFromTeamName(teamName = '', teamsResolver = null) {
+    return resolveTeamsContext(teamsResolver).getGroupFromTeamName(teamName);
 }
 
 export function extractHeadingTeamName($, heading) {
@@ -134,7 +148,8 @@ export function getNextTableElement($, heading) {
 /**
  * .record 영역에서 h3 + next table 기준으로 우리팀 테이블만 수집
  */
-export function getOurTeamRecordTables($) {
+export function getOurTeamRecordTables($, teamsResolver = null) {
+    const resolver = resolveTeamsContext(teamsResolver);
     const result = {
         hitters: [],
         pitchers: [],
@@ -157,8 +172,8 @@ export function getOurTeamRecordTables($) {
 
         const summary = String(table.attr('summary') ?? '');
 
-        if (isOurTeamName(teamName)) {
-            const group = getGroupFromTeamName(teamName);
+        if (resolver.isOurTeamName(teamName)) {
+            const group = resolver.getGroupFromTeamName(teamName);
             if (group) {
                 result.teamGroups.push(group);
             }
@@ -327,7 +342,7 @@ export function extractRunsFromBattingFoot($, table) {
     return extractFootStat($, table, 'r');
 }
 
-export function parseGameoneSummary($) {
+export function parseGameoneSummary($, teamsResolver = null) {
     const scoreArea = $('.summary .score_sum').first();
     const result = {
         summary: null,
@@ -339,7 +354,7 @@ export function parseGameoneSummary($) {
         return result;
     }
 
-    const opponentTeamName = extractOpponentTeamName($);
+    const opponentTeamName = extractOpponentTeamName($, teamsResolver);
 
     scoreArea.find('.team').each((_, teamEl) => {
         const team = $(teamEl);
@@ -354,7 +369,7 @@ export function parseGameoneSummary($) {
             stats[key] = parseNumber($(values[index]).text());
         });
 
-        if (isOurTeamName(teamName)) {
+        if (isOurTeamName(teamName, teamsResolver)) {
             const { teamName: _teamName, ...ourStats } = stats;
             result.summary = ourStats;
         } else if (!result.opponentSummary) {
@@ -391,8 +406,8 @@ export function parseGameoneSummary($) {
     return result;
 }
 
-export function parseGameoneHtml($, playersMap, tempCounter) {
-    const tables = getOurTeamRecordTables($);
+export function parseGameoneHtml($, playersMap, tempCounter, teamsResolver = null) {
+    const tables = getOurTeamRecordTables($, teamsResolver);
 
     let batting = [];
     let pitching = [];
@@ -412,8 +427,8 @@ export function parseGameoneHtml($, playersMap, tempCounter) {
     const opponentRuns = opponentBattingTable ? extractRunsFromBattingFoot($, opponentBattingTable) : null;
 
     const gameGroup = tables.teamGroups[0] ?? batting[0]?.group ?? pitching[0]?.group ?? '';
-    const summary = parseGameoneSummary($);
-    const opponentName = extractOpponentTeamName($) || summary.opponentSummary?.teamName || '';
+    const summary = parseGameoneSummary($, teamsResolver);
+    const opponentName = extractOpponentTeamName($, teamsResolver) || summary.opponentSummary?.teamName || '';
 
     return {
         batting,
@@ -427,3 +442,5 @@ export function parseGameoneHtml($, playersMap, tempCounter) {
         ...summary,
     };
 }
+
+export { createSeasonTeamsResolver, loadSeasonTeamsConfig };

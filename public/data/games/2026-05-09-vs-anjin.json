@@ -1,10 +1,11 @@
 {
-  "gameId": "2026-05-09-vs-deloitte",
+  "gameId": "2026-05-09-vs-anjin",
   "gameDate": "2026-05-09",
   "date": "2026-05-09",
   "year": 2026,
+  "seasonYear": 2026,
   "month": 5,
-  "opponent": "deloitte",
+  "opponent": "anjin",
   "opponentName": "안진회계법인",
   "group": "D",
   "status": "completed",
@@ -257,6 +258,6 @@
       "save": 0
     }
   ],
-  "result": "cold-win",
-  "youtube": null
+  "youtube": null,
+  "result": "cold-win"
 }

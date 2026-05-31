@@ -16,13 +16,13 @@ import {
     formatRate,
     outsToIp,
 } from './lib/records-utils.js';
+import { collectRecordGroups, loadSeasonTeamsConfig } from './lib/season-teams.js';
+import { applySeasonYear, getSeasonYear, loadSeasonsConfig } from './lib/seasons.js';
 
 const YOUTUBE_CHANNEL_URL =
     'https://www.youtube.com/@%EB%8B%A4%EC%9C%97%EC%95%BC%EA%B5%AC%EC%84%A0%EA%B5%90%EB%8B%A8';
 const YOUTUBE_WATCH_URL = 'https://www.youtube.com/watch?v=';
 const YOUTUBE_THUMBNAIL_URL = 'https://i.ytimg.com/vi/';
-const RECORD_GROUPS = ['A', 'D'];
-
 function loadAllGames() {
     const files = listFiles(GAMES_DIR, '.json');
     return files.map((filename) => readJson(path.join(GAMES_DIR, filename))).filter(Boolean);
@@ -36,10 +36,11 @@ function loadGameOverrides() {
     return readJson(path.join(MANUAL_DIR, 'game-overrides.json'), {});
 }
 
-function mergeGameOverrides(games, overrides) {
+function mergeGameOverrides(games, overrides, seasonsConfig) {
     return games.map((game) => {
         const patch = overrides[game.gameId];
-        return patch ? { ...game, ...patch } : game;
+        const merged = patch ? { ...game, ...patch } : game;
+        return applySeasonYear(merged, seasonsConfig, overrides);
     });
 }
 
@@ -254,9 +255,9 @@ function buildPlayersTotal(battingTotal, pitchingTotal) {
     return [...map.values()].sort((a, b) => a.name.localeCompare(b.name, 'ko'));
 }
 
-function buildPeriodGroupRecords(games) {
+function buildPeriodGroupRecords(games, recordGroups) {
     return Object.fromEntries(
-        RECORD_GROUPS.map((group) => {
+        recordGroups.map((group) => {
             const groupGames = games.filter((game) => game.group === group);
             const battingRows = groupGames.flatMap((game) => game.batting || []);
             const pitchingRows = groupGames.flatMap((game) => game.pitching || []);
@@ -276,11 +277,11 @@ function buildPeriodGroupRecords(games) {
     );
 }
 
-function buildYearlyRecords(games) {
+function buildYearlyRecords(games, seasonTeamsConfig) {
     const yearMap = new Map();
 
     for (const game of games) {
-        const year = game.year;
+        const year = getSeasonYear(game);
         const current = yearMap.get(year) || { year, games: 0, hits: 0, runs: 0, sourceGames: [], batting: [], pitching: [] };
         current.games += 1;
         current.sourceGames.push(game);
@@ -299,12 +300,15 @@ function buildYearlyRecords(games) {
             runs: item.runs,
             batting: aggregateBatting([{ batting: item.batting }]),
             pitching: aggregatePitching([{ pitching: item.pitching }]),
-            groups: buildPeriodGroupRecords(item.sourceGames),
+            groups: buildPeriodGroupRecords(
+                item.sourceGames,
+                collectRecordGroups(item.sourceGames, seasonTeamsConfig),
+            ),
         }))
         .sort((a, b) => b.year - a.year);
 }
 
-function buildMonthlyRecords(games) {
+function buildMonthlyRecords(games, seasonTeamsConfig) {
     const monthMap = new Map();
 
     for (const game of games) {
@@ -342,7 +346,10 @@ function buildMonthlyRecords(games) {
             runs: item.runs,
             batting: aggregateBatting([{ batting: item.batting }]),
             pitching: aggregatePitching([{ pitching: item.pitching }]),
-            groups: buildPeriodGroupRecords(item.sourceGames),
+            groups: buildPeriodGroupRecords(
+                item.sourceGames,
+                collectRecordGroups(item.sourceGames, seasonTeamsConfig),
+            ),
         }))
         .sort((a, b) => {
             if (a.year !== b.year) return b.year - a.year;
@@ -505,10 +512,10 @@ function buildVideos(games) {
           ];
 }
 
-function buildGroupRecords(games) {
+function buildGroupRecords(games, recordGroups) {
     const result = {};
 
-    for (const group of RECORD_GROUPS) {
+    for (const group of recordGroups) {
         const groupGames = games.filter((game) => game.group === group);
         const battingRows = groupGames.flatMap((game) => game.batting || []);
         const hits = battingRows.reduce((sum, row) => sum + (row.h || 0), 0);
@@ -560,10 +567,14 @@ function buildGroupRecords(games) {
 export function buildAllRecords() {
     ensureDir(SUMMARY_DIR);
     ensureDir(GENERATED_DIR);
+    ensureDir(META_DIR);
 
     const youtubeLinks = loadYoutubeLinks();
     const gameOverrides = loadGameOverrides();
-    const games = mergeYoutubeLinks(mergeGameOverrides(loadAllGames(), gameOverrides), youtubeLinks);
+    const seasonsConfig = loadSeasonsConfig();
+    const seasonTeamsConfig = loadSeasonTeamsConfig();
+    const games = mergeYoutubeLinks(mergeGameOverrides(loadAllGames(), gameOverrides, seasonsConfig), youtubeLinks);
+    const recordGroups = collectRecordGroups(games, seasonTeamsConfig);
 
     if (!games.length) {
         console.log('[INFO] games JSON 파일이 없습니다. summary는 빈 값으로 생성합니다.');
@@ -573,9 +584,9 @@ export function buildAllRecords() {
     const pitchingTotal = aggregatePitching(games);
     const teamTotal = buildTeamTotal(games, battingTotal);
     const playersTotal = buildPlayersTotal(battingTotal, pitchingTotal);
-    const yearlyRecords = buildYearlyRecords(games);
-    const monthlyRecords = buildMonthlyRecords(games);
-    const groupRecords = buildGroupRecords(games);
+    const yearlyRecords = buildYearlyRecords(games, seasonTeamsConfig);
+    const monthlyRecords = buildMonthlyRecords(games, seasonTeamsConfig);
+    const groupRecords = buildGroupRecords(games, recordGroups);
     const monthlyMvp = buildMonthlyMvp(games);
     const weeklyMvp = buildWeeklyMvp(games);
     const news = buildAutoNews(games);
@@ -605,6 +616,8 @@ export function buildAllRecords() {
     writeJson(path.join(GENERATED_DIR, 'weekly-mvp.json'), weeklyMvp);
     writeJson(path.join(GENERATED_DIR, 'news.json'), news);
     writeJson(path.join(GENERATED_DIR, 'videos.json'), videos);
+    writeJson(path.join(META_DIR, 'season-teams.json'), seasonTeamsConfig);
+    writeJson(path.join(META_DIR, 'seasons.json'), seasonsConfig);
 
     return {
         games: games.length,

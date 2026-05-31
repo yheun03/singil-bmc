@@ -93,11 +93,8 @@ const { data, pending, error } = useSiteData<YearlyRecord[]>('summary/yearly-rec
 const yearlyRecords = computed(() => data.value ?? []);
 const selectedYear = ref<number | null>(null);
 const selectedGroup = ref('all');
-const groupTabItems = [
-    { id: 'all', title: '전체', bodyRenderer: () => null },
-    { id: 'A', title: 'A조', bodyRenderer: () => null },
-    { id: 'D', title: 'D조', bodyRenderer: () => null },
-];
+const { tabItemsForYear } = useSeasonTeams();
+const groupTabItems = computed(() => tabItemsForYear(selectedYear.value ?? new Date().getFullYear()));
 
 watchEffect(() => {
     if (!selectedYear.value && yearlyRecords.value.length) {

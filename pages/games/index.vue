@@ -79,6 +79,8 @@ import {
 type Game = {
     gameId: string;
     gameDate: string;
+    year?: number;
+    seasonYear?: number;
     opponent: string;
     opponentName?: string;
     group?: string;
@@ -98,11 +100,14 @@ const { data, pending, error } = useSiteData<Game[]>('generated/games.json');
 const games = computed(() => [...(data.value ?? [])].sort((a, b) => b.gameDate.localeCompare(a.gameDate)));
 
 const selectedGroup = ref('all');
-const groupTabItems = [
-    { id: 'all', title: '전체', bodyRenderer: () => null },
-    { id: 'A', title: 'A조', bodyRenderer: () => null },
-    { id: 'D', title: 'D조', bodyRenderer: () => null },
-];
+const { tabItemsForYear } = useSeasonTeams();
+const gamesSeasonYear = computed(() => {
+    const years = games.value
+        .map((game) => getSeasonYear(game))
+        .filter((year): year is number => Boolean(year));
+    return years.length ? Math.max(...years) : new Date().getFullYear();
+});
+const groupTabItems = computed(() => tabItemsForYear(gamesSeasonYear.value));
 
 const filteredGames = computed(() =>
     games.value.filter((game) => selectedGroup.value === 'all' || game.group === selectedGroup.value),

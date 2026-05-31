@@ -10,6 +10,8 @@ import {
     writeJson,
     readJson,
 } from './lib/records-utils.js';
+import { DEFAULT_SEASON_TEAMS_CONFIG, SEASON_TEAMS_FILENAME } from './lib/season-teams.js';
+import { DEFAULT_SEASONS_CONFIG, SEASONS_FILENAME } from './lib/seasons.js';
 import path from 'path';
 
 function prepareGeneratedData() {
@@ -21,6 +23,16 @@ function prepareGeneratedData() {
     const youtubeLinksPath = path.join(MANUAL_DIR, 'youtube-links.json');
     if (!readJson(youtubeLinksPath, null)) {
         writeJson(youtubeLinksPath, {});
+    }
+
+    const seasonTeamsPath = path.join(MANUAL_DIR, SEASON_TEAMS_FILENAME);
+    if (!readJson(seasonTeamsPath, null)) {
+        writeJson(seasonTeamsPath, DEFAULT_SEASON_TEAMS_CONFIG);
+    }
+
+    const seasonsPath = path.join(MANUAL_DIR, SEASONS_FILENAME);
+    if (!readJson(seasonsPath, null)) {
+        writeJson(seasonsPath, DEFAULT_SEASONS_CONFIG);
     }
 }
 

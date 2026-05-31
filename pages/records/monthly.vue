@@ -82,11 +82,10 @@ const monthlyRecords = computed(() => data.value ?? []);
 const selectedKey = ref('');
 const selectedGroup = ref('all');
 const activeTab = ref<'batting' | 'pitching'>('batting');
-const groupTabItems = [
-    { id: 'all', title: '전체', bodyRenderer: () => null },
-    { id: 'A', title: 'A조', bodyRenderer: () => null },
-    { id: 'D', title: 'D조', bodyRenderer: () => null },
-];
+const { tabItemsForYear } = useSeasonTeams();
+const groupTabItems = computed(() =>
+    tabItemsForYear(selectedRecord.value?.year ?? new Date().getFullYear()),
+);
 
 watchEffect(() => {
     if (!selectedKey.value && monthlyRecords.value.length) {

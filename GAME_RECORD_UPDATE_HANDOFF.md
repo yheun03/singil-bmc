@@ -8,17 +8,21 @@
 # 1. GameOne 경기 기록 HTML 저장
 #    → public/data/raw-games/YYYY-MM-DD-vs-slug.html
 
-# 2. (선택) 경기 영상 링크 추가
+# 2. (선택) 시즌 개막일·연도별 우리팀명·조 수정
+#    → public/data/manual/seasons.json
+#    → public/data/manual/season-teams.json
+
+# 3. (선택) 경기 영상 링크 추가
 #    → public/data/manual/youtube-links.json
 
-# 3. 데이터 갱신
+# 4. 데이터 갱신
 npm run update
 
-# 4. 화면 확인
+# 5. 화면 확인
 npm run dev
 
-# 5. 커밋
-#    raw-games HTML + generated/summary JSON (+ youtube-links.json)
+# 6. 커밋
+#    raw-games HTML + generated/summary JSON (+ manual JSON)
 ```
 
 ### HTML 저장
@@ -36,14 +40,72 @@ npm run dev
 | `11번가 와이번스` vs `다윗 야구 선교단`     | 상대: **11번가 와이번스**   |
 | `Davids 야구 선교단` vs `동국대학교 LAE OB` | 상대: **동국대학교 LAE OB** |
 
-### 조(A/D) 자동 판정
+### 조(A/D) · 우리팀명 (연도별 설정)
 
-HTML `.record h3`의 우리팀명으로 조가 정해집니다.
+HTML `.record h3` / 게임요약 `h4`의 **우리팀명**으로 조를 판정합니다. 팀명·조 매핑은 연도마다 다를 수 있어 `public/data/manual/season-teams.json`에서 지정합니다.
 
-| 팀명                 | 조  |
-| -------------------- | --- |
-| `Davids 야구 선교단` | A조 |
-| `다윗 야구 선교단`   | D조 |
+```json
+{
+    "fallback": {
+        "groups": [
+            { "id": "A", "label": "A조", "teamNames": ["Davids 야구 선교단"] },
+            { "id": "D", "label": "D조", "teamNames": ["다윗 야구 선교단"] }
+        ]
+    },
+    "seasons": {
+        "2026": {
+            "groups": [
+                { "id": "A", "label": "A조", "teamNames": ["Davids 야구 선교단"] },
+                { "id": "D", "label": "D조", "teamNames": ["다윗 야구 선교단"] }
+            ]
+        },
+        "2027": {
+            "groups": [
+                { "id": "A", "label": "A조", "teamNames": ["새 시즌 A팀 정식명"] },
+                { "id": "D", "label": "D조", "teamNames": ["새 시즌 D팀 정식명"] }
+            ]
+        }
+    }
+}
+```
+
+- `seasons`의 키는 **시즌 연도**입니다. 경기일(파일명)과 다를 수 있습니다.
+- `teamNames`는 GameOne에 표시된 팀명과 **포함 관계**로 매칭됩니다(긴 이름을 먼저 비교).
+- 해당 연도 설정이 없으면 `fallback`을 사용합니다.
+- `npm run update` 후 `public/data/meta/season-teams.json`에도 동일 내용이 복사됩니다.
+
+| 2026년 예시 팀명      | 조  |
+| --------------------- | --- |
+| `Davids 야구 선교단`  | A조 |
+| `다윗 야구 선교단`    | D조 |
+
+### 시즌 연도 (경기일과 분리)
+
+리그 시즌은 달력 연도와 다를 수 있습니다. 예: 2026-01-03 경기는 2025 시즌에 속할 수 있습니다.
+
+`public/data/manual/seasons.json`:
+
+```json
+{
+    "boundaries": [
+        { "season": 2026, "startDate": "2026-01-31" },
+        { "season": 2025, "startDate": "2025-03-01" }
+    ]
+}
+```
+
+- `boundaries`: 시즌 개막일 목록. 경기일이 `startDate` 이상인 **가장 최근** 시즌에 포함됩니다.
+- 파일명 날짜(`gameDate`)는 **실제 경기일** 그대로 유지합니다.
+- 연도별 기록·조 판정은 `seasonYear`를 사용합니다.
+- 개별 경기만 예외 처리하려면 `game-overrides.json`에 `"seasonYear": 2025`를 추가합니다.
+
+```json
+{
+    "2026-01-03-vs-cubs2": { "seasonYear": 2025 }
+}
+```
+
+- `npm run update` 후 `public/data/meta/seasons.json`에도 복사됩니다.
 
 ### YouTube 영상 (선택)
 

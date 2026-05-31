@@ -1,10 +1,11 @@
 {
-  "gameId": "2026-04-18-vs-yooshin",
+  "gameId": "2026-04-18-vs-bluehoodies",
   "gameDate": "2026-04-18",
   "date": "2026-04-18",
   "year": 2026,
+  "seasonYear": 2026,
   "month": 4,
-  "opponent": "yooshin",
+  "opponent": "bluehoodies",
   "opponentName": "(유신)블루후디스",
   "group": "D",
   "status": "completed",
@@ -253,11 +254,5 @@
       "save": 0
     }
   ],
-  "youtube": {
-    "videoCode": "MZa97sM6ESE",
-    "title": "26.04.18 D조 vs (유신)블루후디스",
-    "publishedAt": "2026-04-18",
-    "youtubeUrl": "https://www.youtube.com/watch?v=MZa97sM6ESE",
-    "thumbnail": "https://i.ytimg.com/vi/MZa97sM6ESE/hq720.jpg"
-  }
+  "youtube": null
 }

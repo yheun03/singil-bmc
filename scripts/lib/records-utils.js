@@ -55,6 +55,11 @@ export function normalizeText(value) {
         .toLowerCase();
 }
 
+/** GameOne h3/h4 팀명 비교용 (공백만 정규화) */
+export function normalizeTeamText(text = '') {
+    return String(text ?? '').replace(/\s+/g, ' ').trim();
+}
+
 export function parseNumber(value, fallback = 0) {
     if (value === null || value === undefined) return fallback;
 

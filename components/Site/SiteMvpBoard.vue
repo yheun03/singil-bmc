@@ -20,7 +20,84 @@
 
         <details class="bmc-mvp-board__rules">
             <summary>산정 기준</summary>
-            <p>{{ rulesText }}</p>
+            <div class="bmc-mvp-board__rules-body">
+                <section class="bmc-mvp-board__rules-section">
+                    <h3>공통</h3>
+                    <ul>
+                        <li>
+                            GameOne에서 가져온 경기별 타자·투수 기록을 합산합니다.
+                            {{ rules.periodLabel }}
+                        </li>
+                        <li>A조·D조를 각각 나누어, 타자 MVP와 투수 MVP를 <strong>각 3위까지</strong> 자동 산정합니다.</li>
+                        <li>순위는 기간·조·포지션(타자/투수)별 <strong>MVP 점수</strong>가 높은 순입니다. 표에 보이는 타율·ERA는 참고용이며, 순위 결정에는 사용하지 않습니다.</li>
+                        <li>동점일 경우 같은 점수 내에서 시스템 기본 정렬 순서를 따릅니다.</li>
+                    </ul>
+                </section>
+
+                <section class="bmc-mvp-board__rules-section">
+                    <h3>타자 MVP</h3>
+                    <p class="bmc-mvp-board__rules-formula">{{ rules.batting.formula }}</p>
+                    <table class="bmc-mvp-board__rules-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">항목</th>
+                                <th scope="col">가중치</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="row in rules.batting.weights" :key="row.label">
+                                <td>{{ row.label }}</td>
+                                <td>{{ row.weight }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="bmc-mvp-board__rules-example">
+                        <p class="bmc-mvp-board__rules-example-title">예시 ({{ rules.batting.example.period }})</p>
+                        <p>
+                            <strong>{{ rules.batting.example.name }}</strong> —
+                            {{ rules.batting.example.stats }}
+                        </p>
+                        <ul>
+                            <li v-for="step in rules.batting.example.steps" :key="step">{{ step }}</li>
+                        </ul>
+                        <p class="bmc-mvp-board__rules-example-total">합계 <strong>{{ rules.batting.example.total }}</strong></p>
+                    </div>
+                </section>
+
+                <section class="bmc-mvp-board__rules-section">
+                    <h3>투수 MVP</h3>
+                    <p class="bmc-mvp-board__rules-formula">{{ rules.pitching.formula }}</p>
+                    <table class="bmc-mvp-board__rules-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">항목</th>
+                                <th scope="col">가중치</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr v-for="row in rules.pitching.weights" :key="row.label">
+                                <td>{{ row.label }}</td>
+                                <td>{{ row.weight }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p class="bmc-mvp-board__rules-note">
+                        이닝(IP)은 화면 표기용이며, 점수 계산에는 <strong>아웃카운트(outs)</strong>를 사용합니다.
+                        예: 6.0이닝 = 18 outs.
+                    </p>
+                    <div class="bmc-mvp-board__rules-example">
+                        <p class="bmc-mvp-board__rules-example-title">예시 ({{ rules.pitching.example.period }})</p>
+                        <p>
+                            <strong>{{ rules.pitching.example.name }}</strong> —
+                            {{ rules.pitching.example.stats }}
+                        </p>
+                        <ul>
+                            <li v-for="step in rules.pitching.example.steps" :key="step">{{ step }}</li>
+                        </ul>
+                        <p class="bmc-mvp-board__rules-example-total">합계 <strong>{{ rules.pitching.example.total }}</strong></p>
+                    </div>
+                </section>
+            </div>
         </details>
 
         <p v-if="!activeBlock" class="bmc-state">표시할 MVP 데이터가 없습니다.</p>
@@ -126,6 +203,7 @@
 <script setup lang="ts">
 import {
     buildMvpPeriodBlocks,
+    buildMvpRulesContent,
     formatMvpStatsLine,
     mvpRankLabel,
     type MvpBoardEntry,
@@ -136,24 +214,28 @@ const props = defineProps<{
     mode: 'monthly' | 'weekly';
 }>();
 
-const rulesText = computed(() =>
-    props.mode === 'monthly'
-        ? '월간 MVP는 YYYY-MM 월과 조를 기준으로 타자/투수를 나누어 3위까지 자동 산정합니다. 타자는 안타, 타점, 득점, 도루, 홈런을 반영하고 투수는 아웃카운트, 탈삼진, 승, 세이브, 자책점을 반영합니다.'
-        : '주간 MVP는 월요일 시작 주차와 조를 기준으로 타자/투수를 나누어 3위까지 자동 산정합니다. 타자는 안타, 타점, 득점, 도루, 홈런을 반영하고 투수는 아웃카운트, 탈삼진, 승, 세이브, 자책점을 반영합니다.',
-);
+const rules = computed(() => buildMvpRulesContent(props.mode));
 
-const selectedGroup = ref<'all' | 'A' | 'D'>('all');
+const selectedGroup = ref('all');
 const selectedPeriodKey = ref('');
 const showAllPeriods = ref(false);
 
-const groupTabItems = [
-    { id: 'all', title: '전체', bodyRenderer: () => null },
-    { id: 'A', title: 'A조', bodyRenderer: () => null },
-    { id: 'D', title: 'D조', bodyRenderer: () => null },
-];
+const { tabItemsForYear, allGroupIds } = useSeasonTeams();
+
+const mvpSeasonYear = computed(() => {
+    const key = selectedPeriodKey.value;
+    if (!key) return new Date().getFullYear();
+    const monthly = key.match(/^(\d{4})-\d{2}$/);
+    if (monthly) return Number(monthly[1]);
+    const weekly = key.match(/^(\d{4})-\d{2}-W\d+$/);
+    if (weekly) return Number(weekly[1]);
+    return new Date().getFullYear();
+});
+
+const groupTabItems = computed(() => tabItemsForYear(mvpSeasonYear.value));
 
 const periodBlocks = computed(() =>
-    buildMvpPeriodBlocks(props.items, props.mode, selectedGroup.value),
+    buildMvpPeriodBlocks(props.items, props.mode, selectedGroup.value, allGroupIds.value),
 );
 
 watch(

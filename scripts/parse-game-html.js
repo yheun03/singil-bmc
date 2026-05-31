@@ -6,8 +6,10 @@ import {
     RAW_GAMES_DIR,
     GAMES_DIR,
     GENERATED_DIR,
+    MANUAL_DIR,
     ensureDir,
     writeJson,
+    readJson,
     listFiles,
     parseGameFilename,
     loadPlayersMap,
@@ -22,7 +24,14 @@ import {
     extractScoreFromHtml,
     extractGroupFromHtml,
 } from './lib/records-utils.js';
-import { isGameoneFormat, parseGameoneHtml, extractOpponentTeamName } from './lib/gameone-parser.js';
+import {
+    isGameoneFormat,
+    parseGameoneHtml,
+    extractOpponentTeamName,
+    createSeasonTeamsResolver,
+    loadSeasonTeamsConfig,
+} from './lib/gameone-parser.js';
+import { loadSeasonsConfig, resolveSeasonYear } from './lib/seasons.js';
 
 function extractOpponentNameFromTitle($) {
     const title = $('title').text().trim();
@@ -145,22 +154,33 @@ function parseSimpleGameHtml($, bodyText, playersMap, tempCounter) {
     };
 }
 
-function parseGameHtmlFile(filePath, playersMap, tempCounter) {
+function loadGameOverrides() {
+    return readJson(path.join(MANUAL_DIR, 'game-overrides.json'), {});
+}
+
+function parseGameHtmlFile(filePath, playersMap, tempCounter, seasonTeamsConfig, seasonsConfig, gameOverrides) {
     const filename = path.basename(filePath);
     const meta = parseGameFilename(filename);
     const html = fs.readFileSync(filePath, 'utf8');
     const $ = cheerio.load(html);
     const bodyText = $('body').text();
+    const seasonYear = resolveSeasonYear(meta.gameDate, seasonsConfig, gameOverrides, meta.gameId);
+    const teamsResolver = createSeasonTeamsResolver(seasonTeamsConfig, seasonYear);
 
     const parsed = isGameoneFormat($)
-        ? parseGameoneHtml($, playersMap, tempCounter)
+        ? parseGameoneHtml($, playersMap, tempCounter, teamsResolver)
         : parseSimpleGameHtml($, bodyText, playersMap, tempCounter);
 
-    const group = extractGroupFromHtml(bodyText) || parsed.batting[0]?.group || parsed.pitching[0]?.group || '';
+    const group =
+        extractGroupFromHtml(bodyText) ||
+        parsed.group ||
+        parsed.batting[0]?.group ||
+        parsed.pitching[0]?.group ||
+        '';
     const opponentName =
         parsed.opponentName ||
         parsed.opponentSummary?.teamName ||
-        (isGameoneFormat($) ? extractOpponentTeamName($) : '') ||
+        (isGameoneFormat($) ? extractOpponentTeamName($, teamsResolver) : '') ||
         extractOpponentNameFromTitle($) ||
         '';
 
@@ -169,6 +189,7 @@ function parseGameHtmlFile(filePath, playersMap, tempCounter) {
         gameDate: meta.gameDate,
         date: meta.gameDate,
         year: meta.year,
+        seasonYear,
         month: meta.month,
         opponent: meta.opponent,
         opponentName,
@@ -187,6 +208,9 @@ export function parseAllGameHtmlFiles() {
     ensureDir(GAMES_DIR);
 
     const playersMap = loadPlayersMap();
+    const seasonTeamsConfig = loadSeasonTeamsConfig();
+    const seasonsConfig = loadSeasonsConfig();
+    const gameOverrides = loadGameOverrides();
     const tempCounter = { value: 0 };
     const htmlFiles = listFiles(RAW_GAMES_DIR, '.html');
 
@@ -201,7 +225,14 @@ export function parseAllGameHtmlFiles() {
         const filePath = path.join(RAW_GAMES_DIR, filename);
 
         try {
-            const game = parseGameHtmlFile(filePath, playersMap, tempCounter);
+            const game = parseGameHtmlFile(
+                filePath,
+                playersMap,
+                tempCounter,
+                seasonTeamsConfig,
+                seasonsConfig,
+                gameOverrides,
+            );
             const outputPath = path.join(GAMES_DIR, `${game.gameId}.json`);
             writeJson(outputPath, game);
             games.push(game);
