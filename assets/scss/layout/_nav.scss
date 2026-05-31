@@ -348,17 +348,8 @@
     &__mark {
         display: block;
         width: 100%;
-
-        svg {
-            display: block;
-            width: 100%;
-            height: auto;
-        }
-
-        svg,
-        svg * {
-            fill: $gray-0;
-        }
+        height: auto;
+        object-fit: contain;
     }
 }
 

@@ -4,7 +4,7 @@
   "year": 2026,
   "month": 4,
   "opponent": "mavericks",
-  "group": "A",
+  "group": "D",
   "status": "completed",
   "score": {
     "our": 7,
@@ -14,12 +14,12 @@
     {
       "playerId": "temp-009",
       "name": "김재영",
-      "group": "",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 1,
       "h": 1,
-      "double": 1,
+      "double": 0,
       "triple": 0,
       "hr": 0,
       "rbi": 1,
@@ -31,7 +31,7 @@
     {
       "playerId": "temp-010",
       "name": "민재홍",
-      "group": "",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 1,
@@ -48,7 +48,7 @@
     {
       "playerId": "temp-011",
       "name": "권태헌",
-      "group": "",
+      "group": "D",
       "pa": 3,
       "ab": 3,
       "r": 0,
@@ -99,7 +99,7 @@
     {
       "playerId": "temp-012",
       "name": "유병호",
-      "group": "",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 0,
@@ -116,7 +116,7 @@
     {
       "playerId": "temp-013",
       "name": "김희열",
-      "group": "",
+      "group": "D",
       "pa": 1,
       "ab": 1,
       "r": 2,
@@ -185,7 +185,7 @@
     {
       "playerId": "temp-014",
       "name": "권태헌",
-      "group": "",
+      "group": "D",
       "ip": "2.0",
       "outs": 6,
       "h": 1,
@@ -217,7 +217,7 @@
     {
       "playerId": "temp-015",
       "name": "권태헌",
-      "group": "",
+      "group": "D",
       "ip": "0.2",
       "outs": 2,
       "h": 1,

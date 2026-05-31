@@ -3,7 +3,7 @@
         <div class="layout-nav__header">
             <NuxtLink class="layout-nav__brand" to="/">
                 <div class="layout-nav__logo nav-logo" aria-hidden="true">
-                    <span class="nav-logo__mark" v-html="logoSvg" />
+                    <img class="nav-logo__mark" :src="teamLogoUrl" alt="" width="36" height="36" />
                 </div>
                 <span class="layout-nav__site-name">신길교회<br>야구 선교단</span>
             </NuxtLink>
@@ -30,11 +30,12 @@
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
-import logoSvg from '~/assets/icons/logo.svg?raw'
 import { useI18nText } from '~/composables/useI18nText'
 import { useNavigationStore } from '~/stores/navigation'
 
 const { t } = useI18nText()
+const { getAssetPath } = useBasePath()
+const teamLogoUrl = computed(() => getAssetPath('icons/logo.png'))
 const navigationStore = useNavigationStore()
 const { menuTree } = storeToRefs(navigationStore)
 const getIconSvg = () => null

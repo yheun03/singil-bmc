@@ -4,7 +4,7 @@
   "year": 2026,
   "month": 2,
   "opponent": "stone",
-  "group": "A",
+  "group": "D",
   "status": "completed",
   "score": {
     "our": 9,
@@ -14,7 +14,7 @@
     {
       "playerId": "temp-005",
       "name": "김재영",
-      "group": "",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 2,
@@ -48,12 +48,12 @@
     {
       "playerId": "temp-006",
       "name": "오치송",
-      "group": "",
+      "group": "D",
       "pa": 3,
       "ab": 3,
       "r": 1,
       "h": 1,
-      "double": 1,
+      "double": 0,
       "triple": 0,
       "hr": 0,
       "rbi": 1,
@@ -99,7 +99,7 @@
     {
       "playerId": "temp-007",
       "name": "권태헌",
-      "group": "",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 2,
@@ -202,7 +202,7 @@
     {
       "playerId": "temp-008",
       "name": "권태헌",
-      "group": "",
+      "group": "D",
       "ip": "1.0",
       "outs": 3,
       "h": 4,

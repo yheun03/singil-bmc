@@ -1,28 +1,43 @@
 const DEFAULT_BASE = '/singil-bmc/';
 
+function normalizeBasePath(value: string): string {
+    let base = String(value ?? '').trim();
+
+    if (!base || base === '/') {
+        return '';
+    }
+
+    if (base.includes('_nuxt')) {
+        return '';
+    }
+
+    if (!base.startsWith('/')) {
+        base = `/${base}`;
+    }
+
+    if (!base.endsWith('/')) {
+        base = `${base}/`;
+    }
+
+    return base;
+}
+
 /**
  * GitHub Pages 하위 경로(/singil-bmc/) 기준 정적 자산·JSON 경로 유틸
  *
- * import.meta.env.BASE_URL 은 dev 클라이언트에서 /_nuxt/ 로 잡히는 경우가 있어
- * runtimeConfig.app.baseURL 만 사용합니다.
+ * import.meta.env.BASE_URL 은 dev 클라이언트에서 /_nuxt/ 로 잡히는 경우가 있어 사용하지 않습니다.
+ * runtimeConfig.app.baseURL 은 기본값 '/' 로 남는 경우가 있어 public.appBase 를 우선합니다.
  */
 export function useBasePath() {
     const config = useRuntimeConfig();
+    const router = import.meta.client ? useRouter() : null;
 
     function resolveBase(): string {
-        const configured = String(config.app.baseURL || config.public.appBase || DEFAULT_BASE);
+        const fromRouter = normalizeBasePath(router?.options.history.base ?? '');
+        const fromPublic = normalizeBasePath(String(config.public.appBase ?? ''));
+        const fromRuntime = normalizeBasePath(String(config.app.baseURL ?? ''));
 
-        let base = configured.includes('_nuxt') ? DEFAULT_BASE : configured;
-
-        if (!base.startsWith('/')) {
-            base = `/${base}`;
-        }
-
-        if (!base.endsWith('/')) {
-            base = `${base}/`;
-        }
-
-        return base;
+        return fromRouter || fromPublic || fromRuntime || DEFAULT_BASE;
     }
 
     function joinPath(...segments: string[]): string {

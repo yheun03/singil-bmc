@@ -1,5 +1,5 @@
 import {
-    normalizeText,
+    normalizeText as normalizeKeyText,
     parseNumber,
     ipToOuts,
     outsToIp,
@@ -9,7 +9,8 @@ import {
     createEmptyPitchingRow,
 } from './records-utils.js';
 
-export const OUR_TEAM_KEYWORDS = ['다윗야구선교단', '다윗', '신길교회'];
+/** 우리팀명 — 포함 여부로만 판단 (상대팀명 제외 방식 사용 금지) */
+export const OUR_TEAM_NAMES = ['다윗 야구 선교단', 'Davids 야구 선교단'];
 
 const ROMAN_OUT_MAP = {
     '⅓': 1,
@@ -20,8 +21,14 @@ const ROMAN_OUT_MAP = {
     '⅘': 4,
 };
 
+/** h3 텍스트용 정규화 (공백 하나로 합침) */
+export function normalizeTeamText(text = '') {
+    return String(text ?? '').replace(/\s+/g, ' ').trim();
+}
+
 export function isGameoneFormat($) {
     return (
+        $('.record').length > 0 ||
         $('[summary="타자기록"], [summary="투수기록"], .record_table').length > 0 ||
         $('.article.on').length > 0
     );
@@ -44,26 +51,102 @@ export function parseGameoneIp(value) {
     return ipToOuts(text);
 }
 
-export function isOurTeamName(teamName) {
-    const normalized = normalizeText(teamName);
-    return OUR_TEAM_KEYWORDS.some((keyword) => normalized.includes(normalizeText(keyword)));
+export function isOurTeamName(teamName = '') {
+    const normalized = normalizeTeamText(teamName);
+    return OUR_TEAM_NAMES.some((name) => normalized.includes(name));
 }
 
-export function getTableTeamName($, table) {
-    const heading = $(table).prevAll('h3').first();
-    return heading
-        .text()
-        .replace(/\s+/g, ' ')
-        .trim();
+/** 팀명 → 조 (다윗=D, Davids=A) */
+export function getGroupFromTeamName(teamName = '') {
+    const normalized = normalizeTeamText(teamName);
+
+    if (normalized.includes('Davids')) return 'A';
+    if (normalized.includes('다윗')) return 'D';
+
+    return '';
 }
 
-export function getTableTypeFromSummary($, table) {
-    const summary = String($(table).attr('summary') ?? '').trim();
+export function extractHeadingTeamName($, heading) {
+    return normalizeTeamText(
+        $(heading)
+            .clone()
+            .children('img')
+            .remove()
+            .end()
+            .text(),
+    );
+}
 
-    if (summary.includes('타자')) return 'batting';
-    if (summary.includes('투수')) return 'pitching';
+/** h3 바로 다음 table 요소 (중간 텍스트 노드는 건너뜀) */
+export function getNextTableElement($, heading) {
+    let node = $(heading).next();
+
+    while (node.length) {
+        const tagName = (node.prop('tagName') || '').toLowerCase();
+
+        if (tagName === 'table') {
+            return node;
+        }
+
+        if (tagName && tagName !== '#text') {
+            break;
+        }
+
+        node = node.next();
+    }
 
     return null;
+}
+
+/**
+ * .record 영역에서 h3 + next table 기준으로 우리팀 테이블만 수집
+ */
+export function getOurTeamRecordTables($) {
+    const result = {
+        hitters: [],
+        pitchers: [],
+        opponentHitters: [],
+        teamGroups: [],
+    };
+
+    const recordArea = $('.record').first();
+    if (!recordArea.length) {
+        return result;
+    }
+
+    recordArea.find('h3').each((_, headingEl) => {
+        const teamName = extractHeadingTeamName($, headingEl);
+        const table = getNextTableElement($, headingEl);
+
+        if (!table || !table.length) {
+            return;
+        }
+
+        const summary = String(table.attr('summary') ?? '');
+
+        if (isOurTeamName(teamName)) {
+            const group = getGroupFromTeamName(teamName);
+            if (group) {
+                result.teamGroups.push(group);
+            }
+
+            if (summary.includes('타자')) {
+                result.hitters.push({ table, group });
+            }
+
+            if (summary.includes('투수')) {
+                result.pitchers.push({ table, group });
+            }
+
+            return;
+        }
+
+        if (summary.includes('타자')) {
+            result.opponentHitters.push(table);
+        }
+    });
+
+    return result;
 }
 
 export function extractPlayerName($, rowEl) {
@@ -106,7 +189,15 @@ function getStatTextFromRow($, rowEl, mapping, field) {
     return $(tds[tdIndex]).text().trim();
 }
 
-export function parseGameoneBattingTable($, table, playersMap, tempCounter) {
+function applyDefaultGroup(player, defaultGroup) {
+    if (!player.group && defaultGroup) {
+        player.group = defaultGroup;
+    }
+
+    return player;
+}
+
+export function parseGameoneBattingTable($, table, playersMap, tempCounter, defaultGroup = '') {
     const headers = $(table)
         .find('thead th')
         .toArray()
@@ -121,7 +212,7 @@ export function parseGameoneBattingTable($, table, playersMap, tempCounter) {
             const name = extractPlayerName($, rowEl);
             if (!name) return;
 
-            const player = resolvePlayer(name, playersMap, tempCounter);
+            const player = applyDefaultGroup(resolvePlayer(name, playersMap, tempCounter), defaultGroup);
             const batting = createEmptyBattingRow(player);
 
             batting.ab = getStatFromRow($, rowEl, mapping, 'ab');
@@ -137,7 +228,7 @@ export function parseGameoneBattingTable($, table, playersMap, tempCounter) {
     return rows;
 }
 
-export function parseGameonePitchingTable($, table, playersMap, tempCounter) {
+export function parseGameonePitchingTable($, table, playersMap, tempCounter, defaultGroup = '') {
     const headers = $(table)
         .find('thead th')
         .toArray()
@@ -145,7 +236,7 @@ export function parseGameonePitchingTable($, table, playersMap, tempCounter) {
 
     const mapping = {
         ...mapHeaders(headers),
-        result: headers.findIndex((header) => normalizeText(header).includes('결과')),
+        result: headers.findIndex((header) => normalizeKeyText(header).includes('결과')),
     };
 
     const rows = [];
@@ -156,7 +247,7 @@ export function parseGameonePitchingTable($, table, playersMap, tempCounter) {
             const name = extractPlayerName($, rowEl);
             if (!name) return;
 
-            const player = resolvePlayer(name, playersMap, tempCounter);
+            const player = applyDefaultGroup(resolvePlayer(name, playersMap, tempCounter), defaultGroup);
             const pitching = createEmptyPitchingRow(player);
 
             const ipText = getStatTextFromRow($, rowEl, mapping, 'ip');
@@ -204,82 +295,32 @@ export function extractRunsFromBattingFoot($, table) {
     return extractFootStat($, table, 'r');
 }
 
-export function parseGameoneHighlights($) {
-    const highlights = {
-        hr: new Map(),
-        double: new Map(),
-        triple: new Map(),
-    };
-
-    $('.game_sum li').each((_, li) => {
-        const text = $(li).text().replace(/\s+/g, ' ').trim();
-        const match = text.match(/^\[(.+?)\]\s*(.*)$/);
-        if (!match) return;
-
-        const category = match[1];
-        const body = match[2].trim();
-        if (!body) return;
-
-        const names = body.match(/([가-힣A-Za-z]+)(?:\([^)]*\))?/g) ?? [];
-
-        for (const entry of names) {
-            const nameMatch = entry.match(/^([가-힣A-Za-z]+)/);
-            if (!nameMatch) continue;
-
-            const name = nameMatch[1].trim();
-            if (!name) continue;
-
-            if (category === '홈런') highlights.hr.set(name, (highlights.hr.get(name) ?? 0) + 1);
-            if (category === '2루타') highlights.double.set(name, (highlights.double.get(name) ?? 0) + 1);
-            if (category === '3루타') highlights.triple.set(name, (highlights.triple.get(name) ?? 0) + 1);
-        }
-    });
-
-    return highlights;
-}
-
-export function applyHighlightsToBatting(batting, highlights) {
-    return batting.map((row) => ({
-        ...row,
-        hr: highlights.hr.get(row.name) ?? row.hr ?? 0,
-        double: highlights.double.get(row.name) ?? row.double ?? 0,
-        triple: highlights.triple.get(row.name) ?? row.triple ?? 0,
-    }));
-}
-
 export function parseGameoneHtml($, playersMap, tempCounter) {
+    const tables = getOurTeamRecordTables($);
+
     let batting = [];
     let pitching = [];
-    let ourRuns = null;
-    let opponentRuns = null;
 
-    $('table').each((_, table) => {
-        const teamName = getTableTeamName($, table);
-        const tableType = getTableTypeFromSummary($, table);
+    for (const { table, group } of tables.hitters) {
+        batting = batting.concat(parseGameoneBattingTable($, table, playersMap, tempCounter, group));
+    }
 
-        if (!tableType) return;
+    for (const { table, group } of tables.pitchers) {
+        pitching = pitching.concat(parseGameonePitchingTable($, table, playersMap, tempCounter, group));
+    }
 
-        if (isOurTeamName(teamName)) {
-            if (tableType === 'batting') {
-                batting = parseGameoneBattingTable($, table, playersMap, tempCounter);
-                ourRuns = extractRunsFromBattingFoot($, table);
-            } else if (tableType === 'pitching') {
-                pitching = parseGameonePitchingTable($, table, playersMap, tempCounter);
-            }
-            return;
-        }
+    const ourBattingTable = tables.hitters[0]?.table ?? null;
+    const opponentBattingTable = tables.opponentHitters[0] ?? null;
 
-        if (tableType === 'batting') {
-            opponentRuns = extractRunsFromBattingFoot($, table);
-        }
-    });
+    const ourRuns = ourBattingTable ? extractRunsFromBattingFoot($, ourBattingTable) : null;
+    const opponentRuns = opponentBattingTable ? extractRunsFromBattingFoot($, opponentBattingTable) : null;
 
-    const highlights = parseGameoneHighlights($);
-    batting = applyHighlightsToBatting(batting, highlights);
+    const gameGroup = tables.teamGroups[0] ?? batting[0]?.group ?? pitching[0]?.group ?? '';
 
     return {
         batting,
         pitching,
+        group: gameGroup,
         score: {
             our: ourRuns ?? 0,
             opponent: opponentRuns ?? 0,

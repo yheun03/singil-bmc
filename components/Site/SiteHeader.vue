@@ -2,7 +2,9 @@
     <header class="bmc-header">
         <div class="bmc-header__inner">
             <NuxtLink class="bmc-header__brand" to="/">
-                <span class="bmc-header__emblem" aria-hidden="true">⚾</span>
+                <span class="bmc-header__emblem" aria-hidden="true">
+                    <img class="bmc-header__emblem-img" :src="teamLogoUrl" alt="" width="44" height="44" />
+                </span>
                 <span class="bmc-header__name">
                     <strong>신길교회 야구 선교단</strong>
                     <span>Singil Baseball Mission</span>
@@ -59,6 +61,8 @@
 </template>
 
 <script setup lang="ts">
+const { getAssetPath } = useBasePath();
+const teamLogoUrl = computed(() => getAssetPath('icons/logo.png'));
 const menuOpen = ref(false);
 const route = useRoute();
 

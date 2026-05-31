@@ -1,75 +1,64 @@
 {
   "A": {
-    "games": 8,
-    "hits": 59,
-    "runs": 77,
-    "teamAvg": ".343",
+    "games": 5,
+    "hits": 39,
+    "runs": 50,
+    "teamAvg": ".342",
     "battingRanking": [
       {
         "playerId": "player-011",
         "name": "은영환",
         "group": "A",
-        "g": 5,
-        "ab": 16,
-        "h": 9,
-        "rbi": 9,
-        "hr": 2,
-        "avg": ".563"
+        "g": 4,
+        "ab": 13,
+        "h": 7,
+        "rbi": 7,
+        "hr": 1,
+        "avg": ".538"
       },
       {
         "playerId": "player-002",
         "name": "최정훈",
         "group": "A",
-        "g": 6,
-        "ab": 15,
-        "h": 7,
+        "g": 4,
+        "ab": 10,
+        "h": 5,
         "rbi": 6,
         "hr": 0,
-        "avg": ".467"
-      },
-      {
-        "playerId": "player-005",
-        "name": "박의현",
-        "group": "A",
-        "g": 4,
-        "ab": 6,
-        "h": 5,
-        "rbi": 2,
-        "hr": 1,
-        "avg": ".833"
+        "avg": ".500"
       },
       {
         "playerId": "player-006",
         "name": "선예환",
         "group": "A",
-        "g": 4,
-        "ab": 7,
-        "h": 5,
-        "rbi": 8,
+        "g": 3,
+        "ab": 5,
+        "h": 4,
+        "rbi": 6,
         "hr": 0,
-        "avg": ".714"
+        "avg": ".800"
       },
       {
         "playerId": "player-012",
         "name": "노혁진",
         "group": "A",
-        "g": 5,
-        "ab": 8,
-        "h": 5,
+        "g": 3,
+        "ab": 7,
+        "h": 4,
         "rbi": 3,
         "hr": 0,
-        "avg": ".625"
+        "avg": ".571"
       },
       {
-        "playerId": "player-004",
-        "name": "서우성",
+        "playerId": "player-005",
+        "name": "박의현",
         "group": "A",
-        "g": 5,
-        "ab": 12,
+        "g": 3,
+        "ab": 4,
         "h": 3,
-        "rbi": 2,
+        "rbi": 0,
         "hr": 0,
-        "avg": ".250"
+        "avg": ".750"
       },
       {
         "playerId": "player-001",
@@ -83,20 +72,116 @@
         "avg": ".200"
       },
       {
+        "playerId": "player-004",
+        "name": "서우성",
+        "group": "A",
+        "g": 4,
+        "ab": 9,
+        "h": 2,
+        "rbi": 1,
+        "hr": 0,
+        "avg": ".222"
+      },
+      {
         "playerId": "player-008",
         "name": "지성찬",
         "group": "A",
-        "g": 4,
-        "ab": 7,
+        "g": 2,
+        "ab": 6,
         "h": 2,
         "rbi": 0,
         "hr": 0,
-        "avg": ".286"
+        "avg": ".333"
+      },
+      {
+        "playerId": "temp-020",
+        "name": "조영중",
+        "group": "D",
+        "g": 1,
+        "ab": 2,
+        "h": 2,
+        "rbi": 2,
+        "hr": 0,
+        "avg": "1.000"
+      },
+      {
+        "playerId": "player-015",
+        "name": "홍길동",
+        "group": "A",
+        "g": 1,
+        "ab": 3,
+        "h": 2,
+        "rbi": 2,
+        "hr": 0,
+        "avg": ".667"
+      }
+    ]
+  },
+  "D": {
+    "games": 4,
+    "hits": 28,
+    "runs": 37,
+    "teamAvg": ".346",
+    "battingRanking": [
+      {
+        "playerId": "player-002",
+        "name": "최정훈",
+        "group": "A",
+        "g": 3,
+        "ab": 7,
+        "h": 3,
+        "rbi": 1,
+        "hr": 0,
+        "avg": ".429"
       },
       {
         "playerId": "temp-005",
         "name": "김재영",
-        "group": "",
+        "group": "D",
+        "g": 1,
+        "ab": 2,
+        "h": 2,
+        "rbi": 2,
+        "hr": 0,
+        "avg": "1.000"
+      },
+      {
+        "playerId": "player-008",
+        "name": "지성찬",
+        "group": "A",
+        "g": 3,
+        "ab": 3,
+        "h": 2,
+        "rbi": 1,
+        "hr": 0,
+        "avg": ".667"
+      },
+      {
+        "playerId": "player-012",
+        "name": "노혁진",
+        "group": "A",
+        "g": 3,
+        "ab": 4,
+        "h": 2,
+        "rbi": 1,
+        "hr": 0,
+        "avg": ".500"
+      },
+      {
+        "playerId": "player-011",
+        "name": "은영환",
+        "group": "A",
+        "g": 1,
+        "ab": 3,
+        "h": 2,
+        "rbi": 2,
+        "hr": 0,
+        "avg": ".667"
+      },
+      {
+        "playerId": "player-005",
+        "name": "박의현",
+        "group": "A",
         "g": 1,
         "ab": 2,
         "h": 2,
@@ -114,14 +199,40 @@
         "rbi": 3,
         "hr": 0,
         "avg": ".667"
+      },
+      {
+        "playerId": "temp-023",
+        "name": "김재영",
+        "group": "D",
+        "g": 1,
+        "ab": 3,
+        "h": 2,
+        "rbi": 2,
+        "hr": 0,
+        "avg": ".667"
+      },
+      {
+        "playerId": "player-004",
+        "name": "서우성",
+        "group": "A",
+        "g": 2,
+        "ab": 5,
+        "h": 1,
+        "rbi": 1,
+        "hr": 0,
+        "avg": ".200"
+      },
+      {
+        "playerId": "temp-006",
+        "name": "오치송",
+        "group": "D",
+        "g": 1,
+        "ab": 3,
+        "h": 1,
+        "rbi": 1,
+        "hr": 0,
+        "avg": ".333"
       }
     ]
-  },
-  "D": {
-    "games": 0,
-    "hits": 0,
-    "runs": 0,
-    "teamAvg": ".000",
-    "battingRanking": []
   }
 }

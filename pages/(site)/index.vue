@@ -1,8 +1,15 @@
 <template>
     <div>
-        <section class="bmc-hero">
+        <section class="bmc-hero bmc-hero--photo" :style="heroStyle">
             <div class="bmc-hero__inner">
                 <div>
+                    <img
+                        class="bmc-hero__logo"
+                        :src="teamLogoUrl"
+                        alt="신길교회 야구선교단"
+                        width="112"
+                        height="112"
+                    />
                     <p class="bmc-hero__eyebrow">Singil Church Baseball Mission</p>
                     <h1 class="bmc-hero__title">신길교회<br>야구 선교단</h1>
                     <p class="bmc-hero__desc">
@@ -146,7 +153,11 @@ type Leader = {
 
 definePageMeta({ title: '홈' });
 
-const { fetchJson } = useBasePath();
+const { fetchJson, getAssetPath } = useBasePath();
+const heroStyle = computed(() => ({
+    '--bmc-hero-bg': `url('${getAssetPath('images/image_group.jpg')}')`,
+}));
+const teamLogoUrl = computed(() => getAssetPath('icons/logo.png'));
 const teamTotal = ref<TeamTotal | null>(null);
 const leaders = ref<Leader[]>([]);
 const pending = ref(true);

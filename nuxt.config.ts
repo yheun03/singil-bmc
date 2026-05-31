@@ -1,3 +1,5 @@
+const APP_BASE = (process.env.NUXT_APP_BASE_URL || '/singil-bmc/').replace(/\/?$/, '/');
+
 export default defineNuxtConfig({
     devtools: { enabled: true },
     experimental: { appManifest: false },
@@ -6,11 +8,11 @@ export default defineNuxtConfig({
     app: {
         // GitHub Pages: https://yheun03.github.io/singil-bmc/
         // 다른 base는 빌드 시 NUXT_APP_BASE_URL 로 지정 (package.json의 generate:gh-pages).
-        baseURL: process.env.NUXT_APP_BASE_URL || '/singil-bmc/',
+        baseURL: APP_BASE,
         head: {
             title: '신길교회 야구 선교단',
             htmlAttrs: { lang: 'ko' },
-            link: [{ rel: 'icon', type: 'image/svg+xml', href: 'favicon.svg' }],
+            link: [{ rel: 'icon', type: 'image/svg+xml', href: `${APP_BASE}favicon.svg` }],
         },
     },
 
@@ -77,7 +79,7 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             apiBase: '/api',
-            appBase: process.env.NUXT_APP_BASE_URL || '/singil-bmc/',
+            appBase: APP_BASE,
         },
     },
 

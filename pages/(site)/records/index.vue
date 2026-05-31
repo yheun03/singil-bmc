@@ -6,7 +6,7 @@
         :pending="pending"
         :error="error"
     >
-        <div v-if="teamTotal" class="bmc-grid bmc-grid--4" style="margin-bottom:24px;">
+        <div v-if="teamTotal" class="bmc-grid bmc-grid--4 bmc-record-grid__stats">
             <article class="bmc-stat-card">
                 <strong>{{ teamTotal.totalGames }}</strong>
                 <span>총 경기</span>
@@ -25,69 +25,50 @@
             </article>
         </div>
 
-        <h3 style="margin:0 0 12px;font-size:1.125rem;font-weight:800;">타자 기록</h3>
-        <div class="bmc-table-wrap" style="margin-bottom:28px;">
-            <table class="bmc-table">
-                <thead>
-                    <tr>
-                        <th>이름</th>
-                        <th>조</th>
-                        <th>G</th>
-                        <th>AVG</th>
-                        <th>OPS</th>
-                        <th>H</th>
-                        <th>RBI</th>
-                        <th>HR</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="row in batting" :key="row.playerId">
-                        <td>{{ row.name }}</td>
-                        <td>{{ row.group }}조</td>
-                        <td>{{ row.g }}</td>
-                        <td>{{ row.avg }}</td>
-                        <td>{{ row.ops }}</td>
-                        <td>{{ row.h }}</td>
-                        <td>{{ row.rbi }}</td>
-                        <td>{{ row.hr ?? 0 }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <section class="bmc-record-grid">
+            <h3 class="bmc-record-grid__title">타자 기록</h3>
+            <AppGridToolbar target="batting-grid">
+                <AppGridSearch v-model="battingSearch" :fields="battingSearchFields" />
+                <AppGridDownload />
+            </AppGridToolbar>
+            <ClientOnly>
+                <AppGrid
+                    grid-id="batting-grid"
+                    class="bmc-record-grid__grid ag-theme-quartz"
+                    :row-data="battingRows"
+                    :column-defs="battingColumns"
+                    :default-col-def="defaultColDef"
+                    animate-rows
+                    :style="{ height: battingGridHeight, width: '100%' }"
+                />
+            </ClientOnly>
+        </section>
 
-        <h3 style="margin:0 0 12px;font-size:1.125rem;font-weight:800;">투수 기록</h3>
-        <div class="bmc-table-wrap">
-            <table class="bmc-table">
-                <thead>
-                    <tr>
-                        <th>이름</th>
-                        <th>조</th>
-                        <th>G</th>
-                        <th>IP</th>
-                        <th>ERA</th>
-                        <th>WHIP</th>
-                        <th>SO</th>
-                        <th>W</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr v-for="row in pitching" :key="row.playerId">
-                        <td>{{ row.name }}</td>
-                        <td>{{ row.group }}조</td>
-                        <td>{{ row.g }}</td>
-                        <td>{{ row.ip }}</td>
-                        <td>{{ row.era }}</td>
-                        <td>{{ row.whip }}</td>
-                        <td>{{ row.so }}</td>
-                        <td>{{ row.win }}</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
+        <section class="bmc-record-grid">
+            <h3 class="bmc-record-grid__title">투수 기록</h3>
+            <AppGridToolbar target="pitching-grid">
+                <AppGridSearch v-model="pitchingSearch" :fields="pitchingSearchFields" />
+                <AppGridDownload />
+            </AppGridToolbar>
+            <ClientOnly>
+                <AppGrid
+                    grid-id="pitching-grid"
+                    class="bmc-record-grid__grid ag-theme-quartz"
+                    :row-data="pitchingRows"
+                    :column-defs="pitchingColumns"
+                    :default-col-def="defaultColDef"
+                    animate-rows
+                    :style="{ height: pitchingGridHeight, width: '100%' }"
+                />
+            </ClientOnly>
+        </section>
     </SitePageLayout>
 </template>
 
 <script setup lang="ts">
+import type { ColDef, ValueFormatterParams } from 'ag-grid-community';
+import type { AppGridSearchField } from '~/types/grid-search';
+
 type TeamTotal = {
     totalGames: number;
     totalPlayers: number;
@@ -121,27 +102,145 @@ type PitchingRow = {
 
 definePageMeta({ title: '전체 기록' });
 
-const { fetchJson } = useBasePath();
-const teamTotal = ref<TeamTotal | null>(null);
-const batting = ref<BattingRow[]>([]);
-const pitching = ref<PitchingRow[]>([]);
-const pending = ref(true);
-const error = ref('');
+const { data: teamTotal, pending: teamPending, error: teamError } = useSiteData<TeamTotal>('summary/team-total.json');
+const { data: batting, pending: battingPending, error: battingError } = useSiteData<BattingRow[]>('summary/batting-total.json');
+const { data: pitching, pending: pitchingPending, error: pitchingError } = useSiteData<PitchingRow[]>('summary/pitching-total.json');
 
-onMounted(async () => {
-    try {
-        const [team, battingRows, pitchingRows] = await Promise.all([
-            fetchJson<TeamTotal>('summary/team-total.json'),
-            fetchJson<BattingRow[]>('summary/batting-total.json'),
-            fetchJson<PitchingRow[]>('summary/pitching-total.json'),
-        ]);
-        teamTotal.value = team;
-        batting.value = battingRows;
-        pitching.value = pitchingRows;
-    } catch (err) {
-        error.value = err instanceof Error ? err.message : '기록 데이터를 불러오지 못했습니다.';
-    } finally {
-        pending.value = false;
+const pending = computed(() => teamPending.value || battingPending.value || pitchingPending.value);
+const error = computed(() => teamError.value || battingError.value || pitchingError.value);
+
+const battingRows = computed(() => batting.value ?? []);
+const pitchingRows = computed(() => pitching.value ?? []);
+
+const groupOptions = computed(() => {
+    const groups = new Set<string>();
+
+    for (const row of battingRows.value) {
+        if (row.group) groups.add(row.group);
     }
+
+    for (const row of pitchingRows.value) {
+        if (row.group) groups.add(row.group);
+    }
+
+    return [...groups]
+        .sort()
+        .map((group) => ({ label: `${group}조`, value: group }));
 });
+
+const battingSearch = reactive({
+    name: '',
+    group: null as string | null,
+});
+
+const pitchingSearch = reactive({
+    name: '',
+    group: null as string | null,
+});
+
+const battingSearchFields = computed<AppGridSearchField[]>(() => [
+    { field: 'name', label: '이름', type: 'input', placeholder: '이름 검색' },
+    {
+        field: 'group',
+        label: '조',
+        type: 'select',
+        setFilter: true,
+        placeholderSelect: '전체',
+        options: groupOptions.value,
+    },
+]);
+
+const pitchingSearchFields = computed<AppGridSearchField[]>(() => [
+    { field: 'name', label: '이름', type: 'input', placeholder: '이름 검색' },
+    {
+        field: 'group',
+        label: '조',
+        type: 'select',
+        setFilter: true,
+        placeholderSelect: '전체',
+        options: groupOptions.value,
+    },
+]);
+
+const defaultColDef: ColDef = {
+    flex: 1,
+    minWidth: 72,
+    sortable: true,
+    filter: true,
+    resizable: true,
+};
+
+function formatGroup(params: ValueFormatterParams) {
+    return params.value ? `${params.value}조` : '';
+}
+
+const battingColumns: ColDef[] = [
+    { field: 'name', headerName: '이름', minWidth: 96 },
+    {
+        field: 'group',
+        headerName: '조',
+        width: 72,
+        filter: 'agSetColumnFilter',
+        valueFormatter: formatGroup,
+    },
+    { field: 'g', headerName: 'G', width: 72, filter: 'agNumberColumnFilter' },
+    { field: 'avg', headerName: 'AVG', width: 88 },
+    { field: 'ops', headerName: 'OPS', width: 88 },
+    { field: 'h', headerName: 'H', width: 72, filter: 'agNumberColumnFilter' },
+    { field: 'rbi', headerName: 'RBI', width: 80, filter: 'agNumberColumnFilter' },
+    {
+        field: 'hr',
+        headerName: 'HR',
+        width: 72,
+        filter: 'agNumberColumnFilter',
+        valueFormatter: (params) => String(params.value ?? 0),
+    },
+];
+
+const pitchingColumns: ColDef[] = [
+    { field: 'name', headerName: '이름', minWidth: 96 },
+    {
+        field: 'group',
+        headerName: '조',
+        width: 72,
+        filter: 'agSetColumnFilter',
+        valueFormatter: formatGroup,
+    },
+    { field: 'g', headerName: 'G', width: 72, filter: 'agNumberColumnFilter' },
+    { field: 'ip', headerName: 'IP', width: 80 },
+    { field: 'era', headerName: 'ERA', width: 88 },
+    { field: 'whip', headerName: 'WHIP', width: 88 },
+    { field: 'so', headerName: 'SO', width: 72, filter: 'agNumberColumnFilter' },
+    { field: 'win', headerName: 'W', width: 72, filter: 'agNumberColumnFilter' },
+];
+
+function gridHeight(rowCount: number) {
+    const body = Math.max(rowCount, 1) * 42;
+    return `${Math.min(Math.max(body + 48, 240), 560)}px`;
+}
+
+const battingGridHeight = computed(() => gridHeight(battingRows.value.length));
+const pitchingGridHeight = computed(() => gridHeight(pitchingRows.value.length));
 </script>
+
+<style scoped lang="scss">
+.bmc-record-grid {
+    & + & {
+        margin-top: 28px;
+    }
+
+    &__stats {
+        margin-bottom: 24px;
+    }
+
+    &__title {
+        margin: 0 0 12px;
+        font-size: 1.125rem;
+        font-weight: 800;
+    }
+
+    &__grid {
+        width: 100%;
+    }
+}
+</style>
