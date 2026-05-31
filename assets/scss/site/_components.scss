@@ -452,7 +452,7 @@
 
 .bmc-lnb {
     position: sticky;
-    top: 110px;
+    top: var(--bmc-header-height, 76px);
     z-index: 30;
     background: $bmc-white;
     border-bottom: 1px solid $bmc-gray-200;

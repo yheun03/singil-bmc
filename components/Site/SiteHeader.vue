@@ -1,5 +1,5 @@
 <template>
-    <header class="bmc-header">
+    <header ref="headerRef" class="bmc-header">
         <div class="bmc-header__inner">
             <NuxtLink class="bmc-header__brand" to="/">
                 <span class="bmc-header__emblem" aria-hidden="true">
@@ -67,6 +67,9 @@ const menuOpen = ref(false);
 const openGroup = ref('');
 const route = useRoute();
 const navPanelId = 'bmc-header-nav';
+const headerRef = ref<HTMLElement | null>(null);
+
+useSiteHeaderHeight(headerRef);
 
 const activeGroup = computed(() => {
     const group = siteHeaderNav.find((item) => item.type === 'group' && isGroupActive(item));
