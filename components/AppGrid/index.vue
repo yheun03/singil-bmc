@@ -6,9 +6,11 @@
 <script setup lang="ts">
 defineOptions({
     ssr: false,
+    inheritAttrs: false,
 });
 import { AgGridVue } from 'ag-grid-vue3';
 import type {
+    ColDef,
     FilterChangedEvent,
     GridApi,
     GridOptions,
@@ -24,6 +26,13 @@ import {
     enhanceGridDefaultColDef,
     getGridRowStripeClass,
 } from '~/utils/ag-grid-decimal';
+
+const props = defineProps<{
+    gridId?: string;
+    columnDefs?: ColDef[];
+    defaultColDef?: ColDef;
+    rowData?: unknown[];
+}>();
 
 const { register } = useAgGridRegistry();
 
@@ -57,12 +66,14 @@ const gridAttrs = computed(() => {
     const {
         localeText: _localeText,
         class: _class,
-        gridId,
-        'grid-id': gridIdKebab,
-        columnDefs,
-        'column-defs': columnDefsKebab,
-        defaultColDef,
-        'default-col-def': defaultColDefKebab,
+        gridId: _gridId,
+        'grid-id': _gridIdKebab,
+        columnDefs: _columnDefs,
+        'column-defs': _columnDefsKebab,
+        defaultColDef: _defaultColDef,
+        'default-col-def': _defaultColDefKebab,
+        rowData: _rowData,
+        'row-data': _rowDataKebab,
         getRowClass,
         'get-row-class': getRowClassKebab,
         onFilterChanged,
@@ -76,20 +87,25 @@ const gridAttrs = computed(() => {
         ...rest
     } = a;
 
-    const id = gridId ?? gridIdKebab;
-    const rowData = (rest.rowData ?? rest['row-data']) as unknown[] | undefined;
+    const id = props.gridId ?? _gridId ?? _gridIdKebab;
+    const rawColumnDefs = props.columnDefs ?? _columnDefs ?? _columnDefsKebab;
+    const rawDefaultColDef = props.defaultColDef ?? _defaultColDef ?? _defaultColDefKebab;
+    const rawRowData = props.rowData ?? _rowData ?? _rowDataKebab;
+
     const userGetRowClass = (getRowClass ?? getRowClassKebab) as ((params: RowClassParams) => string | string[] | undefined) | undefined;
     const userOnFilterChanged = (onFilterChanged ?? onFilterChangedKebab) as ((event: FilterChangedEvent) => void) | undefined;
     const userOnSortChanged = (onSortChanged ?? onSortChangedKebab) as ((event: SortChangedEvent) => void) | undefined;
     const userOnModelUpdated = (onModelUpdated ?? onModelUpdatedKebab) as ((event: ModelUpdatedEvent) => void) | undefined;
 
     return {
+        ...rest,
         overlayLoadingTemplate: '<div class="ag-overlay-loading">로딩중...</div>',
         overlayNoRowsTemplate: '<div class="ag-overlay-no-rows">검색된 결과가 없습니다</div>',
         rowHeight: (rest.rowHeight as number | undefined) ?? 42,
         getRowHeight: rest.getRowHeight ?? rest['get-row-height'],
-        columnDefs: enhanceGridColumnDefs((columnDefs ?? columnDefsKebab) as GridOptions['columnDefs'], rowData),
-        defaultColDef: enhanceGridDefaultColDef((defaultColDef ?? defaultColDefKebab) as GridOptions['defaultColDef']),
+        rowData: rawRowData as GridOptions['rowData'],
+        columnDefs: enhanceGridColumnDefs(rawColumnDefs as GridOptions['columnDefs']),
+        defaultColDef: enhanceGridDefaultColDef(rawDefaultColDef as GridOptions['defaultColDef']),
         getRowClass: combineGridRowClass(getGridRowStripeClass, userGetRowClass),
         onFilterChanged(params: FilterChangedEvent) {
             const api = params.api;
@@ -111,7 +127,6 @@ const gridAttrs = computed(() => {
             refreshRowStripes(params.api);
             userOnModelUpdated?.(params);
         },
-        ...rest,
         gridId: id,
     };
 });
