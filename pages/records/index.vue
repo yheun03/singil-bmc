@@ -19,15 +19,8 @@
             </article>
         </div>
 
-        <AppTabs v-model:active-id="selectedGroup" :items="groupTabItems" variant="pill" size="sm"
-            class="bmc-record-grid__tabs" />
-
         <section class="bmc-record-grid">
             <h3 class="bmc-record-grid__title">타자 기록</h3>
-            <!-- <AppGridToolbar target="batting-grid">
-                <AppGridSearch v-model="battingSearch" :fields="battingSearchFields" />
-                <AppGridDownload />
-            </AppGridToolbar> -->
             <ClientOnly>
                 <AppGrid grid-id="batting-grid" class="bmc-record-grid__grid ag-theme-quartz" :row-data="battingRows"
                     :column-defs="battingColumns" :default-col-def="defaultColDef" animate-rows
@@ -37,10 +30,6 @@
 
         <section class="bmc-record-grid">
             <h3 class="bmc-record-grid__title">투수 기록</h3>
-            <!-- <AppGridToolbar target="pitching-grid">
-                <AppGridSearch v-model="pitchingSearch" :fields="pitchingSearchFields" />
-                <AppGridDownload />
-            </AppGridToolbar> -->
             <ClientOnly>
                 <AppGrid grid-id="pitching-grid" class="bmc-record-grid__grid ag-theme-quartz" :row-data="pitchingRows"
                     :column-defs="pitchingColumns" :default-col-def="defaultColDef" animate-rows
@@ -51,8 +40,8 @@
 </template>
 
 <script setup lang="ts">
-import type { ColDef, ValueFormatterParams } from 'ag-grid-community';
-import type { AppGridSearchField } from '~/types/grid-search';
+import type { ColDef } from 'ag-grid-community';
+import { mergeBattingRowsByName, mergePitchingRowsByName } from '~/utils/record-aggregate';
 
 type TeamTotal = {
     totalGames: number;
@@ -66,11 +55,20 @@ type BattingRow = {
     name: string;
     group: string;
     g: number;
+    pa: number;
+    ab: number;
+    r: number;
+    h: number;
+    double: number;
+    triple: number;
+    hr: number;
+    rbi: number;
+    bb: number;
+    hbp: number;
+    so: number;
+    sb: number;
     avg: string;
     ops: string;
-    h: number;
-    rbi: number;
-    hr?: number;
 };
 
 type PitchingRow = {
@@ -78,11 +76,19 @@ type PitchingRow = {
     name: string;
     group: string;
     g: number;
+    outs: number;
+    h: number;
+    r: number;
+    er: number;
+    bb: number;
+    hbp: number;
+    so: number;
+    win: number;
+    loss: number;
+    save: number;
     ip: string;
     era: string;
     whip: string;
-    so: number;
-    win: number;
 };
 
 definePageMeta({ title: '전체 기록' });
@@ -94,31 +100,8 @@ const { data: pitching, pending: pitchingPending, error: pitchingError } = useSi
 const pending = computed(() => teamPending.value || battingPending.value || pitchingPending.value);
 const error = computed(() => teamError.value || battingError.value || pitchingError.value);
 
-const selectedGroup = ref('all');
-const { allGroupTabItems } = useSeasonTeams();
-const groupTabItems = computed(() => allGroupTabItems());
-const battingRows = computed(() =>
-    (batting.value ?? []).filter((row) => selectedGroup.value === 'all' || row.group === selectedGroup.value),
-);
-const pitchingRows = computed(() =>
-    (pitching.value ?? []).filter((row) => selectedGroup.value === 'all' || row.group === selectedGroup.value),
-);
-
-const battingSearch = reactive({
-    name: '',
-});
-
-const pitchingSearch = reactive({
-    name: '',
-});
-
-const battingSearchFields = computed<AppGridSearchField[]>(() => [
-    { field: 'name', label: '이름', type: 'input', placeholder: '이름 검색' },
-]);
-
-const pitchingSearchFields = computed<AppGridSearchField[]>(() => [
-    { field: 'name', label: '이름', type: 'input', placeholder: '이름 검색' },
-]);
+const battingRows = computed(() => mergeBattingRowsByName(batting.value ?? []));
+const pitchingRows = computed(() => mergePitchingRowsByName(pitching.value ?? []));
 
 const defaultColDef: ColDef = {
     flex: 1,
@@ -128,19 +111,8 @@ const defaultColDef: ColDef = {
     resizable: true,
 };
 
-function formatGroup(params: ValueFormatterParams) {
-    return params.value ? `${params.value}조` : '';
-}
-
 const battingColumns: ColDef[] = [
     { field: 'name', headerName: '이름', minWidth: 96 },
-    {
-        field: 'group',
-        headerName: '조',
-        width: 72,
-        filter: 'agSetColumnFilter',
-        valueFormatter: formatGroup,
-    },
     { field: 'g', headerName: 'G', width: 72, filter: 'agNumberColumnFilter' },
     { field: 'avg', headerName: 'AVG', width: 88, sort: 'desc', sortIndex: 0 },
     { field: 'ops', headerName: 'OPS', width: 88 },
@@ -157,13 +129,6 @@ const battingColumns: ColDef[] = [
 
 const pitchingColumns: ColDef[] = [
     { field: 'name', headerName: '이름', minWidth: 96 },
-    {
-        field: 'group',
-        headerName: '조',
-        width: 72,
-        filter: 'agSetColumnFilter',
-        valueFormatter: formatGroup,
-    },
     { field: 'g', headerName: 'G', width: 72, filter: 'agNumberColumnFilter' },
     { field: 'ip', headerName: 'IP', width: 80 },
     { field: 'era', headerName: 'ERA', width: 88, sort: 'asc', sortIndex: 0 },
@@ -188,10 +153,6 @@ const pitchingGridHeight = computed(() => gridHeight(pitchingRows.value.length))
     }
 
     &__stats {
-        margin-bottom: 24px;
-    }
-
-    &__tabs {
         margin-bottom: 24px;
     }
 

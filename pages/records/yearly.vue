@@ -68,24 +68,9 @@
 
 <script setup lang="ts">
 import type { ColDef } from 'ag-grid-community';
+import { buildPeriodRecordView, type PeriodRecordSlice } from '~/utils/record-aggregate';
 
-type StatRow = Record<string, string | number>;
-type PeriodGroupRecord = {
-    games: number;
-    hits: number;
-    runs: number;
-    batting: StatRow[];
-    pitching: StatRow[];
-};
-type YearlyRecord = {
-    year: number;
-    games: number;
-    hits: number;
-    runs: number;
-    batting: StatRow[];
-    pitching: StatRow[];
-    groups?: Record<string, PeriodGroupRecord>;
-};
+type YearlyRecord = PeriodRecordSlice & { year: number };
 
 definePageMeta({ title: '연도별 기록' });
 
@@ -102,19 +87,20 @@ watchEffect(() => {
     }
 });
 
-const selectedRecord = computed(() => yearlyRecords.value.find((item) => item.year === selectedYear.value) ?? null);
-const displayRecord = computed(() => {
-    if (!selectedRecord.value || selectedGroup.value === 'all') {
-        return selectedRecord.value;
-    }
+watch(
+    () => selectedYear.value,
+    () => {
+        selectedGroup.value = 'all';
+    },
+);
 
-    return selectedRecord.value.groups?.[selectedGroup.value] ?? null;
-});
+const selectedRecord = computed(() => yearlyRecords.value.find((item) => item.year === selectedYear.value) ?? null);
+const displayRecord = computed(() => buildPeriodRecordView(selectedRecord.value, selectedGroup.value));
+const showGroupColumn = computed(() => selectedGroup.value !== 'all');
 
 const defaultColDef: ColDef = { flex: 1, minWidth: 76, sortable: true, filter: true, resizable: true };
-const battingColumns: ColDef[] = [
+const battingColumnsBase: ColDef[] = [
     { field: 'name', headerName: '이름', minWidth: 96 },
-    { field: 'group', headerName: '조', width: 72 },
     { field: 'g', headerName: 'G', width: 72 },
     { field: 'avg', headerName: 'AVG', width: 88, sort: 'desc', sortIndex: 0 },
     { field: 'h', headerName: 'H', width: 72 },
@@ -122,9 +108,8 @@ const battingColumns: ColDef[] = [
     { field: 'r', headerName: 'R', width: 72 },
     { field: 'sb', headerName: 'SB', width: 72 },
 ];
-const pitchingColumns: ColDef[] = [
+const pitchingColumnsBase: ColDef[] = [
     { field: 'name', headerName: '이름', minWidth: 96 },
-    { field: 'group', headerName: '조', width: 72 },
     { field: 'g', headerName: 'G', width: 72 },
     { field: 'ip', headerName: 'IP', width: 80 },
     { field: 'era', headerName: 'ERA', width: 88, sort: 'asc', sortIndex: 0 },
@@ -132,6 +117,13 @@ const pitchingColumns: ColDef[] = [
     { field: 'win', headerName: 'W', width: 72 },
     { field: 'whip', headerName: 'WHIP', width: 88 },
 ];
+const groupColumn: ColDef = { field: 'group', headerName: '조', width: 72 };
+const battingColumns = computed(() =>
+    showGroupColumn.value ? [battingColumnsBase[0], groupColumn, ...battingColumnsBase.slice(1)] : battingColumnsBase,
+);
+const pitchingColumns = computed(() =>
+    showGroupColumn.value ? [pitchingColumnsBase[0], groupColumn, ...pitchingColumnsBase.slice(1)] : pitchingColumnsBase,
+);
 
 function gridHeight(rowCount: number) {
     return `${Math.min(Math.max(Math.max(rowCount, 1) * 42 + 48, 220), 560)}px`;

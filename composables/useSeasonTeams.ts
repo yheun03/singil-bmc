@@ -41,6 +41,10 @@ type TabItem = {
     bodyRenderer: () => null;
 };
 
+export function getGroupIdsForYear(config: SeasonTeamsConfig | null | undefined, year: number | string): string[] {
+    return getSeasonGroupsForYear(config, year).map((group) => group.id);
+}
+
 export function getGroupLabel(
     config: SeasonTeamsConfig | null | undefined,
     groupId: string,
@@ -118,6 +122,10 @@ export function useSeasonTeams() {
         return buildAllGroupTabItems(data.value, { includeAll });
     }
 
+    function groupIdsForYear(year: number | string) {
+        return getGroupIdsForYear(data.value, year);
+    }
+
     function labelForGroup(groupId: string, year?: number | string) {
         return getGroupLabel(data.value, groupId, year);
     }
@@ -128,6 +136,7 @@ export function useSeasonTeams() {
         error,
         reload,
         groupsForYear,
+        groupIdsForYear,
         tabItemsForYear,
         allGroupTabItems,
         labelForGroup,

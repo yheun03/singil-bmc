@@ -1,3 +1,11 @@
+import {
+    mergeBattingRowsByName,
+    mergePitchingRowsByName,
+    type BattingAggregateRow,
+    type PeriodRecordSlice,
+    type PitchingAggregateRow,
+} from '~/utils/record-aggregate';
+
 export type MvpBoardEntry = {
     id: string;
     key: string;
@@ -37,33 +45,194 @@ export function compareMvpPeriodKeys(a: string, b: string) {
     return b.localeCompare(a, undefined, { numeric: true });
 }
 
+function normalizePlayerName(name: string) {
+    return String(name ?? '').replace(/\s+/g, '').trim();
+}
+
+function ipToOuts(ip: string | number) {
+    const [whole = '0', frac = '0'] = String(ip ?? '0').split('.');
+    return Number(whole) * 3 + Number(frac);
+}
+
+function pickMvpBattingLeaders(rows: BattingAggregateRow[], periodKey: string): MvpBoardEntry[] {
+    return [...rows]
+        .map((row) => ({ row, score: calcMvpBattingScore(row) }))
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 3)
+        .map(({ row, score }, index) => ({
+            id: `${periodKey}-all-batting-${index + 1}`,
+            key: periodKey,
+            group: 'all',
+            rank: index + 1,
+            type: 'batting',
+            name: row.name,
+            summary: `${row.h}안타 ${row.rbi}타점 ${row.r}득점`,
+            stats: {
+                avg: row.avg,
+                h: row.h,
+                rbi: row.rbi,
+                hr: row.hr,
+                score: Number(score.toFixed(1)),
+            },
+        }));
+}
+
+function pickMvpPitchingLeaders(rows: PitchingAggregateRow[], periodKey: string): MvpBoardEntry[] {
+    return [...rows]
+        .map((row) => ({ row, score: calcMvpPitchingScore(row) }))
+        .sort((a, b) => b.score - a.score)
+        .slice(0, 3)
+        .map(({ row, score }, index) => ({
+            id: `${periodKey}-all-pitching-${index + 1}`,
+            key: periodKey,
+            group: 'all',
+            rank: index + 1,
+            type: 'pitching',
+            name: row.name,
+            summary: `${row.ip}이닝 ${row.so}탈삼진`,
+            stats: {
+                ip: row.ip,
+                era: row.era,
+                so: row.so,
+                win: row.win,
+                score: Number(score.toFixed(1)),
+            },
+        }));
+}
+
+function buildMergedMvpGroupBlock(
+    periodKey: string,
+    items: MvpBoardEntry[],
+    periodRecord?: PeriodRecordSlice,
+) {
+    if (periodRecord) {
+        const batting = mergeBattingRowsByName(periodRecord.batting as BattingAggregateRow[]);
+        const pitching = mergePitchingRowsByName(periodRecord.pitching as PitchingAggregateRow[]);
+        return {
+            group: 'all',
+            batting: pickMvpBattingLeaders(batting, periodKey),
+            pitching: pickMvpPitchingLeaders(pitching, periodKey),
+        };
+    }
+
+    const inPeriod = items.filter((item) => item.key === periodKey);
+    return {
+        group: 'all',
+        batting: pickMvpBattingLeadersFromItems(inPeriod.filter((item) => item.type === 'batting'), periodKey),
+        pitching: pickMvpPitchingLeadersFromItems(inPeriod.filter((item) => item.type === 'pitching'), periodKey),
+    };
+}
+
+function pickMvpBattingLeadersFromItems(items: MvpBoardEntry[], periodKey: string): MvpBoardEntry[] {
+    const map = new Map<string, { name: string; h: number; rbi: number; r: number; sb: number; hr: number; avg?: string | number }>();
+
+    for (const item of items) {
+        const key = normalizePlayerName(item.name);
+        if (!key) continue;
+
+        const stats = item.stats ?? {};
+        const rMatch = item.summary.match(/(\d+)득점/);
+        const current = map.get(key) ?? { name: item.name, h: 0, rbi: 0, r: 0, sb: 0, hr: 0 };
+        current.h += Number(stats.h ?? 0);
+        current.rbi += Number(stats.rbi ?? 0);
+        current.hr += Number(stats.hr ?? 0);
+        current.r += rMatch ? Number(rMatch[1]) : 0;
+        if (stats.avg != null) current.avg = stats.avg;
+        map.set(key, current);
+    }
+
+    const rows = [...map.values()].map((row) => ({
+        ...row,
+        avg: String(row.avg ?? '.000'),
+        g: 0,
+        pa: 0,
+        ab: 0,
+        double: 0,
+        triple: 0,
+        bb: 0,
+        hbp: 0,
+        so: 0,
+        ops: '.000',
+        playerId: '',
+    })) as BattingAggregateRow[];
+
+    return pickMvpBattingLeaders(rows, periodKey);
+}
+
+function pickMvpPitchingLeadersFromItems(items: MvpBoardEntry[], periodKey: string): MvpBoardEntry[] {
+    const map = new Map<
+        string,
+        { name: string; outs: number; so: number; win: number; save: number; er: number; ip?: string | number; era?: string | number }
+    >();
+
+    for (const item of items) {
+        const key = normalizePlayerName(item.name);
+        if (!key) continue;
+
+        const stats = item.stats ?? {};
+        const current = map.get(key) ?? { name: item.name, outs: 0, so: 0, win: 0, save: 0, er: 0 };
+        current.outs += ipToOuts(stats.ip ?? 0);
+        current.so += Number(stats.so ?? 0);
+        current.win += Number(stats.win ?? 0);
+        current.save += Number(stats.save ?? 0);
+        if (stats.ip != null) current.ip = stats.ip;
+        if (stats.era != null) current.era = stats.era;
+        map.set(key, current);
+    }
+
+    const rows = [...map.values()].map((row) => ({
+        ...row,
+        g: 0,
+        h: 0,
+        r: 0,
+        bb: 0,
+        hbp: 0,
+        loss: 0,
+        ip: String(row.ip ?? '0.0'),
+        era: String(row.era ?? '0.00'),
+        whip: '0.00',
+        playerId: '',
+    })) as PitchingAggregateRow[];
+
+    return pickMvpPitchingLeaders(rows, periodKey);
+}
+
 export function buildMvpPeriodBlocks(
     items: MvpBoardEntry[],
     mode: 'monthly' | 'weekly',
     groupFilter: string,
     groupIds: string[] = ['A', 'D'],
+    periodRecordsByKey: Record<string, PeriodRecordSlice> = {},
 ): MvpPeriodBlock[] {
     const keys = [...new Set(items.map((item) => item.key))].sort(compareMvpPeriodKeys);
-    const configuredIds = groupIds.length ? groupIds : [...new Set(items.map((item) => item.group).filter(Boolean))];
-    const groups = groupFilter === 'all' ? configuredIds : [groupFilter];
 
-    return keys.map((periodKey) => ({
-        key: periodKey,
-        label: formatMvpPeriodKey(periodKey, mode),
-        groups: groups.map((group) => {
-            const inPeriod = items.filter((item) => item.key === periodKey && item.group === group);
-
+    return keys.map((periodKey) => {
+        if (groupFilter === 'all') {
+            const periodRecord = mode === 'monthly' ? periodRecordsByKey[periodKey] : undefined;
             return {
-                group,
-                batting: inPeriod
-                    .filter((item) => item.type === 'batting')
-                    .sort((a, b) => a.rank - b.rank),
-                pitching: inPeriod
-                    .filter((item) => item.type === 'pitching')
-                    .sort((a, b) => a.rank - b.rank),
+                key: periodKey,
+                label: formatMvpPeriodKey(periodKey, mode),
+                groups: [buildMergedMvpGroupBlock(periodKey, items, periodRecord)],
             };
-        }),
-    }));
+        }
+
+        const inPeriod = items.filter((item) => item.key === periodKey && item.group === groupFilter);
+        return {
+            key: periodKey,
+            label: formatMvpPeriodKey(periodKey, mode),
+            groups: [
+                {
+                    group: groupFilter,
+                    batting: inPeriod
+                        .filter((item) => item.type === 'batting')
+                        .sort((a, b) => a.rank - b.rank),
+                    pitching: inPeriod
+                        .filter((item) => item.type === 'pitching')
+                        .sort((a, b) => a.rank - b.rank),
+                },
+            ],
+        };
+    });
 }
 
 export function formatMvpStatsLine(entry: MvpBoardEntry) {

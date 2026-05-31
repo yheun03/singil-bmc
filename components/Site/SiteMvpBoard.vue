@@ -28,7 +28,8 @@
                             GameOne에서 가져온 경기별 타자·투수 기록을 합산합니다.
                             {{ rules.periodLabel }}
                         </li>
-                        <li>A조·D조를 각각 나누어, 타자 MVP와 투수 MVP를 <strong>각 3위까지</strong> 자동 산정합니다.</li>
+                        <li>전체 선택 시 조 구분 없이 이름 기준으로 합산하고, 조를 선택하면 해당 조 기록만 표시합니다.</li>
+                        <li>타자 MVP와 투수 MVP를 <strong>각 3위까지</strong> 자동 산정합니다.</li>
                         <li>순위는 기간·조·포지션(타자/투수)별 <strong>MVP 점수</strong>가 높은 순입니다. 표에 보이는 타율·ERA는 참고용이며, 순위 결정에는 사용하지 않습니다.</li>
                         <li>동점일 경우 같은 점수 내에서 시스템 기본 정렬 순서를 따릅니다.</li>
                     </ul>
@@ -126,7 +127,7 @@
                         :key="`${block.key}-${groupBlock.group}`"
                         class="bmc-mvp-board__column"
                     >
-                        <p class="bmc-mvp-board__group-label">{{ groupBlock.group }}조</p>
+                        <p class="bmc-mvp-board__group-label">{{ groupBlock.group === 'all' ? '전체' : `${groupBlock.group}조` }}</p>
 
                         <div class="bmc-mvp-board__panels">
                             <article class="bmc-mvp-board__panel">
@@ -208,6 +209,7 @@ import {
     mvpRankLabel,
     type MvpBoardEntry,
 } from '~/utils/mvp-display';
+import type { PeriodRecordSlice } from '~/utils/record-aggregate';
 
 const props = defineProps<{
     items: MvpBoardEntry[];
@@ -220,7 +222,20 @@ const selectedGroup = ref('all');
 const selectedPeriodKey = ref('');
 const showAllPeriods = ref(false);
 
-const { tabItemsForYear, allGroupIds } = useSeasonTeams();
+const { tabItemsForYear, groupIdsForYear } = useSeasonTeams();
+
+const { data: monthlyRecords } = useSiteData<Array<PeriodRecordSlice & { key: string }>>(
+    'summary/monthly-records.json',
+);
+
+const periodRecordsByKey = computed(() => {
+    if (props.mode !== 'monthly') return {};
+    const map: Record<string, PeriodRecordSlice> = {};
+    for (const record of monthlyRecords.value ?? []) {
+        map[record.key] = record;
+    }
+    return map;
+});
 
 const mvpSeasonYear = computed(() => {
     const key = selectedPeriodKey.value;
@@ -234,9 +249,21 @@ const mvpSeasonYear = computed(() => {
 
 const groupTabItems = computed(() => tabItemsForYear(mvpSeasonYear.value));
 
+const seasonGroupIds = computed(() => groupIdsForYear(mvpSeasonYear.value));
+
 const periodBlocks = computed(() =>
-    buildMvpPeriodBlocks(props.items, props.mode, selectedGroup.value, allGroupIds.value),
+    buildMvpPeriodBlocks(
+        props.items,
+        props.mode,
+        selectedGroup.value,
+        seasonGroupIds.value,
+        periodRecordsByKey.value,
+    ),
 );
+
+watch(mvpSeasonYear, () => {
+    selectedGroup.value = 'all';
+});
 
 watch(
     periodBlocks,
