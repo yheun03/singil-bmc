@@ -1,0 +1,149 @@
+@use "../../abstract" as *;
+
+.app-textarea {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid $gray-200;
+    border-radius: 10px;
+    background: $gray-0;
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease,
+        background-color 0.2s ease;
+
+
+    &:has(.app-textarea__footer) .app-textarea__control {
+        padding-bottom: 16px;
+    }
+
+    &__control {
+        width: 100%;
+        min-width: 0;
+        border: 0;
+        outline: 0;
+        background: transparent;
+        color: $gray-800;
+        font-family: $font-family-base;
+
+        box-sizing: border-box;
+
+        &::placeholder {
+            color: $gray-400;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+        }
+
+    }
+
+    &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 12px;
+    }
+
+    &__clear {
+        border: 0;
+        background: transparent;
+        color: $gray-500;
+        cursor: pointer;
+
+        @include font(c2, rg);
+
+        &:hover {
+            color: $gray-700;
+        }
+    }
+
+    &__count {
+        margin-left: auto;
+        color: $gray-400;
+
+        @include font(c2, rg);
+    }
+
+    &.is-focused {
+        border-color: $primary-500;
+        box-shadow: 0 0 0 3px rgba($primary-500, 0.12);
+    }
+
+    &.is-error {
+        border-color: $status-error;
+
+        &.is-focused {
+            box-shadow: 0 0 0 3px rgba($status-error, 0.12);
+        }
+    }
+
+    &.is-disabled {
+        background: $gray-50;
+        border-color: $gray-200;
+        color: $gray-400;
+        cursor: not-allowed;
+
+        .app-textarea__control {
+            color: $gray-400;
+        }
+    }
+
+    &.is-readonly {
+        background: $gray-50;
+    }
+
+    &--sm {
+        .app-textarea__control {
+            padding: 9px 12px;
+
+            @include font(b4, rg);
+        }
+    }
+
+    &--md {
+        .app-textarea__control {
+            padding: 11px 14px;
+
+            @include font(b3, rg);
+        }
+    }
+
+    &--lg {
+        .app-textarea__control {
+            padding: 13px 16px;
+
+            @include font(b2, rg);
+        }
+    }
+
+    &--resize-none {
+        .app-textarea__control {
+            resize: none;
+        }
+    }
+
+    &--resize-vertical {
+        .app-textarea__control {
+            resize: vertical;
+        }
+    }
+
+    &--resize-horizontal {
+        .app-textarea__control {
+            resize: horizontal;
+        }
+    }
+
+    &--resize-both {
+        .app-textarea__control {
+            resize: both;
+        }
+    }
+}

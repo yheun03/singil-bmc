@@ -1,0 +1,252 @@
+@use "../abstract" as *;
+
+/* =========================================================
+   Component: Login Page
+   구조: BEM
+   영역:
+   - hero (branding area)
+   - panel (login form area)
+========================================================= */
+
+.login {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    background: $gray-0;
+}
+
+/* =========================================================
+   Hero Section
+========================================================= */
+
+.login__hero {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(900px 540px at 20% 10%, rgba($primary-500, .55), transparent 60%),
+        radial-gradient(820px 560px at 90% 20%, rgba($primary-200, .58), transparent 60%),
+        radial-gradient(860px 640px at 40% 105%, rgba($status-info, .25), transparent 62%),
+        linear-gradient(180deg, $primary-900, $primary-700);
+
+    color: $gray-0;
+
+    &::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+
+        background:
+            linear-gradient(135deg, rgba($gray-0, .14), rgba($gray-0, 0) 35%),
+            repeating-linear-gradient(135deg,
+                rgba($gray-0, .08) 0px,
+                rgba($gray-0, .08) 1px,
+                rgba($gray-0, 0) 1px,
+                rgba($gray-0, 0) 10px);
+
+        opacity: .45;
+        pointer-events: none;
+    }
+}
+
+.login__hero-inner {
+    position: relative;
+
+    min-height: 100%;
+    padding: 44px;
+
+    display: grid;
+    grid-template-rows: 1fr auto;
+}
+
+/* =========================================================
+   Brand
+========================================================= */
+
+.login__brand {
+    align-self: start;
+    max-width: 520px;
+}
+
+.login__logo {
+    width: 240px;
+    max-width: 100%;
+
+    filter: drop-shadow(0 18px 28px rgba($primary-900, .32));
+}
+
+.login__tagline {
+    margin: 18px 0 0;
+
+    @include font(t5, rg);
+    color: rgba($gray-0, .88);
+}
+
+.login__copyright {
+    margin: 0;
+
+    @include font(c2, rg);
+    color: rgba($gray-0, .72);
+}
+
+/* =========================================================
+   Panel (Form Area)
+========================================================= */
+
+.login__panel {
+    padding: 44px 20px;
+
+    display: grid;
+    place-items: center;
+
+    background:
+        radial-gradient(780px 520px at 30% 0%, rgba($primary-50, 1), rgba($gray-0, 0) 60%),
+        $gray-0;
+}
+
+.login__panel-inner {
+    width: min(440px, 100%);
+
+    padding: 22px;
+
+    border-radius: 18px;
+    border: 1px solid rgba($gray-900, .10);
+
+    background: rgba($gray-0, .9);
+
+    box-shadow:
+        0 26px 70px rgba($primary-900, .10),
+        0 10px 24px rgba($primary-800, .08);
+}
+
+/* =========================================================
+   Header
+========================================================= */
+
+.login__header {
+    margin-bottom: 16px;
+
+    display: grid;
+    gap: 6px;
+}
+
+.login__title {
+    margin: 0;
+
+    @include font(t4, sb);
+    color: $gray-900;
+}
+
+.login__desc {
+    margin: 0;
+
+    @include font(b3, rg);
+    color: rgba($gray-900, .66);
+}
+
+/* =========================================================
+   Form
+========================================================= */
+
+.login__form {
+    display: grid;
+    gap: 12px;
+}
+
+.login__row {
+    margin-top: 2px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.login__submit {
+    width: 100%;
+    margin-top: 6px;
+}
+
+/* =========================================================
+   Links
+========================================================= */
+
+.login__link {
+    @include font(b4, sb);
+
+    color: $primary-700;
+    text-decoration: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+/* =========================================================
+   Footer / Helper
+========================================================= */
+
+.login__footer,
+.login__helper {
+    margin-top: 10px;
+    padding-top: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    border-top: 1px solid rgba($gray-900, .08);
+}
+
+.login__footer-text,
+.login__helper-text {
+    @include font(b4, rg);
+    color: rgba($gray-900, .66);
+}
+
+.login__helper-sep {
+    color: rgba($gray-900, .28);
+}
+
+/* =========================================================
+   Variant
+========================================================= */
+
+.login--signup {
+    .login__panel-inner {
+        width: min(520px, 100%);
+    }
+}
+
+/* forgot 은 기본 width 사용 */
+
+/* =========================================================
+   Agreement Checks
+========================================================= */
+
+.login__checks {
+    margin-top: 4px;
+
+    display: grid;
+    gap: 8px;
+}
+
+/* =========================================================
+   Responsive
+========================================================= */
+
+@media (max-width: 980px) {
+    .login {
+        grid-template-columns: 1fr;
+    }
+
+    .login__hero-inner {
+        padding: 34px 22px;
+        min-height: 320px;
+    }
+
+    .login__panel {
+        padding: 22px 16px 36px;
+    }
+}

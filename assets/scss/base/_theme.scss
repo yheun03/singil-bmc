@@ -1,0 +1,39 @@
+@use "../abstract" as *;
+
+:root[data-theme='dark'] {
+    color-scheme: dark;
+}
+
+:root[data-theme='dark'] body {
+    background: $gray-900;
+    color: $gray-50;
+}
+
+:root[data-theme='dark'] .layout__content {
+    background: $gray-900;
+}
+
+:root[data-theme='dark'] .page-demo-card {
+    background: $gray-800;
+    border-color: $gray-700;
+}
+
+:root[data-theme='dark'] .page-demo__title,
+:root[data-theme='dark'] .page-demo-card__title {
+    color: $gray-50;
+}
+
+:root[data-theme='dark'] .page-demo__desc,
+:root[data-theme='dark'] .page-demo-hint,
+:root[data-theme='dark'] .page-demo-output {
+    color: rgba($gray-50, 0.78);
+}
+
+:root[data-theme='dark'] .page-demo-output {
+    background: rgba($gray-0, 0.08);
+}
+
+:root[data-theme='dark'] .home {
+    background: linear-gradient(180deg, $gray-900, #11161f);
+    color: $gray-50;
+}

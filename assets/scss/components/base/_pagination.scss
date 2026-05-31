@@ -1,0 +1,112 @@
+@use "../../abstract" as *;
+
+.app-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    width: 100%;
+
+    &__total {
+        flex: 0 0 auto;
+        color: $gray-600;
+
+        @include font(b3, rg);
+
+        strong {
+            color: $gray-900;
+
+            @include font(b3, sb);
+        }
+    }
+
+    &__controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        flex: 1 1 auto;
+    }
+
+    &__button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid $gray-200;
+        border-radius: 8px;
+        background: $gray-0;
+        color: $gray-600;
+        cursor: pointer;
+        transition:
+            color 0.2s ease,
+            border-color 0.2s ease,
+            background-color 0.2s ease;
+
+        &:hover:not(:disabled) {
+            border-color: $primary-300;
+            color: $primary-500;
+            background: $primary-50;
+        }
+
+        &:focus-visible {
+            outline: 2px solid rgba($primary-500, 0.35);
+            outline-offset: 2px;
+        }
+
+        &:disabled {
+            color: $gray-300;
+            background: $gray-50;
+            cursor: not-allowed;
+        }
+
+        &.is-active {
+            border-color: $primary-500;
+            background: $primary-500;
+            color: $gray-0;
+        }
+    }
+
+    &__size {
+        flex: 0 0 150px;
+    }
+
+    &--sm {
+        .app-pagination__button {
+            min-width: 30px;
+            height: 30px;
+            padding: 0 8px;
+
+            @include font(btn4, sb);
+        }
+    }
+
+    &--md {
+        .app-pagination__button {
+            min-width: 36px;
+            height: 36px;
+            padding: 0 10px;
+
+            @include font(btn3, sb);
+        }
+    }
+
+    &.is-disabled {
+        opacity: 0.75;
+    }
+
+    @media (max-width: 768px) {
+        flex-direction: column;
+        align-items: stretch;
+
+        &__controls {
+            justify-content: flex-start;
+            overflow-x: auto;
+            padding-bottom: 2px;
+        }
+
+        &__size {
+            flex-basis: auto;
+            width: 100%;
+        }
+    }
+}

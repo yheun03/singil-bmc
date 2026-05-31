@@ -1,0 +1,312 @@
+@use "abstract" as *;
+@use "base" as base;
+@use "layout" as layout;
+@use "components" as components;
+@use "pages" as pages;
+
+/* =========================================
+   Demo Page Styles
+   설명: 컴포넌트 데모 페이지 전용 스타일
+   네임스페이스: .page-demo
+========================================= */
+
+.page-demo {
+
+    padding: 16px;
+    max-width: 1120px;
+
+    /* ----------------------------------------
+     Header
+  ---------------------------------------- */
+
+    &__header {
+        display: grid;
+        gap: 6px;
+    }
+
+    &__title {
+        @include font(t5, rg);
+        margin: 0;
+    }
+
+    &__desc {
+        @include font(b4, rg);
+        margin: 0;
+        color: rgba($gray-900, .7);
+    }
+
+    /* ----------------------------------------
+     Layout
+  ---------------------------------------- */
+
+    &-layout {
+
+        display: grid;
+
+        grid-template-columns: minmax(0, 1fr) 360px;
+
+        gap: 16px;
+
+        align-items: start;
+
+    }
+
+    &-main {
+        display: grid;
+        gap: 16px;
+        min-width: 0;
+    }
+
+    &-aside {
+        min-width: 0;
+
+        &__sticky {
+            position: sticky;
+            top: 16px;
+            display: grid;
+            gap: 16px;
+        }
+
+    }
+
+
+    /* ----------------------------------------
+     Card
+  ---------------------------------------- */
+
+    &-card {
+
+        border: 1px solid $gray-200;
+        border-radius: 14px;
+
+        padding: 14px;
+
+        background: $gray-0;
+
+        display: grid;
+        gap: 12px;
+
+        &__title {
+            margin: 0;
+            @include font(b3, rg);
+        }
+
+    }
+
+
+    /* ----------------------------------------
+     Layout Utilities
+  ---------------------------------------- */
+
+    &-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+    }
+
+    &-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+    }
+
+    &-compare {
+        display: grid;
+        gap: 12px;
+
+        &__title {
+            font-size: 14px;
+            font-weight: 600;
+
+        }
+
+    }
+
+    &-stack {
+        display: grid;
+        gap: 8px;
+    }
+
+    &-chips {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+
+    /* ----------------------------------------
+     Grid
+  ---------------------------------------- */
+
+    &-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+        /* AG Grid token */
+        --ag-border-radius: 12px;
+
+        &>[class*="ag-"] {
+            grid-column: span 3;
+        }
+
+    }
+
+
+    /* ----------------------------------------
+     Controls
+  ---------------------------------------- */
+
+    &-controls {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        align-items: center;
+    }
+
+    &-control {
+
+        display: grid;
+        gap: 6px;
+
+        &__label {
+            @include font(b3, rg);
+            color: $gray-800;
+        }
+
+        &__range {
+            width: 100%;
+        }
+
+        &__value {
+            @include font(c2, rg);
+            color: rgba($gray-900, .7);
+        }
+
+    }
+
+
+    /* ----------------------------------------
+     Hint
+  ---------------------------------------- */
+
+    &-hint {
+        @include font(c2, rg);
+        color: rgba($gray-900, .7);
+    }
+
+
+    /* ----------------------------------------
+     Output
+  ---------------------------------------- */
+
+    &-output {
+
+        margin: 0;
+
+        padding: 12px;
+
+        background: rgba($gray-900, .04);
+
+        border-radius: 12px;
+
+        overflow: auto;
+
+        @include font(c2, rg);
+
+        max-height: calc(100dvh - 220px);
+
+    }
+
+
+    /* ----------------------------------------
+     Icon Utility
+  ---------------------------------------- */
+
+    &-icon {
+
+        display: inline-flex;
+
+        width: 16px;
+        height: 16px;
+
+    }
+
+
+    /* ----------------------------------------
+     Chart Demo
+  ---------------------------------------- */
+
+    &-chart-box {
+
+        border-radius: 12px;
+
+        border: 1px solid $gray-200;
+
+        background: $gray-0;
+
+        padding: 8px;
+
+    }
+
+
+    /* ----------------------------------------
+     Grid Actions
+  ---------------------------------------- */
+
+    &-grid-actions {
+
+        display: flex;
+
+        flex-wrap: wrap;
+
+        gap: 10px;
+
+        align-items: center;
+
+    }
+
+
+    /* ----------------------------------------
+     Fallback
+  ---------------------------------------- */
+
+    &-fallback {
+
+        height: 320px;
+
+        display: grid;
+        place-items: center;
+
+        border-radius: 14px;
+
+        border: 1px solid $gray-200;
+
+        color: rgba($gray-900, .7);
+
+    }
+
+}
+
+
+/* =========================================
+   Responsive
+========================================= */
+
+@media (max-width: 900px) {
+
+    .page-demo-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .page-demo-aside__sticky {
+        position: static;
+        top: auto;
+    }
+
+    .page-demo-grid {
+        grid-template-columns: 1fr;
+    }
+
+}

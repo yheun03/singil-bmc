@@ -1,0 +1,302 @@
+@use "../../abstract" as *;
+
+.app-tabs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+
+    &__list {
+        display: flex;
+        align-items: center;
+        gap: 4px;
+        overflow-x: auto;
+        scrollbar-width: none;
+
+        &::-webkit-scrollbar {
+            display: none;
+        }
+    }
+
+    &__tab {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        min-width: 0;
+        border: 0;
+        background: transparent;
+        color: $gray-500;
+        cursor: pointer;
+        transition:
+            color 0.2s ease,
+            background-color 0.2s ease,
+            border-color 0.2s ease,
+            box-shadow 0.2s ease;
+
+        &:focus-visible {
+            outline: 2px solid rgba($primary-500, 0.35);
+            outline-offset: 2px;
+        }
+
+        &:disabled,
+        &.is-disabled {
+            color: $gray-300;
+            cursor: not-allowed;
+        }
+    }
+
+    &__tab-icon {
+        display: inline-flex;
+        flex: 0 0 auto;
+        font-size: 18px;
+    }
+
+    &__tab-text {
+        display: inline-flex;
+        flex-direction: column;
+        align-items: flex-start;
+        min-width: 0;
+    }
+
+    &__tab-title {
+        display: block;
+        max-width: 100%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    &__tab-desc {
+        display: block;
+        max-width: 100%;
+        margin-top: 2px;
+        color: $gray-400;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        @include font(c2, rg);
+    }
+
+    &__tab-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 20px;
+        height: 20px;
+        padding: 0 6px;
+        border-radius: 999px;
+        background: $gray-100;
+        color: $gray-600;
+
+        @include font(c2, sb);
+    }
+
+    &__panels {
+        width: 100%;
+    }
+
+    &__panel {
+        width: 100%;
+
+        &:focus-visible {
+            outline: 2px solid rgba($primary-500, 0.25);
+            outline-offset: 2px;
+        }
+    }
+
+    &__empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 120px;
+        border: 1px dashed $gray-200;
+        border-radius: 12px;
+        background: $gray-50;
+        color: $gray-400;
+
+        @include font(b3, rg);
+    }
+
+    &--sm {
+        .app-tabs__tab {
+            min-height: 36px;
+            padding: 7px 12px;
+
+            @include font(btn3, sb);
+        }
+    }
+
+    &--md {
+        .app-tabs__tab {
+            min-height: 44px;
+            padding: 10px 16px;
+
+            @include font(btn2, sb);
+        }
+    }
+
+    &--lg {
+        .app-tabs__tab {
+            min-height: 52px;
+            padding: 13px 20px;
+
+            @include font(btn1, sb);
+        }
+    }
+
+    &--line {
+        .app-tabs__list {
+            border-bottom: 1px solid $gray-200;
+        }
+
+        .app-tabs__tab {
+            position: relative;
+            border-radius: 0;
+
+            &::after {
+                position: absolute;
+                right: 0;
+                bottom: -1px;
+                left: 0;
+                height: 2px;
+                background: transparent;
+                content: "";
+            }
+
+            &:hover:not(:disabled) {
+                color: $gray-700;
+            }
+
+            &.is-active {
+                color: $primary-500;
+
+                &::after {
+                    background: $primary-500;
+                }
+
+                .app-tabs__tab-badge {
+                    background: $primary-50;
+                    color: $primary-600;
+                }
+            }
+        }
+    }
+
+    &--box {
+        .app-tabs__list {
+            gap: 0;
+            border-bottom: 1px solid $gray-200;
+        }
+
+        .app-tabs__tab {
+            border: 1px solid $gray-200;
+            border-bottom-color: transparent;
+            border-radius: 10px 10px 0 0;
+            background: $gray-50;
+
+            &+.app-tabs__tab {
+                margin-left: -1px;
+            }
+
+            &:hover:not(:disabled) {
+                background: $gray-100;
+                color: $gray-700;
+            }
+
+            &.is-active {
+                position: relative;
+                z-index: 1;
+                background: $gray-0;
+                color: $primary-500;
+                border-color: $gray-200;
+                border-bottom-color: $gray-0;
+
+                .app-tabs__tab-badge {
+                    background: $primary-50;
+                    color: $primary-600;
+                }
+            }
+        }
+    }
+
+    &--pill {
+        .app-tabs__list {
+            display: inline-flex;
+            width: fit-content;
+            padding: 4px;
+            border-radius: 999px;
+            background: $gray-100;
+        }
+
+        .app-tabs__tab {
+            border-radius: 999px;
+
+            &:hover:not(:disabled) {
+                color: $gray-700;
+            }
+
+            &.is-active {
+                background: $gray-0;
+                color: $primary-500;
+                box-shadow: 0 2px 8px rgba($gray-900, 0.08);
+
+                .app-tabs__tab-badge {
+                    background: $primary-50;
+                    color: $primary-600;
+                }
+            }
+        }
+    }
+
+    &--vertical {
+        flex-direction: row;
+        align-items: flex-start;
+
+        .app-tabs__list {
+            flex: 0 0 220px;
+            flex-direction: column;
+            align-items: stretch;
+            overflow-x: visible;
+        }
+
+        .app-tabs__tab {
+            width: 100%;
+            justify-content: flex-start;
+        }
+
+        .app-tabs__panels {
+            flex: 1 1 auto;
+            min-width: 0;
+        }
+
+        &.app-tabs--line {
+            .app-tabs__list {
+                border-right: 1px solid $gray-200;
+                border-bottom: 0;
+            }
+
+            .app-tabs__tab {
+                &::after {
+                    top: 0;
+                    right: -1px;
+                    bottom: 0;
+                    left: auto;
+                    width: 2px;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    &.is-stretch {
+        .app-tabs__list {
+            width: 100%;
+        }
+
+        .app-tabs__tab {
+            flex: 1 1 0;
+        }
+    }
+}

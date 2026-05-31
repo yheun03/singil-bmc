@@ -1,0 +1,364 @@
+@use "../abstract" as *;
+
+/* =========================================
+   Component: LayoutNav
+========================================= */
+
+.layout-nav {
+    --layout-nav-header-padding-x: 12px;
+    --layout-nav-body-padding-x: 12px;
+    --layout-nav-row-height: 36px;
+    --layout-nav-row-radius: 8px;
+    --layout-nav-row-gap: 6px;
+    --layout-nav-icon-size: 18px;
+    --layout-nav-toggle-size: 24px;
+    --layout-nav-depth-indent: 20px;
+
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 0;
+
+    background: $gradient-primary;
+    color: $gray-0;
+
+    /* ----------------------------------------
+       AppButton override
+    ---------------------------------------- */
+    .app-button {
+        border-radius: 6px;
+        color: $gray-0;
+
+        &:hover:not(:disabled) {
+            background: rgba($gray-50, 0.1);
+        }
+
+        &:focus-visible {
+            outline: 2px solid rgba($gray-0, 0.35);
+            outline-offset: 2px;
+        }
+    }
+
+    /* ----------------------------------------
+       Header
+    ---------------------------------------- */
+    &__header {
+        display: grid;
+        gap: 8px;
+        padding: 16px var(--layout-nav-header-padding-x) 10px;
+    }
+
+    &__logo {
+        padding: 0;
+    }
+
+    &__actions {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        min-height: 32px;
+    }
+
+    /* ----------------------------------------
+       Body
+    ---------------------------------------- */
+    &__body {
+        display: flex;
+        flex-direction: column;
+        min-height: 0;
+        overflow: hidden auto;
+
+        padding: 10px var(--layout-nav-body-padding-x) 12px;
+    }
+
+    &__body::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    &__body::-webkit-scrollbar-thumb {
+        border-radius: 999px;
+        background: rgba($gray-0, 0.2);
+    }
+
+    &__body::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    &__list-wrap {
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        min-height: 0;
+    }
+
+    &__list,
+    &__sublist {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    &__sublist {
+        padding-top: 2px;
+    }
+
+    /* ----------------------------------------
+       Footer
+    ---------------------------------------- */
+    &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        min-height: 56px;
+        padding: 12px 20px;
+        border-top: 1px solid rgba($gray-0, 0.08);
+    }
+
+    /* ----------------------------------------
+       Item
+    ---------------------------------------- */
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+
+        & & {
+            padding-left: var(--layout-nav-depth-indent);
+        }
+    }
+
+    /* ----------------------------------------
+       Row
+    ---------------------------------------- */
+    &__row {
+        position: relative;
+
+        display: flex;
+        align-items: center;
+        gap: var(--layout-nav-row-gap);
+        width: 100%;
+        min-height: var(--layout-nav-row-height);
+        padding: 4px 6px;
+
+        &::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+            left: calc(-1 * var(--indent, 0px));
+            z-index: 0;
+
+            width: calc(100% + var(--indent, 0px));
+
+            border-radius: var(--layout-nav-row-radius);
+            background: transparent;
+            transition:
+                background-color 0.15s ease,
+                box-shadow 0.15s ease;
+        }
+
+        &:hover::after {
+            background: rgba($gray-50, 0.08);
+        }
+
+        &:has(.router-link-active)::after,
+        &:has(.router-link-exact-active)::after {
+            background: rgba($gray-0, 0.16);
+            box-shadow:
+                0 8px 20px rgba($gray-900, 0.12),
+                inset 0 0 0 1px rgba($gray-0, 0.18);
+
+            .layout-nav__link {
+                color: $gray-0;
+            }
+
+            .layout-nav__label {
+                color: $gray-0;
+                font-weight: 600;
+            }
+
+            .layout-nav__icon {
+                opacity: 1;
+            }
+        }
+
+        >* {
+            position: relative;
+            z-index: 1;
+        }
+    }
+
+    /* ----------------------------------------
+       Link
+    ---------------------------------------- */
+    &__link {
+        display: flex;
+        flex: 1 1 auto;
+        align-items: center;
+        gap: 8px;
+        min-width: 0;
+        min-height: 28px;
+
+        padding: 0;
+        border: 0;
+        background: transparent;
+
+        color: $gray-0;
+        text-align: left;
+        text-decoration: none;
+        cursor: pointer;
+
+        &:focus-visible {
+            outline: 2px solid rgba($gray-0, 0.35);
+            outline-offset: 3px;
+            border-radius: 4px;
+        }
+
+        &:disabled {
+            cursor: not-allowed;
+            opacity: 0.45;
+        }
+    }
+
+    &__icon {
+        display: inline-flex;
+        flex: 0 0 var(--layout-nav-icon-size);
+        align-items: center;
+        justify-content: center;
+        width: var(--layout-nav-icon-size);
+        height: var(--layout-nav-icon-size);
+        color: currentColor;
+
+        svg {
+            display: block;
+            width: var(--layout-nav-icon-size);
+            height: var(--layout-nav-icon-size);
+        }
+
+        svg,
+        svg * {
+            fill: currentColor;
+        }
+    }
+
+    &__label {
+        flex: 1 1 auto;
+        min-width: 0;
+
+        overflow: hidden;
+        color: $gray-0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+
+        @include font(b3, rg);
+    }
+
+    /* ----------------------------------------
+       Toggle
+    ---------------------------------------- */
+    &__toggle {
+        flex: 0 0 var(--layout-nav-toggle-size);
+        width: var(--layout-nav-toggle-size);
+        height: var(--layout-nav-toggle-size);
+
+        &.app-button--text {
+            color: $gray-0;
+        }
+    }
+
+    &__toggle-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 16px;
+        height: 16px;
+        line-height: 1;
+        transition: transform 0.16s ease-out;
+
+        svg {
+            display: block;
+            width: 16px;
+            height: 16px;
+            color: currentColor;
+        }
+
+        &.is-open {
+            transform: rotate(90deg);
+        }
+    }
+
+    /* ----------------------------------------
+       Depth
+    ---------------------------------------- */
+    &__item--depth-1 {
+        >.layout-nav__row {
+            min-height: 38px;
+        }
+
+        >.layout-nav__row .layout-nav__label {
+            @include font(b3, sb);
+        }
+    }
+
+    &__item--depth-2,
+    &__item--depth-3 {
+        >.layout-nav__row {
+            min-height: 34px;
+        }
+
+        >.layout-nav__row .layout-nav__label {
+            color: rgba($gray-0, 0.86);
+
+            @include font(c1, rg);
+        }
+    }
+
+    &__item--depth-3 {
+        >.layout-nav__row .layout-nav__label {
+            color: rgba($gray-0, 0.76);
+        }
+    }
+}
+
+/* =========================================
+   Sub Block: Nav Logo
+========================================= */
+
+.nav-logo {
+    &__mark {
+        display: block;
+        width: 100%;
+
+        svg {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        svg,
+        svg * {
+            fill: $gray-0;
+        }
+    }
+}
+
+/* =========================================
+   Sub Block: Nav Action
+========================================= */
+
+.nav-action {
+    &.app-button {
+        color: $gray-0;
+    }
+
+    svg {
+        display: block;
+        width: 18px;
+        height: 18px;
+        color: currentColor;
+    }
+}

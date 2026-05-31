@@ -1,0 +1,89 @@
+@use "../../abstract" as *;
+
+/* =========================================
+   Component: AppAccordion
+========================================= */
+
+.app-accordion {
+    display: grid;
+    gap: 10px;
+
+    &__item {
+        border: 1px solid $gray-200;
+        border-radius: 16px;
+        background: $gray-0;
+        overflow: hidden;
+
+        &.is-disabled {
+            opacity: 0.5;
+        }
+    }
+
+    &__trigger {
+        width: 100%;
+        border: 0;
+        background: transparent;
+        text-align: left;
+        cursor: pointer;
+        padding: 16px 20px;
+
+        &:disabled {
+            cursor: not-allowed;
+        }
+    }
+
+    &__trigger-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    &__text {
+        display: grid;
+        gap: 4px;
+        min-width: 0;
+    }
+
+    &__title {
+        display: block;
+        @include font(b3, sb);
+        color: $gray-900;
+    }
+
+    &__desc {
+        margin: 0;
+        @include font(c2, rg);
+        color: $gray-600;
+    }
+
+    &__icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        transition: transform 0.2s ease;
+
+        svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        &.is-open {
+            transform: rotate(180deg);
+        }
+    }
+
+    &__panel {
+        border-top: 1px solid $gray-100;
+    }
+
+    &__panel-inner {
+        padding: 20px;
+    }
+
+    &__empty {
+        @include font(c2, rg);
+        color: $gray-500;
+    }
+}

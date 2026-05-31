@@ -1,0 +1,95 @@
+@use "./variables" as *;
+@use "./typography" as *;
+
+/* =========================================
+   Base: Form Field
+========================================= */
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+
+
+    /* -------------------------
+       Element
+    ------------------------- */
+
+    &__label,
+    &__hint {
+        @include font(b3, rg);
+        color: $color-02-black;
+        margin-bottom: 12px;
+        transition: 0.15s;
+    }
+
+    &__hint {
+        margin-bottom: unset;
+        margin-top: 8px;
+    }
+
+    &__control {
+        position: relative;
+        display: flex;
+        align-items: center;
+        background-color: $bg-white;
+        border: 1px solid $line-regular;
+        overflow: hidden;
+        transition: 0.15s;
+
+        &:hover {
+            background-color: $bg-light;
+        }
+
+        &:focus,
+        &:focus-within {
+            border-color: $line-black;
+        }
+    }
+
+
+    /* -------------------------
+       State
+    ------------------------- */
+
+    &.is-disabled {
+        .form-field__control {
+            cursor: not-allowed;
+            background-color: $bg-light;
+            color: $color-05-gray-disabled;
+        }
+    }
+
+    &.is-error {
+
+
+        .form-field__control {
+            border-color: $status-error;
+        }
+
+        .form-field__hint {
+            color: $status-error;
+        }
+    }
+
+    &.is-warning {
+
+        .form-field__control {
+            border-color: $status-warning;
+        }
+
+        .form-field__hint {
+            color: $status-warning;
+        }
+    }
+
+    &.is-success {
+
+        .form-field__control {
+            border-color: $status-success;
+        }
+
+        .form-field__hint {
+            color: $status-success;
+        }
+    }
+}

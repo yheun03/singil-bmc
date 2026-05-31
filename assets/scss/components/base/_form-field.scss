@@ -1,0 +1,68 @@
+@use "../../abstract" as *;
+
+.app-form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 100%;
+
+    &__head {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    &__label {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        color: $gray-800;
+
+        @include font(b3, sb);
+    }
+
+    &__required {
+        color: $status-error;
+    }
+
+    &__optional {
+        color: $gray-400;
+
+        @include font(c2, rg);
+    }
+
+    &__description {
+        margin: 0;
+        color: $gray-500;
+
+        @include font(c2, rg);
+    }
+
+    &__control {
+        width: 100%;
+    }
+
+    &__message {
+        margin: 0;
+
+        @include font(c2, rg);
+
+        &--hint {
+            color: $gray-500;
+        }
+
+        &--error {
+            color: $status-error;
+        }
+    }
+
+    &.is-disabled {
+
+        .app-form-field__label,
+        .app-form-field__description,
+        .app-form-field__message {
+            color: $gray-400;
+        }
+    }
+}

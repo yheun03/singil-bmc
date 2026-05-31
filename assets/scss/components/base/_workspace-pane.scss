@@ -1,0 +1,98 @@
+@use "../../abstract" as *;
+
+
+
+.workspace {
+   display: grid;
+   grid-template-rows: 1fr;
+   height: 100%;
+   min-height: 0;
+}
+
+.workspace__content {
+   min-height: 0;
+   display: grid;
+   grid-template-columns: 1fr;
+}
+
+/* =========================================
+   Component: WorkspacePane
+   설명: 워크스페이스 내부 콘텐츠 영역
+   역할: 탭/뷰 내부 컨텐츠 레이아웃 컨테이너
+   특징:
+   - grid 기반 layout
+   - 내부 scroll 컨테이너를 위한 min-height:0 패턴 사용
+========================================= */
+
+.workspace-pane {
+   /* ----------------------------------------
+     Base Layout
+  ---------------------------------------- */
+   display: grid;
+   grid-template-rows: 1fr;
+   height: 100%;
+   background: $gray-0;
+
+   /* grid / flex 환경에서 내부 스크롤 가능하게 하기 위한 필수 속성 */
+   min-height: 0;
+
+
+   /* ----------------------------------------
+     Element: Body
+     설명: 실제 컨텐츠 영역 (scroll container)
+  ---------------------------------------- */
+
+   &__body {
+
+      height: 100%;
+
+      min-height: 0;
+
+      /* 내부 컴포넌트 overflow 제어 */
+      overflow: hidden;
+
+   }
+
+}
+
+/* =========================================
+   Component: ToastEditor
+   설명: Toast UI Editor wrapper
+   목적:
+   - 에디터 높이 제어
+   - 기본 UI 스타일 override
+   주의:
+   - toastui-editor-* 클래스는 라이브러리 클래스
+   - 반드시 wrapper 내부에서만 override
+========================================= */
+
+.toast-editor {
+
+   height: 100%;
+   min-height: 0;
+
+
+   /* ----------------------------------------
+       Toast UI Default UI
+    ---------------------------------------- */
+
+   .toastui-editor-defaultUI {
+
+      border: 0;
+
+      height: 100%;
+
+   }
+
+
+   /* ----------------------------------------
+       Toolbar
+    ---------------------------------------- */
+
+   .toastui-editor-toolbar {
+
+      border-bottom: 1px solid rgba($gray-200, .9);
+
+   }
+
+}

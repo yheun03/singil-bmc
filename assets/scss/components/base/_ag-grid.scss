@@ -1,0 +1,204 @@
+@use "../../abstract" as *;
+
+/* =========================================
+   Component: AG Grid Theme (Quartz 기반 커스텀)
+   설명: 우리 디자인 시스템(폰트/컬러/여백)에 맞춘 래핑 스타일
+   적용 대상: .ag-theme-quartz, .ag-theme-quartz-dark (향후)
+========================================= */
+.ag-overlay-no-rows {
+    padding: 24px;
+    font-size: 14px;
+    color: #888;
+    text-align: center;
+}
+
+.ag-theme-quartz {
+
+    /* ----------------------------------------
+     Base
+  ---------------------------------------- */
+
+    font-family: $font-family-base;
+    font-size: 13px;
+    color: $gray-800;
+
+    --ag-font-family: #{$font-family-base};
+    --ag-font-size: 13px;
+
+    --ag-background-color: #{$gray-200};
+    --ag-foreground-color: #{$gray-800};
+
+    --ag-header-background-color: #{$gray-50};
+    --ag-header-foreground-color: #{$gray-700};
+    --ag-header-column-separator-color: #{$gray-200};
+
+    --ag-row-border-color: #{$gray-100};
+    --ag-borders: solid 1px rgba($gray-900, .06);
+
+    --ag-data-color: #{$gray-800};
+    --ag-secondary-foreground-color: #{$gray-600};
+
+    --ag-input-border-color: #{$gray-200};
+    --ag-input-focus-border-color: #{$primary};
+
+    --ag-selected-row-background-color: rgba(#{$primary-50}, .9);
+    --ag-row-hover-color: #{$gray-50};
+    --ag-row-selected-color: #{$gray-900};
+
+    --ag-checkbox-background-color: #{$gray-0};
+    --ag-checkbox-border-color: #{$gray-300};
+    --ag-checkbox-checked-color: #{$primary};
+
+    --ag-range-selection-border-color: #{$primary};
+    --ag-range-selection-background-color: rgba(#{$primary-100}, .6);
+
+    --ag-column-hover-color: rgba(#{$primary-50}, .8);
+
+
+    /* ----------------------------------------
+     Header
+  ---------------------------------------- */
+
+    .ag-header {
+        border-bottom: 1px solid $gray-100;
+    }
+
+    .ag-header-row {
+        min-height: 40px;
+    }
+
+    .ag-header-cell {
+        // c1 + 세미볼드 느낌의 헤더
+        @include font(c1, sb);
+        color: $gray-700;
+        padding-block: 0;
+    }
+
+    .ag-header-cell-label {
+        gap: 4px;
+    }
+
+    .ag-header-cell-text {
+        letter-spacing: -0.01em;
+    }
+
+
+    /* ----------------------------------------
+     Body / Row
+  ---------------------------------------- */
+
+    .ag-root-wrapper {
+        border-radius: 16px;
+        border: 1px solid rgba($gray-900, .06);
+        box-shadow:
+            0 18px 40px rgba(15, 23, 42, .06),
+            0 0 0 1px rgba(15, 23, 42, .02);
+        overflow: hidden;
+        background: linear-gradient(180deg, rgba($gray-0, .9), rgba($gray-200, 1));
+    }
+
+    .ag-center-cols-viewport {
+        /* 스크롤 컨테이너: 기본 배경 */
+        background: $gray-0;
+    }
+
+    .ag-row {
+        @include font(c1, rg);
+
+        &:nth-child(even) {
+            background-color: $gray-0;
+        }
+    }
+
+    .ag-row.ag-row-hover {
+        background-color: $gray-50;
+    }
+
+    .ag-row.ag-row-selected {
+        background-color: rgba($primary-50, .9);
+    }
+
+
+    /* ----------------------------------------
+     Cell
+  ---------------------------------------- */
+
+    .ag-cell {
+        padding-block: 8px;
+        @include font(c1, rg);
+        color: $gray-800;
+        align-content: center;
+    }
+
+    .ag-cell-focus,
+    .ag-cell-range-selected {
+        box-shadow: inset 0 0 0 1px rgba($primary, .65);
+    }
+
+    .ag-cell-inline-editing {
+        .ag-cell-edit-input {
+            @include font(c1, rg);
+            padding: 4px 6px;
+            border-radius: 8px;
+            border: 1px solid $primary;
+            box-shadow: 0 0 0 1px rgba($primary, .1);
+        }
+    }
+
+
+    /* ----------------------------------------
+     Checkbox / Selection
+  ---------------------------------------- */
+
+    .ag-checkbox-input-wrapper {
+        border-radius: 6px;
+        border-color: $gray-300;
+    }
+
+    .ag-checkbox-input-wrapper.ag-checked {
+        background-color: $primary;
+        border-color: $primary;
+    }
+
+
+    /* ----------------------------------------
+     Filter / Floating UI
+  ---------------------------------------- */
+
+    .ag-filter-wrapper {
+        .ag-input-field-input {
+            @include font(c2, rg);
+            border-radius: 8px;
+            border: 1px solid $gray-200;
+            padding: 4px 8px;
+
+            &:focus-visible {
+                border-color: $primary;
+                outline: none;
+                box-shadow: 0 0 0 1px rgba($primary, .12);
+            }
+        }
+    }
+
+    .ag-popup {
+        border-radius: 10px;
+        border: 1px solid rgba($gray-900, .06);
+        box-shadow:
+            0 18px 45px rgba(15, 23, 42, .12),
+            0 0 0 1px rgba(15, 23, 42, .02);
+        overflow: hidden;
+    }
+
+
+    /* ----------------------------------------
+     Status Bar / Pagination (사용 시)
+  ---------------------------------------- */
+
+    .ag-status-bar,
+    .ag-paging-panel {
+        @include font(c2, rg);
+        color: $gray-600;
+        background: $gray-0;
+        border-top: 1px solid $gray-100;
+    }
+}

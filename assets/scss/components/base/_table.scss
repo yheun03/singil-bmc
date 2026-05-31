@@ -1,0 +1,198 @@
+@use "../../abstract" as *;
+
+/* =========================================
+   Component: AppTable
+========================================= */
+
+.app-table {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    &__title {
+        @include font(h4, sb);
+        color: $gray-900;
+    }
+
+    &__description {
+        @include font(b4, rg);
+        color: $gray-600;
+    }
+
+    &__content {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    &__table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+        border-top: 1px solid $line-regular;
+        border-bottom: 1px solid $line-regular;
+        background: $bg-white;
+    }
+
+    &__row {
+        border-bottom: 1px solid $line-light;
+    }
+
+    &__th,
+    &__td {
+        padding: 12px 16px;
+        border-left: 1px solid $line-light;
+        vertical-align: middle;
+
+        &:first-child {
+            border-left: 0;
+        }
+    }
+
+    &__th {
+        @include font(b3, sb);
+        color: $gray-900;
+        background: $bg-light;
+        text-align: left;
+        word-break: break-word;
+    }
+
+    &__td {
+        @include font(b3, rg);
+        color: $gray-800;
+        background: $bg-white;
+    }
+
+    &__required {
+        margin-left: 2px;
+        color: $status-error;
+    }
+
+    &__table--stacked {
+        .app-table__th--stacked {
+            text-align: left;
+        }
+    }
+
+    .is-full {
+        width: 100%;
+    }
+
+    .is-readonly {
+        background: $bg-light;
+    }
+
+    .is-disabled {
+        background: $bg-regular;
+    }
+
+    .is-textarea {
+        vertical-align: top;
+    }
+}
+
+/* =========================================
+   Component: AppTableField
+========================================= */
+
+.app-table-field {
+    width: 100%;
+
+    &__text {
+        display: inline-block;
+        width: 100%;
+        word-break: break-word;
+        color: $gray-800;
+    }
+
+    &__textarea {
+        width: 100%;
+        min-height: 96px;
+        padding: 12px 14px;
+        border: 1px solid $line-regular;
+        border-radius: 6px;
+        resize: vertical;
+        background: $bg-white;
+        color: $gray-900;
+        outline: none;
+        transition: border-color 0.15s ease;
+        box-sizing: border-box;
+
+        &::placeholder {
+            color: $gray-500;
+        }
+
+        &:focus {
+            border-color: $primary;
+        }
+
+        &:read-only {
+            background: $bg-light;
+            color: $gray-700;
+            cursor: default;
+        }
+
+        &:disabled {
+            background: $bg-regular;
+            color: $color-05-gray-disabled;
+            cursor: not-allowed;
+        }
+    }
+
+    &__inline {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        width: 100%;
+    }
+
+    &__inline-input {
+        flex: 1;
+        min-width: 0;
+    }
+
+    &__inline-button {
+        flex: none;
+    }
+
+    &__suffix-text,
+    &__range-separator,
+    &__email-at {
+        flex: none;
+        color: $gray-700;
+        @include font(b4, rg);
+        white-space: nowrap;
+    }
+
+    &__choice-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    &__inline--phone,
+    &__inline--email {
+
+        .app-table-field__phone-input,
+        .app-table-field__email-input {
+            flex: 1;
+            min-width: 0;
+        }
+    }
+
+    &__inline--date-range {
+        .app-table-field__inline-input {
+            flex: 1;
+            min-width: 0;
+        }
+    }
+
+    &.is-readonly {
+        .app-table-field__text {
+            color: $gray-700;
+        }
+    }
+
+    &.is-disabled {
+        opacity: 0.72;
+    }
+}

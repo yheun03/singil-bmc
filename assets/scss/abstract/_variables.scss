@@ -1,0 +1,80 @@
+// ============================================
+// Framework - SCSS 변수
+// ============================================
+
+// Colors (semantic 기본값)
+
+$status-success: #22c55e;
+$status-warning: #f59e0b;
+$status-error: #ef4444;
+$status-info: #2F6BFF;
+
+// Colors Palette (raw 토큰)
+// Primary (blue) 50~900
+$primary-50: #EEF4FF;
+$primary-100: #DCE8FF;
+$primary-200: #B8D1FF;
+$primary-300: #8FB7FF;
+$primary-400: #5C95FF;
+$primary-500: #2F6BFF;
+$primary-600: #2456D9;
+$primary-700: #1C43B3;
+$primary-800: #16358C;
+$primary-900: #0F255F;
+$primary: $primary-500;
+
+// Gray 0~900 
+$gray-0: #FFFFFF;
+$gray-50: #F7F8FA;
+$gray-100: #EFF1F4;
+$gray-200: #E2E5EA;
+$gray-300: #CDD4DA;
+$gray-400: #A7B0BB;
+$gray-500: #7E8894;
+$gray-600: #5E6670;
+$gray-700: #3F454F;
+$gray-800: #2A2F38;
+$gray-900: #1C2026;
+
+$gradient-primary: linear-gradient(to bottom, $primary-800 0%, $primary-900 100%);
+
+// Typography
+$font-family-base: "Pretendard", system-ui, -apple-system, sans-serif;
+$font-size-base: 16px;
+$line-height-base: 1.5;
+
+// Variables
+:root {
+    --width-sidebar: 260px;
+}
+
+$color-01-white: #ffffff;
+$color-02-black: #111111;
+$color-03-gray: #505050;
+$color-04-gray: #767676;
+$color-05-gray-disabled: #999999;
+
+$line-light: #f1f1f5;
+$line-regular: #E5E5EC;
+$line-black: #111111;
+$line-white: #FFFFFF;
+$line-disabled: #CACAD7;
+
+$bg-light: #f7f7fb;
+$bg-regular: #F1F1F5;
+$bg-black: #111111;
+$bg-white: #FFFFFF;
+$bg-black-opacity-85: rgba(0, 0, 0, 0.85);
+$bg-black-opacity-60: rgba(0, 0, 0, 0.60);
+$bg-black-opacity-30: rgba(0, 0, 0, 0.30);
+$bg-black-opacity-20: rgba(0, 0, 0, 0.20);
+$bg-black-opacity-03: rgba(0, 0, 0, 0.03);
+$bg-white-opacity-60: rgba(255, 255, 255, 0.60);
+$bg-white-opacity-20: rgba(255, 255, 255, 0.20);
+
+
+$bg-btn-black: #111111;
+$bg-btn-white: #FFFFFF;
+$bg-btn-light: #f7f7fb;
+$bg-btn-regular: #e5e5ec;
+$bg-btn-disabled: #f1f1f5;

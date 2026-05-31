@@ -1,0 +1,440 @@
+@use "../../abstract" as *;
+
+/* =========================================
+   Component: AppChoice
+   - checkbox / radio / chip selection
+   - BEM Structure
+   - Dart Sass 3.0 compatible
+========================================= */
+
+.app-choice {
+    display: inline-flex;
+    align-items: flex-start;
+    gap: 8px;
+    position: relative;
+    cursor: pointer;
+
+    @include font(b3, rg);
+
+    /* ----------------------------------------
+       Element: Control
+    ---------------------------------------- */
+    &__control {
+        position: relative;
+        flex: 0 0 auto;
+    }
+
+    /* ----------------------------------------
+       Element: Input
+    ---------------------------------------- */
+    &__input {
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        opacity: 0;
+        cursor: inherit;
+    }
+
+    /* ----------------------------------------
+       Element: Visual
+    ---------------------------------------- */
+    &__visual {
+        display: grid;
+        place-items: center;
+        background: $bg-white;
+        transition:
+            border-color 0.12s ease,
+            background-color 0.12s ease,
+            box-shadow 0.12s ease,
+            opacity 0.12s ease;
+    }
+
+    /* ----------------------------------------
+       Element: Inner
+    ---------------------------------------- */
+    &__inner {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__dot {
+        display: block;
+        border-radius: 999px;
+    }
+
+    /* ----------------------------------------
+       Element: Body
+    ---------------------------------------- */
+    &__body {
+        display: grid;
+        gap: 2px;
+    }
+
+    &__label {
+        color: $color-03-gray;
+    }
+
+    &__hint {
+        @include font(c2, rg);
+        color: $gray-600;
+    }
+
+    /* ----------------------------------------
+       Focus
+    ---------------------------------------- */
+    &__input:focus-visible+.app-choice__visual {
+        outline: 2px solid $primary-300;
+        outline-offset: 2px;
+    }
+
+    /* ----------------------------------------
+       Size
+    ---------------------------------------- */
+    &--md {
+        .app-choice__visual {
+            width: 22px;
+            height: 22px;
+        }
+
+        .app-choice__label {
+            @include font(b3, rg);
+        }
+
+        &.app-choice--checkbox {
+            .app-choice__inner svg {
+                width: 16px;
+                height: 16px;
+            }
+        }
+
+        &.app-choice--radio {
+            .app-choice__dot {
+                width: 8px;
+                height: 8px;
+            }
+        }
+    }
+
+    &--sm {
+        gap: 6px;
+
+        .app-choice__visual {
+            width: 18px;
+            height: 18px;
+        }
+
+        .app-choice__label {
+            @include font(b4, rg);
+        }
+
+        .app-choice__hint {
+            @include font(c3, rg);
+        }
+
+        &.app-choice--checkbox {
+            .app-choice__inner svg {
+                width: 12px;
+                height: 12px;
+            }
+        }
+
+        &.app-choice--radio {
+            .app-choice__dot {
+                width: 6px;
+                height: 6px;
+            }
+        }
+    }
+
+    /* ----------------------------------------
+       Type: Checkbox
+    ---------------------------------------- */
+    &--checkbox {
+        .app-choice__inner {
+            svg {
+                display: block;
+                width: 100%;
+                height: 100%;
+            }
+
+            path {
+                fill: $bg-white;
+            }
+        }
+    }
+
+    /* ----------------------------------------
+       Type: Radio
+    ---------------------------------------- */
+    &--radio {
+
+        .app-choice__visual,
+        .app-choice__inner {
+            border-radius: 999px;
+        }
+    }
+
+    /* ----------------------------------------
+       UI Type A
+       Checkbox: square
+       Radio: white bg + black dot
+    ---------------------------------------- */
+    &--ui-a {
+        &.app-choice--checkbox {
+            .app-choice__visual {
+                border: 1px solid $line-regular;
+                border-radius: 0;
+                background: $bg-white;
+            }
+
+            .app-choice__input:checked+.app-choice__visual {
+                border-color: $bg-black;
+                background: $bg-black;
+            }
+        }
+
+        &.app-choice--radio {
+            .app-choice__visual {
+                border: 1px solid $line-regular;
+                background: $bg-white;
+            }
+
+            .app-choice__input:checked+.app-choice__visual {
+                border-color: $bg-black;
+                background: $bg-white;
+
+                .app-choice__dot {
+                    background: $bg-black;
+                }
+            }
+        }
+    }
+
+    /* ----------------------------------------
+       UI Type B
+       Checkbox: round
+       Radio: black bg + white dot
+    ---------------------------------------- */
+    &--ui-b {
+        &.app-choice--checkbox {
+            .app-choice__visual {
+                border: 1px solid $gray-200;
+                border-radius: 999px;
+                background: $bg-white;
+            }
+
+            .app-choice__input:checked+.app-choice__visual {
+                border-color: $bg-black;
+                background: $bg-black;
+                box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.04);
+            }
+        }
+
+        &.app-choice--radio {
+            .app-choice__visual {
+                border: 1px solid $gray-200;
+                background: $bg-white;
+            }
+
+            .app-choice__input:checked+.app-choice__visual {
+                border-color: $bg-black;
+                background: $bg-black;
+                box-shadow: 0 0 0 1px rgba(15, 23, 42, 0.04);
+
+                .app-choice__dot {
+                    background: $bg-white;
+                }
+            }
+        }
+    }
+
+    /* ----------------------------------------
+       Disabled
+    ---------------------------------------- */
+    &__input:disabled+.app-choice__visual {
+        border-color: $line-disabled;
+        background: $bg-regular;
+
+        .app-choice__inner {
+            svg path {
+                fill: $color-05-gray-disabled;
+            }
+        }
+
+        .app-choice__dot {
+            background: $color-05-gray-disabled;
+        }
+    }
+
+    &.is-disabled {
+        cursor: not-allowed;
+        opacity: 0.6;
+    }
+
+    /* ----------------------------------------
+       State
+    ---------------------------------------- */
+    &.is-error {
+        .app-choice__visual {
+            border-color: $status-error;
+        }
+
+        .app-choice__hint {
+            color: $status-error;
+        }
+    }
+
+    &.is-warning {
+        .app-choice__visual {
+            border-color: $status-warning;
+        }
+
+        .app-choice__hint {
+            color: $status-warning;
+        }
+    }
+
+    &.is-success {
+        .app-choice__visual {
+            border-color: $status-success;
+        }
+
+        .app-choice__hint {
+            color: $status-success;
+        }
+    }
+
+    /* ----------------------------------------
+       Chip Variants
+       - keep input alive
+       - hide default visual only
+    ---------------------------------------- */
+    &--chip,
+    &--chip-outline,
+    &--fill,
+    &--ghost {
+        align-items: center;
+        gap: 6px;
+        padding: 4px 12px;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        background-color: transparent;
+
+        @include font(b4, rg);
+
+        .app-choice__control {
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        .app-choice__input {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+        }
+
+        .app-choice__visual {
+            display: none;
+        }
+
+        .app-choice__body {
+            gap: 0;
+        }
+
+        .app-choice__hint {
+            display: none;
+        }
+    }
+
+    &--chip {
+        background-color: $gray-50;
+        border-color: $gray-200;
+
+        &.is-checked {
+            background-color: $primary;
+            border-color: $primary;
+
+            .app-choice__label {
+                color: $gray-0;
+            }
+        }
+    }
+
+    &--chip-outline {
+        background-color: $gray-0;
+        border-color: $gray-300;
+
+        &.is-checked {
+            border-color: $primary;
+            background-color: $primary-50;
+
+            .app-choice__label {
+                color: $primary-700;
+            }
+        }
+    }
+
+    &--fill {
+        padding-inline: 10px;
+        border-radius: 8px;
+        background-color: $gray-50;
+        border-color: $gray-50;
+
+        &.is-checked {
+            background-color: $primary;
+            border-color: $primary;
+
+            .app-choice__label {
+                color: $gray-0;
+            }
+        }
+    }
+
+    &--ghost {
+        border-color: transparent;
+        background-color: transparent;
+
+        .app-choice__label {
+            color: $gray-600;
+        }
+
+        &.is-checked {
+            background-color: $primary-100;
+            border-color: $primary-100;
+
+            .app-choice__label {
+                color: $primary-700;
+            }
+        }
+    }
+
+    &.is-readonly {
+
+        .app-choice__visual {
+
+            background: $bg-light;
+
+        }
+
+        .app-choice__label,
+
+        .app-choice__hint {
+
+            color: $gray-700;
+
+        }
+
+        .app-choice__input {
+
+            cursor: default;
+
+        }
+
+    }
+}
