@@ -61,13 +61,23 @@
 
     &__toggle {
         display: none;
-        width: 42px;
-        height: 42px;
-        border: 1px solid rgba($bmc-white, 0.2);
-        border-radius: 2px;
+        width: 48px;
+        height: 48px;
+        border: 1px solid rgba($bmc-navy-900, 0.12);
+        border-radius: 8px;
         background: $bmc-navy-900;
         color: $bmc-white;
-        font-size: 1.25rem;
+        cursor: pointer;
+
+        svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        &:focus-visible {
+            outline: 3px solid rgba($bmc-blue-500, 0.35);
+            outline-offset: 3px;
+        }
     }
 
     &__nav {
@@ -91,26 +101,34 @@
         white-space: nowrap;
         border-bottom: 3px solid transparent;
         box-sizing: border-box;
+        background: transparent;
     }
 
     &__link {
         &:hover,
         &.router-link-active,
-        &.router-link-exact-active {
+        &.router-link-exact-active,
+        &.is-current {
             color: $bmc-blue-500;
             border-bottom-color: $bmc-blue-500;
         }
     }
 
     &__trigger {
-        cursor: default;
+        border: 0;
+        cursor: pointer;
         user-select: none;
 
         .bmc-header__dropdown:hover &,
-        .bmc-header__dropdown:focus-within & {
+        .bmc-header__dropdown:focus-within &,
+        .bmc-header__dropdown.is-current & {
             color: $bmc-blue-500;
             border-bottom-color: $bmc-blue-500;
         }
+    }
+
+    &__trigger-icon {
+        display: none;
     }
 
     &__dropdown {
@@ -148,7 +166,8 @@
         font-weight: 600;
 
         &:hover,
-        &.router-link-active {
+        &.router-link-active,
+        &.is-current {
             background: rgba($bmc-white, 0.08);
             color: $bmc-white;
         }
@@ -166,9 +185,12 @@
             display: none;
             flex-direction: column;
             align-items: stretch;
-            padding: 12px 20px 20px;
+            gap: 10px;
+            max-height: calc(100dvh - 76px);
+            padding: 16px 20px 24px;
+            overflow-y: auto;
             background: $bmc-white;
-            border-bottom: 1px solid rgba($bmc-white, 0.08);
+            border-bottom: 1px solid $bmc-gray-200;
             box-shadow: 0 20px 42px rgba($bmc-navy-900, 0.16);
 
             &.is-open {
@@ -178,8 +200,60 @@
 
         &__link,
         &__trigger {
-            min-height: auto;
-            padding: 14px 0;
+            width: 100%;
+            min-height: 52px;
+            justify-content: space-between;
+            padding: 0 16px;
+            border: 1px solid $bmc-gray-200;
+            border-radius: 8px;
+            background: $bmc-white;
+            color: $bmc-navy-900;
+            font-size: 0.9375rem;
+            letter-spacing: 0;
+            box-shadow: none;
+
+            &:focus-visible {
+                outline: 3px solid rgba($bmc-blue-500, 0.24);
+                outline-offset: 2px;
+            }
+        }
+
+        &__link {
+            &.router-link-active,
+            &.router-link-exact-active,
+            &.is-current {
+                border-color: rgba($bmc-blue-500, 0.35);
+                background: rgba($bmc-blue-500, 0.08);
+                color: $bmc-blue-500;
+            }
+        }
+
+        &__trigger {
+            .bmc-header__dropdown:hover &,
+            .bmc-header__dropdown:focus-within &,
+            .bmc-header__dropdown.is-current & {
+                border-color: rgba($bmc-blue-500, 0.35);
+                background: rgba($bmc-blue-500, 0.08);
+                color: $bmc-blue-500;
+            }
+        }
+
+        &__trigger-icon {
+            display: block;
+            flex: 0 0 auto;
+            width: 20px;
+            height: 20px;
+            transition: transform 0.16s ease;
+        }
+
+        &__dropdown {
+            display: grid;
+            align-self: auto;
+            gap: 8px;
+
+            &.is-open .bmc-header__trigger-icon {
+                transform: rotate(180deg);
+            }
         }
 
         &__dropdown:hover .bmc-header__submenu {
@@ -188,11 +262,34 @@
 
         &__submenu {
             position: static;
-            display: grid;
+            display: none;
+            gap: 6px;
             box-shadow: none;
-            border: 0;
-            padding: 8px 10px;
-            background: $bmc-navy-900;
+            border: 1px solid $bmc-gray-200;
+            border-radius: 8px;
+            padding: 8px;
+            background: $bmc-gray-100;
+        }
+
+        &__dropdown.is-open .bmc-header__submenu {
+            display: grid;
+        }
+
+        &__sublink {
+            min-height: 46px;
+            display: flex;
+            align-items: center;
+            padding: 0 14px;
+            border-radius: 6px;
+            color: $bmc-gray-800;
+            font-size: 0.9375rem;
+            font-weight: 800;
+
+            &.router-link-active,
+            &.is-current {
+                background: $bmc-navy-900;
+                color: $bmc-white;
+            }
         }
     }
 }
