@@ -6,7 +6,16 @@
         :pending="pending"
         :error="error"
     >
-        <div v-if="games.length" class="bmc-game-season-summary">
+        <AppTabs
+            v-if="games.length"
+            v-model:active-id="selectedGroup"
+            :items="groupTabItems"
+            variant="pill"
+            size="sm"
+            class="bmc-game-list__tabs"
+        />
+
+        <div v-if="filteredGames.length" class="bmc-game-season-summary">
             <span class="bmc-game-season-summary__chip">
                 승 <strong>{{ seasonCounts.win + seasonCounts['cold-win'] }}</strong>
                 <span v-if="seasonCounts['cold-win']" class="bmc-game-season-summary__sub">(콜드 {{ seasonCounts['cold-win'] }})</span>
@@ -23,7 +32,7 @@
         <div class="bmc-game-results-legend" aria-label="경기 결과 표기 안내">
             <div>
                 <p class="bmc-game-results-legend__title">결과 표기</p>
-                <p class="bmc-game-results-legend__hint">콜드는 10점차 이상 조기 종료 경기로 추정합니다.</p>
+                <p class="bmc-game-results-legend__hint">콜드는 조기 종료 경기입니다. 점수차가 10점 미만이어도 리그 콜드 규정이 적용된 경기는 콜드승으로 표시합니다.</p>
             </div>
             <div class="bmc-game-results-legend__items">
                 <SiteGameResultBadge v-for="kind in legendKinds" :key="kind" :kind="kind" size="sm" />
@@ -32,7 +41,7 @@
 
         <div class="bmc-grid bmc-grid--2">
             <NuxtLink
-                v-for="game in games"
+                v-for="game in filteredGames"
                 :key="game.gameId"
                 class="bmc-game-card"
                 :class="cardClass(game)"
@@ -88,7 +97,18 @@ const legendKinds: GameResultKind[] = ['win', 'loss', 'cold-win', 'cold-loss'];
 const { data, pending, error } = useSiteData<Game[]>('generated/games.json');
 const games = computed(() => [...(data.value ?? [])].sort((a, b) => b.gameDate.localeCompare(a.gameDate)));
 
-const seasonCounts = computed(() => summarizeSeasonResults(games.value));
+const selectedGroup = ref('all');
+const groupTabItems = [
+    { id: 'all', title: '전체', bodyRenderer: () => null },
+    { id: 'A', title: 'A조', bodyRenderer: () => null },
+    { id: 'D', title: 'D조', bodyRenderer: () => null },
+];
+
+const filteredGames = computed(() =>
+    games.value.filter((game) => selectedGroup.value === 'all' || game.group === selectedGroup.value),
+);
+
+const seasonCounts = computed(() => summarizeSeasonResults(filteredGames.value));
 
 function formatOpponent(opponent = '') {
     return opponent.replace(/-/g, ' ');
@@ -115,6 +135,10 @@ function scoreClass(game: Game) {
 </script>
 
 <style scoped lang="scss">
+.bmc-game-list__tabs {
+    margin-bottom: 20px;
+}
+
 .bmc-game-season-summary__sub {
     font-size: 0.75rem;
     font-weight: 600;

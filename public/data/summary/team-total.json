@@ -1,8 +1,8 @@
 {
   "totalGames": 13,
   "totalPlayers": 23,
-  "totalHits": 116,
-  "totalRuns": 146,
+  "totalHits": 119,
+  "totalRuns": 142,
   "lastGameDate": "2026-05-30",
   "recentGames": [
     {
@@ -42,12 +42,12 @@
       "gameId": "2026-05-23-vs-koreauniv",
       "gameDate": "2026-05-23",
       "opponent": "koreauniv",
-      "opponentName": "서강가브리엘스",
+      "opponentName": "고려대학교 데몽",
       "score": {
-        "our": 13,
+        "our": 12,
         "opponent": 5
       },
-      "group": "D"
+      "group": "A"
     },
     {
       "gameId": "2026-05-30-vs-11stwyverns",

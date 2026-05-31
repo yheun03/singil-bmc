@@ -32,6 +32,17 @@ function loadYoutubeLinks() {
     return readJson(path.join(MANUAL_DIR, 'youtube-links.json'), {});
 }
 
+function loadGameOverrides() {
+    return readJson(path.join(MANUAL_DIR, 'game-overrides.json'), {});
+}
+
+function mergeGameOverrides(games, overrides) {
+    return games.map((game) => {
+        const patch = overrides[game.gameId];
+        return patch ? { ...game, ...patch } : game;
+    });
+}
+
 function normalizeYoutubeLink(link) {
     if (!link) return null;
 
@@ -551,7 +562,8 @@ export function buildAllRecords() {
     ensureDir(GENERATED_DIR);
 
     const youtubeLinks = loadYoutubeLinks();
-    const games = mergeYoutubeLinks(loadAllGames(), youtubeLinks);
+    const gameOverrides = loadGameOverrides();
+    const games = mergeYoutubeLinks(mergeGameOverrides(loadAllGames(), gameOverrides), youtubeLinks);
 
     if (!games.length) {
         console.log('[INFO] games JSON 파일이 없습니다. summary는 빈 값으로 생성합니다.');
