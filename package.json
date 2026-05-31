@@ -12,7 +12,7 @@
         "clean": "rm -rf .nuxt .output node_modules/.vite",
         "dev": "nuxt dev",
         "generate": "nuxt generate",
-        "generate:gh-pages": "NUXT_APP_BASE_URL=/singil-bmc/ nuxt generate && gh-pages -d .output/public --dotfiles",
+        "deploy": "NUXT_APP_BASE_URL=/singil-bmc/ nuxt generate && gh-pages -d .output/public --dotfiles",
         "update": "node scripts/update-records.js",
         "records:parse": "node scripts/parse-game-html.js",
         "records:build": "node scripts/build-records.js",

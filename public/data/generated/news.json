@@ -11,7 +11,13 @@
     "content": "<p>다윗 야구 선교단은 11번가 와이번스전에서 7안타 1홈런 2도루를 기록했습니다.</p><p>주요 기록은 홈런 은영환(4회), 3루타 은영환(2회)입니다.</p><p><a href=\"/games/2026-05-30-vs-11stwyverns\">경기 상세 기록 보기</a></p>",
     "link": "/games/2026-05-30-vs-11stwyverns",
     "gameId": "2026-05-30-vs-11stwyverns",
-    "youtube": null
+    "youtube": {
+      "videoCode": "v9PPNTJB5lE",
+      "title": "2026.05.30 11번가 와이번스전 경기 영상",
+      "publishedAt": "2026-05-30",
+      "youtubeUrl": "https://www.youtube.com/watch?v=v9PPNTJB5lE",
+      "thumbnail": "https://i.ytimg.com/vi/v9PPNTJB5lE/hq720.jpg"
+    }
   },
   {
     "id": "game-2026-05-23-vs-koreauniv",
@@ -25,7 +31,13 @@
     "content": "<p>다윗 야구 선교단은 서강가브리엘스전에서 9안타 0홈런 7도루를 기록했습니다.</p><p>주요 기록은 3루타 오치송(1회) 은영환(1회), 2루타 이효재(2회) 은영환(2회) 김명선(1회)입니다.</p><p><a href=\"/games/2026-05-23-vs-koreauniv\">경기 상세 기록 보기</a></p>",
     "link": "/games/2026-05-23-vs-koreauniv",
     "gameId": "2026-05-23-vs-koreauniv",
-    "youtube": null
+    "youtube": {
+      "videoCode": "jWTJ8OXmQig",
+      "title": "2026.05.23 고려대학교전 경기 영상",
+      "publishedAt": "2026-05-23",
+      "youtubeUrl": "https://www.youtube.com/watch?v=jWTJ8OXmQig",
+      "thumbnail": "https://i.ytimg.com/vi/jWTJ8OXmQig/hq720.jpg"
+    }
   },
   {
     "id": "game-2026-05-09-vs-deloitte",

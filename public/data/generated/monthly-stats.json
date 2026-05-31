@@ -8,7 +8,7 @@
     "runs": 47,
     "batting": [
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "D",
         "g": 3,
@@ -31,7 +31,7 @@
         "ops": "1.000"
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "D",
         "g": 4,
@@ -54,7 +54,7 @@
         "ops": "1.000"
       },
       {
-        "playerId": "player-004",
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
         "name": "서우성",
         "group": "D",
         "g": 4,
@@ -77,7 +77,7 @@
         "ops": ".444"
       },
       {
-        "playerId": "player-001",
+        "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
         "name": "이효재",
         "group": "D",
         "g": 3,
@@ -100,7 +100,7 @@
         "ops": ".444"
       },
       {
-        "playerId": "player-012",
+        "playerId": "gameone-d-1ssvastjhsl00000px3n",
         "name": "노혁진",
         "group": "D",
         "g": 3,
@@ -123,7 +123,7 @@
         "ops": ".750"
       },
       {
-        "playerId": "temp-008",
+        "playerId": "gameone-d-7qgdtcsthhi0000013j4",
         "name": "김희열",
         "group": "D",
         "g": 2,
@@ -146,7 +146,7 @@
         "ops": ".333"
       },
       {
-        "playerId": "temp-002",
+        "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
         "name": "김재영",
         "group": "D",
         "g": 2,
@@ -169,7 +169,7 @@
         "ops": ".667"
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "g": 2,
@@ -192,7 +192,7 @@
         "ops": ".333"
       },
       {
-        "playerId": "player-003",
+        "playerId": "gameone-d-14atmtkekqko000000creao",
         "name": "김호태",
         "group": "D",
         "g": 4,
@@ -215,7 +215,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-007",
+        "playerId": "gameone-d-10t99plcau4o000000xsozw",
         "name": "김가현",
         "group": "D",
         "g": 2,
@@ -238,7 +238,7 @@
         "ops": ".400"
       },
       {
-        "playerId": "player-008",
+        "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
         "name": "지성찬",
         "group": "D",
         "g": 2,
@@ -261,7 +261,7 @@
         "ops": "1.200"
       },
       {
-        "playerId": "player-005",
+        "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
         "name": "박의현",
         "group": "D",
         "g": 2,
@@ -284,7 +284,7 @@
         "ops": "1.500"
       },
       {
-        "playerId": "player-006",
+        "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "D",
         "g": 2,
@@ -307,7 +307,7 @@
         "ops": "1.500"
       },
       {
-        "playerId": "temp-001",
+        "playerId": "gameone-d-kk8hul65kok000000wyq9z",
         "name": "오치송",
         "group": "D",
         "g": 1,
@@ -330,7 +330,7 @@
         "ops": ".500"
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "g": 2,
@@ -353,7 +353,7 @@
         "ops": ".667"
       },
       {
-        "playerId": "temp-006",
+        "playerId": "gameone-d-2ebo2ah1vkt0000000ptwfl",
         "name": "민재홍",
         "group": "D",
         "g": 1,
@@ -376,7 +376,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-010",
+        "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
         "name": "성백동",
         "group": "D",
         "g": 2,
@@ -399,7 +399,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "temp-005",
+        "playerId": "gameone-d-1eeu7stkh4ig000000bfkln",
         "name": "조영중",
         "group": "D",
         "g": 1,
@@ -422,7 +422,7 @@
         "ops": "2.000"
       },
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "g": 1,
@@ -447,7 +447,7 @@
     ],
     "pitching": [
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "g": 3,
@@ -466,7 +466,7 @@
         "whip": "1.64"
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "g": 2,
@@ -485,7 +485,7 @@
         "whip": "2.00"
       },
       {
-        "playerId": "player-014",
+        "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
         "name": "반석훈",
         "group": "D",
         "g": 1,
@@ -504,7 +504,7 @@
         "whip": "1.13"
       },
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "g": 3,
@@ -523,7 +523,7 @@
         "whip": "6.00"
       },
       {
-        "playerId": "player-006",
+        "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "D",
         "g": 1,
@@ -558,7 +558,7 @@
         "runs": 47,
         "batting": [
           {
-            "playerId": "player-011",
+            "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
             "name": "은영환",
             "group": "D",
             "g": 3,
@@ -581,7 +581,7 @@
             "ops": "1.000"
           },
           {
-            "playerId": "player-002",
+            "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
             "name": "최정훈",
             "group": "D",
             "g": 4,
@@ -604,7 +604,7 @@
             "ops": "1.000"
           },
           {
-            "playerId": "player-004",
+            "playerId": "gameone-d-9u0diupqb7600000023mwz",
             "name": "서우성",
             "group": "D",
             "g": 4,
@@ -627,7 +627,7 @@
             "ops": ".444"
           },
           {
-            "playerId": "player-001",
+            "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
             "name": "이효재",
             "group": "D",
             "g": 3,
@@ -650,7 +650,7 @@
             "ops": ".444"
           },
           {
-            "playerId": "player-012",
+            "playerId": "gameone-d-1ssvastjhsl00000px3n",
             "name": "노혁진",
             "group": "D",
             "g": 3,
@@ -673,7 +673,7 @@
             "ops": ".750"
           },
           {
-            "playerId": "temp-008",
+            "playerId": "gameone-d-7qgdtcsthhi0000013j4",
             "name": "김희열",
             "group": "D",
             "g": 2,
@@ -696,7 +696,7 @@
             "ops": ".333"
           },
           {
-            "playerId": "temp-002",
+            "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
             "name": "김재영",
             "group": "D",
             "g": 2,
@@ -719,7 +719,7 @@
             "ops": ".667"
           },
           {
-            "playerId": "player-009",
+            "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
             "name": "김명선",
             "group": "D",
             "g": 2,
@@ -742,7 +742,7 @@
             "ops": ".333"
           },
           {
-            "playerId": "player-003",
+            "playerId": "gameone-d-14atmtkekqko000000creao",
             "name": "김호태",
             "group": "D",
             "g": 4,
@@ -765,7 +765,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-007",
+            "playerId": "gameone-d-10t99plcau4o000000xsozw",
             "name": "김가현",
             "group": "D",
             "g": 2,
@@ -788,7 +788,7 @@
             "ops": ".400"
           },
           {
-            "playerId": "player-008",
+            "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
             "name": "지성찬",
             "group": "D",
             "g": 2,
@@ -811,7 +811,7 @@
             "ops": "1.200"
           },
           {
-            "playerId": "player-005",
+            "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
             "name": "박의현",
             "group": "D",
             "g": 2,
@@ -834,7 +834,7 @@
             "ops": "1.500"
           },
           {
-            "playerId": "player-006",
+            "playerId": "gameone-d-htnjgpl47440000009rhn8",
             "name": "선예환",
             "group": "D",
             "g": 2,
@@ -857,7 +857,7 @@
             "ops": "1.500"
           },
           {
-            "playerId": "temp-001",
+            "playerId": "gameone-d-kk8hul65kok000000wyq9z",
             "name": "오치송",
             "group": "D",
             "g": 1,
@@ -880,7 +880,7 @@
             "ops": ".500"
           },
           {
-            "playerId": "temp-003",
+            "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
             "name": "권태헌",
             "group": "D",
             "g": 2,
@@ -903,7 +903,7 @@
             "ops": ".667"
           },
           {
-            "playerId": "temp-006",
+            "playerId": "gameone-d-2ebo2ah1vkt0000000ptwfl",
             "name": "민재홍",
             "group": "D",
             "g": 1,
@@ -926,7 +926,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-010",
+            "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
             "name": "성백동",
             "group": "D",
             "g": 2,
@@ -949,7 +949,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "temp-005",
+            "playerId": "gameone-d-1eeu7stkh4ig000000bfkln",
             "name": "조영중",
             "group": "D",
             "g": 1,
@@ -972,7 +972,7 @@
             "ops": "2.000"
           },
           {
-            "playerId": "player-013",
+            "playerId": "gameone-d-9u3q0framj200000073oqd",
             "name": "노승원",
             "group": "D",
             "g": 1,
@@ -997,7 +997,7 @@
         ],
         "pitching": [
           {
-            "playerId": "temp-003",
+            "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
             "name": "권태헌",
             "group": "D",
             "g": 3,
@@ -1016,7 +1016,7 @@
             "whip": "1.64"
           },
           {
-            "playerId": "player-009",
+            "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
             "name": "김명선",
             "group": "D",
             "g": 2,
@@ -1035,7 +1035,7 @@
             "whip": "2.00"
           },
           {
-            "playerId": "player-014",
+            "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
             "name": "반석훈",
             "group": "D",
             "g": 1,
@@ -1054,7 +1054,7 @@
             "whip": "1.13"
           },
           {
-            "playerId": "player-013",
+            "playerId": "gameone-d-9u3q0framj200000073oqd",
             "name": "노승원",
             "group": "D",
             "g": 3,
@@ -1073,7 +1073,7 @@
             "whip": "6.00"
           },
           {
-            "playerId": "player-006",
+            "playerId": "gameone-d-htnjgpl47440000009rhn8",
             "name": "선예환",
             "group": "D",
             "g": 1,
@@ -1104,7 +1104,7 @@
     "runs": 40,
     "batting": [
       {
-        "playerId": "temp-002",
+        "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
         "name": "김재영",
         "group": "D",
         "g": 3,
@@ -1127,7 +1127,7 @@
         "ops": ".571"
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "g": 3,
@@ -1150,7 +1150,7 @@
         "ops": ".286"
       },
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "D",
         "g": 2,
@@ -1173,7 +1173,7 @@
         "ops": "1.143"
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "g": 2,
@@ -1196,7 +1196,7 @@
         "ops": ".286"
       },
       {
-        "playerId": "player-003",
+        "playerId": "gameone-d-14atmtkekqko000000creao",
         "name": "김호태",
         "group": "D",
         "g": 3,
@@ -1219,7 +1219,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "D",
         "g": 2,
@@ -1242,7 +1242,7 @@
         "ops": "1.333"
       },
       {
-        "playerId": "player-001",
+        "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
         "name": "이효재",
         "group": "D",
         "g": 1,
@@ -1265,7 +1265,7 @@
         "ops": "1.000"
       },
       {
-        "playerId": "temp-001",
+        "playerId": "gameone-d-kk8hul65kok000000wyq9z",
         "name": "오치송",
         "group": "D",
         "g": 1,
@@ -1288,7 +1288,7 @@
         "ops": ".500"
       },
       {
-        "playerId": "player-014",
+        "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
         "name": "반석훈",
         "group": "A",
         "g": 1,
@@ -1311,7 +1311,7 @@
         "ops": "1.000"
       },
       {
-        "playerId": "player-004",
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
         "name": "서우성",
         "group": "D",
         "g": 1,
@@ -1334,7 +1334,7 @@
         "ops": ".667"
       },
       {
-        "playerId": "temp-002",
+        "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
         "name": "김재영",
         "group": "A",
         "g": 1,
@@ -1357,7 +1357,7 @@
         "ops": ".667"
       },
       {
-        "playerId": "player-005",
+        "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
         "name": "박의현",
         "group": "A",
         "g": 1,
@@ -1380,7 +1380,7 @@
         "ops": "2.000"
       },
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "A",
         "g": 1,
@@ -1403,7 +1403,7 @@
         "ops": ".667"
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "A",
         "g": 1,
@@ -1426,7 +1426,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-001",
+        "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
         "name": "이효재",
         "group": "A",
         "g": 1,
@@ -1449,7 +1449,7 @@
         "ops": ".667"
       },
       {
-        "playerId": "player-014",
+        "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
         "name": "반석훈",
         "group": "D",
         "g": 1,
@@ -1472,7 +1472,7 @@
         "ops": "1.333"
       },
       {
-        "playerId": "temp-006",
+        "playerId": "gameone-d-2ebo2ah1vkt0000000ptwfl",
         "name": "민재홍",
         "group": "D",
         "g": 1,
@@ -1495,7 +1495,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "temp-007",
+        "playerId": "gameone-d-25t354agg9q0000000uq981",
         "name": "유병호",
         "group": "D",
         "g": 1,
@@ -1518,7 +1518,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-006",
+        "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "D",
         "g": 1,
@@ -1541,7 +1541,7 @@
         "ops": "1.000"
       },
       {
-        "playerId": "player-010",
+        "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
         "name": "성백동",
         "group": "D",
         "g": 1,
@@ -1564,7 +1564,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "A",
         "g": 1,
@@ -1587,7 +1587,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-010",
+        "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
         "name": "성백동",
         "group": "A",
         "g": 1,
@@ -1610,7 +1610,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "A",
         "g": 1,
@@ -1633,7 +1633,7 @@
         "ops": "1.000"
       },
       {
-        "playerId": "player-005",
+        "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
         "name": "박의현",
         "group": "D",
         "g": 1,
@@ -1656,7 +1656,7 @@
         "ops": "2.000"
       },
       {
-        "playerId": "temp-009",
+        "playerId": "gameone-d-8d7be3d44e44be0e075c27f98a9fa2c5",
         "name": "송성보",
         "group": "D",
         "g": 1,
@@ -1679,7 +1679,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-008",
+        "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
         "name": "지성찬",
         "group": "D",
         "g": 1,
@@ -1702,7 +1702,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "temp-008",
+        "playerId": "gameone-d-7qgdtcsthhi0000013j4",
         "name": "김희열",
         "group": "D",
         "g": 1,
@@ -1725,7 +1725,7 @@
         "ops": "2.000"
       },
       {
-        "playerId": "player-012",
+        "playerId": "gameone-d-1ssvastjhsl00000px3n",
         "name": "노혁진",
         "group": "D",
         "g": 2,
@@ -1748,7 +1748,7 @@
         "ops": "2.000"
       },
       {
-        "playerId": "player-004",
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
         "name": "서우성",
         "group": "A",
         "g": 1,
@@ -1771,7 +1771,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "g": 1,
@@ -1794,7 +1794,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-006",
+        "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "A",
         "g": 1,
@@ -1819,7 +1819,7 @@
     ],
     "pitching": [
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "A",
         "g": 1,
@@ -1838,7 +1838,7 @@
         "whip": "1.83"
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "g": 3,
@@ -1857,7 +1857,7 @@
         "whip": "1.29"
       },
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "D",
         "g": 1,
@@ -1876,7 +1876,7 @@
         "whip": "1.67"
       },
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "g": 2,
@@ -1895,7 +1895,7 @@
         "whip": "4.00"
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "g": 1,
@@ -1914,7 +1914,7 @@
         "whip": "0.50"
       },
       {
-        "playerId": "player-014",
+        "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
         "name": "반석훈",
         "group": "D",
         "g": 1,
@@ -1933,7 +1933,7 @@
         "whip": "4.00"
       },
       {
-        "playerId": "player-012",
+        "playerId": "gameone-d-1ssvastjhsl00000px3n",
         "name": "노혁진",
         "group": "D",
         "g": 1,
@@ -1960,7 +1960,7 @@
         "runs": 9,
         "batting": [
           {
-            "playerId": "player-014",
+            "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
             "name": "반석훈",
             "group": "A",
             "g": 1,
@@ -1983,7 +1983,7 @@
             "ops": "1.000"
           },
           {
-            "playerId": "temp-002",
+            "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
             "name": "김재영",
             "group": "A",
             "g": 1,
@@ -2006,7 +2006,7 @@
             "ops": ".667"
           },
           {
-            "playerId": "player-005",
+            "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
             "name": "박의현",
             "group": "A",
             "g": 1,
@@ -2029,7 +2029,7 @@
             "ops": "2.000"
           },
           {
-            "playerId": "player-011",
+            "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
             "name": "은영환",
             "group": "A",
             "g": 1,
@@ -2052,7 +2052,7 @@
             "ops": ".667"
           },
           {
-            "playerId": "player-002",
+            "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
             "name": "최정훈",
             "group": "A",
             "g": 1,
@@ -2075,7 +2075,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-001",
+            "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
             "name": "이효재",
             "group": "A",
             "g": 1,
@@ -2098,7 +2098,7 @@
             "ops": ".667"
           },
           {
-            "playerId": "player-009",
+            "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
             "name": "김명선",
             "group": "A",
             "g": 1,
@@ -2121,7 +2121,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-010",
+            "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
             "name": "성백동",
             "group": "A",
             "g": 1,
@@ -2144,7 +2144,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "temp-003",
+            "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
             "name": "권태헌",
             "group": "A",
             "g": 1,
@@ -2167,7 +2167,7 @@
             "ops": "1.000"
           },
           {
-            "playerId": "player-004",
+            "playerId": "gameone-d-9u0diupqb7600000023mwz",
             "name": "서우성",
             "group": "A",
             "g": 1,
@@ -2190,7 +2190,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-006",
+            "playerId": "gameone-d-htnjgpl47440000009rhn8",
             "name": "선예환",
             "group": "A",
             "g": 1,
@@ -2215,7 +2215,7 @@
         ],
         "pitching": [
           {
-            "playerId": "player-009",
+            "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
             "name": "김명선",
             "group": "A",
             "g": 1,
@@ -2242,7 +2242,7 @@
         "runs": 31,
         "batting": [
           {
-            "playerId": "temp-002",
+            "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
             "name": "김재영",
             "group": "D",
             "g": 3,
@@ -2265,7 +2265,7 @@
             "ops": ".571"
           },
           {
-            "playerId": "temp-003",
+            "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
             "name": "권태헌",
             "group": "D",
             "g": 3,
@@ -2288,7 +2288,7 @@
             "ops": ".286"
           },
           {
-            "playerId": "player-011",
+            "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
             "name": "은영환",
             "group": "D",
             "g": 2,
@@ -2311,7 +2311,7 @@
             "ops": "1.143"
           },
           {
-            "playerId": "player-009",
+            "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
             "name": "김명선",
             "group": "D",
             "g": 2,
@@ -2334,7 +2334,7 @@
             "ops": ".286"
           },
           {
-            "playerId": "player-003",
+            "playerId": "gameone-d-14atmtkekqko000000creao",
             "name": "김호태",
             "group": "D",
             "g": 3,
@@ -2357,7 +2357,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-002",
+            "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
             "name": "최정훈",
             "group": "D",
             "g": 2,
@@ -2380,7 +2380,7 @@
             "ops": "1.333"
           },
           {
-            "playerId": "player-001",
+            "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
             "name": "이효재",
             "group": "D",
             "g": 1,
@@ -2403,7 +2403,7 @@
             "ops": "1.000"
           },
           {
-            "playerId": "temp-001",
+            "playerId": "gameone-d-kk8hul65kok000000wyq9z",
             "name": "오치송",
             "group": "D",
             "g": 1,
@@ -2426,7 +2426,7 @@
             "ops": ".500"
           },
           {
-            "playerId": "player-004",
+            "playerId": "gameone-d-9u0diupqb7600000023mwz",
             "name": "서우성",
             "group": "D",
             "g": 1,
@@ -2449,7 +2449,7 @@
             "ops": ".667"
           },
           {
-            "playerId": "player-014",
+            "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
             "name": "반석훈",
             "group": "D",
             "g": 1,
@@ -2472,7 +2472,7 @@
             "ops": "1.333"
           },
           {
-            "playerId": "temp-006",
+            "playerId": "gameone-d-2ebo2ah1vkt0000000ptwfl",
             "name": "민재홍",
             "group": "D",
             "g": 1,
@@ -2495,7 +2495,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "temp-007",
+            "playerId": "gameone-d-25t354agg9q0000000uq981",
             "name": "유병호",
             "group": "D",
             "g": 1,
@@ -2518,7 +2518,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-006",
+            "playerId": "gameone-d-htnjgpl47440000009rhn8",
             "name": "선예환",
             "group": "D",
             "g": 1,
@@ -2541,7 +2541,7 @@
             "ops": "1.000"
           },
           {
-            "playerId": "player-010",
+            "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
             "name": "성백동",
             "group": "D",
             "g": 1,
@@ -2564,7 +2564,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-005",
+            "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
             "name": "박의현",
             "group": "D",
             "g": 1,
@@ -2587,7 +2587,7 @@
             "ops": "2.000"
           },
           {
-            "playerId": "temp-009",
+            "playerId": "gameone-d-8d7be3d44e44be0e075c27f98a9fa2c5",
             "name": "송성보",
             "group": "D",
             "g": 1,
@@ -2610,7 +2610,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-008",
+            "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
             "name": "지성찬",
             "group": "D",
             "g": 1,
@@ -2633,7 +2633,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "temp-008",
+            "playerId": "gameone-d-7qgdtcsthhi0000013j4",
             "name": "김희열",
             "group": "D",
             "g": 1,
@@ -2656,7 +2656,7 @@
             "ops": "2.000"
           },
           {
-            "playerId": "player-012",
+            "playerId": "gameone-d-1ssvastjhsl00000px3n",
             "name": "노혁진",
             "group": "D",
             "g": 2,
@@ -2679,7 +2679,7 @@
             "ops": "2.000"
           },
           {
-            "playerId": "player-013",
+            "playerId": "gameone-d-9u3q0framj200000073oqd",
             "name": "노승원",
             "group": "D",
             "g": 1,
@@ -2704,7 +2704,7 @@
         ],
         "pitching": [
           {
-            "playerId": "temp-003",
+            "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
             "name": "권태헌",
             "group": "D",
             "g": 3,
@@ -2723,7 +2723,7 @@
             "whip": "1.29"
           },
           {
-            "playerId": "player-011",
+            "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
             "name": "은영환",
             "group": "D",
             "g": 1,
@@ -2742,7 +2742,7 @@
             "whip": "1.67"
           },
           {
-            "playerId": "player-013",
+            "playerId": "gameone-d-9u3q0framj200000073oqd",
             "name": "노승원",
             "group": "D",
             "g": 2,
@@ -2761,7 +2761,7 @@
             "whip": "4.00"
           },
           {
-            "playerId": "player-009",
+            "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
             "name": "김명선",
             "group": "D",
             "g": 1,
@@ -2780,7 +2780,7 @@
             "whip": "0.50"
           },
           {
-            "playerId": "player-014",
+            "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
             "name": "반석훈",
             "group": "D",
             "g": 1,
@@ -2799,7 +2799,7 @@
             "whip": "4.00"
           },
           {
-            "playerId": "player-012",
+            "playerId": "gameone-d-1ssvastjhsl00000px3n",
             "name": "노혁진",
             "group": "D",
             "g": 1,
@@ -2830,7 +2830,7 @@
     "runs": 15,
     "batting": [
       {
-        "playerId": "player-006",
+        "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "A",
         "g": 2,
@@ -2853,7 +2853,7 @@
         "ops": "1.000"
       },
       {
-        "playerId": "player-010",
+        "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
         "name": "성백동",
         "group": "A",
         "g": 2,
@@ -2876,7 +2876,7 @@
         "ops": "1.333"
       },
       {
-        "playerId": "temp-002",
+        "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
         "name": "김재영",
         "group": "A",
         "g": 2,
@@ -2899,7 +2899,7 @@
         "ops": ".800"
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "A",
         "g": 2,
@@ -2922,7 +2922,7 @@
         "ops": "1.200"
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "A",
         "g": 2,
@@ -2945,7 +2945,7 @@
         "ops": ".500"
       },
       {
-        "playerId": "player-005",
+        "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
         "name": "박의현",
         "group": "A",
         "g": 2,
@@ -2968,7 +2968,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-004",
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
         "name": "서우성",
         "group": "A",
         "g": 2,
@@ -2991,7 +2991,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-001",
+        "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
         "name": "이효재",
         "group": "A",
         "g": 2,
@@ -3014,7 +3014,7 @@
         "ops": "1.000"
       },
       {
-        "playerId": "temp-005",
+        "playerId": "gameone-d-1eeu7stkh4ig000000bfkln",
         "name": "조영중",
         "group": "A",
         "g": 1,
@@ -3037,7 +3037,7 @@
         "ops": "1.000"
       },
       {
-        "playerId": "player-014",
+        "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
         "name": "반석훈",
         "group": "A",
         "g": 1,
@@ -3060,7 +3060,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "A",
         "g": 1,
@@ -3083,7 +3083,7 @@
         "ops": "1.000"
       },
       {
-        "playerId": "temp-001",
+        "playerId": "gameone-d-kk8hul65kok000000wyq9z",
         "name": "오치송",
         "group": "A",
         "g": 1,
@@ -3106,7 +3106,7 @@
         "ops": "2.000"
       },
       {
-        "playerId": "player-007",
+        "playerId": "gameone-d-10t99plcau4o000000xsozw",
         "name": "김가현",
         "group": "A",
         "g": 1,
@@ -3131,7 +3131,7 @@
     ],
     "pitching": [
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "A",
         "g": 1,
@@ -3150,7 +3150,7 @@
         "whip": "1.50"
       },
       {
-        "playerId": "player-006",
+        "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "A",
         "g": 1,
@@ -3169,7 +3169,7 @@
         "whip": "4.80"
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "A",
         "g": 1,
@@ -3196,7 +3196,7 @@
         "runs": 15,
         "batting": [
           {
-            "playerId": "player-006",
+            "playerId": "gameone-d-htnjgpl47440000009rhn8",
             "name": "선예환",
             "group": "A",
             "g": 2,
@@ -3219,7 +3219,7 @@
             "ops": "1.000"
           },
           {
-            "playerId": "player-010",
+            "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
             "name": "성백동",
             "group": "A",
             "g": 2,
@@ -3242,7 +3242,7 @@
             "ops": "1.333"
           },
           {
-            "playerId": "temp-002",
+            "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
             "name": "김재영",
             "group": "A",
             "g": 2,
@@ -3265,7 +3265,7 @@
             "ops": ".800"
           },
           {
-            "playerId": "player-002",
+            "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
             "name": "최정훈",
             "group": "A",
             "g": 2,
@@ -3288,7 +3288,7 @@
             "ops": "1.200"
           },
           {
-            "playerId": "player-009",
+            "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
             "name": "김명선",
             "group": "A",
             "g": 2,
@@ -3311,7 +3311,7 @@
             "ops": ".500"
           },
           {
-            "playerId": "player-005",
+            "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
             "name": "박의현",
             "group": "A",
             "g": 2,
@@ -3334,7 +3334,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-004",
+            "playerId": "gameone-d-9u0diupqb7600000023mwz",
             "name": "서우성",
             "group": "A",
             "g": 2,
@@ -3357,7 +3357,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-001",
+            "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
             "name": "이효재",
             "group": "A",
             "g": 2,
@@ -3380,7 +3380,7 @@
             "ops": "1.000"
           },
           {
-            "playerId": "temp-005",
+            "playerId": "gameone-d-1eeu7stkh4ig000000bfkln",
             "name": "조영중",
             "group": "A",
             "g": 1,
@@ -3403,7 +3403,7 @@
             "ops": "1.000"
           },
           {
-            "playerId": "player-014",
+            "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
             "name": "반석훈",
             "group": "A",
             "g": 1,
@@ -3426,7 +3426,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-011",
+            "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
             "name": "은영환",
             "group": "A",
             "g": 1,
@@ -3449,7 +3449,7 @@
             "ops": "1.000"
           },
           {
-            "playerId": "temp-001",
+            "playerId": "gameone-d-kk8hul65kok000000wyq9z",
             "name": "오치송",
             "group": "A",
             "g": 1,
@@ -3472,7 +3472,7 @@
             "ops": "2.000"
           },
           {
-            "playerId": "player-007",
+            "playerId": "gameone-d-10t99plcau4o000000xsozw",
             "name": "김가현",
             "group": "A",
             "g": 1,
@@ -3497,7 +3497,7 @@
         ],
         "pitching": [
           {
-            "playerId": "player-011",
+            "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
             "name": "은영환",
             "group": "A",
             "g": 1,
@@ -3516,7 +3516,7 @@
             "whip": "1.50"
           },
           {
-            "playerId": "player-006",
+            "playerId": "gameone-d-htnjgpl47440000009rhn8",
             "name": "선예환",
             "group": "A",
             "g": 1,
@@ -3535,7 +3535,7 @@
             "whip": "4.80"
           },
           {
-            "playerId": "player-009",
+            "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
             "name": "김명선",
             "group": "A",
             "g": 1,
@@ -3574,7 +3574,7 @@
     "runs": 31,
     "batting": [
       {
-        "playerId": "player-006",
+        "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "A",
         "g": 1,
@@ -3597,7 +3597,7 @@
         "ops": "1.200"
       },
       {
-        "playerId": "temp-004",
+        "playerId": "gameone-d-23dmt2nbqnp0000000trczx",
         "name": "진승용",
         "group": "A",
         "g": 1,
@@ -3620,7 +3620,7 @@
         "ops": "1.500"
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "A",
         "g": 1,
@@ -3643,7 +3643,7 @@
         "ops": "1.000"
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "A",
         "g": 1,
@@ -3666,7 +3666,7 @@
         "ops": "1.500"
       },
       {
-        "playerId": "player-001",
+        "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
         "name": "이효재",
         "group": "A",
         "g": 1,
@@ -3689,7 +3689,7 @@
         "ops": ".667"
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "A",
         "g": 1,
@@ -3712,7 +3712,7 @@
         "ops": "1.333"
       },
       {
-        "playerId": "player-004",
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
         "name": "서우성",
         "group": "A",
         "g": 1,
@@ -3735,7 +3735,7 @@
         "ops": ".667"
       },
       {
-        "playerId": "player-004",
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
         "name": "서우성",
         "group": "D",
         "g": 1,
@@ -3758,7 +3758,7 @@
         "ops": ".667"
       },
       {
-        "playerId": "temp-001",
+        "playerId": "gameone-d-kk8hul65kok000000wyq9z",
         "name": "오치송",
         "group": "D",
         "g": 1,
@@ -3781,7 +3781,7 @@
         "ops": ".667"
       },
       {
-        "playerId": "player-003",
+        "playerId": "gameone-d-14atmtkekqko000000creao",
         "name": "김호태",
         "group": "D",
         "g": 1,
@@ -3804,7 +3804,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "D",
         "g": 1,
@@ -3827,7 +3827,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "A",
         "g": 1,
@@ -3850,7 +3850,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-005",
+        "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
         "name": "박의현",
         "group": "A",
         "g": 1,
@@ -3873,7 +3873,7 @@
         "ops": "2.000"
       },
       {
-        "playerId": "temp-002",
+        "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
         "name": "김재영",
         "group": "D",
         "g": 1,
@@ -3896,7 +3896,7 @@
         "ops": "2.000"
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "g": 1,
@@ -3919,7 +3919,7 @@
         "ops": "1.000"
       },
       {
-        "playerId": "player-010",
+        "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
         "name": "성백동",
         "group": "D",
         "g": 1,
@@ -3942,7 +3942,7 @@
         "ops": "1.000"
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "g": 1,
@@ -3965,7 +3965,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "g": 1,
@@ -3988,7 +3988,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-008",
+        "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
         "name": "지성찬",
         "group": "D",
         "g": 1,
@@ -4013,7 +4013,7 @@
     ],
     "pitching": [
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "A",
         "g": 1,
@@ -4032,7 +4032,7 @@
         "whip": "1.00"
       },
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "g": 1,
@@ -4051,7 +4051,7 @@
         "whip": "3.50"
       },
       {
-        "playerId": "player-005",
+        "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
         "name": "박의현",
         "group": "A",
         "g": 1,
@@ -4070,7 +4070,7 @@
         "whip": "2.00"
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "g": 1,
@@ -4089,7 +4089,7 @@
         "whip": "8.00"
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "g": 1,
@@ -4116,7 +4116,7 @@
         "runs": 22,
         "batting": [
           {
-            "playerId": "player-006",
+            "playerId": "gameone-d-htnjgpl47440000009rhn8",
             "name": "선예환",
             "group": "A",
             "g": 1,
@@ -4139,7 +4139,7 @@
             "ops": "1.200"
           },
           {
-            "playerId": "temp-004",
+            "playerId": "gameone-d-23dmt2nbqnp0000000trczx",
             "name": "진승용",
             "group": "A",
             "g": 1,
@@ -4162,7 +4162,7 @@
             "ops": "1.500"
           },
           {
-            "playerId": "player-009",
+            "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
             "name": "김명선",
             "group": "A",
             "g": 1,
@@ -4185,7 +4185,7 @@
             "ops": "1.000"
           },
           {
-            "playerId": "temp-003",
+            "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
             "name": "권태헌",
             "group": "A",
             "g": 1,
@@ -4208,7 +4208,7 @@
             "ops": "1.500"
           },
           {
-            "playerId": "player-001",
+            "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
             "name": "이효재",
             "group": "A",
             "g": 1,
@@ -4231,7 +4231,7 @@
             "ops": ".667"
           },
           {
-            "playerId": "player-002",
+            "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
             "name": "최정훈",
             "group": "A",
             "g": 1,
@@ -4254,7 +4254,7 @@
             "ops": "1.333"
           },
           {
-            "playerId": "player-004",
+            "playerId": "gameone-d-9u0diupqb7600000023mwz",
             "name": "서우성",
             "group": "A",
             "g": 1,
@@ -4277,7 +4277,7 @@
             "ops": ".667"
           },
           {
-            "playerId": "player-011",
+            "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
             "name": "은영환",
             "group": "A",
             "g": 1,
@@ -4300,7 +4300,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-005",
+            "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
             "name": "박의현",
             "group": "A",
             "g": 1,
@@ -4325,7 +4325,7 @@
         ],
         "pitching": [
           {
-            "playerId": "player-009",
+            "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
             "name": "김명선",
             "group": "A",
             "g": 1,
@@ -4344,7 +4344,7 @@
             "whip": "1.00"
           },
           {
-            "playerId": "player-005",
+            "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
             "name": "박의현",
             "group": "A",
             "g": 1,
@@ -4371,7 +4371,7 @@
         "runs": 9,
         "batting": [
           {
-            "playerId": "player-004",
+            "playerId": "gameone-d-9u0diupqb7600000023mwz",
             "name": "서우성",
             "group": "D",
             "g": 1,
@@ -4394,7 +4394,7 @@
             "ops": ".667"
           },
           {
-            "playerId": "temp-001",
+            "playerId": "gameone-d-kk8hul65kok000000wyq9z",
             "name": "오치송",
             "group": "D",
             "g": 1,
@@ -4417,7 +4417,7 @@
             "ops": ".667"
           },
           {
-            "playerId": "player-003",
+            "playerId": "gameone-d-14atmtkekqko000000creao",
             "name": "김호태",
             "group": "D",
             "g": 1,
@@ -4440,7 +4440,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-002",
+            "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
             "name": "최정훈",
             "group": "D",
             "g": 1,
@@ -4463,7 +4463,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "temp-002",
+            "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
             "name": "김재영",
             "group": "D",
             "g": 1,
@@ -4486,7 +4486,7 @@
             "ops": "2.000"
           },
           {
-            "playerId": "temp-003",
+            "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
             "name": "권태헌",
             "group": "D",
             "g": 1,
@@ -4509,7 +4509,7 @@
             "ops": "1.000"
           },
           {
-            "playerId": "player-010",
+            "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
             "name": "성백동",
             "group": "D",
             "g": 1,
@@ -4532,7 +4532,7 @@
             "ops": "1.000"
           },
           {
-            "playerId": "player-009",
+            "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
             "name": "김명선",
             "group": "D",
             "g": 1,
@@ -4555,7 +4555,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-013",
+            "playerId": "gameone-d-9u3q0framj200000073oqd",
             "name": "노승원",
             "group": "D",
             "g": 1,
@@ -4578,7 +4578,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-008",
+            "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
             "name": "지성찬",
             "group": "D",
             "g": 1,
@@ -4603,7 +4603,7 @@
         ],
         "pitching": [
           {
-            "playerId": "player-013",
+            "playerId": "gameone-d-9u3q0framj200000073oqd",
             "name": "노승원",
             "group": "D",
             "g": 1,
@@ -4622,7 +4622,7 @@
             "whip": "3.50"
           },
           {
-            "playerId": "temp-003",
+            "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
             "name": "권태헌",
             "group": "D",
             "g": 1,
@@ -4641,7 +4641,7 @@
             "whip": "8.00"
           },
           {
-            "playerId": "player-009",
+            "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
             "name": "김명선",
             "group": "D",
             "g": 1,
@@ -4672,7 +4672,7 @@
     "runs": 13,
     "batting": [
       {
-        "playerId": "player-001",
+        "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
         "name": "이효재",
         "group": "D",
         "g": 1,
@@ -4695,7 +4695,7 @@
         "ops": "1.000"
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "D",
         "g": 1,
@@ -4718,7 +4718,7 @@
         "ops": "1.000"
       },
       {
-        "playerId": "temp-001",
+        "playerId": "gameone-d-kk8hul65kok000000wyq9z",
         "name": "오치송",
         "group": "D",
         "g": 1,
@@ -4741,7 +4741,7 @@
         "ops": ".500"
       },
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "D",
         "g": 1,
@@ -4764,7 +4764,7 @@
         "ops": "1.000"
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "g": 1,
@@ -4787,7 +4787,7 @@
         "ops": ".500"
       },
       {
-        "playerId": "temp-002",
+        "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
         "name": "김재영",
         "group": "D",
         "g": 1,
@@ -4810,7 +4810,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-004",
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
         "name": "서우성",
         "group": "D",
         "g": 1,
@@ -4833,7 +4833,7 @@
         "ops": ".667"
       },
       {
-        "playerId": "player-010",
+        "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
         "name": "성백동",
         "group": "D",
         "g": 1,
@@ -4856,7 +4856,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-003",
+        "playerId": "gameone-d-14atmtkekqko000000creao",
         "name": "김호태",
         "group": "D",
         "g": 1,
@@ -4879,7 +4879,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "g": 1,
@@ -4902,7 +4902,7 @@
         "ops": ".000"
       },
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "g": 1,
@@ -4927,7 +4927,7 @@
     ],
     "pitching": [
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "g": 1,
@@ -4946,7 +4946,7 @@
         "whip": "1.50"
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "g": 1,
@@ -4965,7 +4965,7 @@
         "whip": "0.50"
       },
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "g": 1,
@@ -5000,7 +5000,7 @@
         "runs": 13,
         "batting": [
           {
-            "playerId": "player-001",
+            "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
             "name": "이효재",
             "group": "D",
             "g": 1,
@@ -5023,7 +5023,7 @@
             "ops": "1.000"
           },
           {
-            "playerId": "player-002",
+            "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
             "name": "최정훈",
             "group": "D",
             "g": 1,
@@ -5046,7 +5046,7 @@
             "ops": "1.000"
           },
           {
-            "playerId": "temp-001",
+            "playerId": "gameone-d-kk8hul65kok000000wyq9z",
             "name": "오치송",
             "group": "D",
             "g": 1,
@@ -5069,7 +5069,7 @@
             "ops": ".500"
           },
           {
-            "playerId": "player-011",
+            "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
             "name": "은영환",
             "group": "D",
             "g": 1,
@@ -5092,7 +5092,7 @@
             "ops": "1.000"
           },
           {
-            "playerId": "player-009",
+            "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
             "name": "김명선",
             "group": "D",
             "g": 1,
@@ -5115,7 +5115,7 @@
             "ops": ".500"
           },
           {
-            "playerId": "temp-002",
+            "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
             "name": "김재영",
             "group": "D",
             "g": 1,
@@ -5138,7 +5138,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-004",
+            "playerId": "gameone-d-9u0diupqb7600000023mwz",
             "name": "서우성",
             "group": "D",
             "g": 1,
@@ -5161,7 +5161,7 @@
             "ops": ".667"
           },
           {
-            "playerId": "player-010",
+            "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
             "name": "성백동",
             "group": "D",
             "g": 1,
@@ -5184,7 +5184,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-003",
+            "playerId": "gameone-d-14atmtkekqko000000creao",
             "name": "김호태",
             "group": "D",
             "g": 1,
@@ -5207,7 +5207,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "temp-003",
+            "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
             "name": "권태헌",
             "group": "D",
             "g": 1,
@@ -5230,7 +5230,7 @@
             "ops": ".000"
           },
           {
-            "playerId": "player-013",
+            "playerId": "gameone-d-9u3q0framj200000073oqd",
             "name": "노승원",
             "group": "D",
             "g": 1,
@@ -5255,7 +5255,7 @@
         ],
         "pitching": [
           {
-            "playerId": "temp-003",
+            "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
             "name": "권태헌",
             "group": "D",
             "g": 1,
@@ -5274,7 +5274,7 @@
             "whip": "1.50"
           },
           {
-            "playerId": "player-009",
+            "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
             "name": "김명선",
             "group": "D",
             "g": 1,
@@ -5293,7 +5293,7 @@
             "whip": "0.50"
           },
           {
-            "playerId": "player-013",
+            "playerId": "gameone-d-9u3q0framj200000073oqd",
             "name": "노승원",
             "group": "D",
             "g": 1,

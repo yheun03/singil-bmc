@@ -1,6 +1,7 @@
 const APP_BASE = (process.env.NUXT_APP_BASE_URL || '/singil-bmc/').replace(/\/?$/, '/');
 
 export default defineNuxtConfig({
+    compatibilityDate: '2026-05-31',
     devtools: { enabled: true },
     experimental: { appManifest: false },
     features: { inlineStyles: false },
@@ -47,6 +48,10 @@ export default defineNuxtConfig({
         '~/plugins/route-tabs.client',
         '~/plugins/global-css-no-inline.client',
     ],
+
+    devServer: {
+        port: 3000,
+    },
 
     vite: {
         build: {

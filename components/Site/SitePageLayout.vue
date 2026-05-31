@@ -1,6 +1,7 @@
 <template>
     <div>
         <SitePageHero :title="title" :description="description" :eyebrow="eyebrow" />
+        <SiteLnb />
         <section class="bmc-section bmc-section--white">
             <div class="bmc-section__inner">
                 <SiteLoading v-if="pending" />

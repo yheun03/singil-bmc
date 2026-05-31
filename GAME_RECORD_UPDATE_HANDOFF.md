@@ -91,7 +91,7 @@ public/data/manual/youtube-links.json
 ```json
 {
     "2026-05-30-vs-11stwyverns": {
-        "youtubeUrl": "https://www.youtube.com/watch?v=VIDEO_ID",
+        "videoCode": "VIDEO_ID",
         "title": "2026.05.30 11번가 와이번스전 경기 영상",
         "publishedAt": "2026-06-01"
     }
@@ -101,6 +101,7 @@ public/data/manual/youtube-links.json
 규칙:
 
 - key는 `gameId`입니다.
+- 값에 영상 코드 문자열만 넣거나 객체의 `videoCode`만 입력하면 `youtubeUrl`은 `https://www.youtube.com/watch?v={videoCode}`, `thumbnail`은 `https://i.ytimg.com/vi/{videoCode}/hq720.jpg`로 자동 생성됩니다.
 - `npm run update`를 실행해도 `public/data/manual/youtube-links.json`은 삭제하지 않습니다.
 - 매칭되는 영상이 있으면 경기 상세, 뉴스 카드, 영상 섹션에 표시됩니다.
 - 매칭되는 영상이 없으면 YouTube 채널 바로가기 CTA가 표시됩니다.

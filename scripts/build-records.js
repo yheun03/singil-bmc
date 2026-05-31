@@ -19,6 +19,8 @@ import {
 
 const YOUTUBE_CHANNEL_URL =
     'https://www.youtube.com/@%EB%8B%A4%EC%9C%97%EC%95%BC%EA%B5%AC%EC%84%A0%EA%B5%90%EB%8B%A8';
+const YOUTUBE_WATCH_URL = 'https://www.youtube.com/watch?v=';
+const YOUTUBE_THUMBNAIL_URL = 'https://i.ytimg.com/vi/';
 const RECORD_GROUPS = ['A', 'D'];
 
 function loadAllGames() {
@@ -30,10 +32,28 @@ function loadYoutubeLinks() {
     return readJson(path.join(MANUAL_DIR, 'youtube-links.json'), {});
 }
 
+function normalizeYoutubeLink(link) {
+    if (!link) return null;
+
+    const source = typeof link === 'string' ? { videoCode: link } : link;
+    const videoCode = source.videoCode || source.youtubeCode || source.code || '';
+    const youtubeUrl = source.youtubeUrl || (videoCode ? `${YOUTUBE_WATCH_URL}${videoCode}` : '');
+    const thumbnail = source.thumbnail || (videoCode ? `${YOUTUBE_THUMBNAIL_URL}${videoCode}/hq720.jpg` : '');
+
+    if (!youtubeUrl) return null;
+
+    return {
+        ...source,
+        ...(videoCode ? { videoCode } : {}),
+        youtubeUrl,
+        thumbnail,
+    };
+}
+
 function mergeYoutubeLinks(games, youtubeLinks) {
     return games.map((game) => ({
         ...game,
-        youtube: youtubeLinks[game.gameId] ?? null,
+        youtube: normalizeYoutubeLink(youtubeLinks[game.gameId]),
     }));
 }
 
@@ -453,7 +473,7 @@ function buildVideos(games) {
             title: game.youtube.title || `${game.gameDate} ${getOpponentName(game)}전 경기 영상`,
             youtubeUrl: game.youtube.youtubeUrl,
             embedUrl: '',
-            thumbnail: '',
+            thumbnail: game.youtube.thumbnail || '',
             category: '경기',
             date: game.youtube.publishedAt || game.gameDate,
         }));

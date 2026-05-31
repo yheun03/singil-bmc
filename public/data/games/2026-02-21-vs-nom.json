@@ -52,7 +52,7 @@
   ],
   "batting": [
     {
-      "playerId": "player-006",
+      "playerId": "gameone-d-htnjgpl47440000009rhn8",
       "name": "선예환",
       "group": "A",
       "pa": 5,
@@ -69,7 +69,7 @@
       "sb": 1
     },
     {
-      "playerId": "player-011",
+      "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
       "name": "은영환",
       "group": "A",
       "pa": 2,
@@ -86,7 +86,7 @@
       "sb": 1
     },
     {
-      "playerId": "player-005",
+      "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
       "name": "박의현",
       "group": "A",
       "pa": 2,
@@ -103,7 +103,7 @@
       "sb": 0
     },
     {
-      "playerId": "temp-004",
+      "playerId": "gameone-d-23dmt2nbqnp0000000trczx",
       "name": "진승용",
       "group": "A",
       "pa": 4,
@@ -120,7 +120,7 @@
       "sb": 0
     },
     {
-      "playerId": "player-009",
+      "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
       "name": "김명선",
       "group": "A",
       "pa": 4,
@@ -137,7 +137,7 @@
       "sb": 0
     },
     {
-      "playerId": "player-001",
+      "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
       "name": "이효재",
       "group": "A",
       "pa": 3,
@@ -154,7 +154,7 @@
       "sb": 1
     },
     {
-      "playerId": "player-002",
+      "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
       "name": "최정훈",
       "group": "A",
       "pa": 3,
@@ -171,7 +171,7 @@
       "sb": 0
     },
     {
-      "playerId": "player-004",
+      "playerId": "gameone-d-9u0diupqb7600000023mwz",
       "name": "서우성",
       "group": "A",
       "pa": 3,
@@ -188,7 +188,7 @@
       "sb": 1
     },
     {
-      "playerId": "temp-003",
+      "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
       "name": "권태헌",
       "group": "A",
       "pa": 4,
@@ -207,7 +207,7 @@
   ],
   "pitching": [
     {
-      "playerId": "player-009",
+      "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
       "name": "김명선",
       "group": "A",
       "ip": "2.0",
@@ -223,7 +223,7 @@
       "save": 0
     },
     {
-      "playerId": "player-005",
+      "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
       "name": "박의현",
       "group": "A",
       "ip": "1.0",

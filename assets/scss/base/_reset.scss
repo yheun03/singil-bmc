@@ -117,8 +117,8 @@ section {
 
 body {
 	line-height: 1;
-	height: 100dvh;
-	overflow: hidden;
+	min-height: 100dvh;
+	overflow-x: hidden;
 }
 
 ol,
