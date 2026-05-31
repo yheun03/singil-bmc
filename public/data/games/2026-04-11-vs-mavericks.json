@@ -1,6 +1,7 @@
 {
   "gameId": "2026-04-11-vs-mavericks",
   "gameDate": "2026-04-11",
+  "date": "2026-04-11",
   "year": 2026,
   "month": 4,
   "opponent": "mavericks",
@@ -10,9 +11,36 @@
     "our": 7,
     "opponent": 8
   },
+  "summary": {
+    "hits": 4,
+    "homeRuns": 0,
+    "steals": 7,
+    "strikeouts": 6,
+    "errors": 1,
+    "walksAndHbp": 3
+  },
+  "opponentSummary": {
+    "teamName": "Mavericks",
+    "hits": 6,
+    "homeRuns": 0,
+    "steals": 12,
+    "strikeouts": 7,
+    "errors": 2,
+    "walksAndHbp": 7
+  },
+  "highlights": [
+    {
+      "type": "2루타",
+      "text": "정선호(3회) 김재영(1회)"
+    },
+    {
+      "type": "도루",
+      "text": "곽우섭(1회,2회,4회) 서상원(1회,4회) 신상윤(4회) 정선호(1회,3회) 지성찬(3회) 김희열(2회) 노혁진(2회) 선예환(2회)"
+    }
+  ],
   "batting": [
     {
-      "playerId": "temp-009",
+      "playerId": "temp-002",
       "name": "김재영",
       "group": "D",
       "pa": 2,
@@ -29,7 +57,7 @@
       "sb": 0
     },
     {
-      "playerId": "temp-010",
+      "playerId": "temp-005",
       "name": "민재홍",
       "group": "D",
       "pa": 2,
@@ -46,7 +74,7 @@
       "sb": 0
     },
     {
-      "playerId": "temp-011",
+      "playerId": "temp-003",
       "name": "권태헌",
       "group": "D",
       "pa": 3,
@@ -97,7 +125,7 @@
       "sb": 2
     },
     {
-      "playerId": "temp-012",
+      "playerId": "temp-006",
       "name": "유병호",
       "group": "D",
       "pa": 2,
@@ -114,7 +142,7 @@
       "sb": 0
     },
     {
-      "playerId": "temp-013",
+      "playerId": "temp-007",
       "name": "김희열",
       "group": "D",
       "pa": 1,
@@ -183,7 +211,7 @@
       "save": 0
     },
     {
-      "playerId": "temp-014",
+      "playerId": "temp-003",
       "name": "권태헌",
       "group": "D",
       "ip": "2.0",
@@ -215,7 +243,7 @@
       "save": 0
     },
     {
-      "playerId": "temp-015",
+      "playerId": "temp-003",
       "name": "권태헌",
       "group": "D",
       "ip": "0.2",
@@ -230,5 +258,6 @@
       "loss": 1,
       "save": 0
     }
-  ]
+  ],
+  "youtube": null
 }

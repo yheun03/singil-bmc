@@ -1,6 +1,7 @@
 {
   "gameId": "2026-05-09-vs-deloitte",
   "gameDate": "2026-05-09",
+  "date": "2026-05-09",
   "year": 2026,
   "month": 5,
   "opponent": "deloitte",
@@ -10,9 +11,48 @@
     "our": 10,
     "opponent": 1
   },
+  "summary": {
+    "hits": 8,
+    "homeRuns": 0,
+    "steals": 9,
+    "strikeouts": 5,
+    "errors": 2,
+    "walksAndHbp": 5
+  },
+  "opponentSummary": {
+    "teamName": "안진회계법인",
+    "hits": 5,
+    "homeRuns": 0,
+    "steals": 4,
+    "strikeouts": 6,
+    "errors": 6,
+    "walksAndHbp": 1
+  },
+  "highlights": [
+    {
+      "type": "3루타",
+      "text": "김재영(1회,5회)"
+    },
+    {
+      "type": "2루타",
+      "text": "지성찬(1회)"
+    },
+    {
+      "type": "도루",
+      "text": "강지수(1회,5회) 김인재(3회) 김재영(1회) 서우성(1회) 최정훈(1회) 김가현(1회,3회) 노혁진(1회) 지성찬(3회,5회)"
+    },
+    {
+      "type": "병살타",
+      "text": "천호승(2회)"
+    },
+    {
+      "type": "폭투",
+      "text": "이재하(2개) 선예환(1개)"
+    }
+  ],
   "batting": [
     {
-      "playerId": "temp-023",
+      "playerId": "temp-002",
       "name": "김재영",
       "group": "D",
       "pa": 3,
@@ -29,7 +69,7 @@
       "sb": 2
     },
     {
-      "playerId": "temp-024",
+      "playerId": "temp-005",
       "name": "민재홍",
       "group": "D",
       "pa": 3,
@@ -148,7 +188,7 @@
       "sb": 1
     },
     {
-      "playerId": "temp-025",
+      "playerId": "temp-007",
       "name": "김희열",
       "group": "D",
       "pa": 3,
@@ -184,7 +224,7 @@
   ],
   "pitching": [
     {
-      "playerId": "temp-026",
+      "playerId": "temp-003",
       "name": "권태헌",
       "group": "D",
       "ip": "3.0",
@@ -215,5 +255,6 @@
       "loss": 0,
       "save": 0
     }
-  ]
+  ],
+  "youtube": null
 }

@@ -56,6 +56,19 @@ export function isOurTeamName(teamName = '') {
     return OUR_TEAM_NAMES.some((name) => normalized.includes(name));
 }
 
+function mapSummaryLabel(label = '') {
+    const normalized = normalizeKeyText(label);
+
+    if (normalized.includes('안타')) return 'hits';
+    if (normalized.includes('홈런')) return 'homeRuns';
+    if (normalized.includes('도루')) return 'steals';
+    if (normalized.includes('삼진')) return 'strikeouts';
+    if (normalized.includes('실책')) return 'errors';
+    if (normalized.includes('사사구')) return 'walksAndHbp';
+
+    return '';
+}
+
 /** 팀명 → 조 (다윗=D, Davids=A) */
 export function getGroupFromTeamName(teamName = '') {
     const normalized = normalizeTeamText(teamName);
@@ -295,6 +308,64 @@ export function extractRunsFromBattingFoot($, table) {
     return extractFootStat($, table, 'r');
 }
 
+export function parseGameoneSummary($) {
+    const scoreArea = $('.summary .score_sum').first();
+    const result = {
+        summary: null,
+        opponentSummary: null,
+        highlights: [],
+    };
+
+    if (!scoreArea.length) {
+        return result;
+    }
+
+    scoreArea.find('.team').each((_, teamEl) => {
+        const team = $(teamEl);
+        const teamName = normalizeTeamText(team.find('h4').first().text());
+        const stats = { teamName };
+        const terms = team.find('dt').toArray();
+        const values = team.find('dd').toArray();
+
+        terms.forEach((termEl, index) => {
+            const key = mapSummaryLabel($(termEl).text());
+            if (!key) return;
+            stats[key] = parseNumber($(values[index]).text());
+        });
+
+        if (isOurTeamName(teamName)) {
+            const { teamName: _teamName, ...ourStats } = stats;
+            result.summary = ourStats;
+        } else if (!result.opponentSummary) {
+            result.opponentSummary = stats;
+        }
+    });
+
+    scoreArea.find('ul.game_sum li').each((_, itemEl) => {
+        const item = $(itemEl);
+        const type = item
+            .find('strong')
+            .first()
+            .text()
+            .replace(/[\[\]]/g, '')
+            .trim();
+        const text = item
+            .clone()
+            .find('strong')
+            .remove()
+            .end()
+            .text()
+            .replace(/\s+/g, ' ')
+            .trim();
+
+        if (type && text) {
+            result.highlights.push({ type, text });
+        }
+    });
+
+    return result;
+}
+
 export function parseGameoneHtml($, playersMap, tempCounter) {
     const tables = getOurTeamRecordTables($);
 
@@ -316,6 +387,7 @@ export function parseGameoneHtml($, playersMap, tempCounter) {
     const opponentRuns = opponentBattingTable ? extractRunsFromBattingFoot($, opponentBattingTable) : null;
 
     const gameGroup = tables.teamGroups[0] ?? batting[0]?.group ?? pitching[0]?.group ?? '';
+    const summary = parseGameoneSummary($);
 
     return {
         batting,
@@ -325,5 +397,6 @@ export function parseGameoneHtml($, playersMap, tempCounter) {
             our: ourRuns ?? 0,
             opponent: opponentRuns ?? 0,
         },
+        ...summary,
     };
 }

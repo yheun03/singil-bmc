@@ -2,23 +2,135 @@
     <SitePageLayout
         eyebrow="RECORDS"
         title="연도별 기록"
-        description="연도별 누적 기록을 확인합니다."
+        description="시즌 전체 누적 타자·투수 기록을 확인합니다."
         :pending="pending"
         :error="error"
     >
-        <div class="bmc-grid bmc-grid--2">
-            <article v-for="item in yearlyRecords" :key="item.year" class="bmc-stat-card" style="text-align:left;">
-                <strong style="font-size:1.5rem;">{{ item.year }}년</strong>
-                <span>경기 {{ item.games }} · 안타 {{ item.hits }} · 득점 {{ item.runs }}</span>
+        <div class="bmc-record-controls">
+            <button
+                v-for="item in yearlyRecords"
+                :key="item.year"
+                class="bmc-chip"
+                :class="{ 'is-active': selectedYear === item.year }"
+                type="button"
+                @click="selectedYear = item.year"
+            >
+                {{ item.year }}년
+            </button>
+        </div>
+
+        <div v-if="selectedRecord" class="bmc-grid bmc-grid--3 bmc-record-summary">
+            <article class="bmc-stat-card">
+                <strong>{{ selectedRecord.games }}</strong>
+                <span>경기</span>
+            </article>
+            <article class="bmc-stat-card">
+                <strong>{{ selectedRecord.hits }}</strong>
+                <span>안타</span>
+            </article>
+            <article class="bmc-stat-card">
+                <strong>{{ selectedRecord.runs }}</strong>
+                <span>득점</span>
             </article>
         </div>
+
+        <section class="bmc-record-grid">
+            <h3 class="bmc-record-grid__title">타자 기록</h3>
+            <ClientOnly>
+                <AppGrid
+                    grid-id="yearly-batting-grid"
+                    class="bmc-record-grid__grid ag-theme-quartz"
+                    :row-data="selectedRecord?.batting ?? []"
+                    :column-defs="battingColumns"
+                    :default-col-def="defaultColDef"
+                    :style="{ height: gridHeight(selectedRecord?.batting?.length ?? 0), width: '100%' }"
+                />
+            </ClientOnly>
+        </section>
+
+        <section class="bmc-record-grid">
+            <h3 class="bmc-record-grid__title">투수 기록</h3>
+            <ClientOnly>
+                <AppGrid
+                    grid-id="yearly-pitching-grid"
+                    class="bmc-record-grid__grid ag-theme-quartz"
+                    :row-data="selectedRecord?.pitching ?? []"
+                    :column-defs="pitchingColumns"
+                    :default-col-def="defaultColDef"
+                    :style="{ height: gridHeight(selectedRecord?.pitching?.length ?? 0), width: '100%' }"
+                />
+            </ClientOnly>
+        </section>
     </SitePageLayout>
 </template>
 
 <script setup lang="ts">
-type YearlyRecord = { year: number; games: number; hits: number; runs: number };
+import type { ColDef } from 'ag-grid-community';
+
+type StatRow = Record<string, string | number>;
+type YearlyRecord = {
+    year: number;
+    games: number;
+    hits: number;
+    runs: number;
+    batting: StatRow[];
+    pitching: StatRow[];
+};
 
 definePageMeta({ title: '연도별 기록' });
 
-const { data: yearlyRecords, pending, error } = useSiteData<YearlyRecord[]>('summary/yearly-records.json');
+const { data, pending, error } = useSiteData<YearlyRecord[]>('summary/yearly-records.json');
+const yearlyRecords = computed(() => data.value ?? []);
+const selectedYear = ref<number | null>(null);
+
+watchEffect(() => {
+    if (!selectedYear.value && yearlyRecords.value.length) {
+        selectedYear.value = yearlyRecords.value[0].year;
+    }
+});
+
+const selectedRecord = computed(() => yearlyRecords.value.find((item) => item.year === selectedYear.value) ?? null);
+
+const defaultColDef: ColDef = { flex: 1, minWidth: 76, sortable: true, filter: true, resizable: true };
+const battingColumns: ColDef[] = [
+    { field: 'name', headerName: '이름', minWidth: 96 },
+    { field: 'group', headerName: '조', width: 72 },
+    { field: 'g', headerName: 'G', width: 72 },
+    { field: 'avg', headerName: 'AVG', width: 88 },
+    { field: 'h', headerName: 'H', width: 72 },
+    { field: 'rbi', headerName: 'RBI', width: 80 },
+    { field: 'r', headerName: 'R', width: 72 },
+    { field: 'sb', headerName: 'SB', width: 72 },
+];
+const pitchingColumns: ColDef[] = [
+    { field: 'name', headerName: '이름', minWidth: 96 },
+    { field: 'group', headerName: '조', width: 72 },
+    { field: 'g', headerName: 'G', width: 72 },
+    { field: 'ip', headerName: 'IP', width: 80 },
+    { field: 'era', headerName: 'ERA', width: 88 },
+    { field: 'so', headerName: 'SO', width: 72 },
+    { field: 'win', headerName: 'W', width: 72 },
+    { field: 'whip', headerName: 'WHIP', width: 88 },
+];
+
+function gridHeight(rowCount: number) {
+    return `${Math.min(Math.max(Math.max(rowCount, 1) * 42 + 48, 220), 560)}px`;
+}
 </script>
+
+<style scoped lang="scss">
+.bmc-record-controls,
+.bmc-record-summary {
+    margin-bottom: 20px;
+}
+
+.bmc-record-grid + .bmc-record-grid {
+    margin-top: 28px;
+}
+
+.bmc-record-grid__title {
+    margin: 0 0 12px;
+    font-size: 1.125rem;
+    font-weight: 800;
+}
+</style>

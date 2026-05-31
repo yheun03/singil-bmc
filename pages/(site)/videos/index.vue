@@ -21,6 +21,14 @@
                 <span class="bmc-video-card__badge">{{ video.category }}</span>
                 <h3 style="margin:0;font-size:1rem;font-weight:800;">{{ video.title }}</h3>
                 <p style="margin:0;color:#6b7280;font-size:0.875rem;">{{ video.date }}</p>
+                <a
+                    class="bmc-btn bmc-btn--outline-light"
+                    :href="video.youtubeUrl || YOUTUBE_CHANNEL_URL"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    영상 보기
+                </a>
             </article>
         </div>
     </SitePageLayout>
@@ -29,9 +37,26 @@
 <script setup lang="ts">
 import { YOUTUBE_CHANNEL_URL } from '~/constants/site';
 
-type VideoItem = { id: string; title: string; category: string; date: string };
+type VideoItem = { id: string; title: string; category: string; date: string; youtubeUrl?: string };
 
 definePageMeta({ title: 'YouTube 영상' });
 
-const { data: videos, pending, error } = useSiteData<VideoItem[]>('meta/videos.json');
+const { fetchJson } = useBasePath();
+const videos = ref<VideoItem[]>([]);
+const pending = ref(true);
+const error = ref('');
+
+onMounted(async () => {
+    try {
+        const [generatedVideos, manualVideos] = await Promise.all([
+            fetchJson<VideoItem[]>('generated/videos.json').catch(() => []),
+            fetchJson<VideoItem[]>('meta/videos.json'),
+        ]);
+        videos.value = [...generatedVideos, ...manualVideos];
+    } catch (err) {
+        error.value = err instanceof Error ? err.message : '영상 데이터를 불러오지 못했습니다.';
+    } finally {
+        pending.value = false;
+    }
+});
 </script>

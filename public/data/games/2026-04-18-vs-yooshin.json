@@ -1,6 +1,7 @@
 {
   "gameId": "2026-04-18-vs-yooshin",
   "gameDate": "2026-04-18",
+  "date": "2026-04-18",
   "year": 2026,
   "month": 4,
   "opponent": "yooshin",
@@ -10,9 +11,44 @@
     "our": 11,
     "opponent": 8
   },
+  "summary": {
+    "hits": 10,
+    "homeRuns": 1,
+    "steals": 5,
+    "strikeouts": 8,
+    "errors": 3,
+    "walksAndHbp": 3
+  },
+  "opponentSummary": {
+    "teamName": "(유신)블루후디스",
+    "hits": 6,
+    "homeRuns": 0,
+    "steals": 6,
+    "strikeouts": 8,
+    "errors": 2,
+    "walksAndHbp": 3
+  },
+  "highlights": [
+    {
+      "type": "홈런",
+      "text": "박의현(4회)"
+    },
+    {
+      "type": "3루타",
+      "text": "반석훈(3회,4회)"
+    },
+    {
+      "type": "2루타",
+      "text": "성백동(4회) 금교현(2회) 한승훈(2회,4회) 은영환(1회,3회)"
+    },
+    {
+      "type": "도루",
+      "text": "김성호(4회) 박원주(1회,2회) 오주영(2회) 금교현(2회) 홍선일(2회) 최정훈(1회) 은영환(1회) 김호태(2회,3회) 김명선(3회)"
+    }
+  ],
   "batting": [
     {
-      "playerId": "temp-016",
+      "playerId": "temp-003",
       "name": "권태헌",
       "group": "D",
       "pa": 3,
@@ -46,7 +82,7 @@
       "sb": 1
     },
     {
-      "playerId": "temp-017",
+      "playerId": "temp-002",
       "name": "김재영",
       "group": "D",
       "pa": 2,
@@ -148,7 +184,7 @@
       "sb": 1
     },
     {
-      "playerId": "temp-018",
+      "playerId": "temp-008",
       "name": "송성보",
       "group": "D",
       "pa": 2,
@@ -215,5 +251,6 @@
       "loss": 0,
       "save": 0
     }
-  ]
+  ],
+  "youtube": null
 }

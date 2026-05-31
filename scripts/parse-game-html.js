@@ -5,6 +5,7 @@ import * as cheerio from 'cheerio';
 import {
     RAW_GAMES_DIR,
     GAMES_DIR,
+    GENERATED_DIR,
     ensureDir,
     writeJson,
     listFiles,
@@ -154,12 +155,16 @@ function parseGameHtmlFile(filePath, playersMap, tempCounter) {
     return {
         gameId: meta.gameId,
         gameDate: meta.gameDate,
+        date: meta.gameDate,
         year: meta.year,
         month: meta.month,
         opponent: meta.opponent,
         group,
         status: 'completed',
         score: parsed.score,
+        summary: parsed.summary ?? null,
+        opponentSummary: parsed.opponentSummary ?? null,
+        highlights: parsed.highlights ?? [],
         batting: parsed.batting,
         pitching: parsed.pitching,
     };
@@ -192,6 +197,8 @@ export function parseAllGameHtmlFiles() {
             console.error(`[ERROR] ${filename}: ${error.message}`);
         }
     }
+
+    writeJson(path.join(GENERATED_DIR, 'games.json'), games);
 
     return games;
 }

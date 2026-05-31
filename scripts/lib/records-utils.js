@@ -11,6 +11,8 @@ export const RAW_GAMES_DIR = path.join(DATA_DIR, 'raw-games');
 export const GAMES_DIR = path.join(DATA_DIR, 'games');
 export const SUMMARY_DIR = path.join(DATA_DIR, 'summary');
 export const META_DIR = path.join(DATA_DIR, 'meta');
+export const MANUAL_DIR = path.join(DATA_DIR, 'manual');
+export const GENERATED_DIR = path.join(DATA_DIR, 'generated');
 
 export function ensureDir(dirPath) {
     fs.mkdirSync(dirPath, { recursive: true });
@@ -28,6 +30,11 @@ export function readJson(filePath, fallback = null) {
 export function writeJson(filePath, data) {
     ensureDir(path.dirname(filePath));
     fs.writeFileSync(filePath, `${JSON.stringify(data, null, 2)}\n`, 'utf8');
+}
+
+export function resetDir(dirPath) {
+    fs.rmSync(dirPath, { recursive: true, force: true });
+    ensureDir(dirPath);
 }
 
 export function listFiles(dirPath, extension) {
@@ -139,15 +146,27 @@ export function resolvePlayer(name, playersMap, tempCounter) {
         };
     }
 
+    if (!tempCounter.unknownByName) {
+        tempCounter.unknownByName = new Map();
+    }
+
+    const existing = tempCounter.unknownByName.get(key);
+    if (existing) {
+        return existing;
+    }
+
     tempCounter.value += 1;
     const tempId = `temp-${String(tempCounter.value).padStart(3, '0')}`;
     console.warn(`[WARN] players.json에서 매칭되지 않은 선수명: "${name}"`);
 
-    return {
+    const player = {
         playerId: tempId,
         name,
         group: '',
     };
+
+    tempCounter.unknownByName.set(key, player);
+    return player;
 }
 
 export function createEmptyBattingRow(player) {

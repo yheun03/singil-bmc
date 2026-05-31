@@ -23,6 +23,7 @@
 
             <nav class="bmc-header__nav" :class="{ 'is-open': menuOpen }" aria-label="주요 메뉴">
                 <NuxtLink class="bmc-header__link" to="/" @click="menuOpen = false">홈</NuxtLink>
+                <NuxtLink class="bmc-header__link" to="/games" @click="menuOpen = false">경기</NuxtLink>
 
                 <div class="bmc-header__dropdown">
                     <span class="bmc-header__link">선교단 소개</span>
@@ -51,7 +52,7 @@
                     </div>
                 </div>
 
-                <NuxtLink class="bmc-header__link" to="/gallery/team" @click="menuOpen = false">사진</NuxtLink>
+                <NuxtLink class="bmc-header__link" to="/players" @click="menuOpen = false">선수</NuxtLink>
                 <NuxtLink class="bmc-header__link" to="/videos" @click="menuOpen = false">영상</NuxtLink>
                 <NuxtLink class="bmc-header__link" to="/news" @click="menuOpen = false">소식</NuxtLink>
                 <NuxtLink class="bmc-header__link" to="/contact" @click="menuOpen = false">문의</NuxtLink>

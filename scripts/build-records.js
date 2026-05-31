@@ -4,6 +4,8 @@ import {
     GAMES_DIR,
     SUMMARY_DIR,
     META_DIR,
+    MANUAL_DIR,
+    GENERATED_DIR,
     ensureDir,
     readJson,
     writeJson,
@@ -15,9 +17,23 @@ import {
     outsToIp,
 } from './lib/records-utils.js';
 
+const YOUTUBE_CHANNEL_URL =
+    'https://www.youtube.com/@%EB%8B%A4%EC%9C%97%EC%95%BC%EA%B5%AC%EC%84%A0%EA%B5%90%EB%8B%A8';
+
 function loadAllGames() {
     const files = listFiles(GAMES_DIR, '.json');
     return files.map((filename) => readJson(path.join(GAMES_DIR, filename))).filter(Boolean);
+}
+
+function loadYoutubeLinks() {
+    return readJson(path.join(MANUAL_DIR, 'youtube-links.json'), {});
+}
+
+function mergeYoutubeLinks(games, youtubeLinks) {
+    return games.map((game) => ({
+        ...game,
+        youtube: youtubeLinks[game.gameId] ?? null,
+    }));
 }
 
 function aggregateBatting(games) {
@@ -210,14 +226,22 @@ function buildYearlyRecords(games) {
 
     for (const game of games) {
         const year = game.year;
-        const current = yearMap.get(year) || { year, games: 0, hits: 0, runs: 0 };
+        const current = yearMap.get(year) || { year, games: 0, hits: 0, runs: 0, batting: [], pitching: [] };
         current.games += 1;
         current.hits += (game.batting || []).reduce((sum, row) => sum + (row.h || 0), 0);
         current.runs += (game.batting || []).reduce((sum, row) => sum + (row.r || 0), 0);
+        current.batting.push(...(game.batting || []));
+        current.pitching.push(...(game.pitching || []));
         yearMap.set(year, current);
     }
 
-    return [...yearMap.values()].sort((a, b) => b.year - a.year);
+    return [...yearMap.values()]
+        .map((item) => ({
+            ...item,
+            batting: aggregateBatting([{ batting: item.batting }]),
+            pitching: aggregatePitching([{ pitching: item.pitching }]),
+        }))
+        .sort((a, b) => b.year - a.year);
 }
 
 function buildMonthlyRecords(games) {
@@ -226,27 +250,190 @@ function buildMonthlyRecords(games) {
     for (const game of games) {
         const key = `${game.year}-${String(game.month).padStart(2, '0')}`;
         const current = monthMap.get(key) || {
+            key,
             year: game.year,
             month: game.month,
             games: 0,
             hits: 0,
             runs: 0,
             gameIds: [],
+            batting: [],
+            pitching: [],
         };
 
         current.games += 1;
         current.gameIds.push(game.gameId);
         current.hits += (game.batting || []).reduce((sum, row) => sum + (row.h || 0), 0);
         current.runs += (game.batting || []).reduce((sum, row) => sum + (row.r || 0), 0);
+        current.batting.push(...(game.batting || []));
+        current.pitching.push(...(game.pitching || []));
         monthMap.set(key, current);
     }
 
     return [...monthMap.values()]
-        .map(({ gameIds, ...rest }) => rest)
+        .map((item) => ({
+            key: item.key,
+            year: item.year,
+            month: item.month,
+            games: item.games,
+            hits: item.hits,
+            runs: item.runs,
+            batting: aggregateBatting([{ batting: item.batting }]),
+            pitching: aggregatePitching([{ pitching: item.pitching }]),
+        }))
         .sort((a, b) => {
             if (a.year !== b.year) return b.year - a.year;
             return b.month - a.month;
         });
+}
+
+function getMondayWeekKey(dateText) {
+    const date = new Date(`${dateText}T00:00:00+09:00`);
+    const day = date.getDay() || 7;
+    const monday = new Date(date);
+    monday.setDate(date.getDate() - day + 1);
+    const monthStart = new Date(monday.getFullYear(), monday.getMonth(), 1);
+    const monthStartDay = monthStart.getDay() || 7;
+    const firstMonday = new Date(monthStart);
+    firstMonday.setDate(monthStart.getDate() + (monthStartDay === 1 ? 0 : 8 - monthStartDay));
+    const week = monday < firstMonday ? 1 : Math.floor((monday - firstMonday) / (7 * 24 * 60 * 60 * 1000)) + 1;
+    return `${monday.getFullYear()}-${String(monday.getMonth() + 1).padStart(2, '0')}-W${week}`;
+}
+
+function battingScore(row) {
+    return (row.h || 0) * 4 + (row.rbi || 0) * 3 + (row.r || 0) * 2 + (row.sb || 0) * 1.5 + (row.hr || 0) * 5;
+}
+
+function pitchingScore(row) {
+    return (row.outs || 0) * 1.5 + (row.so || 0) * 2 + (row.win || 0) * 8 + (row.save || 0) * 5 - (row.er || 0) * 2;
+}
+
+function pickTop(rows, scoreFn) {
+    return [...rows]
+        .map((row) => ({ ...row, mvpScore: Number(scoreFn(row).toFixed(1)) }))
+        .sort((a, b) => b.mvpScore - a.mvpScore)[0];
+}
+
+function buildMvpByPeriod(games, getKey, label) {
+    const map = new Map();
+
+    for (const game of games) {
+        const key = getKey(game);
+        const current = map.get(key) || { key, games: [], batting: [], pitching: [] };
+        current.games.push(game);
+        current.batting.push(...(game.batting || []));
+        current.pitching.push(...(game.pitching || []));
+        map.set(key, current);
+    }
+
+    return [...map.values()]
+        .sort((a, b) => b.key.localeCompare(a.key))
+        .flatMap((period) => {
+            const batting = pickTop(aggregateBatting([{ batting: period.batting }]), battingScore);
+            const pitching = pickTop(aggregatePitching([{ pitching: period.pitching }]), pitchingScore);
+            const result = [];
+
+            if (batting) {
+                result.push({
+                    id: `${period.key}-batting`,
+                    key: period.key,
+                    type: 'batting',
+                    title: `${period.key} ${label} 타자 MVP`,
+                    name: batting.name,
+                    group: batting.group,
+                    summary: `${period.games.length}경기 ${batting.h}안타 ${batting.rbi}타점 ${batting.r}득점`,
+                    stats: { avg: batting.avg, h: batting.h, rbi: batting.rbi, hr: batting.hr, score: batting.mvpScore },
+                });
+            }
+
+            if (pitching) {
+                result.push({
+                    id: `${period.key}-pitching`,
+                    key: period.key,
+                    type: 'pitching',
+                    title: `${period.key} ${label} 투수 MVP`,
+                    name: pitching.name,
+                    group: pitching.group,
+                    summary: `${period.games.length}경기 ${pitching.ip}이닝 ${pitching.so}탈삼진`,
+                    stats: { ip: pitching.ip, era: pitching.era, so: pitching.so, win: pitching.win, score: pitching.mvpScore },
+                });
+            }
+
+            return result;
+        });
+}
+
+function buildMonthlyMvp(games) {
+    return buildMvpByPeriod(games, (game) => `${game.year}-${String(game.month).padStart(2, '0')}`, '월간');
+}
+
+function buildWeeklyMvp(games) {
+    return buildMvpByPeriod(games, (game) => getMondayWeekKey(game.gameDate), '주간');
+}
+
+function formatOpponent(opponent = '') {
+    return String(opponent).replace(/-/g, ' ');
+}
+
+function getOpponentName(game) {
+    return game.opponentSummary?.teamName || formatOpponent(game.opponent);
+}
+
+function buildAutoNews(games) {
+    return [...games]
+        .sort((a, b) => b.gameDate.localeCompare(a.gameDate))
+        .map((game) => {
+            const summary = game.summary || {};
+            const highlightText = (game.highlights || [])
+                .slice(0, 2)
+                .map((item) => `${item.type} ${item.text}`)
+                .join(', ');
+            const statText = `${summary.hits ?? 0}안타 ${summary.homeRuns ?? 0}홈런 ${summary.steals ?? 0}도루`;
+
+            return {
+                id: `game-${game.gameId}`,
+                slug: `game-${game.gameId}`,
+                source: 'game-record',
+                autoGenerated: true,
+                category: '경기 기록',
+                title: `다윗 야구 선교단, ${getOpponentName(game)}전 경기 기록 업데이트`,
+                date: game.gameDate,
+                summary: `다윗 야구 선교단은 ${statText}를 기록했습니다.${highlightText ? ` 주요 기록: ${highlightText}.` : ''}`,
+                content: `<p>다윗 야구 선교단은 ${getOpponentName(game)}전에서 ${statText}를 기록했습니다.</p>${highlightText ? `<p>주요 기록은 ${highlightText}입니다.</p>` : ''}<p><a href="/games/${game.gameId}">경기 상세 기록 보기</a></p>`,
+                link: `/games/${game.gameId}`,
+                gameId: game.gameId,
+                youtube: game.youtube,
+            };
+        });
+}
+
+function buildVideos(games) {
+    const mapped = games
+        .filter((game) => game.youtube)
+        .map((game) => ({
+            id: `game-${game.gameId}`,
+            gameId: game.gameId,
+            title: game.youtube.title || `${game.gameDate} ${getOpponentName(game)}전 경기 영상`,
+            youtubeUrl: game.youtube.youtubeUrl,
+            embedUrl: '',
+            thumbnail: '',
+            category: '경기',
+            date: game.youtube.publishedAt || game.gameDate,
+        }));
+
+    return mapped.length
+        ? mapped
+        : [
+              {
+                  id: 'youtube-channel',
+                  title: '다윗 야구 선교단 YouTube 채널',
+                  youtubeUrl: YOUTUBE_CHANNEL_URL,
+                  embedUrl: '',
+                  thumbnail: '',
+                  category: '채널',
+                  date: '',
+              },
+          ];
 }
 
 function buildGroupRecords(games) {
@@ -304,8 +491,10 @@ function buildGroupRecords(games) {
 
 export function buildAllRecords() {
     ensureDir(SUMMARY_DIR);
+    ensureDir(GENERATED_DIR);
 
-    const games = loadAllGames();
+    const youtubeLinks = loadYoutubeLinks();
+    const games = mergeYoutubeLinks(loadAllGames(), youtubeLinks);
 
     if (!games.length) {
         console.log('[INFO] games JSON 파일이 없습니다. summary는 빈 값으로 생성합니다.');
@@ -318,6 +507,14 @@ export function buildAllRecords() {
     const yearlyRecords = buildYearlyRecords(games);
     const monthlyRecords = buildMonthlyRecords(games);
     const groupRecords = buildGroupRecords(games);
+    const monthlyMvp = buildMonthlyMvp(games);
+    const weeklyMvp = buildWeeklyMvp(games);
+    const news = buildAutoNews(games);
+    const videos = buildVideos(games);
+
+    for (const game of games) {
+        writeJson(path.join(GAMES_DIR, `${game.gameId}.json`), game);
+    }
 
     writeJson(path.join(SUMMARY_DIR, 'batting-total.json'), battingTotal);
     writeJson(path.join(SUMMARY_DIR, 'pitching-total.json'), pitchingTotal);
@@ -326,6 +523,19 @@ export function buildAllRecords() {
     writeJson(path.join(SUMMARY_DIR, 'yearly-records.json'), yearlyRecords);
     writeJson(path.join(SUMMARY_DIR, 'monthly-records.json'), monthlyRecords);
     writeJson(path.join(SUMMARY_DIR, 'group-records.json'), groupRecords);
+    writeJson(path.join(SUMMARY_DIR, 'mvp-monthly.json'), monthlyMvp);
+    writeJson(path.join(SUMMARY_DIR, 'mvp-weekly.json'), weeklyMvp);
+    writeJson(path.join(GENERATED_DIR, 'games.json'), games);
+    writeJson(path.join(GENERATED_DIR, 'season-stats.json'), {
+        batting: battingTotal,
+        pitching: pitchingTotal,
+        team: teamTotal,
+    });
+    writeJson(path.join(GENERATED_DIR, 'monthly-stats.json'), monthlyRecords);
+    writeJson(path.join(GENERATED_DIR, 'monthly-mvp.json'), monthlyMvp);
+    writeJson(path.join(GENERATED_DIR, 'weekly-mvp.json'), weeklyMvp);
+    writeJson(path.join(GENERATED_DIR, 'news.json'), news);
+    writeJson(path.join(GENERATED_DIR, 'videos.json'), videos);
 
     return {
         games: games.length,

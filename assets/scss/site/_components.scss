@@ -527,6 +527,23 @@
     }
 }
 
+.bmc-chip {
+    border: 1px solid $bmc-gray-200;
+    border-radius: 8px;
+    padding: 9px 13px;
+    background: $bmc-white;
+    color: $bmc-gray-800;
+    font-weight: 800;
+    cursor: pointer;
+
+    &.is-active,
+    &:hover {
+        border-color: $bmc-navy-900;
+        background: $bmc-navy-900;
+        color: $bmc-white;
+    }
+}
+
 .bmc-about-intro {
     @include bmc-card;
     padding: 32px;

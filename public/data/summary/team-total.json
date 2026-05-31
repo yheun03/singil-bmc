@@ -1,9 +1,9 @@
 {
-  "totalGames": 9,
-  "totalPlayers": 38,
-  "totalHits": 67,
-  "totalRuns": 87,
-  "lastGameDate": "2026-05-31",
+  "totalGames": 12,
+  "totalPlayers": 23,
+  "totalHits": 107,
+  "totalRuns": 137,
+  "lastGameDate": "2026-05-30",
   "recentGames": [
     {
       "gameId": "2026-04-18-vs-yooshin",
@@ -36,22 +36,22 @@
       "group": "D"
     },
     {
+      "gameId": "2026-05-23-vs-koreauniv",
+      "gameDate": "2026-05-23",
+      "opponent": "koreauniv",
+      "score": {
+        "our": 13,
+        "opponent": 5
+      },
+      "group": "A"
+    },
+    {
       "gameId": "2026-05-30-vs-11stwyverns",
       "gameDate": "2026-05-30",
       "opponent": "11stwyverns",
       "score": {
         "our": 10,
         "opponent": 9
-      },
-      "group": "A"
-    },
-    {
-      "gameId": "2026-05-31-vs-sample",
-      "gameDate": "2026-05-31",
-      "opponent": "sample",
-      "score": {
-        "our": 7,
-        "opponent": 4
       },
       "group": "A"
     }

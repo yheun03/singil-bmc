@@ -1,6 +1,7 @@
 {
   "gameId": "2026-05-30-vs-11stwyverns",
   "gameDate": "2026-05-30",
+  "date": "2026-05-30",
   "year": 2026,
   "month": 5,
   "opponent": "11stwyverns",
@@ -10,6 +11,41 @@
     "our": 10,
     "opponent": 9
   },
+  "summary": {
+    "hits": 7,
+    "homeRuns": 1,
+    "steals": 2,
+    "strikeouts": 4,
+    "errors": 1,
+    "walksAndHbp": 2
+  },
+  "opponentSummary": {
+    "teamName": "11번가 와이번스",
+    "hits": 7,
+    "homeRuns": 0,
+    "steals": 4,
+    "strikeouts": 6,
+    "errors": 6,
+    "walksAndHbp": 7
+  },
+  "highlights": [
+    {
+      "type": "홈런",
+      "text": "은영환(4회)"
+    },
+    {
+      "type": "3루타",
+      "text": "은영환(2회)"
+    },
+    {
+      "type": "2루타",
+      "text": "박상현(1회) 정의민(1회,4회) 박성진(4회)"
+    },
+    {
+      "type": "도루",
+      "text": "은영환(3회) 노혁진(2회) 정의민(1회,4회) 박성진(1회) 신수진(1회)"
+    }
+  ],
   "batting": [
     {
       "playerId": "player-001",
@@ -265,5 +301,6 @@
       "loss": 0,
       "save": 0
     }
-  ]
+  ],
+  "youtube": null
 }
