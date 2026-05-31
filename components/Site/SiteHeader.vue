@@ -1,16 +1,5 @@
 <template>
     <header class="bmc-header">
-        <div class="bmc-header__utility">
-            <div class="bmc-header__utility-inner">
-                <a class="bmc-header__utility-link"
-                    href="https://www.youtube.com/@%EB%8B%A4%EC%9C%97%EC%95%BC%EA%B5%AC%EC%84%A0%EA%B5%90%EB%8B%A8"
-                    target="_blank" rel="noopener">
-                    YOUTUBE
-                </a>
-                <NuxtLink class="bmc-header__utility-link" to="/contact">CONTACT</NuxtLink>
-                <NuxtLink class="bmc-header__utility-pill" to="/players">JOIN US</NuxtLink>
-            </div>
-        </div>
         <div class="bmc-header__inner">
             <NuxtLink class="bmc-header__brand" to="/">
                 <span class="bmc-header__emblem" aria-hidden="true">

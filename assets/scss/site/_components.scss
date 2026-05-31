@@ -8,44 +8,6 @@
     border-bottom: 1px solid rgba($bmc-navy-900, 0.1);
     box-shadow: 0 6px 24px rgba($bmc-navy-900, 0.08);
 
-    &__utility {
-        background: $bmc-navy-900;
-        color: rgba($bmc-white, 0.76);
-        font-size: 0.75rem;
-        font-weight: 800;
-        letter-spacing: 0.04em;
-    }
-
-    &__utility-inner {
-        @include bmc-container;
-        min-height: 34px;
-        display: flex;
-        justify-content: flex-end;
-        align-items: center;
-        gap: 18px;
-    }
-
-    &__utility-link,
-    &__utility-pill {
-        color: inherit;
-        text-decoration: none;
-        white-space: nowrap;
-
-        &:hover {
-            color: $bmc-white;
-        }
-    }
-
-    &__utility-pill {
-        display: inline-flex;
-        align-items: center;
-        min-height: 24px;
-        padding: 0 12px;
-        border-radius: 999px;
-        background: $bmc-white;
-        color: $bmc-navy-900;
-    }
-
     &__inner {
         @include bmc-container;
         display: flex;
@@ -193,11 +155,6 @@
     }
 
     @media (max-width: 980px) {
-        &__utility-inner {
-            justify-content: center;
-            gap: 14px;
-        }
-
         &__toggle {
             display: grid;
             place-items: center;
@@ -205,7 +162,7 @@
 
         &__nav {
             position: absolute;
-            inset: 110px 0 auto 0;
+            inset: 76px 0 auto 0;
             display: none;
             flex-direction: column;
             align-items: stretch;
