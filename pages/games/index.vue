@@ -17,8 +17,9 @@
 
         <div v-if="filteredGames.length" class="bmc-game-season-summary">
             <span class="bmc-game-season-summary__chip">
-                승 <strong>{{ seasonCounts.win + seasonCounts['cold-win'] }}</strong>
+                승 <strong>{{ seasonCounts.win + seasonCounts['cold-win'] + seasonCounts['forfeit-win'] }}</strong>
                 <span v-if="seasonCounts['cold-win']" class="bmc-game-season-summary__sub">(콜드 {{ seasonCounts['cold-win'] }})</span>
+                <span v-if="seasonCounts['forfeit-win']" class="bmc-game-season-summary__sub">(몰수 {{ seasonCounts['forfeit-win'] }})</span>
             </span>
             <span class="bmc-game-season-summary__chip">
                 패 <strong>{{ seasonCounts.loss + seasonCounts['cold-loss'] }}</strong>
@@ -32,7 +33,9 @@
         <div class="bmc-game-results-legend" aria-label="경기 결과 표기 안내">
             <div>
                 <p class="bmc-game-results-legend__title">결과 표기</p>
-                <p class="bmc-game-results-legend__hint">콜드는 조기 종료 경기입니다. 점수차가 10점 미만이어도 리그 콜드 규정이 적용된 경기는 콜드승으로 표시합니다.</p>
+                <p class="bmc-game-results-legend__hint">
+                    콜드는 조기 종료 경기입니다. 몰수승은 0:7로 표기되며 타·투수 기록에 포함되지 않습니다.
+                </p>
             </div>
             <div class="bmc-game-results-legend__items">
                 <SiteGameResultBadge v-for="kind in legendKinds" :key="kind" :kind="kind" size="sm" />
@@ -56,10 +59,11 @@
                 </h3>
                 <div class="bmc-game-card__score-row">
                     <span class="bmc-game-card__score" :class="scoreClass(game)">
-                        {{ game.score?.our ?? 0 }} : {{ game.score?.opponent ?? 0 }}
+                        {{ displayScore(game) }}
                     </span>
                 </div>
-                <p class="bmc-game-card__stats">
+                <p v-if="isForfeitGame(game)" class="bmc-game-card__stats">몰수승 · 타·투수 기록 없음</p>
+                <p v-else class="bmc-game-card__stats">
                     {{ game.summary?.hits ?? 0 }}안타 · {{ game.summary?.homeRuns ?? 0 }}홈런 ·
                     {{ game.summary?.steals ?? 0 }}도루
                 </p>
@@ -71,6 +75,10 @@
 
 <script setup lang="ts">
 import {
+    formatDisplayScore,
+    isForfeitResult,
+    isLossResult,
+    isWinResult,
     resolveGameResult,
     summarizeSeasonResults,
     type GameResultKind,
@@ -90,11 +98,12 @@ type Game = {
     youtube?: { youtubeUrl: string } | null;
     result?: GameResultKind | null;
     inningsPlayed?: number | null;
+    excludeFromRecords?: boolean;
 };
 
 definePageMeta({ title: '경기' });
 
-const legendKinds: GameResultKind[] = ['win', 'loss', 'cold-win', 'cold-loss'];
+const legendKinds: GameResultKind[] = ['win', 'loss', 'cold-win', 'cold-loss', 'forfeit-win'];
 
 const { data, pending, error } = useSiteData<Game[]>('generated/games.json');
 const games = computed(() => [...(data.value ?? [])].sort((a, b) => b.gameDate.localeCompare(a.gameDate)));
@@ -119,12 +128,25 @@ function formatOpponent(opponent = '') {
     return opponent.replace(/-/g, ' ');
 }
 
-function resultKind(game: Game): GameResultKind {
-    return resolveGameResult({
+function gameInput(game: Game) {
+    return {
         score: game.score,
         result: game.result,
         inningsPlayed: game.inningsPlayed,
-    });
+        excludeFromRecords: game.excludeFromRecords,
+    };
+}
+
+function resultKind(game: Game): GameResultKind {
+    return resolveGameResult(gameInput(game));
+}
+
+function isForfeitGame(game: Game) {
+    return isForfeitResult(game.result);
+}
+
+function displayScore(game: Game) {
+    return formatDisplayScore(gameInput(game));
 }
 
 function cardClass(game: Game) {
@@ -133,8 +155,8 @@ function cardClass(game: Game) {
 
 function scoreClass(game: Game) {
     const kind = resultKind(game);
-    if (kind === 'win' || kind === 'cold-win') return 'is-our-ahead';
-    if (kind === 'loss' || kind === 'cold-loss') return 'is-our-behind';
+    if (isWinResult(kind)) return 'is-our-ahead';
+    if (isLossResult(kind)) return 'is-our-behind';
     return '';
 }
 </script>

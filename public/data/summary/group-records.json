@@ -1,31 +1,53 @@
 {
   "A": {
-    "games": 6,
-    "hits": 64,
-    "runs": 68,
-    "teamAvg": ".430",
+    "games": 7,
+    "hits": 66,
+    "runs": 70,
+    "teamAvg": ".395",
     "battingRanking": [
       {
         "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "A",
-        "g": 6,
-        "ab": 17,
+        "g": 7,
+        "ab": 18,
         "h": 10,
-        "rbi": 12,
+        "rbi": 13,
         "hr": 0,
-        "avg": ".588"
+        "avg": ".556"
       },
       {
         "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
         "name": "박의현",
         "group": "A",
-        "g": 6,
-        "ab": 14,
-        "h": 8,
+        "g": 7,
+        "ab": 17,
+        "h": 10,
+        "rbi": 5,
+        "hr": 0,
+        "avg": ".588"
+      },
+      {
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
+        "name": "최정훈",
+        "group": "A",
+        "g": 7,
+        "ab": 15,
+        "h": 6,
         "rbi": 4,
         "hr": 0,
-        "avg": ".571"
+        "avg": ".400"
+      },
+      {
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
+        "name": "김명선",
+        "group": "A",
+        "g": 7,
+        "ab": 15,
+        "h": 6,
+        "rbi": 8,
+        "hr": 0,
+        "avg": ".400"
       },
       {
         "playerId": "gameone-d-23dmt2nbqnp0000000trczx",
@@ -39,32 +61,43 @@
         "avg": ".545"
       },
       {
-        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
-        "name": "김명선",
+        "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
+        "name": "반석훈",
         "group": "A",
-        "g": 6,
-        "ab": 15,
-        "h": 6,
-        "rbi": 8,
+        "g": 5,
+        "ab": 17,
+        "h": 4,
+        "rbi": 4,
         "hr": 0,
-        "avg": ".400"
+        "avg": ".235"
       },
       {
-        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
-        "name": "최정훈",
+        "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
+        "name": "김재영",
         "group": "A",
         "g": 6,
         "ab": 14,
-        "h": 6,
+        "h": 4,
+        "rbi": 7,
+        "hr": 0,
+        "avg": ".286"
+      },
+      {
+        "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
+        "name": "성백동",
+        "group": "A",
+        "g": 6,
+        "ab": 17,
+        "h": 4,
         "rbi": 4,
         "hr": 0,
-        "avg": ".429"
+        "avg": ".235"
       },
       {
         "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "A",
-        "g": 4,
+        "g": 5,
         "ab": 9,
         "h": 4,
         "rbi": 4,
@@ -81,220 +114,209 @@
         "rbi": 4,
         "hr": 0,
         "avg": ".667"
-      },
-      {
-        "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
-        "name": "김재영",
-        "group": "A",
-        "g": 5,
-        "ab": 12,
-        "h": 4,
-        "rbi": 7,
-        "hr": 0,
-        "avg": ".333"
-      },
-      {
-        "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
-        "name": "성백동",
-        "group": "A",
-        "g": 5,
-        "ab": 14,
-        "h": 4,
-        "rbi": 4,
-        "hr": 0,
-        "avg": ".286"
-      },
-      {
-        "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
-        "name": "반석훈",
-        "group": "A",
-        "g": 4,
-        "ab": 14,
-        "h": 4,
-        "rbi": 4,
-        "hr": 0,
-        "avg": ".286"
       }
     ]
   },
   "D": {
-    "games": 22,
-    "hits": 229,
-    "runs": 269,
-    "teamAvg": ".440",
+    "games": 20,
+    "hits": 207,
+    "runs": 243,
+    "teamAvg": ".434",
     "battingRanking": [
       {
         "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
         "name": "박의현",
         "group": "D",
-        "g": 18,
-        "ab": 51,
-        "h": 33,
-        "rbi": 35,
+        "g": 16,
+        "ab": 43,
+        "h": 28,
+        "rbi": 29,
         "hr": 0,
-        "avg": ".647"
+        "avg": ".651"
       },
       {
         "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
         "name": "김재영",
         "group": "D",
-        "g": 19,
-        "ab": 50,
-        "h": 27,
-        "rbi": 19,
+        "g": 17,
+        "ab": 43,
+        "h": 23,
+        "rbi": 17,
         "hr": 0,
-        "avg": ".540"
+        "avg": ".535"
       },
       {
         "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
         "name": "반석훈",
         "group": "D",
-        "g": 14,
-        "ab": 46,
-        "h": 24,
-        "rbi": 13,
+        "g": 12,
+        "ab": 37,
+        "h": 21,
+        "rbi": 10,
         "hr": 0,
-        "avg": ".522"
+        "avg": ".568"
       },
       {
         "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "D",
-        "g": 16,
-        "ab": 42,
-        "h": 23,
-        "rbi": 24,
+        "g": 14,
+        "ab": 38,
+        "h": 21,
+        "rbi": 20,
         "hr": 0,
-        "avg": ".548"
+        "avg": ".553"
       },
       {
         "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "D",
-        "g": 21,
-        "ab": 45,
-        "h": 22,
-        "rbi": 17,
+        "g": 18,
+        "ab": 42,
+        "h": 20,
+        "rbi": 16,
         "hr": 0,
-        "avg": ".489"
+        "avg": ".476"
       },
       {
         "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "D",
-        "g": 16,
-        "ab": 32,
-        "h": 20,
-        "rbi": 30,
+        "g": 14,
+        "ab": 30,
+        "h": 18,
+        "rbi": 25,
         "hr": 0,
-        "avg": ".625"
+        "avg": ".600"
       },
       {
         "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
         "name": "성백동",
         "group": "D",
-        "g": 16,
-        "ab": 38,
-        "h": 19,
-        "rbi": 24,
+        "g": 14,
+        "ab": 33,
+        "h": 17,
+        "rbi": 22,
         "hr": 0,
-        "avg": ".500"
+        "avg": ".515"
       },
       {
         "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
         "name": "지성찬",
         "group": "D",
-        "g": 16,
-        "ab": 36,
-        "h": 13,
-        "rbi": 17,
+        "g": 14,
+        "ab": 32,
+        "h": 12,
+        "rbi": 15,
         "hr": 0,
-        "avg": ".361"
+        "avg": ".375"
       },
       {
         "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
-        "g": 15,
-        "ab": 33,
-        "h": 10,
-        "rbi": 10,
+        "g": 13,
+        "ab": 30,
+        "h": 9,
+        "rbi": 8,
         "hr": 0,
-        "avg": ".303"
+        "avg": ".300"
       },
       {
         "playerId": "gameone-d-5e8071b4ba9a16bf9cbfb1abdf4e4fe3",
         "name": "전병진",
         "group": "D",
-        "g": 7,
-        "ab": 19,
-        "h": 10,
+        "g": 5,
+        "ab": 15,
+        "h": 8,
         "rbi": 2,
         "hr": 0,
-        "avg": ".526"
+        "avg": ".533"
       }
     ]
   },
   "E": {
     "games": 12,
-    "hits": 102,
-    "runs": 119,
-    "teamAvg": ".411",
+    "hits": 111,
+    "runs": 136,
+    "teamAvg": ".425",
     "battingRanking": [
       {
         "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
         "name": "김재영",
         "group": "E",
         "g": 9,
-        "ab": 22,
-        "h": 13,
-        "rbi": 6,
+        "ab": 21,
+        "h": 12,
+        "rbi": 5,
         "hr": 0,
-        "avg": ".591"
+        "avg": ".571"
+      },
+      {
+        "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
+        "name": "박의현",
+        "group": "E",
+        "g": 9,
+        "ab": 21,
+        "h": 11,
+        "rbi": 15,
+        "hr": 0,
+        "avg": ".524"
+      },
+      {
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
+        "name": "최정훈",
+        "group": "E",
+        "g": 10,
+        "ab": 25,
+        "h": 10,
+        "rbi": 7,
+        "hr": 0,
+        "avg": ".400"
       },
       {
         "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "E",
         "g": 5,
-        "ab": 14,
-        "h": 11,
-        "rbi": 10,
-        "hr": 0,
-        "avg": ".786"
-      },
-      {
-        "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
-        "name": "박의현",
-        "group": "E",
-        "g": 8,
-        "ab": 18,
+        "ab": 12,
         "h": 10,
-        "rbi": 12,
+        "rbi": 9,
         "hr": 0,
-        "avg": ".556"
+        "avg": ".833"
       },
       {
         "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
         "name": "반석훈",
         "group": "E",
         "g": 5,
-        "ab": 12,
-        "h": 10,
-        "rbi": 10,
+        "ab": 11,
+        "h": 9,
+        "rbi": 9,
         "hr": 0,
-        "avg": ".833"
+        "avg": ".818"
       },
       {
-        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
-        "name": "최정훈",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
+        "name": "김명선",
         "group": "E",
-        "g": 8,
-        "ab": 20,
+        "g": 6,
+        "ab": 15,
         "h": 7,
-        "rbi": 4,
+        "rbi": 8,
         "hr": 0,
-        "avg": ".350"
+        "avg": ".467"
+      },
+      {
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
+        "name": "서우성",
+        "group": "E",
+        "g": 7,
+        "ab": 17,
+        "h": 6,
+        "rbi": 13,
+        "hr": 0,
+        "avg": ".353"
       },
       {
         "playerId": "gameone-d-mcn9183qr9o000000oaqdt",
@@ -308,48 +330,26 @@
         "avg": ".556"
       },
       {
-        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
-        "name": "김명선",
-        "group": "E",
-        "g": 6,
-        "ab": 15,
-        "h": 5,
-        "rbi": 7,
-        "hr": 0,
-        "avg": ".333"
-      },
-      {
-        "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
-        "name": "성백동",
-        "group": "E",
-        "g": 3,
-        "ab": 10,
-        "h": 5,
-        "rbi": 7,
-        "hr": 0,
-        "avg": ".500"
-      },
-      {
-        "playerId": "gameone-d-20tba4fnto7g000000mvlrt",
-        "name": "윤제중",
-        "group": "E",
-        "g": 4,
-        "ab": 7,
-        "h": 4,
-        "rbi": 4,
-        "hr": 0,
-        "avg": ".571"
-      },
-      {
         "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
         "name": "지성찬",
         "group": "E",
-        "g": 7,
-        "ab": 15,
-        "h": 4,
+        "g": 9,
+        "ab": 17,
+        "h": 5,
         "rbi": 2,
         "hr": 0,
-        "avg": ".267"
+        "avg": ".294"
+      },
+      {
+        "playerId": "gameone-d-a9b9fe76109dccd1a78f7dc413d80c5c",
+        "name": "윤성수",
+        "group": "E",
+        "g": 3,
+        "ab": 9,
+        "h": 5,
+        "rbi": 2,
+        "hr": 0,
+        "avg": ".556"
       }
     ]
   }

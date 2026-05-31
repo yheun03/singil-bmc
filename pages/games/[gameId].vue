@@ -13,8 +13,9 @@
                         <p class="bmc-game-detail__label">Final Score</p>
                         <SiteGameResultBadge v-if="gameResult" :kind="gameResult" size="lg" />
                     </div>
-                    <strong class="bmc-game-detail__score">{{ game.score?.our ?? 0 }} : {{ game.score?.opponent ?? 0 }}</strong>
+                    <strong class="bmc-game-detail__score">{{ displayScore }}</strong>
                     <p>다윗 야구 선교단 vs {{ opponentLabel(game) }}</p>
+                    <p v-if="isForfeit" class="bmc-game-detail__forfeit-note">몰수승 경기로 타·투수 기록이 없습니다.</p>
                 </div>
                 <a
                     class="bmc-btn bmc-btn--primary"
@@ -26,7 +27,7 @@
                 </a>
             </section>
 
-            <div class="bmc-grid bmc-grid--2">
+            <div v-if="!isForfeit" class="bmc-grid bmc-grid--2">
                 <article class="bmc-stat-panel">
                     <h3>우리팀 요약</h3>
                     <p>{{ statLine(game.summary) }}</p>
@@ -37,7 +38,7 @@
                 </article>
             </div>
 
-            <section v-if="game.highlights?.length" class="bmc-stat-panel">
+            <section v-if="!isForfeit && game.highlights?.length" class="bmc-stat-panel">
                 <h3>하이라이트</h3>
                 <ul class="bmc-highlight-list">
                     <li v-for="item in game.highlights" :key="`${item.type}-${item.text}`">
@@ -52,7 +53,7 @@
 
 <script setup lang="ts">
 import { YOUTUBE_CHANNEL_URL } from '~/constants/site';
-import { resolveGameResult, type GameResultKind } from '~/utils/game-result';
+import { formatDisplayScore, isForfeitResult, resolveGameResult, type GameResultKind } from '~/utils/game-result';
 
 type Summary = {
     teamName?: string;
@@ -76,6 +77,7 @@ type Game = {
     youtube?: { youtubeUrl: string } | null;
     result?: GameResultKind | null;
     inningsPlayed?: number | null;
+    excludeFromRecords?: boolean;
 };
 
 definePageMeta({ title: '경기 상세' });
@@ -92,9 +94,13 @@ const gameResult = computed(() =>
               score: game.value.score,
               result: game.value.result,
               inningsPlayed: game.value.inningsPlayed,
+              excludeFromRecords: game.value.excludeFromRecords,
           })
         : null,
 );
+
+const isForfeit = computed(() => isForfeitResult(game.value?.result));
+const displayScore = computed(() => (game.value ? formatDisplayScore(game.value) : ''));
 
 const detailResultClass = computed(() => (gameResult.value ? `bmc-game-detail--${gameResult.value}` : ''));
 
@@ -132,7 +138,7 @@ watch(
 
         const opponent = opponentLabel(item);
         const title = `vs ${opponent}`;
-        const description = `${item.gameDate} · ${item.group || '-'}조 · ${item.score?.our ?? 0}:${item.score?.opponent ?? 0} — 신길교회 야구 선교단 경기 기록`;
+        const description = `${item.gameDate} · ${item.group || '-'}조 · ${formatDisplayScore(item)} — 신길교회 야구 선교단 경기 기록`;
         const path = `/games/${item.gameId}`;
 
         setSeoPageOverride({
@@ -196,6 +202,21 @@ onUnmounted(() => setSeoPageOverride(null));
     &--cold-win {
         border-color: #c9a227;
         background: linear-gradient(135deg, #fffdf5 0%, #fff 55%);
+    }
+
+    &--forfeit-win {
+        border-color: #6366f1;
+        background: linear-gradient(135deg, #f5f3ff 0%, #fff 55%);
+    }
+
+    &--forfeit-win .bmc-game-detail__score {
+        color: #4338ca;
+    }
+
+    &__forfeit-note {
+        margin: 8px 0 0;
+        font-size: 0.875rem;
+        color: #64748b;
     }
 
     &--cold-loss {

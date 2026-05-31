@@ -18,6 +18,7 @@ import {
 } from './lib/records-utils.js';
 import { collectRecordGroups, loadSeasonTeamsConfig } from './lib/season-teams.js';
 import { applySeasonYear, getSeasonYear, loadSeasonsConfig } from './lib/seasons.js';
+import { applyForfeitPresentation, filterRecordableGames } from './lib/game-result.js';
 
 const YOUTUBE_CHANNEL_URL =
     'https://www.youtube.com/@%EB%8B%A4%EC%9C%97%EC%95%BC%EA%B5%AC%EC%84%A0%EA%B5%90%EB%8B%A8';
@@ -40,7 +41,7 @@ function mergeGameOverrides(games, overrides, seasonsConfig) {
     return games.map((game) => {
         const patch = overrides[game.gameId];
         const merged = patch ? { ...game, ...patch } : game;
-        return applySeasonYear(merged, seasonsConfig, overrides);
+        return applyForfeitPresentation(applySeasonYear(merged, seasonsConfig, overrides));
     });
 }
 
@@ -456,7 +457,7 @@ function getOpponentName(game) {
 }
 
 function buildAutoNews(games) {
-    return [...games]
+    return filterRecordableGames(games)
         .sort((a, b) => b.gameDate.localeCompare(a.gameDate))
         .map((game) => {
             const summary = game.summary || {};
@@ -574,21 +575,22 @@ export function buildAllRecords() {
     const seasonsConfig = loadSeasonsConfig();
     const seasonTeamsConfig = loadSeasonTeamsConfig();
     const games = mergeYoutubeLinks(mergeGameOverrides(loadAllGames(), gameOverrides, seasonsConfig), youtubeLinks);
-    const recordGroups = collectRecordGroups(games, seasonTeamsConfig);
+    const recordGames = filterRecordableGames(games);
+    const recordGroups = collectRecordGroups(recordGames, seasonTeamsConfig);
 
     if (!games.length) {
         console.log('[INFO] games JSON 파일이 없습니다. summary는 빈 값으로 생성합니다.');
     }
 
-    const battingTotal = aggregateBatting(games);
-    const pitchingTotal = aggregatePitching(games);
-    const teamTotal = buildTeamTotal(games, battingTotal);
+    const battingTotal = aggregateBatting(recordGames);
+    const pitchingTotal = aggregatePitching(recordGames);
+    const teamTotal = buildTeamTotal(recordGames, battingTotal);
     const playersTotal = buildPlayersTotal(battingTotal, pitchingTotal);
-    const yearlyRecords = buildYearlyRecords(games, seasonTeamsConfig);
-    const monthlyRecords = buildMonthlyRecords(games, seasonTeamsConfig);
-    const groupRecords = buildGroupRecords(games, recordGroups);
-    const monthlyMvp = buildMonthlyMvp(games);
-    const weeklyMvp = buildWeeklyMvp(games);
+    const yearlyRecords = buildYearlyRecords(recordGames, seasonTeamsConfig);
+    const monthlyRecords = buildMonthlyRecords(recordGames, seasonTeamsConfig);
+    const groupRecords = buildGroupRecords(recordGames, recordGroups);
+    const monthlyMvp = buildMonthlyMvp(recordGames);
+    const weeklyMvp = buildWeeklyMvp(recordGames);
     const news = buildAutoNews(games);
     const videos = buildVideos(games);
 

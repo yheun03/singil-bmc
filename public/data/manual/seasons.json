@@ -1,6 +1,4 @@
 {
-    "boundaries": [
-        { "season": 2026, "startDate": "2026-01-31" },
-        { "season": 2025, "startDate": "2025-03-01" }
-    ]
+    "_note": "boundaries가 비어 있으면 경기일 달력 연도(1월 1일·신정 기준)를 시즌으로 사용합니다. 시즌 개막일이 달력과 다를 때만 boundaries에 startDate를 추가하세요.",
+    "boundaries": []
 }

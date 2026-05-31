@@ -81,9 +81,17 @@ HTML `.record h3` / 게임요약 `h4`의 **우리팀명**으로 조를 판정합
 
 ### 시즌 연도 (경기일과 분리)
 
-리그 시즌은 달력 연도와 다를 수 있습니다. 예: 2026-01-03 경기는 2025 시즌에 속할 수 있습니다.
+기본값은 **신정(1월 1일) 기준** — `boundaries`가 비어 있으면 경기일의 달력 연도가 시즌 연도입니다.
 
 `public/data/manual/seasons.json`:
+
+```json
+{
+    "boundaries": []
+}
+```
+
+리그 시즌 개막일이 달력과 다를 때만 `boundaries`에 추가합니다:
 
 ```json
 {
@@ -98,14 +106,24 @@ HTML `.record h3` / 게임요약 `h4`의 **우리팀명**으로 조를 판정합
 - 파일명 날짜(`gameDate`)는 **실제 경기일** 그대로 유지합니다.
 - 연도별 기록·조 판정은 `seasonYear`를 사용합니다.
 - 개별 경기만 예외 처리하려면 `game-overrides.json`에 `"seasonYear": 2025`를 추가합니다.
+- `npm run update` 후 `public/data/meta/seasons.json`에도 복사됩니다.
+
+### 경기 결과 override (선택)
+
+`public/data/manual/game-overrides.json`:
 
 ```json
 {
-    "2026-01-03-vs-cubs2": { "seasonYear": 2025 }
+    "2025-11-08-vs-anjin": { "result": "forfeit-win" },
+    "2026-01-31-vs-sogang": { "result": "cold-win" }
 }
 ```
 
-- `npm run update` 후 `public/data/meta/seasons.json`에도 복사됩니다.
+| result         | 설명                                      |
+| -------------- | ----------------------------------------- |
+| `cold-win`     | 콜드승 (기록 포함)                        |
+| `cold-loss`    | 콜드패 (기록 포함)                        |
+| `forfeit-win`  | 몰수승 — **0:7 표기, 타·투수 기록 제외** |
 
 ### YouTube 영상 (선택)
 

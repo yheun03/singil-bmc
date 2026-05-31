@@ -1156,12 +1156,12 @@
     }
   },
   {
-    "id": "2026-01-W1-D-batting-1",
+    "id": "2026-01-W1-A-batting-1",
     "key": "2026-01-W1",
-    "group": "D",
+    "group": "A",
     "rank": 1,
     "type": "batting",
-    "title": "2026-01-W1 D조 주간 타자 MVP 1위",
+    "title": "2026-01-W1 A조 주간 타자 MVP 1위",
     "name": "박의현",
     "summary": "1경기 2안타 1타점 0득점",
     "stats": {
@@ -1173,12 +1173,12 @@
     }
   },
   {
-    "id": "2026-01-W1-D-batting-2",
+    "id": "2026-01-W1-A-batting-2",
     "key": "2026-01-W1",
-    "group": "D",
+    "group": "A",
     "rank": 2,
     "type": "batting",
-    "title": "2026-01-W1 D조 주간 타자 MVP 2위",
+    "title": "2026-01-W1 A조 주간 타자 MVP 2위",
     "name": "김재영",
     "summary": "1경기 0안타 0타점 2득점",
     "stats": {
@@ -1190,12 +1190,12 @@
     }
   },
   {
-    "id": "2026-01-W1-D-batting-3",
+    "id": "2026-01-W1-A-batting-3",
     "key": "2026-01-W1",
-    "group": "D",
+    "group": "A",
     "rank": 3,
     "type": "batting",
-    "title": "2026-01-W1 D조 주간 타자 MVP 3위",
+    "title": "2026-01-W1 A조 주간 타자 MVP 3위",
     "name": "선예환",
     "summary": "1경기 0안타 1타점 0득점",
     "stats": {
@@ -1207,12 +1207,12 @@
     }
   },
   {
-    "id": "2026-01-W1-D-pitching-1",
+    "id": "2026-01-W1-A-pitching-1",
     "key": "2026-01-W1",
-    "group": "D",
+    "group": "A",
     "rank": 1,
     "type": "pitching",
-    "title": "2026-01-W1 D조 주간 투수 MVP 1위",
+    "title": "2026-01-W1 A조 주간 투수 MVP 1위",
     "name": "김명선",
     "summary": "1경기 4.0이닝 2탈삼진",
     "stats": {
@@ -1224,12 +1224,12 @@
     }
   },
   {
-    "id": "2026-01-W1-D-pitching-2",
+    "id": "2026-01-W1-A-pitching-2",
     "key": "2026-01-W1",
-    "group": "D",
+    "group": "A",
     "rank": 2,
     "type": "pitching",
-    "title": "2026-01-W1 D조 주간 투수 MVP 2위",
+    "title": "2026-01-W1 A조 주간 투수 MVP 2위",
     "name": "은영환",
     "summary": "1경기 1.0이닝 2탈삼진",
     "stats": {
@@ -1241,12 +1241,12 @@
     }
   },
   {
-    "id": "2025-12-W5-E-batting-1",
+    "id": "2025-12-W5-D-batting-1",
     "key": "2025-12-W5",
-    "group": "E",
+    "group": "D",
     "rank": 1,
     "type": "batting",
-    "title": "2025-12-W5 E조 주간 타자 MVP 1위",
+    "title": "2025-12-W5 D조 주간 타자 MVP 1위",
     "name": "성백동",
     "summary": "1경기 3안타 5타점 1득점",
     "stats": {
@@ -1258,12 +1258,12 @@
     }
   },
   {
-    "id": "2025-12-W5-E-batting-2",
+    "id": "2025-12-W5-D-batting-2",
     "key": "2025-12-W5",
-    "group": "E",
+    "group": "D",
     "rank": 2,
     "type": "batting",
-    "title": "2025-12-W5 E조 주간 타자 MVP 2위",
+    "title": "2025-12-W5 D조 주간 타자 MVP 2위",
     "name": "김재영",
     "summary": "1경기 1안타 1타점 3득점",
     "stats": {
@@ -1275,12 +1275,12 @@
     }
   },
   {
-    "id": "2025-12-W5-E-batting-3",
+    "id": "2025-12-W5-D-batting-3",
     "key": "2025-12-W5",
-    "group": "E",
+    "group": "D",
     "rank": 3,
     "type": "batting",
-    "title": "2025-12-W5 E조 주간 타자 MVP 3위",
+    "title": "2025-12-W5 D조 주간 타자 MVP 3위",
     "name": "선예환",
     "summary": "1경기 2안타 1타점 1득점",
     "stats": {
@@ -1292,12 +1292,12 @@
     }
   },
   {
-    "id": "2025-12-W5-E-pitching-1",
+    "id": "2025-12-W5-D-pitching-1",
     "key": "2025-12-W5",
-    "group": "E",
+    "group": "D",
     "rank": 1,
     "type": "pitching",
-    "title": "2025-12-W5 E조 주간 투수 MVP 1위",
+    "title": "2025-12-W5 D조 주간 투수 MVP 1위",
     "name": "김명선",
     "summary": "1경기 3.0이닝 4탈삼진",
     "stats": {
@@ -1309,12 +1309,12 @@
     }
   },
   {
-    "id": "2025-12-W5-E-pitching-2",
+    "id": "2025-12-W5-D-pitching-2",
     "key": "2025-12-W5",
-    "group": "E",
+    "group": "D",
     "rank": 2,
     "type": "pitching",
-    "title": "2025-12-W5 E조 주간 투수 MVP 2위",
+    "title": "2025-12-W5 D조 주간 투수 MVP 2위",
     "name": "은영환",
     "summary": "1경기 1.1이닝 4탈삼진",
     "stats": {
@@ -1326,12 +1326,12 @@
     }
   },
   {
-    "id": "2025-12-W5-E-pitching-3",
+    "id": "2025-12-W5-D-pitching-3",
     "key": "2025-12-W5",
-    "group": "E",
+    "group": "D",
     "rank": 3,
     "type": "pitching",
-    "title": "2025-12-W5 E조 주간 투수 MVP 3위",
+    "title": "2025-12-W5 D조 주간 투수 MVP 3위",
     "name": "반석훈",
     "summary": "1경기 0.2이닝 2탈삼진",
     "stats": {
@@ -1530,88 +1530,105 @@
     }
   },
   {
-    "id": "2025-11-W4-D-batting-1",
+    "id": "2025-11-W4-E-batting-1",
     "key": "2025-11-W4",
-    "group": "D",
+    "group": "E",
     "rank": 1,
     "type": "batting",
-    "title": "2025-11-W4 D조 주간 타자 MVP 1위",
-    "name": "성백동",
-    "summary": "1경기 3안타 5타점 1득점",
-    "stats": {
-      "avg": ".750",
-      "h": 3,
-      "rbi": 5,
-      "hr": 0,
-      "score": 29
-    }
-  },
-  {
-    "id": "2025-11-W4-D-batting-2",
-    "key": "2025-11-W4",
-    "group": "D",
-    "rank": 2,
-    "type": "batting",
-    "title": "2025-11-W4 D조 주간 타자 MVP 2위",
+    "title": "2025-11-W4 E조 주간 타자 MVP 1위",
     "name": "박의현",
-    "summary": "1경기 3안타 3타점 3득점",
+    "summary": "1경기 2안타 3타점 2득점",
     "stats": {
-      "avg": ".750",
-      "h": 3,
+      "avg": ".667",
+      "h": 2,
       "rbi": 3,
       "hr": 0,
-      "score": 27
+      "score": 21
     }
   },
   {
-    "id": "2025-11-W4-D-batting-3",
+    "id": "2025-11-W4-E-batting-2",
     "key": "2025-11-W4",
-    "group": "D",
+    "group": "E",
+    "rank": 2,
+    "type": "batting",
+    "title": "2025-11-W4 E조 주간 타자 MVP 2위",
+    "name": "서우성",
+    "summary": "1경기 1안타 4타점 1득점",
+    "stats": {
+      "avg": ".500",
+      "h": 1,
+      "rbi": 4,
+      "hr": 0,
+      "score": 18
+    }
+  },
+  {
+    "id": "2025-11-W4-E-batting-3",
+    "key": "2025-11-W4",
+    "group": "E",
     "rank": 3,
     "type": "batting",
-    "title": "2025-11-W4 D조 주간 타자 MVP 3위",
-    "name": "선예환",
-    "summary": "1경기 2안타 1타점 3득점",
+    "title": "2025-11-W4 E조 주간 타자 MVP 3위",
+    "name": "은영환",
+    "summary": "1경기 1안타 4타점 1득점",
     "stats": {
-      "avg": "1.000",
-      "h": 2,
-      "rbi": 1,
+      "avg": ".500",
+      "h": 1,
+      "rbi": 4,
       "hr": 0,
-      "score": 18.5
+      "score": 18
     }
   },
   {
-    "id": "2025-11-W4-D-pitching-1",
+    "id": "2025-11-W4-E-pitching-1",
     "key": "2025-11-W4",
-    "group": "D",
+    "group": "E",
     "rank": 1,
     "type": "pitching",
-    "title": "2025-11-W4 D조 주간 투수 MVP 1위",
+    "title": "2025-11-W4 E조 주간 투수 MVP 1위",
     "name": "은영환",
-    "summary": "1경기 3.0이닝 4탈삼진",
+    "summary": "1경기 2.1이닝 6탈삼진",
     "stats": {
-      "ip": "3.0",
+      "ip": "2.1",
       "era": "0.00",
-      "so": 4,
+      "so": 6,
       "win": 1,
-      "score": 29.5
+      "score": 30.5
     }
   },
   {
-    "id": "2025-11-W4-D-pitching-2",
+    "id": "2025-11-W4-E-pitching-2",
     "key": "2025-11-W4",
-    "group": "D",
+    "group": "E",
     "rank": 2,
     "type": "pitching",
-    "title": "2025-11-W4 D조 주간 투수 MVP 2위",
-    "name": "김명선",
-    "summary": "1경기 1.0이닝 1탈삼진",
+    "title": "2025-11-W4 E조 주간 투수 MVP 2위",
+    "name": "지성찬",
+    "summary": "1경기 1.0이닝 2탈삼진",
     "stats": {
       "ip": "1.0",
       "era": "0.00",
-      "so": 1,
+      "so": 2,
       "win": 0,
-      "score": 6.5
+      "score": 13.5
+    }
+  },
+  {
+    "id": "2025-11-W4-E-pitching-3",
+    "key": "2025-11-W4",
+    "group": "E",
+    "rank": 3,
+    "type": "pitching",
+    "title": "2025-11-W4 E조 주간 투수 MVP 3위",
+    "name": "김명선",
+    "summary": "1경기 0.2이닝 0탈삼진",
+    "stats": {
+      "ip": "0.2",
+      "era": "0.00",
+      "so": 0,
+      "win": 0,
+      "score": 3
     }
   },
   {
@@ -1707,7 +1724,7 @@
     "type": "batting",
     "title": "2025-11-W1 E조 주간 타자 MVP 1위",
     "name": "박의현",
-    "summary": "2경기 2안타 3타점 3득점",
+    "summary": "1경기 2안타 3타점 3득점",
     "stats": {
       "avg": "1.000",
       "h": 2,
@@ -1724,7 +1741,7 @@
     "type": "batting",
     "title": "2025-11-W1 E조 주간 타자 MVP 2위",
     "name": "선예환",
-    "summary": "2경기 2안타 3타점 1득점",
+    "summary": "1경기 2안타 3타점 1득점",
     "stats": {
       "avg": "1.000",
       "h": 2,
@@ -1741,7 +1758,7 @@
     "type": "batting",
     "title": "2025-11-W1 E조 주간 타자 MVP 3위",
     "name": "은영환",
-    "summary": "2경기 0안타 1타점 3득점",
+    "summary": "1경기 0안타 1타점 3득점",
     "stats": {
       "avg": ".000",
       "h": 0,
@@ -1758,7 +1775,7 @@
     "type": "pitching",
     "title": "2025-11-W1 E조 주간 투수 MVP 1위",
     "name": "박의현",
-    "summary": "2경기 1.2이닝 2탈삼진",
+    "summary": "1경기 1.2이닝 2탈삼진",
     "stats": {
       "ip": "1.2",
       "era": "5.40",
@@ -1775,7 +1792,7 @@
     "type": "pitching",
     "title": "2025-11-W1 E조 주간 투수 MVP 2위",
     "name": "선예환",
-    "summary": "2경기 1.1이닝 3탈삼진",
+    "summary": "1경기 1.1이닝 3탈삼진",
     "stats": {
       "ip": "1.1",
       "era": "20.25",
@@ -1972,20 +1989,88 @@
     }
   },
   {
+    "id": "2025-10-W1-E-batting-1",
+    "key": "2025-10-W1",
+    "group": "E",
+    "rank": 1,
+    "type": "batting",
+    "title": "2025-10-W1 E조 주간 타자 MVP 1위",
+    "name": "서우성",
+    "summary": "1경기 2안타 6타점 2득점",
+    "stats": {
+      "avg": ".667",
+      "h": 2,
+      "rbi": 6,
+      "hr": 0,
+      "score": 30
+    }
+  },
+  {
+    "id": "2025-10-W1-E-batting-2",
+    "key": "2025-10-W1",
+    "group": "E",
+    "rank": 2,
+    "type": "batting",
+    "title": "2025-10-W1 E조 주간 타자 MVP 2위",
+    "name": "오치송",
+    "summary": "1경기 2안타 5타점 1득점",
+    "stats": {
+      "avg": ".500",
+      "h": 2,
+      "rbi": 5,
+      "hr": 0,
+      "score": 26.5
+    }
+  },
+  {
+    "id": "2025-10-W1-E-batting-3",
+    "key": "2025-10-W1",
+    "group": "E",
+    "rank": 3,
+    "type": "batting",
+    "title": "2025-10-W1 E조 주간 타자 MVP 3위",
+    "name": "최정훈",
+    "summary": "1경기 2안타 3타점 2득점",
+    "stats": {
+      "avg": ".667",
+      "h": 2,
+      "rbi": 3,
+      "hr": 0,
+      "score": 21
+    }
+  },
+  {
+    "id": "2025-10-W1-E-pitching-1",
+    "key": "2025-10-W1",
+    "group": "E",
+    "rank": 1,
+    "type": "pitching",
+    "title": "2025-10-W1 E조 주간 투수 MVP 1위",
+    "name": "박의현",
+    "summary": "1경기 3.0이닝 5탈삼진",
+    "stats": {
+      "ip": "3.0",
+      "era": "0.00",
+      "so": 5,
+      "win": 1,
+      "score": 31.5
+    }
+  },
+  {
     "id": "2025-10-W1-D-batting-1",
     "key": "2025-10-W1",
     "group": "D",
     "rank": 1,
     "type": "batting",
     "title": "2025-10-W1 D조 주간 타자 MVP 1위",
-    "name": "김재영",
-    "summary": "2경기 6안타 2타점 5득점",
+    "name": "박의현",
+    "summary": "1경기 2안타 2타점 2득점",
     "stats": {
-      "avg": ".857",
-      "h": 6,
+      "avg": ".667",
+      "h": 2,
       "rbi": 2,
       "hr": 0,
-      "score": 46
+      "score": 18
     }
   },
   {
@@ -1995,14 +2080,14 @@
     "rank": 2,
     "type": "batting",
     "title": "2025-10-W1 D조 주간 타자 MVP 2위",
-    "name": "반석훈",
-    "summary": "2경기 5안타 2타점 6득점",
+    "name": "은영환",
+    "summary": "1경기 1안타 4타점 1득점",
     "stats": {
-      "avg": ".714",
-      "h": 5,
-      "rbi": 2,
+      "avg": ".333",
+      "h": 1,
+      "rbi": 4,
       "hr": 0,
-      "score": 45.5
+      "score": 18
     }
   },
   {
@@ -2012,14 +2097,14 @@
     "rank": 3,
     "type": "batting",
     "title": "2025-10-W1 D조 주간 타자 MVP 3위",
-    "name": "은영환",
-    "summary": "2경기 3안타 7타점 3득점",
+    "name": "김재영",
+    "summary": "1경기 2안타 1타점 2득점",
     "stats": {
-      "avg": ".500",
-      "h": 3,
-      "rbi": 7,
+      "avg": ".667",
+      "h": 2,
+      "rbi": 1,
       "hr": 0,
-      "score": 39
+      "score": 16.5
     }
   },
   {
@@ -2029,14 +2114,14 @@
     "rank": 1,
     "type": "pitching",
     "title": "2025-10-W1 D조 주간 투수 MVP 1위",
-    "name": "반석훈",
-    "summary": "2경기 3.2이닝 4탈삼진",
+    "name": "선예환",
+    "summary": "1경기 3.0이닝 3탈삼진",
     "stats": {
-      "ip": "3.2",
-      "era": "9.82",
-      "so": 4,
+      "ip": "3.0",
+      "era": "6.00",
+      "so": 3,
       "win": 1,
-      "score": 24.5
+      "score": 23.5
     }
   },
   {
@@ -2046,14 +2131,14 @@
     "rank": 2,
     "type": "pitching",
     "title": "2025-10-W1 D조 주간 투수 MVP 2위",
-    "name": "선예환",
-    "summary": "2경기 3.0이닝 3탈삼진",
+    "name": "반석훈",
+    "summary": "1경기 0.2이닝 1탈삼진",
     "stats": {
-      "ip": "3.0",
-      "era": "6.00",
-      "so": 3,
-      "win": 1,
-      "score": 23.5
+      "ip": "0.2",
+      "era": "0.00",
+      "so": 1,
+      "win": 0,
+      "score": 5
     }
   },
   {

@@ -11,7 +11,7 @@
   "status": "completed",
   "score": {
     "our": 0,
-    "opponent": 0
+    "opponent": 7
   },
   "summary": {
     "hits": 0,
@@ -33,6 +33,7 @@
   "highlights": [],
   "batting": [],
   "pitching": [],
-  "result": "win",
+  "result": "forfeit-win",
+  "excludeFromRecords": true,
   "youtube": null
 }

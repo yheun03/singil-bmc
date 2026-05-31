@@ -6,10 +6,8 @@ export const SEASONS_FILENAME = 'seasons.json';
 /** @typedef {{ season: number, startDate: string }} SeasonBoundary */
 
 export const DEFAULT_SEASONS_CONFIG = {
-    boundaries: [
-        { season: 2026, startDate: '2026-01-31' },
-        { season: 2025, startDate: '2025-03-01' },
-    ],
+    _note: 'boundaries가 비어 있으면 경기일 달력 연도(1월 1일·신정 기준)를 시즌으로 사용합니다.',
+    boundaries: [],
 };
 
 export function loadSeasonsConfig() {

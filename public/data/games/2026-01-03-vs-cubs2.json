@@ -3,11 +3,11 @@
   "gameDate": "2026-01-03",
   "date": "2026-01-03",
   "year": 2026,
-  "seasonYear": 2025,
+  "seasonYear": 2026,
   "month": 1,
   "opponent": "cubs2",
   "opponentName": "시카고컵스2",
-  "group": "E",
+  "group": "D",
   "status": "completed",
   "score": {
     "our": 13,
@@ -48,7 +48,7 @@
     {
       "playerId": "gameone-d-2ebo2ah1vkt0000000ptwfl",
       "name": "민재홍",
-      "group": "E",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 0,
@@ -65,7 +65,7 @@
     {
       "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
       "name": "반석훈",
-      "group": "E",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 1,
@@ -82,7 +82,7 @@
     {
       "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
       "name": "김재영",
-      "group": "E",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 3,
@@ -99,7 +99,7 @@
     {
       "playerId": "gameone-d-htnjgpl47440000009rhn8",
       "name": "선예환",
-      "group": "E",
+      "group": "D",
       "pa": 4,
       "ab": 4,
       "r": 1,
@@ -116,7 +116,7 @@
     {
       "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
       "name": "박의현",
-      "group": "E",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 3,
@@ -133,7 +133,7 @@
     {
       "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
       "name": "성백동",
-      "group": "E",
+      "group": "D",
       "pa": 4,
       "ab": 4,
       "r": 1,
@@ -150,7 +150,7 @@
     {
       "playerId": "gameone-d-kk8hul65kok000000wyq9z",
       "name": "오치송",
-      "group": "E",
+      "group": "D",
       "pa": 3,
       "ab": 3,
       "r": 0,
@@ -167,7 +167,7 @@
     {
       "playerId": "gameone-d-9u0diupqb7600000023mwz",
       "name": "서우성",
-      "group": "E",
+      "group": "D",
       "pa": 4,
       "ab": 4,
       "r": 1,
@@ -184,7 +184,7 @@
     {
       "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
       "name": "권태헌",
-      "group": "E",
+      "group": "D",
       "pa": 1,
       "ab": 1,
       "r": 1,
@@ -201,7 +201,7 @@
     {
       "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
       "name": "은영환",
-      "group": "E",
+      "group": "D",
       "pa": 1,
       "ab": 1,
       "r": 1,
@@ -218,7 +218,7 @@
     {
       "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
       "name": "김명선",
-      "group": "E",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 1,
@@ -237,7 +237,7 @@
     {
       "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
       "name": "김명선",
-      "group": "E",
+      "group": "D",
       "ip": "3.0",
       "outs": 9,
       "h": 6,
@@ -253,7 +253,7 @@
     {
       "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
       "name": "은영환",
-      "group": "E",
+      "group": "D",
       "ip": "1.0",
       "outs": 3,
       "h": 1,
@@ -269,7 +269,7 @@
     {
       "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
       "name": "반석훈",
-      "group": "E",
+      "group": "D",
       "ip": "0.2",
       "outs": 2,
       "h": 1,
@@ -285,7 +285,7 @@
     {
       "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
       "name": "은영환",
-      "group": "E",
+      "group": "D",
       "ip": "0.1",
       "outs": 1,
       "h": 0,
