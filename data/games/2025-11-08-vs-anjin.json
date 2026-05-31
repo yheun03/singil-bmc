@@ -1,0 +1,39 @@
+{
+  "gameId": "2025-11-08-vs-anjin",
+  "gameDate": "2025-11-08",
+  "date": "2025-11-08",
+  "year": 2025,
+  "seasonYear": 2025,
+  "month": 11,
+  "opponent": "anjin",
+  "opponentName": "안진회계법인",
+  "group": "E",
+  "status": "completed",
+  "score": {
+    "our": 0,
+    "opponent": 7
+  },
+  "summary": {
+    "hits": 0,
+    "homeRuns": 0,
+    "steals": 0,
+    "strikeouts": 0,
+    "errors": 0,
+    "walksAndHbp": 0
+  },
+  "opponentSummary": {
+    "teamName": "안진회계법인",
+    "hits": 0,
+    "homeRuns": 0,
+    "steals": 0,
+    "strikeouts": 0,
+    "errors": 0,
+    "walksAndHbp": 0
+  },
+  "highlights": [],
+  "batting": [],
+  "pitching": [],
+  "result": "forfeit-win",
+  "excludeFromRecords": true,
+  "youtube": null
+}

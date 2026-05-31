@@ -1,20 +1,20 @@
 {
-  "totalGames": 13,
-  "totalPlayers": 23,
-  "totalHits": 116,
-  "totalRuns": 146,
+  "totalGames": 39,
+  "totalPlayers": 33,
+  "totalHits": 379,
+  "totalRuns": 443,
   "lastGameDate": "2026-05-30",
   "recentGames": [
     {
-      "gameId": "2026-04-18-vs-yooshin",
+      "gameId": "2026-04-18-vs-sungnamob",
       "gameDate": "2026-04-18",
-      "opponent": "yooshin",
-      "opponentName": "(유신)블루후디스",
+      "opponent": "sungnamob",
+      "opponentName": "성남OB",
       "score": {
-        "our": 11,
-        "opponent": 8
+        "our": 9,
+        "opponent": 5
       },
-      "group": "D"
+      "group": "A"
     },
     {
       "gameId": "2026-05-02-vs-mavericks",
@@ -28,9 +28,9 @@
       "group": "D"
     },
     {
-      "gameId": "2026-05-09-vs-deloitte",
+      "gameId": "2026-05-09-vs-anjin",
       "gameDate": "2026-05-09",
-      "opponent": "deloitte",
+      "opponent": "anjin",
       "opponentName": "안진회계법인",
       "score": {
         "our": 10,
@@ -42,17 +42,17 @@
       "gameId": "2026-05-23-vs-koreauniv",
       "gameDate": "2026-05-23",
       "opponent": "koreauniv",
-      "opponentName": "서강가브리엘스",
+      "opponentName": "고려대학교 데몽",
       "score": {
-        "our": 13,
+        "our": 12,
         "opponent": 5
       },
-      "group": "D"
+      "group": "A"
     },
     {
-      "gameId": "2026-05-30-vs-11stwyverns",
+      "gameId": "2026-05-30-vs-11st",
       "gameDate": "2026-05-30",
-      "opponent": "11stwyverns",
+      "opponent": "11st",
       "opponentName": "11번가 와이번스",
       "score": {
         "our": 10,

@@ -70,16 +70,6 @@
     "date": "2026-04-18"
   },
   {
-    "id": "game-2026-04-18-vs-yooshin",
-    "gameId": "2026-04-18-vs-yooshin",
-    "title": "26.04.18 D조 vs (유신)블루후디스",
-    "youtubeUrl": "https://www.youtube.com/watch?v=MZa97sM6ESE",
-    "embedUrl": "",
-    "thumbnail": "https://i.ytimg.com/vi/MZa97sM6ESE/hq720.jpg",
-    "category": "경기",
-    "date": "2026-04-18"
-  },
-  {
     "id": "game-2026-05-02-vs-mavericks",
     "gameId": "2026-05-02-vs-mavericks",
     "title": "26.05.02 D조 vs Mavericks",
@@ -98,15 +88,5 @@
     "thumbnail": "https://i.ytimg.com/vi/jWTJ8OXmQig/hq720.jpg",
     "category": "경기",
     "date": "2026-05-23"
-  },
-  {
-    "id": "game-2026-05-30-vs-11stwyverns",
-    "gameId": "2026-05-30-vs-11stwyverns",
-    "title": "26.05.30 D조 vs 11번가 와이번스",
-    "youtubeUrl": "https://www.youtube.com/watch?v=v9PPNTJB5lE",
-    "embedUrl": "",
-    "thumbnail": "https://i.ytimg.com/vi/v9PPNTJB5lE/hq720.jpg",
-    "category": "경기",
-    "date": "2026-05-30"
   }
 ]
