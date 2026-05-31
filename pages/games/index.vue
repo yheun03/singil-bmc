@@ -34,7 +34,7 @@
             <div>
                 <p class="bmc-game-results-legend__title">결과 표기</p>
                 <p class="bmc-game-results-legend__hint">
-                    콜드는 조기 종료 경기입니다. 몰수승은 0:7로 표기되며 타·투수 기록에 포함되지 않습니다.
+                    콜드·몰수승은 game-overrides.json에서 수동 지정합니다. 몰수승은 0:7 표기·기록 미포함입니다.
                 </p>
             </div>
             <div class="bmc-game-results-legend__items">
@@ -97,7 +97,6 @@ type Game = {
     opponentSummary?: { teamName?: string };
     youtube?: { youtubeUrl: string } | null;
     result?: GameResultKind | null;
-    inningsPlayed?: number | null;
     excludeFromRecords?: boolean;
 };
 
@@ -132,7 +131,6 @@ function gameInput(game: Game) {
     return {
         score: game.score,
         result: game.result,
-        inningsPlayed: game.inningsPlayed,
         excludeFromRecords: game.excludeFromRecords,
     };
 }

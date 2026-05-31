@@ -76,7 +76,6 @@ type Game = {
     highlights?: Array<{ type: string; text: string }>;
     youtube?: { youtubeUrl: string } | null;
     result?: GameResultKind | null;
-    inningsPlayed?: number | null;
     excludeFromRecords?: boolean;
 };
 
@@ -93,7 +92,6 @@ const gameResult = computed(() =>
         ? resolveGameResult({
               score: game.value.score,
               result: game.value.result,
-              inningsPlayed: game.value.inningsPlayed,
               excludeFromRecords: game.value.excludeFromRecords,
           })
         : null,

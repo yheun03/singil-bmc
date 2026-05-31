@@ -15,15 +15,9 @@ export type GameResultInput = {
     score?: GameScore | null;
     /** JSON·override 수동 지정 (예: "cold-win", "forfeit-win") */
     result?: GameResultKind | null;
-    /** 경기 이닝 수가 있으면 콜드 판정에 반영 */
-    inningsPlayed?: number | null;
     /** true면 타·투수·팀 누적 기록에서 제외 */
     excludeFromRecords?: boolean;
 };
-
-/** 아마추어 리그 일반 콜드 기준: 5회 이상·10점차 (이닝 미기록 시 점수차만으로 추정) */
-const COLD_RUN_DIFF = 10;
-const COLD_MAX_INNINGS = 7;
 
 export const gameResultMeta: Record<
     GameResultKind,
@@ -45,13 +39,13 @@ export const gameResultMeta: Record<
         abbr: 'CW',
         label: '콜드승',
         longLabel: '콜드승',
-        description: '10점차 이상 조기 종료 승리',
+        description: '조기 종료 승리 (game-overrides 수동 지정)',
     },
     'cold-loss': {
         abbr: 'CL',
         label: '콜드패',
         longLabel: '콜드패',
-        description: '10점차 이상 조기 종료 패배',
+        description: '조기 종료 패배 (game-overrides 수동 지정)',
     },
     'forfeit-win': {
         abbr: 'FW',
@@ -94,22 +88,6 @@ export function resolveDisplayScore(input: GameResultInput): GameScore {
     };
 }
 
-export function isColdGame(score: GameScore, inningsPlayed?: number | null): boolean {
-    const our = score.our ?? 0;
-    const opponent = score.opponent ?? 0;
-    const diff = Math.abs(our - opponent);
-
-    if (diff < COLD_RUN_DIFF) {
-        return false;
-    }
-
-    if (inningsPlayed != null && inningsPlayed > COLD_MAX_INNINGS) {
-        return false;
-    }
-
-    return true;
-}
-
 export function resolveGameResult(input: GameResultInput): GameResultKind {
     if (input.result) {
         return input.result;
@@ -123,14 +101,7 @@ export function resolveGameResult(input: GameResultInput): GameResultKind {
         return 'tie';
     }
 
-    const won = our > opponent;
-    const cold = isColdGame(score, input.inningsPlayed);
-
-    if (won) {
-        return cold ? 'cold-win' : 'win';
-    }
-
-    return cold ? 'cold-loss' : 'loss';
+    return our > opponent ? 'win' : 'loss';
 }
 
 export function summarizeSeasonResults(games: GameResultInput[]): Record<GameResultKind, number> {
