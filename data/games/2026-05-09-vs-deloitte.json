@@ -52,7 +52,7 @@
   ],
   "batting": [
     {
-      "playerId": "temp-002",
+      "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
       "name": "김재영",
       "group": "D",
       "pa": 3,
@@ -69,7 +69,7 @@
       "sb": 2
     },
     {
-      "playerId": "temp-006",
+      "playerId": "gameone-d-2ebo2ah1vkt0000000ptwfl",
       "name": "민재홍",
       "group": "D",
       "pa": 3,
@@ -86,7 +86,7 @@
       "sb": 0
     },
     {
-      "playerId": "player-004",
+      "playerId": "gameone-d-9u0diupqb7600000023mwz",
       "name": "서우성",
       "group": "D",
       "pa": 2,
@@ -103,7 +103,7 @@
       "sb": 1
     },
     {
-      "playerId": "player-003",
+      "playerId": "gameone-d-14atmtkekqko000000creao",
       "name": "김호태",
       "group": "D",
       "pa": 1,
@@ -120,7 +120,7 @@
       "sb": 0
     },
     {
-      "playerId": "player-002",
+      "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
       "name": "최정훈",
       "group": "D",
       "pa": 2,
@@ -137,7 +137,7 @@
       "sb": 1
     },
     {
-      "playerId": "player-001",
+      "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
       "name": "이효재",
       "group": "D",
       "pa": 2,
@@ -154,7 +154,7 @@
       "sb": 0
     },
     {
-      "playerId": "player-007",
+      "playerId": "gameone-d-10t99plcau4o000000xsozw",
       "name": "김가현",
       "group": "D",
       "pa": 2,
@@ -171,7 +171,7 @@
       "sb": 2
     },
     {
-      "playerId": "player-012",
+      "playerId": "gameone-d-1ssvastjhsl00000px3n",
       "name": "노혁진",
       "group": "D",
       "pa": 3,
@@ -188,7 +188,7 @@
       "sb": 1
     },
     {
-      "playerId": "temp-008",
+      "playerId": "gameone-d-7qgdtcsthhi0000013j4",
       "name": "김희열",
       "group": "D",
       "pa": 3,
@@ -205,7 +205,7 @@
       "sb": 0
     },
     {
-      "playerId": "player-008",
+      "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
       "name": "지성찬",
       "group": "D",
       "pa": 2,
@@ -224,7 +224,7 @@
   ],
   "pitching": [
     {
-      "playerId": "temp-003",
+      "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
       "name": "권태헌",
       "group": "D",
       "ip": "3.0",
@@ -240,7 +240,7 @@
       "save": 0
     },
     {
-      "playerId": "player-006",
+      "playerId": "gameone-d-htnjgpl47440000009rhn8",
       "name": "선예환",
       "group": "D",
       "ip": "2.0",

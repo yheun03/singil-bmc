@@ -49,7 +49,7 @@
     ],
     "batting": [
       {
-        "playerId": "player-001",
+        "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
         "name": "이효재",
         "group": "D",
         "pa": 4,
@@ -66,7 +66,7 @@
         "sb": 2
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "D",
         "pa": 4,
@@ -83,7 +83,7 @@
         "sb": 0
       },
       {
-        "playerId": "temp-001",
+        "playerId": "gameone-d-kk8hul65kok000000wyq9z",
         "name": "오치송",
         "group": "D",
         "pa": 4,
@@ -100,7 +100,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "D",
         "pa": 4,
@@ -117,7 +117,7 @@
         "sb": 2
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "pa": 4,
@@ -134,7 +134,7 @@
         "sb": 0
       },
       {
-        "playerId": "temp-002",
+        "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
         "name": "김재영",
         "group": "D",
         "pa": 3,
@@ -151,7 +151,7 @@
         "sb": 2
       },
       {
-        "playerId": "player-004",
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
         "name": "서우성",
         "group": "D",
         "pa": 3,
@@ -168,7 +168,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-010",
+        "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
         "name": "성백동",
         "group": "D",
         "pa": 2,
@@ -185,7 +185,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-003",
+        "playerId": "gameone-d-14atmtkekqko000000creao",
         "name": "김호태",
         "group": "D",
         "pa": 2,
@@ -202,7 +202,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "pa": 0,
@@ -219,7 +219,7 @@
         "sb": 0
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "pa": 1,
@@ -238,7 +238,7 @@
     ],
     "pitching": [
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "ip": "1.0",
@@ -254,7 +254,7 @@
         "save": 0
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "ip": "2.0",
@@ -270,7 +270,7 @@
         "save": 0
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "ip": "2.0",
@@ -342,7 +342,7 @@
     ],
     "batting": [
       {
-        "playerId": "player-006",
+        "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "A",
         "pa": 5,
@@ -359,7 +359,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "A",
         "pa": 2,
@@ -376,7 +376,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-005",
+        "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
         "name": "박의현",
         "group": "A",
         "pa": 2,
@@ -393,7 +393,7 @@
         "sb": 0
       },
       {
-        "playerId": "temp-004",
+        "playerId": "gameone-d-23dmt2nbqnp0000000trczx",
         "name": "진승용",
         "group": "A",
         "pa": 4,
@@ -410,7 +410,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "A",
         "pa": 4,
@@ -427,7 +427,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-001",
+        "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
         "name": "이효재",
         "group": "A",
         "pa": 3,
@@ -444,7 +444,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "A",
         "pa": 3,
@@ -461,7 +461,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-004",
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
         "name": "서우성",
         "group": "A",
         "pa": 3,
@@ -478,7 +478,7 @@
         "sb": 1
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "A",
         "pa": 4,
@@ -497,7 +497,7 @@
     ],
     "pitching": [
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "A",
         "ip": "2.0",
@@ -513,7 +513,7 @@
         "save": 0
       },
       {
-        "playerId": "player-005",
+        "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
         "name": "박의현",
         "group": "A",
         "ip": "1.0",
@@ -529,7 +529,13 @@
         "save": 0
       }
     ],
-    "youtube": null
+    "youtube": {
+      "videoCode": "WmThvON9E3Y",
+      "title": "다윗야구선교단 (2/21일 토 13시경기) A조",
+      "publishedAt": "2026-02-21",
+      "youtubeUrl": "https://www.youtube.com/watch?v=WmThvON9E3Y",
+      "thumbnail": "https://i.ytimg.com/vi/WmThvON9E3Y/hq720.jpg"
+    }
   },
   {
     "gameId": "2026-02-28-vs-stone",
@@ -581,7 +587,7 @@
     ],
     "batting": [
       {
-        "playerId": "temp-002",
+        "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
         "name": "김재영",
         "group": "D",
         "pa": 2,
@@ -598,7 +604,7 @@
         "sb": 2
       },
       {
-        "playerId": "player-004",
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
         "name": "서우성",
         "group": "D",
         "pa": 3,
@@ -615,7 +621,7 @@
         "sb": 0
       },
       {
-        "playerId": "temp-001",
+        "playerId": "gameone-d-kk8hul65kok000000wyq9z",
         "name": "오치송",
         "group": "D",
         "pa": 3,
@@ -632,7 +638,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-003",
+        "playerId": "gameone-d-14atmtkekqko000000creao",
         "name": "김호태",
         "group": "D",
         "pa": 3,
@@ -649,7 +655,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "D",
         "pa": 3,
@@ -666,7 +672,7 @@
         "sb": 0
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "pa": 2,
@@ -683,7 +689,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "pa": 1,
@@ -700,7 +706,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-010",
+        "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
         "name": "성백동",
         "group": "D",
         "pa": 2,
@@ -717,7 +723,7 @@
         "sb": 2
       },
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "pa": 1,
@@ -734,7 +740,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-008",
+        "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
         "name": "지성찬",
         "group": "D",
         "pa": 0,
@@ -753,7 +759,7 @@
     ],
     "pitching": [
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "ip": "2.0",
@@ -769,7 +775,7 @@
         "save": 0
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "ip": "1.0",
@@ -785,7 +791,7 @@
         "save": 0
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "ip": "1.0",
@@ -801,7 +807,13 @@
         "save": 0
       }
     ],
-    "youtube": null
+    "youtube": {
+      "videoCode": "cib8TRpE1J0",
+      "title": "다윗야구선교단D조 (19시) · 돌멩이전",
+      "publishedAt": "2026-02-28",
+      "youtubeUrl": "https://www.youtube.com/watch?v=cib8TRpE1J0",
+      "thumbnail": "https://i.ytimg.com/vi/cib8TRpE1J0/hq720.jpg"
+    }
   },
   {
     "gameId": "2026-03-14-vs-laeob",
@@ -845,7 +857,7 @@
     ],
     "batting": [
       {
-        "playerId": "temp-002",
+        "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
         "name": "김재영",
         "group": "A",
         "pa": 3,
@@ -862,7 +874,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-006",
+        "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "A",
         "pa": 3,
@@ -879,7 +891,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "A",
         "pa": 2,
@@ -896,7 +908,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-005",
+        "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
         "name": "박의현",
         "group": "A",
         "pa": 3,
@@ -913,7 +925,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-010",
+        "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
         "name": "성백동",
         "group": "A",
         "pa": 3,
@@ -930,7 +942,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-004",
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
         "name": "서우성",
         "group": "A",
         "pa": 2,
@@ -947,7 +959,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "A",
         "pa": 3,
@@ -964,7 +976,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-001",
+        "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
         "name": "이효재",
         "group": "A",
         "pa": 0,
@@ -981,7 +993,7 @@
         "sb": 1
       },
       {
-        "playerId": "temp-005",
+        "playerId": "gameone-d-1eeu7stkh4ig000000bfkln",
         "name": "조영중",
         "group": "A",
         "pa": 2,
@@ -998,7 +1010,7 @@
         "sb": 0
       },
       {
-        "playerId": "temp-001",
+        "playerId": "gameone-d-kk8hul65kok000000wyq9z",
         "name": "오치송",
         "group": "A",
         "pa": 1,
@@ -1017,7 +1029,7 @@
     ],
     "pitching": [
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "A",
         "ip": "4.0",
@@ -1033,7 +1045,13 @@
         "save": 0
       }
     ],
-    "youtube": null
+    "youtube": {
+      "videoCode": "9hXt1I94Ves",
+      "title": "다윗A조 3/14일 토",
+      "publishedAt": "2026-03-14",
+      "youtubeUrl": "https://www.youtube.com/watch?v=9hXt1I94Ves",
+      "thumbnail": "https://i.ytimg.com/vi/9hXt1I94Ves/hq720.jpg"
+    }
   },
   {
     "gameId": "2026-03-28-vs-daslgis",
@@ -1081,7 +1099,7 @@
     ],
     "batting": [
       {
-        "playerId": "player-014",
+        "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
         "name": "반석훈",
         "group": "A",
         "pa": 2,
@@ -1098,7 +1116,7 @@
         "sb": 0
       },
       {
-        "playerId": "temp-002",
+        "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
         "name": "김재영",
         "group": "A",
         "pa": 2,
@@ -1115,7 +1133,7 @@
         "sb": 3
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "A",
         "pa": 2,
@@ -1132,7 +1150,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-005",
+        "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
         "name": "박의현",
         "group": "A",
         "pa": 1,
@@ -1149,7 +1167,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-001",
+        "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
         "name": "이효재",
         "group": "A",
         "pa": 2,
@@ -1166,7 +1184,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-006",
+        "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "A",
         "pa": 3,
@@ -1183,7 +1201,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-010",
+        "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
         "name": "성백동",
         "group": "A",
         "pa": 3,
@@ -1200,7 +1218,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-007",
+        "playerId": "gameone-d-10t99plcau4o000000xsozw",
         "name": "김가현",
         "group": "A",
         "pa": 1,
@@ -1217,7 +1235,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-004",
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
         "name": "서우성",
         "group": "A",
         "pa": 0,
@@ -1234,7 +1252,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "A",
         "pa": 2,
@@ -1251,7 +1269,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "A",
         "pa": 2,
@@ -1270,7 +1288,7 @@
     ],
     "pitching": [
       {
-        "playerId": "player-006",
+        "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "A",
         "ip": "1.2",
@@ -1286,7 +1304,7 @@
         "save": 0
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "A",
         "ip": "1.1",
@@ -1302,7 +1320,13 @@
         "save": 0
       }
     ],
-    "youtube": null
+    "youtube": {
+      "videoCode": "MSCHCzSJfYs",
+      "title": "다윗A 3/28 7시경기",
+      "publishedAt": "2026-03-28",
+      "youtubeUrl": "https://www.youtube.com/watch?v=MSCHCzSJfYs",
+      "thumbnail": "https://i.ytimg.com/vi/MSCHCzSJfYs/hq720.jpg"
+    }
   },
   {
     "gameId": "2026-04-11-vs-mavericks",
@@ -1346,7 +1370,7 @@
     ],
     "batting": [
       {
-        "playerId": "temp-002",
+        "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
         "name": "김재영",
         "group": "D",
         "pa": 2,
@@ -1363,7 +1387,7 @@
         "sb": 0
       },
       {
-        "playerId": "temp-006",
+        "playerId": "gameone-d-2ebo2ah1vkt0000000ptwfl",
         "name": "민재홍",
         "group": "D",
         "pa": 2,
@@ -1380,7 +1404,7 @@
         "sb": 0
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "pa": 3,
@@ -1397,7 +1421,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-003",
+        "playerId": "gameone-d-14atmtkekqko000000creao",
         "name": "김호태",
         "group": "D",
         "pa": 2,
@@ -1414,7 +1438,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-008",
+        "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
         "name": "지성찬",
         "group": "D",
         "pa": 1,
@@ -1431,7 +1455,7 @@
         "sb": 2
       },
       {
-        "playerId": "temp-007",
+        "playerId": "gameone-d-25t354agg9q0000000uq981",
         "name": "유병호",
         "group": "D",
         "pa": 2,
@@ -1448,7 +1472,7 @@
         "sb": 0
       },
       {
-        "playerId": "temp-008",
+        "playerId": "gameone-d-7qgdtcsthhi0000013j4",
         "name": "김희열",
         "group": "D",
         "pa": 1,
@@ -1465,7 +1489,7 @@
         "sb": 2
       },
       {
-        "playerId": "player-012",
+        "playerId": "gameone-d-1ssvastjhsl00000px3n",
         "name": "노혁진",
         "group": "D",
         "pa": 1,
@@ -1482,7 +1506,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-006",
+        "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "D",
         "pa": 2,
@@ -1501,7 +1525,7 @@
     ],
     "pitching": [
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "ip": "1.0",
@@ -1517,7 +1541,7 @@
         "save": 0
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "ip": "2.0",
@@ -1533,7 +1557,7 @@
         "save": 0
       },
       {
-        "playerId": "player-012",
+        "playerId": "gameone-d-1ssvastjhsl00000px3n",
         "name": "노혁진",
         "group": "D",
         "ip": "0.1",
@@ -1549,7 +1573,7 @@
         "save": 0
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "ip": "0.2",
@@ -1565,7 +1589,13 @@
         "save": 0
       }
     ],
-    "youtube": null
+    "youtube": {
+      "videoCode": "KlNeh6USsR8",
+      "title": "26.4.11 토 D조",
+      "publishedAt": "2026-04-11",
+      "youtubeUrl": "https://www.youtube.com/watch?v=KlNeh6USsR8",
+      "thumbnail": "https://i.ytimg.com/vi/KlNeh6USsR8/hq720.jpg"
+    }
   },
   {
     "gameId": "2026-04-11-vs-nom",
@@ -1617,7 +1647,7 @@
     ],
     "batting": [
       {
-        "playerId": "player-001",
+        "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
         "name": "이효재",
         "group": "D",
         "pa": 4,
@@ -1634,7 +1664,7 @@
         "sb": 2
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "D",
         "pa": 4,
@@ -1651,7 +1681,7 @@
         "sb": 0
       },
       {
-        "playerId": "temp-001",
+        "playerId": "gameone-d-kk8hul65kok000000wyq9z",
         "name": "오치송",
         "group": "D",
         "pa": 4,
@@ -1668,7 +1698,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "D",
         "pa": 4,
@@ -1685,7 +1715,7 @@
         "sb": 2
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "pa": 4,
@@ -1702,7 +1732,7 @@
         "sb": 0
       },
       {
-        "playerId": "temp-002",
+        "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
         "name": "김재영",
         "group": "D",
         "pa": 3,
@@ -1719,7 +1749,7 @@
         "sb": 2
       },
       {
-        "playerId": "player-004",
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
         "name": "서우성",
         "group": "D",
         "pa": 3,
@@ -1736,7 +1766,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-010",
+        "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
         "name": "성백동",
         "group": "D",
         "pa": 2,
@@ -1753,7 +1783,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-003",
+        "playerId": "gameone-d-14atmtkekqko000000creao",
         "name": "김호태",
         "group": "D",
         "pa": 2,
@@ -1770,7 +1800,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "pa": 0,
@@ -1787,7 +1817,7 @@
         "sb": 0
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "pa": 1,
@@ -1806,7 +1836,7 @@
     ],
     "pitching": [
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "ip": "1.0",
@@ -1822,7 +1852,7 @@
         "save": 0
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "ip": "2.0",
@@ -1838,7 +1868,7 @@
         "save": 0
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "ip": "2.0",
@@ -1854,7 +1884,13 @@
         "save": 1
       }
     ],
-    "youtube": null
+    "youtube": {
+      "videoCode": "iujwrHxdOgE",
+      "title": "26.4.11 토 A조",
+      "publishedAt": "2026-04-11",
+      "youtubeUrl": "https://www.youtube.com/watch?v=iujwrHxdOgE",
+      "thumbnail": "https://i.ytimg.com/vi/iujwrHxdOgE/hq720.jpg"
+    }
   },
   {
     "gameId": "2026-04-18-vs-sungnamob",
@@ -1906,7 +1942,7 @@
     ],
     "batting": [
       {
-        "playerId": "player-014",
+        "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
         "name": "반석훈",
         "group": "A",
         "pa": 4,
@@ -1923,7 +1959,7 @@
         "sb": 2
       },
       {
-        "playerId": "temp-002",
+        "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
         "name": "김재영",
         "group": "A",
         "pa": 3,
@@ -1940,7 +1976,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "A",
         "pa": 2,
@@ -1957,7 +1993,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-005",
+        "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
         "name": "박의현",
         "group": "A",
         "pa": 3,
@@ -1974,7 +2010,7 @@
         "sb": 4
       },
       {
-        "playerId": "player-010",
+        "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
         "name": "성백동",
         "group": "A",
         "pa": 2,
@@ -1991,7 +2027,7 @@
         "sb": 2
       },
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "A",
         "pa": 3,
@@ -2008,7 +2044,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-004",
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
         "name": "서우성",
         "group": "A",
         "pa": 1,
@@ -2025,7 +2061,7 @@
         "sb": 0
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "A",
         "pa": 2,
@@ -2042,7 +2078,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "A",
         "pa": 3,
@@ -2059,7 +2095,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-001",
+        "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
         "name": "이효재",
         "group": "A",
         "pa": 3,
@@ -2076,7 +2112,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-006",
+        "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "A",
         "pa": 0,
@@ -2095,7 +2131,7 @@
     ],
     "pitching": [
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "A",
         "ip": "6.0",
@@ -2111,7 +2147,13 @@
         "save": 0
       }
     ],
-    "youtube": null
+    "youtube": {
+      "videoCode": "YOEK-uy5Mz4",
+      "title": "다윗A 4/18토",
+      "publishedAt": "2026-04-18",
+      "youtubeUrl": "https://www.youtube.com/watch?v=YOEK-uy5Mz4",
+      "thumbnail": "https://i.ytimg.com/vi/YOEK-uy5Mz4/hq720.jpg"
+    }
   },
   {
     "gameId": "2026-04-18-vs-yooshin",
@@ -2163,7 +2205,7 @@
     ],
     "batting": [
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "pa": 3,
@@ -2180,7 +2222,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "D",
         "pa": 2,
@@ -2197,7 +2239,7 @@
         "sb": 1
       },
       {
-        "playerId": "temp-002",
+        "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
         "name": "김재영",
         "group": "D",
         "pa": 2,
@@ -2214,7 +2256,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "D",
         "pa": 3,
@@ -2231,7 +2273,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-005",
+        "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
         "name": "박의현",
         "group": "D",
         "pa": 2,
@@ -2248,7 +2290,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-014",
+        "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
         "name": "반석훈",
         "group": "D",
         "pa": 3,
@@ -2265,7 +2307,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-012",
+        "playerId": "gameone-d-1ssvastjhsl00000px3n",
         "name": "노혁진",
         "group": "D",
         "pa": 0,
@@ -2282,7 +2324,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "pa": 3,
@@ -2299,7 +2341,7 @@
         "sb": 1
       },
       {
-        "playerId": "temp-009",
+        "playerId": "gameone-d-8d7be3d44e44be0e075c27f98a9fa2c5",
         "name": "송성보",
         "group": "D",
         "pa": 2,
@@ -2316,7 +2358,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-003",
+        "playerId": "gameone-d-14atmtkekqko000000creao",
         "name": "김호태",
         "group": "D",
         "pa": 2,
@@ -2335,7 +2377,7 @@
     ],
     "pitching": [
       {
-        "playerId": "player-014",
+        "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
         "name": "반석훈",
         "group": "D",
         "ip": "1.0",
@@ -2351,7 +2393,7 @@
         "save": 0
       },
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "D",
         "ip": "3.0",
@@ -2367,7 +2409,13 @@
         "save": 0
       }
     ],
-    "youtube": null
+    "youtube": {
+      "videoCode": "MZa97sM6ESE",
+      "title": "다윗D 4/18토",
+      "publishedAt": "2026-04-18",
+      "youtubeUrl": "https://www.youtube.com/watch?v=MZa97sM6ESE",
+      "thumbnail": "https://i.ytimg.com/vi/MZa97sM6ESE/hq720.jpg"
+    }
   },
   {
     "gameId": "2026-05-02-vs-mavericks",
@@ -2415,7 +2463,7 @@
     ],
     "batting": [
       {
-        "playerId": "player-005",
+        "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
         "name": "박의현",
         "group": "D",
         "pa": 4,
@@ -2432,7 +2480,7 @@
         "sb": 3
       },
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "D",
         "pa": 3,
@@ -2449,7 +2497,7 @@
         "sb": 3
       },
       {
-        "playerId": "player-006",
+        "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "D",
         "pa": 3,
@@ -2466,7 +2514,7 @@
         "sb": 3
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "pa": 2,
@@ -2483,7 +2531,7 @@
         "sb": 2
       },
       {
-        "playerId": "player-004",
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
         "name": "서우성",
         "group": "D",
         "pa": 2,
@@ -2500,7 +2548,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-003",
+        "playerId": "gameone-d-14atmtkekqko000000creao",
         "name": "김호태",
         "group": "D",
         "pa": 1,
@@ -2517,7 +2565,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "D",
         "pa": 2,
@@ -2534,7 +2582,7 @@
         "sb": 3
       },
       {
-        "playerId": "temp-005",
+        "playerId": "gameone-d-1eeu7stkh4ig000000bfkln",
         "name": "조영중",
         "group": "D",
         "pa": 2,
@@ -2551,7 +2599,7 @@
         "sb": 2
       },
       {
-        "playerId": "temp-008",
+        "playerId": "gameone-d-7qgdtcsthhi0000013j4",
         "name": "김희열",
         "group": "D",
         "pa": 3,
@@ -2568,7 +2616,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-012",
+        "playerId": "gameone-d-1ssvastjhsl00000px3n",
         "name": "노혁진",
         "group": "D",
         "pa": 3,
@@ -2587,7 +2635,7 @@
     ],
     "pitching": [
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "ip": "0.2",
@@ -2603,7 +2651,7 @@
         "save": 0
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "ip": "2.1",
@@ -2619,7 +2667,13 @@
         "save": 0
       }
     ],
-    "youtube": null
+    "youtube": {
+      "videoCode": "uaVwOn0_kXA",
+      "title": "다윗D조 5/2일 19시",
+      "publishedAt": "2026-05-02",
+      "youtubeUrl": "https://www.youtube.com/watch?v=uaVwOn0_kXA",
+      "thumbnail": "https://i.ytimg.com/vi/uaVwOn0_kXA/hq720.jpg"
+    }
   },
   {
     "gameId": "2026-05-09-vs-deloitte",
@@ -2675,7 +2729,7 @@
     ],
     "batting": [
       {
-        "playerId": "temp-002",
+        "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
         "name": "김재영",
         "group": "D",
         "pa": 3,
@@ -2692,7 +2746,7 @@
         "sb": 2
       },
       {
-        "playerId": "temp-006",
+        "playerId": "gameone-d-2ebo2ah1vkt0000000ptwfl",
         "name": "민재홍",
         "group": "D",
         "pa": 3,
@@ -2709,7 +2763,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-004",
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
         "name": "서우성",
         "group": "D",
         "pa": 2,
@@ -2726,7 +2780,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-003",
+        "playerId": "gameone-d-14atmtkekqko000000creao",
         "name": "김호태",
         "group": "D",
         "pa": 1,
@@ -2743,7 +2797,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "D",
         "pa": 2,
@@ -2760,7 +2814,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-001",
+        "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
         "name": "이효재",
         "group": "D",
         "pa": 2,
@@ -2777,7 +2831,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-007",
+        "playerId": "gameone-d-10t99plcau4o000000xsozw",
         "name": "김가현",
         "group": "D",
         "pa": 2,
@@ -2794,7 +2848,7 @@
         "sb": 2
       },
       {
-        "playerId": "player-012",
+        "playerId": "gameone-d-1ssvastjhsl00000px3n",
         "name": "노혁진",
         "group": "D",
         "pa": 3,
@@ -2811,7 +2865,7 @@
         "sb": 1
       },
       {
-        "playerId": "temp-008",
+        "playerId": "gameone-d-7qgdtcsthhi0000013j4",
         "name": "김희열",
         "group": "D",
         "pa": 3,
@@ -2828,7 +2882,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-008",
+        "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
         "name": "지성찬",
         "group": "D",
         "pa": 2,
@@ -2847,7 +2901,7 @@
     ],
     "pitching": [
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "ip": "3.0",
@@ -2863,7 +2917,7 @@
         "save": 0
       },
       {
-        "playerId": "player-006",
+        "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "D",
         "ip": "2.0",
@@ -2931,7 +2985,7 @@
     ],
     "batting": [
       {
-        "playerId": "player-001",
+        "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
         "name": "이효재",
         "group": "D",
         "pa": 4,
@@ -2948,7 +3002,7 @@
         "sb": 2
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "D",
         "pa": 4,
@@ -2965,7 +3019,7 @@
         "sb": 0
       },
       {
-        "playerId": "temp-001",
+        "playerId": "gameone-d-kk8hul65kok000000wyq9z",
         "name": "오치송",
         "group": "D",
         "pa": 4,
@@ -2982,7 +3036,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "D",
         "pa": 4,
@@ -2999,7 +3053,7 @@
         "sb": 2
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "pa": 4,
@@ -3016,7 +3070,7 @@
         "sb": 0
       },
       {
-        "playerId": "temp-002",
+        "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
         "name": "김재영",
         "group": "D",
         "pa": 3,
@@ -3033,7 +3087,7 @@
         "sb": 2
       },
       {
-        "playerId": "player-004",
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
         "name": "서우성",
         "group": "D",
         "pa": 3,
@@ -3050,7 +3104,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-010",
+        "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
         "name": "성백동",
         "group": "D",
         "pa": 2,
@@ -3067,7 +3121,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-003",
+        "playerId": "gameone-d-14atmtkekqko000000creao",
         "name": "김호태",
         "group": "D",
         "pa": 2,
@@ -3084,7 +3138,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "pa": 0,
@@ -3101,7 +3155,7 @@
         "sb": 0
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "pa": 1,
@@ -3120,7 +3174,7 @@
     ],
     "pitching": [
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "ip": "1.0",
@@ -3136,7 +3190,7 @@
         "save": 0
       },
       {
-        "playerId": "temp-003",
+        "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
         "name": "권태헌",
         "group": "D",
         "ip": "2.0",
@@ -3152,7 +3206,7 @@
         "save": 0
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "ip": "2.0",
@@ -3170,7 +3224,7 @@
     ],
     "youtube": {
       "videoCode": "jWTJ8OXmQig",
-      "title": "2026.05.23 고려대학교전 경기 영상",
+      "title": "다윗A조 5/23 토 19시경기",
       "publishedAt": "2026-05-23",
       "youtubeUrl": "https://www.youtube.com/watch?v=jWTJ8OXmQig",
       "thumbnail": "https://i.ytimg.com/vi/jWTJ8OXmQig/hq720.jpg"
@@ -3226,7 +3280,7 @@
     ],
     "batting": [
       {
-        "playerId": "player-001",
+        "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
         "name": "이효재",
         "group": "D",
         "pa": 3,
@@ -3243,7 +3297,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-002",
+        "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
         "name": "최정훈",
         "group": "D",
         "pa": 2,
@@ -3260,7 +3314,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-003",
+        "playerId": "gameone-d-14atmtkekqko000000creao",
         "name": "김호태",
         "group": "D",
         "pa": 1,
@@ -3277,7 +3331,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-004",
+        "playerId": "gameone-d-9u0diupqb7600000023mwz",
         "name": "서우성",
         "group": "D",
         "pa": 2,
@@ -3294,7 +3348,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-005",
+        "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
         "name": "박의현",
         "group": "D",
         "pa": 0,
@@ -3311,7 +3365,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-006",
+        "playerId": "gameone-d-htnjgpl47440000009rhn8",
         "name": "선예환",
         "group": "D",
         "pa": 1,
@@ -3328,7 +3382,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-007",
+        "playerId": "gameone-d-10t99plcau4o000000xsozw",
         "name": "김가현",
         "group": "D",
         "pa": 3,
@@ -3345,7 +3399,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-008",
+        "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
         "name": "지성찬",
         "group": "D",
         "pa": 3,
@@ -3362,7 +3416,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "pa": 2,
@@ -3379,7 +3433,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-010",
+        "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
         "name": "성백동",
         "group": "D",
         "pa": 1,
@@ -3396,7 +3450,7 @@
         "sb": 0
       },
       {
-        "playerId": "player-011",
+        "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
         "name": "은영환",
         "group": "D",
         "pa": 3,
@@ -3413,7 +3467,7 @@
         "sb": 1
       },
       {
-        "playerId": "player-012",
+        "playerId": "gameone-d-1ssvastjhsl00000px3n",
         "name": "노혁진",
         "group": "D",
         "pa": 2,
@@ -3432,7 +3486,7 @@
     ],
     "pitching": [
       {
-        "playerId": "player-013",
+        "playerId": "gameone-d-9u3q0framj200000073oqd",
         "name": "노승원",
         "group": "D",
         "ip": "0.1",
@@ -3448,7 +3502,7 @@
         "save": 0
       },
       {
-        "playerId": "player-014",
+        "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
         "name": "반석훈",
         "group": "D",
         "ip": "2.2",
@@ -3464,7 +3518,7 @@
         "save": 0
       },
       {
-        "playerId": "player-009",
+        "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
         "name": "김명선",
         "group": "D",
         "ip": "1.0",
@@ -3482,7 +3536,7 @@
     ],
     "youtube": {
       "videoCode": "v9PPNTJB5lE",
-      "title": "2026.05.30 11번가 와이번스전 경기 영상",
+      "title": "다윗D조 5/30 토 7시경기",
       "publishedAt": "2026-05-30",
       "youtubeUrl": "https://www.youtube.com/watch?v=v9PPNTJB5lE",
       "thumbnail": "https://i.ytimg.com/vi/v9PPNTJB5lE/hq720.jpg"
