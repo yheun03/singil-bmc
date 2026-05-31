@@ -284,7 +284,7 @@
     "group": "A",
     "backNumber": 1,
     "position": "MGR",
-    "image": "",
+    "image": "/data/images/players/player-020.jpg",
     "batting": null,
     "pitching": null
   },
@@ -684,7 +684,7 @@
     "group": "A",
     "backNumber": 4,
     "position": "LF",
-    "image": "/data/images/players/player-011.jpg",
+    "image": "https://file.gameone.kr/player/67231a6c6ae881ibghudsl_thumb.jpg",
     "batting": {
       "playerId": "player-011",
       "name": "은영환",

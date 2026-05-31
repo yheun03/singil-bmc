@@ -1,11 +1,22 @@
 [
   {
-    "id": "youtube-channel",
-    "title": "다윗 야구 선교단 YouTube 채널",
-    "youtubeUrl": "https://www.youtube.com/@%EB%8B%A4%EC%9C%97%EC%95%BC%EA%B5%AC%EC%84%A0%EA%B5%90%EB%8B%A8",
+    "id": "game-2026-05-23-vs-koreauniv",
+    "gameId": "2026-05-23-vs-koreauniv",
+    "title": "2026.05.23 고려대학교전 경기 영상",
+    "youtubeUrl": "https://www.youtube.com/watch?v=jWTJ8OXmQig",
     "embedUrl": "",
-    "thumbnail": "",
-    "category": "채널",
-    "date": ""
+    "thumbnail": "https://i.ytimg.com/vi/jWTJ8OXmQig/hq720.jpg",
+    "category": "경기",
+    "date": "2026-05-23"
+  },
+  {
+    "id": "game-2026-05-30-vs-11stwyverns",
+    "gameId": "2026-05-30-vs-11stwyverns",
+    "title": "2026.05.30 11번가 와이번스전 경기 영상",
+    "youtubeUrl": "https://www.youtube.com/watch?v=v9PPNTJB5lE",
+    "embedUrl": "",
+    "thumbnail": "https://i.ytimg.com/vi/v9PPNTJB5lE/hq720.jpg",
+    "category": "경기",
+    "date": "2026-05-30"
   }
 ]

@@ -285,5 +285,11 @@
       "save": 1
     }
   ],
-  "youtube": null
+  "youtube": {
+    "videoCode": "jWTJ8OXmQig",
+    "title": "2026.05.23 고려대학교전 경기 영상",
+    "publishedAt": "2026-05-23",
+    "youtubeUrl": "https://www.youtube.com/watch?v=jWTJ8OXmQig",
+    "thumbnail": "https://i.ytimg.com/vi/jWTJ8OXmQig/hq720.jpg"
+  }
 }
