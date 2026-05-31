@@ -1,0 +1,1 @@
+import{u as l}from"./iydeZEU3.js";import{j as c,r as t}from"./C1tq-5NW.js";function d(s){const{fetchJson:u}=l(),r=t(null),a=t(!0),e=t("");async function n(){a.value=!0,e.value="";try{r.value=await u(s)}catch(o){e.value=o instanceof Error?o.message:"데이터를 불러오지 못했습니다."}finally{a.value=!1}}return c(n),{data:r,pending:a,error:e,reload:n}}export{d as u};

@@ -1,0 +1,665 @@
+[
+  {
+    "id": "2026-05-D-batting-1",
+    "key": "2026-05",
+    "group": "D",
+    "rank": 1,
+    "type": "batting",
+    "title": "2026-05 D조 월간 타자 MVP 1위",
+    "name": "은영환",
+    "summary": "4경기 5안타 6타점 8득점",
+    "stats": {
+      "avg": ".500",
+      "h": 5,
+      "rbi": 6,
+      "hr": 0,
+      "score": 63
+    }
+  },
+  {
+    "id": "2026-05-D-batting-2",
+    "key": "2026-05",
+    "group": "D",
+    "rank": 2,
+    "type": "batting",
+    "title": "2026-05 D조 월간 타자 MVP 2위",
+    "name": "최정훈",
+    "summary": "4경기 5안타 6타점 6득점",
+    "stats": {
+      "avg": ".500",
+      "h": 5,
+      "rbi": 6,
+      "hr": 0,
+      "score": 56
+    }
+  },
+  {
+    "id": "2026-05-D-batting-3",
+    "key": "2026-05",
+    "group": "D",
+    "rank": 3,
+    "type": "batting",
+    "title": "2026-05 D조 월간 타자 MVP 3위",
+    "name": "선예환",
+    "summary": "4경기 3안타 4타점 2득점",
+    "stats": {
+      "avg": ".750",
+      "h": 3,
+      "rbi": 4,
+      "hr": 0,
+      "score": 32.5
+    }
+  },
+  {
+    "id": "2026-05-D-pitching-1",
+    "key": "2026-05",
+    "group": "D",
+    "rank": 1,
+    "type": "pitching",
+    "title": "2026-05 D조 월간 투수 MVP 1위",
+    "name": "권태헌",
+    "summary": "4경기 7.1이닝 6탈삼진",
+    "stats": {
+      "ip": "7.1",
+      "era": "3.68",
+      "so": 6,
+      "win": 3,
+      "score": 63
+    }
+  },
+  {
+    "id": "2026-05-D-pitching-2",
+    "key": "2026-05",
+    "group": "D",
+    "rank": 2,
+    "type": "pitching",
+    "title": "2026-05 D조 월간 투수 MVP 2위",
+    "name": "반석훈",
+    "summary": "4경기 2.2이닝 6탈삼진",
+    "stats": {
+      "ip": "2.2",
+      "era": "0.00",
+      "so": 6,
+      "win": 1,
+      "score": 32
+    }
+  },
+  {
+    "id": "2026-05-D-pitching-3",
+    "key": "2026-05",
+    "group": "D",
+    "rank": 3,
+    "type": "pitching",
+    "title": "2026-05 D조 월간 투수 MVP 3위",
+    "name": "김명선",
+    "summary": "4경기 3.0이닝 3탈삼진",
+    "stats": {
+      "ip": "3.0",
+      "era": "9.00",
+      "so": 3,
+      "win": 0,
+      "score": 18.5
+    }
+  },
+  {
+    "id": "2026-04-D-batting-1",
+    "key": "2026-04",
+    "group": "D",
+    "rank": 1,
+    "type": "batting",
+    "title": "2026-04 D조 월간 타자 MVP 1위",
+    "name": "은영환",
+    "summary": "3경기 4안타 5타점 5득점",
+    "stats": {
+      "avg": ".571",
+      "h": 4,
+      "rbi": 5,
+      "hr": 0,
+      "score": 45.5
+    }
+  },
+  {
+    "id": "2026-04-D-batting-2",
+    "key": "2026-04",
+    "group": "D",
+    "rank": 2,
+    "type": "batting",
+    "title": "2026-04 D조 월간 타자 MVP 2위",
+    "name": "최정훈",
+    "summary": "3경기 4안타 3타점 4득점",
+    "stats": {
+      "avg": ".667",
+      "h": 4,
+      "rbi": 3,
+      "hr": 0,
+      "score": 34.5
+    }
+  },
+  {
+    "id": "2026-04-D-batting-3",
+    "key": "2026-04",
+    "group": "D",
+    "rank": 3,
+    "type": "batting",
+    "title": "2026-04 D조 월간 타자 MVP 3위",
+    "name": "김재영",
+    "summary": "3경기 2안타 3타점 3득점",
+    "stats": {
+      "avg": ".286",
+      "h": 2,
+      "rbi": 3,
+      "hr": 0,
+      "score": 26
+    }
+  },
+  {
+    "id": "2026-04-D-pitching-1",
+    "key": "2026-04",
+    "group": "D",
+    "rank": 1,
+    "type": "pitching",
+    "title": "2026-04 D조 월간 투수 MVP 1위",
+    "name": "권태헌",
+    "summary": "3경기 4.2이닝 6탈삼진",
+    "stats": {
+      "ip": "4.2",
+      "era": "1.93",
+      "so": 6,
+      "win": 1,
+      "score": 39
+    }
+  },
+  {
+    "id": "2026-04-D-pitching-2",
+    "key": "2026-04",
+    "group": "D",
+    "rank": 2,
+    "type": "pitching",
+    "title": "2026-04 D조 월간 투수 MVP 2위",
+    "name": "은영환",
+    "summary": "3경기 3.0이닝 7탈삼진",
+    "stats": {
+      "ip": "3.0",
+      "era": "0.00",
+      "so": 7,
+      "win": 1,
+      "score": 35.5
+    }
+  },
+  {
+    "id": "2026-04-D-pitching-3",
+    "key": "2026-04",
+    "group": "D",
+    "rank": 3,
+    "type": "pitching",
+    "title": "2026-04 D조 월간 투수 MVP 3위",
+    "name": "김명선",
+    "summary": "3경기 2.0이닝 3탈삼진",
+    "stats": {
+      "ip": "2.0",
+      "era": "0.00",
+      "so": 3,
+      "win": 0,
+      "score": 20
+    }
+  },
+  {
+    "id": "2026-04-A-batting-1",
+    "key": "2026-04",
+    "group": "A",
+    "rank": 1,
+    "type": "batting",
+    "title": "2026-04 A조 월간 타자 MVP 1위",
+    "name": "박의현",
+    "summary": "1경기 3안타 1타점 3득점",
+    "stats": {
+      "avg": "1.000",
+      "h": 3,
+      "rbi": 1,
+      "hr": 0,
+      "score": 27
+    }
+  },
+  {
+    "id": "2026-04-A-batting-2",
+    "key": "2026-04",
+    "group": "A",
+    "rank": 2,
+    "type": "batting",
+    "title": "2026-04 A조 월간 타자 MVP 2위",
+    "name": "반석훈",
+    "summary": "1경기 2안타 0타점 2득점",
+    "stats": {
+      "avg": ".500",
+      "h": 2,
+      "rbi": 0,
+      "hr": 0,
+      "score": 15
+    }
+  },
+  {
+    "id": "2026-04-A-batting-3",
+    "key": "2026-04",
+    "group": "A",
+    "rank": 3,
+    "type": "batting",
+    "title": "2026-04 A조 월간 타자 MVP 3위",
+    "name": "은영환",
+    "summary": "1경기 1안타 3타점 0득점",
+    "stats": {
+      "avg": ".333",
+      "h": 1,
+      "rbi": 3,
+      "hr": 0,
+      "score": 14.5
+    }
+  },
+  {
+    "id": "2026-04-A-pitching-1",
+    "key": "2026-04",
+    "group": "A",
+    "rank": 1,
+    "type": "pitching",
+    "title": "2026-04 A조 월간 투수 MVP 1위",
+    "name": "김명선",
+    "summary": "1경기 6.0이닝 7탈삼진",
+    "stats": {
+      "ip": "6.0",
+      "era": "4.50",
+      "so": 7,
+      "win": 1,
+      "score": 43
+    }
+  },
+  {
+    "id": "2026-03-A-batting-1",
+    "key": "2026-03",
+    "group": "A",
+    "rank": 1,
+    "type": "batting",
+    "title": "2026-03 A조 월간 타자 MVP 1위",
+    "name": "선예환",
+    "summary": "2경기 3안타 2타점 3득점",
+    "stats": {
+      "avg": ".500",
+      "h": 3,
+      "rbi": 2,
+      "hr": 0,
+      "score": 27
+    }
+  },
+  {
+    "id": "2026-03-A-batting-2",
+    "key": "2026-03",
+    "group": "A",
+    "rank": 2,
+    "type": "batting",
+    "title": "2026-03 A조 월간 타자 MVP 2위",
+    "name": "성백동",
+    "summary": "2경기 4안타 2타점 1득점",
+    "stats": {
+      "avg": ".667",
+      "h": 4,
+      "rbi": 2,
+      "hr": 0,
+      "score": 25.5
+    }
+  },
+  {
+    "id": "2026-03-A-batting-3",
+    "key": "2026-03",
+    "group": "A",
+    "rank": 3,
+    "type": "batting",
+    "title": "2026-03 A조 월간 타자 MVP 3위",
+    "name": "김재영",
+    "summary": "2경기 2안타 3타점 2득점",
+    "stats": {
+      "avg": ".400",
+      "h": 2,
+      "rbi": 3,
+      "hr": 0,
+      "score": 25.5
+    }
+  },
+  {
+    "id": "2026-03-A-pitching-1",
+    "key": "2026-03",
+    "group": "A",
+    "rank": 1,
+    "type": "pitching",
+    "title": "2026-03 A조 월간 투수 MVP 1위",
+    "name": "은영환",
+    "summary": "2경기 4.0이닝 5탈삼진",
+    "stats": {
+      "ip": "4.0",
+      "era": "0.00",
+      "so": 5,
+      "win": 1,
+      "score": 36
+    }
+  },
+  {
+    "id": "2026-03-A-pitching-2",
+    "key": "2026-03",
+    "group": "A",
+    "rank": 2,
+    "type": "pitching",
+    "title": "2026-03 A조 월간 투수 MVP 2위",
+    "name": "김명선",
+    "summary": "2경기 1.1이닝 0탈삼진",
+    "stats": {
+      "ip": "1.1",
+      "era": "13.50",
+      "so": 0,
+      "win": 0,
+      "score": 2
+    }
+  },
+  {
+    "id": "2026-03-A-pitching-3",
+    "key": "2026-03",
+    "group": "A",
+    "rank": 3,
+    "type": "pitching",
+    "title": "2026-03 A조 월간 투수 MVP 3위",
+    "name": "선예환",
+    "summary": "2경기 1.2이닝 2탈삼진",
+    "stats": {
+      "ip": "1.2",
+      "era": "27.00",
+      "so": 2,
+      "win": 0,
+      "score": 1.5
+    }
+  },
+  {
+    "id": "2026-02-D-batting-1",
+    "key": "2026-02",
+    "group": "D",
+    "rank": 1,
+    "type": "batting",
+    "title": "2026-02 D조 월간 타자 MVP 1위",
+    "name": "김재영",
+    "summary": "1경기 2안타 2타점 2득점",
+    "stats": {
+      "avg": "1.000",
+      "h": 2,
+      "rbi": 2,
+      "hr": 0,
+      "score": 21
+    }
+  },
+  {
+    "id": "2026-02-D-batting-2",
+    "key": "2026-02",
+    "group": "D",
+    "rank": 2,
+    "type": "batting",
+    "title": "2026-02 D조 월간 타자 MVP 2위",
+    "name": "성백동",
+    "summary": "1경기 1안타 2타점 1득점",
+    "stats": {
+      "avg": ".500",
+      "h": 1,
+      "rbi": 2,
+      "hr": 0,
+      "score": 15
+    }
+  },
+  {
+    "id": "2026-02-D-batting-3",
+    "key": "2026-02",
+    "group": "D",
+    "rank": 3,
+    "type": "batting",
+    "title": "2026-02 D조 월간 타자 MVP 3위",
+    "name": "권태헌",
+    "summary": "1경기 1안타 0타점 2득점",
+    "stats": {
+      "avg": ".500",
+      "h": 1,
+      "rbi": 0,
+      "hr": 0,
+      "score": 9.5
+    }
+  },
+  {
+    "id": "2026-02-D-pitching-1",
+    "key": "2026-02",
+    "group": "D",
+    "rank": 1,
+    "type": "pitching",
+    "title": "2026-02 D조 월간 투수 MVP 1위",
+    "name": "노승원",
+    "summary": "1경기 2.0이닝 3탈삼진",
+    "stats": {
+      "ip": "2.0",
+      "era": "0.00",
+      "so": 3,
+      "win": 0,
+      "score": 15
+    }
+  },
+  {
+    "id": "2026-02-D-pitching-2",
+    "key": "2026-02",
+    "group": "D",
+    "rank": 2,
+    "type": "pitching",
+    "title": "2026-02 D조 월간 투수 MVP 2위",
+    "name": "권태헌",
+    "summary": "1경기 1.0이닝 2탈삼진",
+    "stats": {
+      "ip": "1.0",
+      "era": "18.00",
+      "so": 2,
+      "win": 0,
+      "score": 4.5
+    }
+  },
+  {
+    "id": "2026-02-D-pitching-3",
+    "key": "2026-02",
+    "group": "D",
+    "rank": 3,
+    "type": "pitching",
+    "title": "2026-02 D조 월간 투수 MVP 3위",
+    "name": "김명선",
+    "summary": "1경기 1.0이닝 0탈삼진",
+    "stats": {
+      "ip": "1.0",
+      "era": "18.00",
+      "so": 0,
+      "win": 0,
+      "score": 0.5
+    }
+  },
+  {
+    "id": "2026-02-A-batting-1",
+    "key": "2026-02",
+    "group": "A",
+    "rank": 1,
+    "type": "batting",
+    "title": "2026-02 A조 월간 타자 MVP 1위",
+    "name": "선예환",
+    "summary": "1경기 3안타 4타점 4득점",
+    "stats": {
+      "avg": ".600",
+      "h": 3,
+      "rbi": 4,
+      "hr": 0,
+      "score": 33.5
+    }
+  },
+  {
+    "id": "2026-02-A-batting-2",
+    "key": "2026-02",
+    "group": "A",
+    "rank": 2,
+    "type": "batting",
+    "title": "2026-02 A조 월간 타자 MVP 2위",
+    "name": "권태헌",
+    "summary": "1경기 3안타 3타점 3득점",
+    "stats": {
+      "avg": ".750",
+      "h": 3,
+      "rbi": 3,
+      "hr": 0,
+      "score": 27
+    }
+  },
+  {
+    "id": "2026-02-A-batting-3",
+    "key": "2026-02",
+    "group": "A",
+    "rank": 3,
+    "type": "batting",
+    "title": "2026-02 A조 월간 타자 MVP 3위",
+    "name": "진승용",
+    "summary": "1경기 3안타 4타점 1득점",
+    "stats": {
+      "avg": ".750",
+      "h": 3,
+      "rbi": 4,
+      "hr": 0,
+      "score": 26
+    }
+  },
+  {
+    "id": "2026-02-A-pitching-1",
+    "key": "2026-02",
+    "group": "A",
+    "rank": 1,
+    "type": "pitching",
+    "title": "2026-02 A조 월간 투수 MVP 1위",
+    "name": "김명선",
+    "summary": "1경기 2.0이닝 3탈삼진",
+    "stats": {
+      "ip": "2.0",
+      "era": "0.00",
+      "so": 3,
+      "win": 1,
+      "score": 23
+    }
+  },
+  {
+    "id": "2026-02-A-pitching-2",
+    "key": "2026-02",
+    "group": "A",
+    "rank": 2,
+    "type": "pitching",
+    "title": "2026-02 A조 월간 투수 MVP 2위",
+    "name": "박의현",
+    "summary": "1경기 1.0이닝 2탈삼진",
+    "stats": {
+      "ip": "1.0",
+      "era": "9.00",
+      "so": 2,
+      "win": 0,
+      "score": 6.5
+    }
+  },
+  {
+    "id": "2026-01-D-batting-1",
+    "key": "2026-01",
+    "group": "D",
+    "rank": 1,
+    "type": "batting",
+    "title": "2026-01 D조 월간 타자 MVP 1위",
+    "name": "은영환",
+    "summary": "1경기 2안타 3타점 3득점",
+    "stats": {
+      "avg": ".500",
+      "h": 2,
+      "rbi": 3,
+      "hr": 0,
+      "score": 26
+    }
+  },
+  {
+    "id": "2026-01-D-batting-2",
+    "key": "2026-01",
+    "group": "D",
+    "rank": 2,
+    "type": "batting",
+    "title": "2026-01 D조 월간 타자 MVP 2위",
+    "name": "최정훈",
+    "summary": "1경기 2안타 3타점 2득점",
+    "stats": {
+      "avg": ".500",
+      "h": 2,
+      "rbi": 3,
+      "hr": 0,
+      "score": 21
+    }
+  },
+  {
+    "id": "2026-01-D-batting-3",
+    "key": "2026-01",
+    "group": "D",
+    "rank": 3,
+    "type": "batting",
+    "title": "2026-01 D조 월간 타자 MVP 3위",
+    "name": "이효재",
+    "summary": "1경기 2안타 0타점 3득점",
+    "stats": {
+      "avg": ".500",
+      "h": 2,
+      "rbi": 0,
+      "hr": 0,
+      "score": 17
+    }
+  },
+  {
+    "id": "2026-01-D-pitching-1",
+    "key": "2026-01",
+    "group": "D",
+    "rank": 1,
+    "type": "pitching",
+    "title": "2026-01 D조 월간 투수 MVP 1위",
+    "name": "김명선",
+    "summary": "1경기 2.0이닝 3탈삼진",
+    "stats": {
+      "ip": "2.0",
+      "era": "0.00",
+      "so": 3,
+      "win": 0,
+      "score": 20
+    }
+  },
+  {
+    "id": "2026-01-D-pitching-2",
+    "key": "2026-01",
+    "group": "D",
+    "rank": 2,
+    "type": "pitching",
+    "title": "2026-01 D조 월간 투수 MVP 2위",
+    "name": "권태헌",
+    "summary": "1경기 2.0이닝 1탈삼진",
+    "stats": {
+      "ip": "2.0",
+      "era": "4.50",
+      "so": 1,
+      "win": 1,
+      "score": 17
+    }
+  },
+  {
+    "id": "2026-01-D-pitching-3",
+    "key": "2026-01",
+    "group": "D",
+    "rank": 3,
+    "type": "pitching",
+    "title": "2026-01 D조 월간 투수 MVP 3위",
+    "name": "노승원",
+    "summary": "1경기 1.0이닝 1탈삼진",
+    "stats": {
+      "ip": "1.0",
+      "era": "0.00",
+      "so": 1,
+      "win": 0,
+      "score": 6.5
+    }
+  }
+]

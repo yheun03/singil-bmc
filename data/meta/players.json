@@ -1,0 +1,21 @@
+[
+  { "playerId": "player-001", "name": "이효재", "gameoneName": "이효재", "group": "A", "backNumber": 153, "position": "1B", "image": "/data/images/players/player-001.jpg" },
+  { "playerId": "player-002", "name": "최정훈", "gameoneName": "최정훈", "group": "A", "backNumber": 43, "position": "3B", "image": "/data/images/players/player-002.jpg" },
+  { "playerId": "player-003", "name": "김호태", "gameoneName": "김호태", "group": "A", "backNumber": 47, "position": "3B", "image": "/data/images/players/player-003.jpg" },
+  { "playerId": "player-004", "name": "서우성", "gameoneName": "서우성", "group": "A", "backNumber": 18, "position": "DH", "image": "/data/images/players/player-004.jpg" },
+  { "playerId": "player-005", "name": "박의현", "gameoneName": "박의현", "group": "A", "backNumber": 99, "position": "LF", "image": "/data/images/players/player-005.jpg" },
+  { "playerId": "player-006", "name": "선예환", "gameoneName": "선예환", "group": "A", "backNumber": 32, "position": "SS", "image": "/data/images/players/player-006.jpg" },
+  { "playerId": "player-007", "name": "김가현", "gameoneName": "김가현", "group": "A", "backNumber": 2, "position": "RF", "image": "/data/images/players/player-007.jpg" },
+  { "playerId": "player-008", "name": "지성찬", "gameoneName": "지성찬", "group": "A", "backNumber": 42, "position": "C", "image": "/data/images/players/player-008.jpg" },
+  { "playerId": "player-009", "name": "김명선", "gameoneName": "김명선", "group": "A", "backNumber": 54, "position": "P", "image": "/data/images/players/player-009.jpg" },
+  { "playerId": "player-010", "name": "성백동", "gameoneName": "성백동", "group": "A", "backNumber": 5, "position": "DH", "image": "/data/images/players/player-010.jpg" },
+  { "playerId": "player-011", "name": "은영환", "gameoneName": "은영환", "group": "A", "backNumber": 4, "position": "LF", "image": "/data/images/players/player-011.jpg" },
+  { "playerId": "player-012", "name": "노혁진", "gameoneName": "노혁진", "group": "A", "backNumber": 55, "position": "2B", "image": "/data/images/players/player-012.jpg" },
+  { "playerId": "player-013", "name": "노승원", "gameoneName": "노승원", "group": "A", "backNumber": 21, "position": "P", "image": "/data/images/players/player-013.jpg" },
+  { "playerId": "player-014", "name": "반석훈", "gameoneName": "반석훈", "group": "A", "backNumber": 39, "position": "P", "image": "/data/images/players/player-014.jpg" },
+  { "playerId": "player-015", "name": "홍길동", "gameoneName": "홍길동", "group": "A", "backNumber": 10, "position": "P/IF", "image": "/data/images/players/player-015.jpg" },
+  { "playerId": "player-016", "name": "김철수", "gameoneName": "김철수", "group": "D", "backNumber": 7, "position": "OF", "image": "/data/images/players/player-016.jpg" },
+  { "playerId": "player-017", "name": "박민수", "gameoneName": "박민수", "group": "A", "backNumber": 3, "position": "IF", "image": "/data/images/players/player-017.jpg" },
+  { "playerId": "player-018", "name": "이영희", "gameoneName": "이영희", "group": "A", "backNumber": 12, "position": "OF", "image": "/data/images/players/player-018.jpg" },
+  { "playerId": "player-020", "name": "노재흥", "gameoneName": "노재흥", "group": "A", "backNumber": 1, "position": "MGR", "image": "" }
+]
