@@ -62,6 +62,7 @@
 
 <script setup lang="ts">
 import type { ColDef } from 'ag-grid-community';
+import { decimalStatComparator } from '~/utils/ag-grid-decimal';
 import { buildPeriodRecordView, type PeriodRecordSlice } from '~/utils/record-aggregate';
 
 type MonthlyRecord = PeriodRecordSlice & {
@@ -111,7 +112,7 @@ const defaultColDef: ColDef = { flex: 1, minWidth: 76, sortable: true, filter: t
 const battingColumnsBase: ColDef[] = [
     { field: 'name', headerName: '이름', minWidth: 96 },
     { field: 'g', headerName: 'G', width: 72 },
-    { field: 'avg', headerName: 'AVG', width: 88, sort: 'desc', sortIndex: 0 },
+    { field: 'avg', headerName: 'AVG', width: 88, sort: 'desc', sortIndex: 0, comparator: decimalStatComparator },
     { field: 'h', headerName: 'H', width: 72 },
     { field: 'rbi', headerName: 'RBI', width: 80 },
     { field: 'r', headerName: 'R', width: 72 },
@@ -121,10 +122,10 @@ const pitchingColumnsBase: ColDef[] = [
     { field: 'name', headerName: '이름', minWidth: 96 },
     { field: 'g', headerName: 'G', width: 72 },
     { field: 'ip', headerName: 'IP', width: 80 },
-    { field: 'era', headerName: 'ERA', width: 88, sort: 'asc', sortIndex: 0 },
+    { field: 'era', headerName: 'ERA', width: 88, sort: 'asc', sortIndex: 0, comparator: decimalStatComparator },
     { field: 'so', headerName: 'SO', width: 72 },
     { field: 'win', headerName: 'W', width: 72 },
-    { field: 'whip', headerName: 'WHIP', width: 88 },
+    { field: 'whip', headerName: 'WHIP', width: 88, comparator: decimalStatComparator },
 ];
 const groupColumn: ColDef = { field: 'group', headerName: '조', width: 72 };
 const battingColumns = computed(() =>

@@ -6,6 +6,7 @@ export const DECIMAL_STAT_FIELDS = new Set([
     'obp',
     'slg',
     'ops',
+    'ip',
     'era',
     'whip',
     'teamAvg',

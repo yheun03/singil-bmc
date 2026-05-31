@@ -41,6 +41,7 @@
 
 <script setup lang="ts">
 import type { ColDef } from 'ag-grid-community';
+import { decimalStatComparator } from '~/utils/ag-grid-decimal';
 import { mergeBattingRowsByPlayerId, mergePitchingRowsByPlayerId } from '~/utils/record-aggregate';
 
 type TeamTotal = {
@@ -114,8 +115,8 @@ const defaultColDef: ColDef = {
 const battingColumns: ColDef[] = [
     { field: 'name', headerName: '이름', minWidth: 96 },
     { field: 'g', headerName: 'G', width: 72, filter: 'agNumberColumnFilter' },
-    { field: 'avg', headerName: 'AVG', width: 88, sort: 'desc', sortIndex: 0 },
-    { field: 'ops', headerName: 'OPS', width: 88 },
+    { field: 'avg', headerName: 'AVG', width: 88, sort: 'desc', sortIndex: 0, comparator: decimalStatComparator },
+    { field: 'ops', headerName: 'OPS', width: 88, comparator: decimalStatComparator },
     { field: 'h', headerName: 'H', width: 72, filter: 'agNumberColumnFilter' },
     { field: 'rbi', headerName: 'RBI', width: 80, filter: 'agNumberColumnFilter' },
     {
@@ -131,8 +132,8 @@ const pitchingColumns: ColDef[] = [
     { field: 'name', headerName: '이름', minWidth: 96 },
     { field: 'g', headerName: 'G', width: 72, filter: 'agNumberColumnFilter' },
     { field: 'ip', headerName: 'IP', width: 80 },
-    { field: 'era', headerName: 'ERA', width: 88, sort: 'asc', sortIndex: 0 },
-    { field: 'whip', headerName: 'WHIP', width: 88 },
+    { field: 'era', headerName: 'ERA', width: 88, sort: 'asc', sortIndex: 0, comparator: decimalStatComparator },
+    { field: 'whip', headerName: 'WHIP', width: 88, comparator: decimalStatComparator },
     { field: 'so', headerName: 'SO', width: 72, filter: 'agNumberColumnFilter' },
     { field: 'win', headerName: 'W', width: 72, filter: 'agNumberColumnFilter' },
 ];
