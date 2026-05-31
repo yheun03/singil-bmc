@@ -47,7 +47,23 @@
         padding: 16px var(--layout-nav-header-padding-x) 10px;
     }
 
+    &__brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        color: inherit;
+    }
+
+    &__site-name {
+        @include font(c1, sb);
+        line-height: 1.35;
+        color: rgba($gray-0, 0.92);
+    }
+
     &__logo {
+        flex: 0 0 36px;
+        width: 36px;
         padding: 0;
     }
 

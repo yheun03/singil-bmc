@@ -1,0 +1,37 @@
+[
+  {
+    "year": 2026,
+    "month": 5,
+    "games": 4,
+    "hits": 31,
+    "runs": 37
+  },
+  {
+    "year": 2026,
+    "month": 4,
+    "games": 2,
+    "hits": 14,
+    "runs": 18
+  },
+  {
+    "year": 2026,
+    "month": 2,
+    "games": 1,
+    "hits": 6,
+    "runs": 9
+  },
+  {
+    "year": 2026,
+    "month": 1,
+    "games": 1,
+    "hits": 9,
+    "runs": 13
+  },
+  {
+    "year": 2025,
+    "month": 9,
+    "games": 1,
+    "hits": 7,
+    "runs": 10
+  }
+]

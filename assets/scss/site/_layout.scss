@@ -1,0 +1,145 @@
+@use 'tokens' as *;
+
+.site-layout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: $bmc-gray-100;
+    color: $bmc-gray-800;
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+.site-layout__main {
+    flex: 1;
+}
+
+.bmc-section {
+    padding: 56px 0;
+
+    &--dark {
+        background: linear-gradient(180deg, $bmc-navy-900, $bmc-navy-800);
+        color: $bmc-white;
+
+        .bmc-section__title {
+            color: $bmc-white;
+        }
+
+        .bmc-section__desc {
+            color: rgba($bmc-white, 0.78);
+        }
+    }
+
+    &--white {
+        background: $bmc-white;
+    }
+
+    &__inner {
+        @include bmc-container;
+    }
+
+    &__head {
+        display: flex;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 16px;
+        margin-bottom: 28px;
+        flex-wrap: wrap;
+    }
+
+    &__title {
+        @include bmc-section-title;
+    }
+
+    &__desc {
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.6;
+        color: $bmc-gray-500;
+    }
+
+    &__more {
+        color: $bmc-blue-500;
+        font-weight: 700;
+        text-decoration: none;
+        white-space: nowrap;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+
+.bmc-grid {
+    display: grid;
+    gap: 16px;
+
+    &--2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    &--3 {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    &--4 {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    @media (max-width: 900px) {
+        &--2,
+        &--3,
+        &--4 {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 560px) {
+        &--2,
+        &--3,
+        &--4 {
+            grid-template-columns: 1fr;
+        }
+    }
+}
+
+.bmc-state {
+    padding: 32px;
+    text-align: center;
+    color: $bmc-gray-500;
+
+    &--error {
+        color: #dc2626;
+    }
+}
+
+.bmc-table-wrap {
+    overflow-x: auto;
+    border-radius: 16px;
+    border: 1px solid $bmc-gray-200;
+    background: $bmc-white;
+}
+
+.bmc-table {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+
+    th,
+    td {
+        padding: 12px 14px;
+        border-bottom: 1px solid $bmc-gray-200;
+        text-align: left;
+        white-space: nowrap;
+        font-size: 0.875rem;
+    }
+
+    th {
+        background: $bmc-navy-900;
+        color: $bmc-white;
+        font-weight: 700;
+    }
+
+    tbody tr:hover {
+        background: rgba($bmc-blue-500, 0.04);
+    }
+}

@@ -1,0 +1,101 @@
+{
+  "gameId": "2026-05-31-vs-sample",
+  "gameDate": "2026-05-31",
+  "year": 2026,
+  "month": 5,
+  "opponent": "sample",
+  "group": "A",
+  "status": "completed",
+  "score": {
+    "our": 7,
+    "opponent": 4
+  },
+  "batting": [
+    {
+      "playerId": "player-015",
+      "name": "홍길동",
+      "group": "A",
+      "pa": 4,
+      "ab": 3,
+      "r": 1,
+      "h": 2,
+      "double": 1,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 2,
+      "bb": 1,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "player-017",
+      "name": "박민수",
+      "group": "A",
+      "pa": 4,
+      "ab": 4,
+      "r": 1,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 1,
+      "bb": 0,
+      "hbp": 0,
+      "so": 1,
+      "sb": 1
+    },
+    {
+      "playerId": "player-016",
+      "name": "김철수",
+      "group": "D",
+      "pa": 3,
+      "ab": 3,
+      "r": 1,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "player-018",
+      "name": "이영희",
+      "group": "A",
+      "pa": 3,
+      "ab": 2,
+      "r": 0,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 2,
+      "bb": 1,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    }
+  ],
+  "pitching": [
+    {
+      "playerId": "temp-001",
+      "name": "최투수",
+      "group": "",
+      "ip": "5.0",
+      "outs": 15,
+      "h": 5,
+      "r": 4,
+      "er": 3,
+      "bb": 2,
+      "hbp": 2,
+      "so": 4,
+      "win": 1,
+      "loss": 0,
+      "save": 0
+    }
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "totalGames": 9,
+  "totalPlayers": 38,
+  "totalHits": 67,
+  "totalRuns": 87,
+  "lastGameDate": "2026-05-31",
+  "recentGames": [
+    {
+      "gameId": "2026-04-18-vs-yooshin",
+      "gameDate": "2026-04-18",
+      "opponent": "yooshin",
+      "score": {
+        "our": 11,
+        "opponent": 8
+      },
+      "group": "A"
+    },
+    {
+      "gameId": "2026-05-02-vs-mavericks",
+      "gameDate": "2026-05-02",
+      "opponent": "mavericks",
+      "score": {
+        "our": 14,
+        "opponent": 7
+      },
+      "group": "A"
+    },
+    {
+      "gameId": "2026-05-09-vs-deloitte",
+      "gameDate": "2026-05-09",
+      "opponent": "deloitte",
+      "score": {
+        "our": 10,
+        "opponent": 1
+      },
+      "group": ""
+    },
+    {
+      "gameId": "2026-05-30-vs-11stwyverns",
+      "gameDate": "2026-05-30",
+      "opponent": "11stwyverns",
+      "score": {
+        "our": 10,
+        "opponent": 9
+      },
+      "group": "A"
+    },
+    {
+      "gameId": "2026-05-31-vs-sample",
+      "gameDate": "2026-05-31",
+      "opponent": "sample",
+      "score": {
+        "our": 7,
+        "opponent": 4
+      },
+      "group": "A"
+    }
+  ]
+}

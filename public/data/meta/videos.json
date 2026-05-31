@@ -1,0 +1,38 @@
+[
+  {
+    "id": "main-video",
+    "title": "신길교회 야구 선교단 소개",
+    "youtubeUrl": "https://www.youtube.com/@%EB%8B%A4%EC%9C%97%EC%95%BC%EA%B5%AC%EC%84%A0%EA%B5%90%EB%8B%A8",
+    "embedUrl": "",
+    "thumbnail": "",
+    "category": "대표",
+    "date": "2026-03-01"
+  },
+  {
+    "id": "game-2025-09",
+    "title": "11번가 와이번스전 하이라이트",
+    "youtubeUrl": "https://www.youtube.com/@%EB%8B%A4%EC%9C%97%EC%95%BC%EA%B5%AC%EC%84%A0%EA%B5%90%EB%8B%A8",
+    "embedUrl": "",
+    "thumbnail": "",
+    "category": "경기",
+    "date": "2025-09-28"
+  },
+  {
+    "id": "mvp-2025-09",
+    "title": "9월 MVP 시상",
+    "youtubeUrl": "https://www.youtube.com/@%EB%8B%A4%EC%9C%97%EC%95%BC%EA%B5%AC%EC%84%A0%EA%B5%90%EB%8B%A8",
+    "embedUrl": "",
+    "thumbnail": "",
+    "category": "MVP",
+    "date": "2025-10-05"
+  },
+  {
+    "id": "fellowship-2026",
+    "title": "2026 시즌 개막 교제",
+    "youtubeUrl": "https://www.youtube.com/@%EB%8B%A4%EC%9C%97%EC%95%BC%EA%B5%AC%EC%84%A0%EA%B5%90%EB%8B%A8",
+    "embedUrl": "",
+    "thumbnail": "",
+    "category": "행사",
+    "date": "2026-03-15"
+  }
+]
