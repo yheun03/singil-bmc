@@ -5,6 +5,7 @@
   "year": 2026,
   "month": 5,
   "opponent": "mavericks",
+  "opponentName": "Mavericks",
   "group": "D",
   "status": "completed",
   "score": {
@@ -250,7 +251,7 @@
   ],
   "youtube": {
     "videoCode": "uaVwOn0_kXA",
-    "title": "다윗D조 5/2일 19시",
+    "title": "26.05.02 D조 vs Mavericks",
     "publishedAt": "2026-05-02",
     "youtubeUrl": "https://www.youtube.com/watch?v=uaVwOn0_kXA",
     "thumbnail": "https://i.ytimg.com/vi/uaVwOn0_kXA/hq720.jpg"

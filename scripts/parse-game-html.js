@@ -22,7 +22,13 @@ import {
     extractScoreFromHtml,
     extractGroupFromHtml,
 } from './lib/records-utils.js';
-import { isGameoneFormat, parseGameoneHtml } from './lib/gameone-parser.js';
+import { isGameoneFormat, parseGameoneHtml, extractOpponentTeamName } from './lib/gameone-parser.js';
+
+function extractOpponentNameFromTitle($) {
+    const title = $('title').text().trim();
+    const match = title.match(/\d{4}-\d{2}-\d{2}\s+vs\s+(.+)/i);
+    return match ? match[1].trim() : '';
+}
 
 function getCellText(cells, index) {
     if (index === undefined || index < 0 || index >= cells.length) {
@@ -151,6 +157,12 @@ function parseGameHtmlFile(filePath, playersMap, tempCounter) {
         : parseSimpleGameHtml($, bodyText, playersMap, tempCounter);
 
     const group = extractGroupFromHtml(bodyText) || parsed.batting[0]?.group || parsed.pitching[0]?.group || '';
+    const opponentName =
+        parsed.opponentName ||
+        parsed.opponentSummary?.teamName ||
+        (isGameoneFormat($) ? extractOpponentTeamName($) : '') ||
+        extractOpponentNameFromTitle($) ||
+        '';
 
     return {
         gameId: meta.gameId,
@@ -159,6 +171,7 @@ function parseGameHtmlFile(filePath, playersMap, tempCounter) {
         year: meta.year,
         month: meta.month,
         opponent: meta.opponent,
+        opponentName,
         group,
         status: 'completed',
         score: parsed.score,

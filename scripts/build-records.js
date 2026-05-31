@@ -192,6 +192,7 @@ function buildTeamTotal(games, battingTotal) {
             gameId: game.gameId,
             gameDate: game.gameDate,
             opponent: game.opponent,
+            opponentName: getOpponentName(game),
             score: game.score,
             group: game.group,
         })),
@@ -433,7 +434,7 @@ function formatOpponent(opponent = '') {
 }
 
 function getOpponentName(game) {
-    return game.opponentSummary?.teamName || formatOpponent(game.opponent);
+    return game.opponentName || game.opponentSummary?.teamName || formatOpponent(game.opponent);
 }
 
 function buildAutoNews(games) {

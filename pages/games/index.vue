@@ -43,7 +43,7 @@
                     <SiteGameResultBadge :kind="resultKind(game)" size="sm" />
                 </div>
                 <h3 class="bmc-game-card__matchup">
-                    다윗 야구 선교단 vs {{ game.opponentSummary?.teamName || formatOpponent(game.opponent) }}
+                    다윗 야구 선교단 vs {{ game.opponentName || game.opponentSummary?.teamName || formatOpponent(game.opponent) }}
                 </h3>
                 <div class="bmc-game-card__score-row">
                     <span class="bmc-game-card__score" :class="scoreClass(game)">
@@ -71,6 +71,7 @@ type Game = {
     gameId: string;
     gameDate: string;
     opponent: string;
+    opponentName?: string;
     group?: string;
     score?: { our: number; opponent: number };
     summary?: { hits?: number; homeRuns?: number; steals?: number };

@@ -29,7 +29,7 @@
                         <strong class="bmc-hero__score">
                             {{ recentGame.score?.our ?? 0 }} : {{ recentGame.score?.opponent ?? 0 }}
                         </strong>
-                        <span class="bmc-hero__team">vs {{ formatOpponent(recentGame.opponent) }}</span>
+                        <span class="bmc-hero__team">vs {{ recentGame.opponentName || formatOpponent(recentGame.opponent) }}</span>
                     </div>
                     <p class="bmc-hero__meta">{{ recentGame.gameDate }} · {{ recentGame.group || 'A' }}조</p>
                 </aside>
@@ -138,6 +138,7 @@ type TeamTotal = {
     recentGames?: Array<{
         gameDate: string;
         opponent: string;
+        opponentName?: string;
         group?: string;
         score?: { our: number; opponent: number };
     }>;

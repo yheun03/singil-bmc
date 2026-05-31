@@ -1,92 +1,53 @@
 # 경기 기록 갱신 인수인계
 
-이 문서는 경기 후 GameOne HTML 기록을 사이트 데이터로 갱신하는 운영 절차입니다.
+경기 후 GameOne HTML을 사이트에 반영하는 방법입니다.
 
-## 한 줄 요약
+## 경기 후 이렇게 하면 됩니다
 
-1. GameOne 경기 기록 HTML을 `public/data/raw-games/`에 넣습니다.
-2. 필요하면 `public/data/manual/youtube-links.json`에 경기 영상 링크를 추가합니다.
-3. `npm run update`를 실행합니다.
-4. `npm run dev` 또는 `npm run generate`로 화면을 확인합니다.
-5. 변경된 raw HTML, generated JSON, 수동 매핑을 커밋합니다.
+```bash
+# 1. GameOne 경기 기록 HTML 저장
+#    → public/data/raw-games/YYYY-MM-DD-vs-slug.html
 
-## 입력 파일
+# 2. (선택) 경기 영상 링크 추가
+#    → public/data/manual/youtube-links.json
 
-### GameOne HTML
+# 3. 데이터 갱신
+npm run update
 
-위치:
+# 4. 화면 확인
+npm run dev
 
-```text
-public/data/raw-games/
+# 5. 커밋
+#    raw-games HTML + generated/summary JSON (+ youtube-links.json)
 ```
 
-파일명 규칙:
+### HTML 저장
 
-```text
-YYYY-MM-DD-vs-opponent.html
-```
+- 위치: `public/data/raw-games/`
+- 파일명: `YYYY-MM-DD-vs-slug.html` (slug는 URL용, 아무 영문이면 됨)
+- 예: `2026-05-30-vs-11stwyverns.html`
 
-예시:
+**상대팀 이름은 파일명이 아니라 HTML 안 `h4`에서 자동 추출됩니다.**
 
-```text
-public/data/raw-games/2026-05-30-vs-11stwyverns.html
-```
+게임요약(`.summary .score_sum`)의 `h4` 중 `다윗 야구 선교단` / `Davids 야구 선교단`이 **아닌** 팀명이 화면에 표시되는 상대팀입니다.
 
-날짜에 점이 들어간 기존 파일도 보정됩니다.
+| h4 예시                                     | 결과                        |
+| ------------------------------------------- | --------------------------- |
+| `11번가 와이번스` vs `다윗 야구 선교단`     | 상대: **11번가 와이번스**   |
+| `Davids 야구 선교단` vs `동국대학교 LAE OB` | 상대: **동국대학교 LAE OB** |
 
-```text
-2026-03.14-vs-laeob.html -> gameId: 2026-03-14-vs-laeob
-```
+### 조(A/D) 자동 판정
 
-다만 새 파일은 가능하면 `YYYY-MM-DD` 형식으로 저장하세요.
+HTML `.record h3`의 우리팀명으로 조가 정해집니다.
 
-## 조 구분 규칙
-
-조는 HTML 안의 우리팀 `h3` 팀명으로 자동 판정합니다.
-
-| GameOne 팀명         | 조  |
+| 팀명                 | 조  |
 | -------------------- | --- |
 | `Davids 야구 선교단` | A조 |
 | `다윗 야구 선교단`   | D조 |
 
-중요:
+### YouTube 영상 (선택)
 
-- 선수의 `players.json` 기본 조보다 경기 HTML의 팀명이 우선입니다.
-- 같은 선수가 A조/D조 양쪽 경기에 나와도 기록은 `playerId + group` 기준으로 따로 집계됩니다.
-- 상대팀 타자/투수 기록은 공식 선수 기록 집계에 포함되지 않습니다.
-
-## 파싱 기준
-
-GameOne 기록은 반드시 아래 기준으로 파싱합니다.
-
-- `.record` 내부의 `h3` 팀명 확인
-- 해당 `h3` 바로 다음 `table` 확인
-- 팀명이 우리팀일 때만 `summary="타자기록"` / `summary="투수기록"` 테이블 파싱
-
-따라서 전체 테이블을 훑는 방식은 사용하지 않습니다.
-
-```js
-document.querySelectorAll('.record_table'); // 사용 금지
-document.querySelectorAll('tbody tr'); // 전체 문서 기준 사용 금지
-```
-
-게임 요약은 `.summary .score_sum`에서 별도로 파싱합니다.
-
-- 우리팀 요약 스탯
-- 상대팀 요약 스탯
-- `ul.game_sum` 하이라이트
-
-단, `game_sum`은 선수 공식 기록 집계에는 사용하지 않습니다. 선수 누적 기록은 `.record h3 + table` 공식 기록 테이블만 기준으로 합니다.
-
-## 수동 YouTube 링크 매핑
-
-위치:
-
-```text
-public/data/manual/youtube-links.json
-```
-
-형식:
+`public/data/manual/youtube-links.json`:
 
 ```json
 {
@@ -98,46 +59,52 @@ public/data/manual/youtube-links.json
 }
 ```
 
-규칙:
+key는 `gameId`(파일명에서 `.html` 제거)입니다.
 
-- key는 `gameId`입니다.
-- 값에 영상 코드 문자열만 넣거나 객체의 `videoCode`만 입력하면 `youtubeUrl`은 `https://www.youtube.com/watch?v={videoCode}`, `thumbnail`은 `https://i.ytimg.com/vi/{videoCode}/hq720.jpg`로 자동 생성됩니다.
-- `npm run update`를 실행해도 `public/data/manual/youtube-links.json`은 삭제하지 않습니다.
-- 매칭되는 영상이 있으면 경기 상세, 뉴스 카드, 영상 섹션에 표시됩니다.
-- 매칭되는 영상이 없으면 YouTube 채널 바로가기 CTA가 표시됩니다.
+### 확인할 페이지
 
-YouTube 채널:
+| 페이지            | 확인                          |
+| ----------------- | ----------------------------- |
+| `/games`          | 새 경기 카드, **상대팀 이름** |
+| `/games/{gameId}` | 점수, 요약, 하이라이트        |
+| `/` (홈)          | 최근 경기 **상대팀 이름**     |
+| `/records`        | 타자·투수 누적 기록           |
 
-```text
-https://www.youtube.com/@%EB%8B%A4%EC%9C%97%EC%95%BC%EA%B5%AC%EC%84%A0%EA%B5%90%EB%8B%A8
-```
+---
 
-## 갱신 명령어
+## 커밋 전 체크
 
-경기 HTML을 넣은 뒤 아래 명령어를 실행합니다.
+- [ ] HTML을 `public/data/raw-games/`에 넣었다
+- [ ] `npm run update` 성공
+- [ ] `/games`에서 **상대팀 이름이 h4와 일치**한다
+- [ ] A조/D조가 맞다
+- [ ] (선택) YouTube 링크 추가
+- [ ] raw HTML + generated JSON 커밋
 
-```bash
-npm run update
-```
+---
 
-내부 동작:
+## 참고 (파서 규칙)
 
-1. 기존 자동 생성 데이터 초기화
-2. 현재 `public/data/raw-games/*.html` 목록 읽기
-3. 각 HTML 파싱
-4. 우리팀 타자/투수 공식 기록만 추출
-5. 경기 요약, 상대팀 요약, 하이라이트 추출
-6. 경기별 JSON 생성
-7. 시즌 누적 기록 생성
-8. 월간 기록 생성
-9. 월간 MVP 생성
-10. 주간 MVP 생성
-11. 경기 뉴스 요약 생성
-12. 수동 YouTube 링크 매핑 병합
+### 우리팀 기록만 파싱
 
-## 자동 생성 결과물
+- `.record` 내부 `h3` 팀명 확인 → 우리팀일 때만 바로 다음 `table` 파싱
+- 전체 테이블 훑기(`document.querySelectorAll('.record_table')`) 사용 안 함
 
-`npm run update` 실행 시 아래 데이터가 재생성됩니다.
+### 게임 요약
+
+`.summary .score_sum`에서 파싱:
+
+- 우리팀/상대팀 요약 스탯
+- `h4` → 상대팀명 (`opponentName`)
+- `ul.game_sum` → 하이라이트
+
+### `npm run update`가 하는 일
+
+1. `raw-games/*.html` 파싱 → `games/*.json` 생성
+2. 시즌/월간/조별 기록, MVP, 뉴스, 영상 목록 생성
+3. `manual/youtube-links.json` 병합
+
+### 생성되는 파일
 
 ```text
 public/data/games/*.json
@@ -145,130 +112,15 @@ public/data/summary/*.json
 public/data/generated/*.json
 ```
 
-대표 파일:
+`manual/` 아래 파일(`players.json`, `news.json` 등)은 **삭제하지 않음**.
 
-| 파일                                       | 설명                        |
-| ------------------------------------------ | --------------------------- |
-| `public/data/generated/games.json`         | 전체 경기 목록              |
-| `public/data/generated/season-stats.json`  | 시즌 전체 타자/투수/팀 기록 |
-| `public/data/generated/monthly-stats.json` | 월간 기록                   |
-| `public/data/generated/monthly-mvp.json`   | 월간 MVP                    |
-| `public/data/generated/weekly-mvp.json`    | 주간 MVP                    |
-| `public/data/generated/news.json`          | 자동 생성 경기 뉴스         |
-| `public/data/summary/yearly-records.json`  | 연간 기록 및 조별 연간 기록 |
-| `public/data/summary/monthly-records.json` | 월간 기록 및 조별 월간 기록 |
-| `public/data/summary/group-records.json`   | A조/D조 요약                |
+### 문제 해결
 
-삭제된 raw HTML의 기록은 다음 `npm run update` 이후 자동 생성 데이터에서 사라집니다.
-
-## 수동 데이터
-
-아래 파일은 사람이 관리합니다. `npm run update`가 삭제하지 않습니다.
-
-```text
-public/data/manual/youtube-links.json
-public/data/meta/players.json
-public/data/meta/news.json
-public/data/meta/videos.json
-public/data/meta/leaders.json
-public/data/meta/history.json
-public/data/meta/gallery.json
-```
-
-주의:
-
-- `public/data/generated/news.json`은 자동 생성 뉴스입니다.
-- 직접 작성한 소식은 `public/data/meta/news.json`에 둡니다.
-- 자동 생성 뉴스에는 `source: "game-record"`, `autoGenerated: true`가 들어갑니다.
-
-## 선수명 매칭 경고 처리
-
-`npm run update` 중 아래와 같은 경고가 나올 수 있습니다.
-
-```text
-[WARN] players.json에서 매칭되지 않은 선수명: "홍길동"
-```
-
-의미:
-
-- GameOne HTML의 선수명이 `public/data/meta/players.json`의 `gameoneName`과 매칭되지 않았습니다.
-- 이 경우 임시 `temp-xxx` 선수 ID로 기록은 생성됩니다.
-- 같은 실행 안에서는 같은 미등록 선수명이 같은 임시 ID로 묶입니다.
-
-처리:
-
-1. 실제 등록 선수라면 `public/data/meta/players.json`에 선수 정보를 추가합니다.
-2. `gameoneName`을 HTML의 선수명과 정확히 맞춥니다.
-3. 다시 `npm run update`를 실행합니다.
-
-## 화면 확인
-
-개발 서버:
-
-```bash
-npm run dev
-```
-
-기본 주소:
-
-```text
-http://localhost:3000/singil-bmc/
-```
-
-확인할 페이지:
-
-| 페이지             | 확인 내용                                  |
-| ------------------ | ------------------------------------------ |
-| `/games`           | 새 경기 카드가 보이는지                    |
-| `/games/{gameId}`  | 요약, 상대팀 요약, 하이라이트, YouTube CTA |
-| `/records`         | 전체 타자/투수 기록                        |
-| `/records/yearly`  | 전체/A조/D조 연간 기록 필터                |
-| `/records/monthly` | 월 선택 + 전체/A조/D조 + 타자/투수 필터    |
-| `/records/groups`  | A조/D조 요약                               |
-| `/mvp/monthly`     | 전체/A조/D조 월간 MVP                      |
-| `/mvp/weekly`      | 전체/A조/D조 주간 MVP                      |
-| `/news`            | 자동 생성 경기 뉴스                        |
-| `/videos`          | 수동 매핑된 경기 영상 또는 채널 CTA        |
-
-정적 빌드:
-
-```bash
-npm run generate
-```
-
-## 커밋 전 체크리스트
-
-- [ ] 새 GameOne HTML을 `public/data/raw-games/`에 추가했다.
-- [ ] 파일명이 `YYYY-MM-DD-vs-opponent.html` 형식이다.
-- [ ] `npm run update`가 정상 종료됐다.
-- [ ] `Davids 야구 선교단` 경기는 A조로 생성됐다.
-- [ ] `다윗 야구 선교단` 경기는 D조로 생성됐다.
-- [ ] 상대팀 선수 기록이 generated 타자/투수 기록에 섞이지 않았다.
-- [ ] 연간/월간/MVP 화면에서 A조/D조 필터가 동작한다.
-- [ ] 필요 시 `public/data/manual/youtube-links.json`에 영상 링크를 추가했다.
-- [ ] `npm run generate`가 정상 종료됐다.
-- [ ] 변경된 raw HTML, generated JSON, manual JSON을 함께 커밋한다.
-
-## 문제 해결
-
-### raw HTML을 넣었는데 경기 수가 늘지 않음
-
-- 파일 확장자가 `.html`인지 확인합니다.
-- 파일명이 날짜 규칙에 맞는지 확인합니다.
-- `npm run update` 로그에 `[ERROR] Invalid game filename`이 있는지 확인합니다.
-
-### 조가 잘못 나옴
-
-- HTML의 `.record h3` 팀명이 `Davids 야구 선교단` 또는 `다윗 야구 선교단`인지 확인합니다.
-- 팀명 텍스트가 이미지 alt에만 있고 h3 텍스트에 없으면 파서가 인식하지 못할 수 있습니다.
-
-### 기록이 이상하게 커짐
-
-- 같은 경기를 다른 파일명으로 중복 저장했는지 확인합니다.
-- `raw-games`에 테스트/복사본 HTML이 남아 있으면 모두 파싱됩니다.
-- 삭제한 뒤 `npm run update`를 다시 실행합니다.
-
-### 영상이 표시되지 않음
-
-- `youtube-links.json` key가 실제 `gameId`와 같은지 확인합니다.
-- 예: `public/data/games/{gameId}.json` 파일명에서 `.json`을 뺀 값입니다.
+| 증상                   | 확인                                                |
+| ---------------------- | --------------------------------------------------- |
+| 경기 수 안 늘어남      | 확장자 `.html`, 파일명 `YYYY-MM-DD-vs-*.html`       |
+| 상대팀 이름 틀림       | HTML `h4` 내용 확인 (파일명 slug와 무관)            |
+| 조가 틀림              | `.record h3`에 `Davids` / `다윗` 팀명 있는지        |
+| 기록이 비정상적으로 큼 | 같은 경기 HTML 중복 저장 여부                       |
+| 영상 안 나옴           | `youtube-links.json` key = `gameId`                 |
+| 선수명 경고            | `players.json`의 `gameoneName`과 HTML 선수명 맞추기 |

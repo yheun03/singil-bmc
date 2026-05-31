@@ -5,6 +5,7 @@
   "year": 2026,
   "month": 3,
   "opponent": "daslgis",
+  "opponentName": "다슬기스OB",
   "group": "A",
   "status": "completed",
   "score": {
@@ -267,7 +268,7 @@
   ],
   "youtube": {
     "videoCode": "MSCHCzSJfYs",
-    "title": "다윗A 3/28 7시경기",
+    "title": "26.03.28 A조 vs 다슬기스OB",
     "publishedAt": "2026-03-28",
     "youtubeUrl": "https://www.youtube.com/watch?v=MSCHCzSJfYs",
     "thumbnail": "https://i.ytimg.com/vi/MSCHCzSJfYs/hq720.jpg"

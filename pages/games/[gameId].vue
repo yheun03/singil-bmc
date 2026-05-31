@@ -1,7 +1,7 @@
 <template>
     <SitePageLayout
         eyebrow="GAME DETAIL"
-        :title="game ? `vs ${game.opponentSummary?.teamName || formatOpponent(game.opponent)}` : '경기 상세'"
+        :title="game ? `vs ${opponentLabel(game)}` : '경기 상세'"
         :description="game ? `${game.gameDate} · ${game.group || '-'}조` : ''"
         :pending="pending"
         :error="error || (!game && !pending ? '경기 기록을 찾을 수 없습니다.' : '')"
@@ -14,7 +14,7 @@
                         <SiteGameResultBadge v-if="gameResult" :kind="gameResult" size="lg" />
                     </div>
                     <strong class="bmc-game-detail__score">{{ game.score?.our ?? 0 }} : {{ game.score?.opponent ?? 0 }}</strong>
-                    <p>다윗 야구 선교단 vs {{ game.opponentSummary?.teamName || formatOpponent(game.opponent) }}</p>
+                    <p>다윗 야구 선교단 vs {{ opponentLabel(game) }}</p>
                 </div>
                 <a
                     class="bmc-btn bmc-btn--primary"
@@ -32,7 +32,7 @@
                     <p>{{ statLine(game.summary) }}</p>
                 </article>
                 <article class="bmc-stat-panel">
-                    <h3>{{ game.opponentSummary?.teamName || '상대팀' }} 요약</h3>
+                    <h3>{{ opponentLabel(game) }} 요약</h3>
                     <p>{{ statLine(game.opponentSummary) }}</p>
                 </article>
             </div>
@@ -67,6 +67,7 @@ type Game = {
     gameId: string;
     gameDate: string;
     opponent: string;
+    opponentName?: string;
     group?: string;
     score?: { our: number; opponent: number };
     summary?: Summary;
@@ -101,6 +102,10 @@ function formatOpponent(opponent = '') {
     return opponent.replace(/-/g, ' ');
 }
 
+function opponentLabel(game: Game) {
+    return game.opponentName || game.opponentSummary?.teamName || formatOpponent(game.opponent);
+}
+
 function statLine(summary: Summary) {
     return `${summary?.hits ?? 0}안타 · ${summary?.homeRuns ?? 0}홈런 · ${summary?.steals ?? 0}도루 · ${
         summary?.strikeouts ?? 0
@@ -125,7 +130,7 @@ watch(
             return;
         }
 
-        const opponent = item.opponentSummary?.teamName || formatOpponent(item.opponent);
+        const opponent = opponentLabel(item);
         const title = `vs ${opponent}`;
         const description = `${item.gameDate} · ${item.group || '-'}조 · ${item.score?.our ?? 0}:${item.score?.opponent ?? 0} — 신길교회 야구 선교단 경기 기록`;
         const path = `/games/${item.gameId}`;
