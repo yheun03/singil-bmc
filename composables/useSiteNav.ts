@@ -3,9 +3,7 @@ export type SiteNavLink = {
     to: string;
 };
 
-export type SiteNavItem =
-    | { type: 'link'; label: string; to: string }
-    | { type: 'group'; label: string; children: SiteNavLink[] };
+export type SiteNavItem = { type: 'link'; label: string; to: string } | { type: 'group'; label: string; children: SiteNavLink[] };
 
 /** GNB 1뎁스: HOME · TEAM · GAMES · STATS · MEDIA */
 export const siteHeaderNav: SiteNavItem[] = [
@@ -28,7 +26,7 @@ export const siteHeaderNav: SiteNavItem[] = [
             { label: '전체 기록', to: '/records' },
             { label: '연도별', to: '/records/yearly' },
             { label: '월별', to: '/records/monthly' },
-            { label: '조별', to: '/records/groups' },
+            // { label: '조별', to: '/records/groups' },
             { label: 'MVP', to: '/mvp' },
         ],
     },

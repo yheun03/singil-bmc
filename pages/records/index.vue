@@ -1,11 +1,5 @@
 <template>
-    <SitePageLayout
-        eyebrow="RECORDS"
-        title="전체 기록"
-        description="누적 타자·투수 기록을 확인합니다."
-        :pending="pending"
-        :error="error"
-    >
+    <SitePageLayout eyebrow="RECORDS" title="전체 기록" description="누적 타자·투수 기록을 확인합니다." :pending="pending" :error="error">
         <div v-if="teamTotal" class="bmc-grid bmc-grid--4 bmc-record-grid__stats">
             <article class="bmc-stat-card">
                 <strong>{{ teamTotal.totalGames }}</strong>
@@ -25,43 +19,32 @@
             </article>
         </div>
 
-        <AppTabs v-model:active-id="selectedGroup" :items="groupTabItems" variant="pill" size="sm" class="bmc-record-grid__tabs" />
+        <AppTabs v-model:active-id="selectedGroup" :items="groupTabItems" variant="pill" size="sm"
+            class="bmc-record-grid__tabs" />
 
         <section class="bmc-record-grid">
             <h3 class="bmc-record-grid__title">타자 기록</h3>
-            <AppGridToolbar target="batting-grid">
+            <!-- <AppGridToolbar target="batting-grid">
                 <AppGridSearch v-model="battingSearch" :fields="battingSearchFields" />
                 <AppGridDownload />
-            </AppGridToolbar>
+            </AppGridToolbar> -->
             <ClientOnly>
-                <AppGrid
-                    grid-id="batting-grid"
-                    class="bmc-record-grid__grid ag-theme-quartz"
-                    :row-data="battingRows"
-                    :column-defs="battingColumns"
-                    :default-col-def="defaultColDef"
-                    animate-rows
-                    :style="{ height: battingGridHeight, width: '100%' }"
-                />
+                <AppGrid grid-id="batting-grid" class="bmc-record-grid__grid ag-theme-quartz" :row-data="battingRows"
+                    :column-defs="battingColumns" :default-col-def="defaultColDef" animate-rows
+                    :style="{ height: battingGridHeight, width: '100%' }" />
             </ClientOnly>
         </section>
 
         <section class="bmc-record-grid">
             <h3 class="bmc-record-grid__title">투수 기록</h3>
-            <AppGridToolbar target="pitching-grid">
+            <!-- <AppGridToolbar target="pitching-grid">
                 <AppGridSearch v-model="pitchingSearch" :fields="pitchingSearchFields" />
                 <AppGridDownload />
-            </AppGridToolbar>
+            </AppGridToolbar> -->
             <ClientOnly>
-                <AppGrid
-                    grid-id="pitching-grid"
-                    class="bmc-record-grid__grid ag-theme-quartz"
-                    :row-data="pitchingRows"
-                    :column-defs="pitchingColumns"
-                    :default-col-def="defaultColDef"
-                    animate-rows
-                    :style="{ height: pitchingGridHeight, width: '100%' }"
-                />
+                <AppGrid grid-id="pitching-grid" class="bmc-record-grid__grid ag-theme-quartz" :row-data="pitchingRows"
+                    :column-defs="pitchingColumns" :default-col-def="defaultColDef" animate-rows
+                    :style="{ height: pitchingGridHeight, width: '100%' }" />
             </ClientOnly>
         </section>
     </SitePageLayout>
@@ -203,7 +186,7 @@ const pitchingGridHeight = computed(() => gridHeight(pitchingRows.value.length))
 
 <style scoped lang="scss">
 .bmc-record-grid {
-    & + & {
+    &+& {
         margin-top: 28px;
     }
 

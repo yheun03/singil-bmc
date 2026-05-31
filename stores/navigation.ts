@@ -79,15 +79,15 @@ const MENU_SEED: MenuSeedEntity[] = [
         labelKey: 'nav.records.monthly',
         isActive: true,
     },
-    {
-        id: 'MENU_RECORDS_GROUPS',
-        parentId: 'MENU_RECORDS',
-        depth: 2,
-        order: 4,
-        to: '/records/groups',
-        labelKey: 'nav.records.groups',
-        isActive: true,
-    },
+    // {
+    //     id: 'MENU_RECORDS_GROUPS',
+    //     parentId: 'MENU_RECORDS',
+    //     depth: 2,
+    //     order: 4,
+    //     to: '/records/groups',
+    //     labelKey: 'nav.records.groups',
+    //     isActive: true,
+    // },
 
     {
         id: 'MENU_RECORDS_MVP',

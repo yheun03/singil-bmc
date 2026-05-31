@@ -31,7 +31,7 @@ export const siteLnbMenus: SiteLnbMenu[] = [
             { label: '전체 기록', to: '/records' },
             { label: '연도별', to: '/records/yearly' },
             { label: '월별', to: '/records/monthly' },
-            { label: '조별', to: '/records/groups' },
+            // { label: '조별', to: '/records/groups' },
             { label: 'MVP', to: '/mvp' },
         ],
     },
@@ -82,9 +82,7 @@ export function resolveLnbActivePath(items: SiteLnbItem[], currentPath: string) 
 export function useSiteLnb() {
     const route = useRoute();
 
-    const activeMenu = computed(() =>
-        siteLnbMenus.find((menu) => menu.matcher.test(normalizeRoutePath(route.path))),
-    );
+    const activeMenu = computed(() => siteLnbMenus.find((menu) => menu.matcher.test(normalizeRoutePath(route.path))));
 
     const activePath = computed(() => {
         if (!activeMenu.value) return null;

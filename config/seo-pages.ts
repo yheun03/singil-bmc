@@ -73,12 +73,12 @@ export const seoPageDefaults: Record<string, SeoPageDefaults> = {
             ko: '월별 팀·선수 야구 기록을 확인합니다.',
         },
     },
-    '/records/groups': {
-        title: '조별 기록',
-        description: {
-            ko: 'A조·D조별 야구 기록을 확인합니다.',
-        },
-    },
+    // '/records/groups': {
+    //     title: '조별 기록',
+    //     description: {
+    //         ko: 'A조·D조별 야구 기록을 확인합니다.',
+    //     },
+    // },
     '/mvp': {
         title: 'MVP',
         description: {
