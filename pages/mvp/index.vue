@@ -6,7 +6,14 @@
         :pending="pending"
         :error="error"
     >
-        <AppTabs v-model:active-id="mvpType" :items="typeTabItems" variant="underline" size="md" class="bmc-mvp-type-tabs" />
+        <AppTabs
+            v-model:active-id="mvpType"
+            :items="typeTabItems"
+            variant="pill"
+            size="md"
+            stretch
+            class="bmc-mvp-type-tabs"
+        />
         <SiteMvpBoard
             v-if="mvpType === 'monthly'"
             :items="monthlyList ?? []"
@@ -63,13 +70,17 @@ const error = computed(() => {
 });
 
 const typeTabItems = [
-    { id: 'monthly', title: '월별 MVP', bodyRenderer: () => null },
-    { id: 'weekly', title: '주간 MVP', bodyRenderer: () => null },
+    {
+        id: 'monthly',
+        title: '월별 MVP',
+        desc: '월간 타자·투수 순위',
+        icon: 'mdi:calendar-month',
+    },
+    {
+        id: 'weekly',
+        title: '주간 MVP',
+        desc: '주차별 타자·투수 순위',
+        icon: 'mdi:calendar-week',
+    },
 ];
 </script>
-
-<style scoped lang="scss">
-.bmc-mvp-type-tabs {
-    margin-bottom: 24px;
-}
-</style>
