@@ -244,8 +244,10 @@ export function calcBattingDerived(stats) {
 }
 
 export function calcPitchingDerived(stats) {
-    const ipDecimal = stats.outs / 3;
-    const era = ipDecimal > 0 ? (stats.er * 9) / ipDecimal : 0;
+    const wholeInnings = Math.floor(stats.outs / 3);
+    const partialInnings = (stats.outs % 3) * 0.33;
+    const ipDecimal = wholeInnings + partialInnings;
+    const era = ipDecimal > 0 ? (stats.er * 7) / ipDecimal : 0;
     const whip = ipDecimal > 0 ? (stats.h + stats.bb) / ipDecimal : 0;
 
     return {
