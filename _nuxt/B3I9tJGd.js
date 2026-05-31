@@ -1,0 +1,1 @@
+import{u as l}from"./DS_ebEGM.js";import{o as c,j as t}from"./C_K15KTS.js";function d(s){const{fetchJson:u}=l(),o=t(null),a=t(!0),e=t("");async function r(){a.value=!0,e.value="";try{o.value=await u(s)}catch(n){e.value=n instanceof Error?n.message:"데이터를 불러오지 못했습니다."}finally{a.value=!1}}return c(r),{data:o,pending:a,error:e,reload:r}}export{d as u};
