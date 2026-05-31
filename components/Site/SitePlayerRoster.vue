@@ -64,10 +64,17 @@ import {
     rosterPositionMarkup,
 } from '~/composables/usePlayers';
 
-defineProps<{
-    players: RosterPlayer[];
-    summary?: string;
-}>();
+const props = withDefaults(
+    defineProps<{
+        players?: RosterPlayer[];
+        summary?: string;
+    }>(),
+    {
+        players: () => [],
+    },
+);
+
+const players = computed(() => props.players ?? []);
 
 const { playerImageUrl, onPlayerImageError } = usePlayerImage();
 </script>
