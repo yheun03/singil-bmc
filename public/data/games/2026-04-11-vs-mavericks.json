@@ -42,9 +42,14 @@
   ],
   "batting": [
     {
-      "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
+      "playerId": "gameone-a-1qf37hte2ngo000000u7kjy",
       "name": "김재영",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 2,
       "ab": 2,
       "r": 1,
@@ -59,9 +64,14 @@
       "sb": 0
     },
     {
-      "playerId": "gameone-d-2ebo2ah1vkt0000000ptwfl",
+      "playerId": "gameone-a-2ebo2ah1vkt0000000ptwfl",
       "name": "민재홍",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 2,
       "ab": 2,
       "r": 1,
@@ -76,9 +86,14 @@
       "sb": 0
     },
     {
-      "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
+      "playerId": "gameone-a-2c7kl0dudmkg0000006h1nm",
       "name": "권태헌",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 3,
       "ab": 3,
       "r": 0,
@@ -96,6 +111,10 @@
       "playerId": "gameone-d-14atmtkekqko000000creao",
       "name": "김호태",
       "group": "D",
+      "gameoneClubId": "34557",
+      "gameoneClubIds": [
+        "34557"
+      ],
       "pa": 2,
       "ab": 2,
       "r": 0,
@@ -110,9 +129,14 @@
       "sb": 0
     },
     {
-      "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
+      "playerId": "gameone-a-162bc666dfc834c896631e3398ab87e8",
       "name": "지성찬",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 1,
       "ab": 1,
       "r": 1,
@@ -127,9 +151,14 @@
       "sb": 2
     },
     {
-      "playerId": "gameone-d-25t354agg9q0000000uq981",
+      "playerId": "gameone-a-25t354agg9q0000000uq981",
       "name": "유병호",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 2,
       "ab": 2,
       "r": 0,
@@ -144,9 +173,14 @@
       "sb": 0
     },
     {
-      "playerId": "gameone-d-7qgdtcsthhi0000013j4",
+      "playerId": "gameone-a-7qgdtcsthhi0000013j4",
       "name": "김희열",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 1,
       "ab": 1,
       "r": 2,
@@ -161,9 +195,14 @@
       "sb": 2
     },
     {
-      "playerId": "gameone-d-1ssvastjhsl00000px3n",
+      "playerId": "gameone-a-1ssvastjhsl00000px3n",
       "name": "노혁진",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 1,
       "ab": 1,
       "r": 1,
@@ -178,9 +217,14 @@
       "sb": 1
     },
     {
-      "playerId": "gameone-d-htnjgpl47440000009rhn8",
+      "playerId": "gameone-a-htnjgpl47440000009rhn8",
       "name": "선예환",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 2,
       "ab": 2,
       "r": 1,
@@ -197,9 +241,14 @@
   ],
   "pitching": [
     {
-      "playerId": "gameone-d-9u3q0framj200000073oqd",
+      "playerId": "gameone-a-9u3q0framj200000073oqd",
       "name": "노승원",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "ip": "1.0",
       "outs": 3,
       "h": 2,
@@ -213,9 +262,14 @@
       "save": 0
     },
     {
-      "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
+      "playerId": "gameone-a-2c7kl0dudmkg0000006h1nm",
       "name": "권태헌",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "ip": "2.0",
       "outs": 6,
       "h": 1,
@@ -229,9 +283,14 @@
       "save": 0
     },
     {
-      "playerId": "gameone-d-1ssvastjhsl00000px3n",
+      "playerId": "gameone-a-1ssvastjhsl00000px3n",
       "name": "노혁진",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "ip": "0.1",
       "outs": 1,
       "h": 2,
@@ -245,9 +304,14 @@
       "save": 0
     },
     {
-      "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
+      "playerId": "gameone-a-2c7kl0dudmkg0000006h1nm",
       "name": "권태헌",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "ip": "0.2",
       "outs": 2,
       "h": 1,

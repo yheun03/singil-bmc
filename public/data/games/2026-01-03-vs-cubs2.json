@@ -3,11 +3,11 @@
   "gameDate": "2026-01-03",
   "date": "2026-01-03",
   "year": 2026,
-  "seasonYear": 2026,
+  "seasonYear": 2025,
   "month": 1,
   "opponent": "cubs2",
   "opponentName": "시카고컵스2",
-  "group": "D",
+  "group": "E",
   "status": "completed",
   "score": {
     "our": 13,
@@ -46,9 +46,14 @@
   ],
   "batting": [
     {
-      "playerId": "gameone-d-2ebo2ah1vkt0000000ptwfl",
+      "playerId": "gameone-a-2ebo2ah1vkt0000000ptwfl",
       "name": "민재홍",
-      "group": "D",
+      "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 2,
       "ab": 2,
       "r": 0,
@@ -63,9 +68,14 @@
       "sb": 0
     },
     {
-      "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
+      "playerId": "gameone-a-1d34d17vqm50000000g3aw1",
       "name": "반석훈",
-      "group": "D",
+      "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 2,
       "ab": 2,
       "r": 1,
@@ -80,9 +90,14 @@
       "sb": 1
     },
     {
-      "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
+      "playerId": "gameone-a-1qf37hte2ngo000000u7kjy",
       "name": "김재영",
-      "group": "D",
+      "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 2,
       "ab": 2,
       "r": 3,
@@ -97,9 +112,14 @@
       "sb": 2
     },
     {
-      "playerId": "gameone-d-htnjgpl47440000009rhn8",
+      "playerId": "gameone-a-htnjgpl47440000009rhn8",
       "name": "선예환",
-      "group": "D",
+      "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 4,
       "ab": 4,
       "r": 1,
@@ -114,9 +134,14 @@
       "sb": 1
     },
     {
-      "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
+      "playerId": "gameone-a-1sqi41sdcma80000009ta4r",
       "name": "박의현",
-      "group": "D",
+      "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 2,
       "ab": 2,
       "r": 3,
@@ -131,9 +156,14 @@
       "sb": 3
     },
     {
-      "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
+      "playerId": "gameone-a-7a25ad45db6397812c86dd69fffe7687",
       "name": "성백동",
-      "group": "D",
+      "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 4,
       "ab": 4,
       "r": 1,
@@ -148,9 +178,14 @@
       "sb": 2
     },
     {
-      "playerId": "gameone-d-kk8hul65kok000000wyq9z",
+      "playerId": "gameone-a-kk8hul65kok000000wyq9z",
       "name": "오치송",
-      "group": "D",
+      "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 3,
       "ab": 3,
       "r": 0,
@@ -165,9 +200,14 @@
       "sb": 2
     },
     {
-      "playerId": "gameone-d-9u0diupqb7600000023mwz",
+      "playerId": "gameone-a-9u0diupqb7600000023mwz",
       "name": "서우성",
-      "group": "D",
+      "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 4,
       "ab": 4,
       "r": 1,
@@ -182,9 +222,14 @@
       "sb": 1
     },
     {
-      "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
+      "playerId": "gameone-a-2c7kl0dudmkg0000006h1nm",
       "name": "권태헌",
-      "group": "D",
+      "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 1,
       "ab": 1,
       "r": 1,
@@ -199,9 +244,14 @@
       "sb": 0
     },
     {
-      "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
+      "playerId": "gameone-a-1j5ef7j5q4eo0000007r6jc",
       "name": "은영환",
-      "group": "D",
+      "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 1,
       "ab": 1,
       "r": 1,
@@ -216,9 +266,14 @@
       "sb": 1
     },
     {
-      "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
+      "playerId": "gameone-a-4f760d727f4b2b95a202ae678b563d74",
       "name": "김명선",
-      "group": "D",
+      "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 2,
       "ab": 2,
       "r": 1,
@@ -235,9 +290,14 @@
   ],
   "pitching": [
     {
-      "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
+      "playerId": "gameone-a-4f760d727f4b2b95a202ae678b563d74",
       "name": "김명선",
-      "group": "D",
+      "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "ip": "3.0",
       "outs": 9,
       "h": 6,
@@ -251,9 +311,14 @@
       "save": 0
     },
     {
-      "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
+      "playerId": "gameone-a-1j5ef7j5q4eo0000007r6jc",
       "name": "은영환",
-      "group": "D",
+      "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "ip": "1.0",
       "outs": 3,
       "h": 1,
@@ -267,9 +332,14 @@
       "save": 0
     },
     {
-      "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
+      "playerId": "gameone-a-1d34d17vqm50000000g3aw1",
       "name": "반석훈",
-      "group": "D",
+      "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "ip": "0.2",
       "outs": 2,
       "h": 1,
@@ -283,9 +353,14 @@
       "save": 0
     },
     {
-      "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
+      "playerId": "gameone-a-1j5ef7j5q4eo0000007r6jc",
       "name": "은영환",
-      "group": "D",
+      "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "ip": "0.1",
       "outs": 1,
       "h": 0,

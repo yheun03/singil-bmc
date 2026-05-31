@@ -46,9 +46,14 @@
   ],
   "batting": [
     {
-      "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
+      "playerId": "gameone-a-1d34d17vqm50000000g3aw1",
       "name": "반석훈",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 3,
       "ab": 3,
       "r": 3,
@@ -63,9 +68,14 @@
       "sb": 2
     },
     {
-      "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
+      "playerId": "gameone-a-1qf37hte2ngo000000u7kjy",
       "name": "김재영",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 4,
       "ab": 4,
       "r": 4,
@@ -80,9 +90,14 @@
       "sb": 1
     },
     {
-      "playerId": "gameone-d-htnjgpl47440000009rhn8",
+      "playerId": "gameone-a-htnjgpl47440000009rhn8",
       "name": "선예환",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 3,
       "ab": 3,
       "r": 4,
@@ -97,9 +112,14 @@
       "sb": 1
     },
     {
-      "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
+      "playerId": "gameone-a-1sqi41sdcma80000009ta4r",
       "name": "박의현",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 4,
       "ab": 4,
       "r": 3,
@@ -114,9 +134,14 @@
       "sb": 1
     },
     {
-      "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
+      "playerId": "gameone-a-162bc666dfc834c896631e3398ab87e8",
       "name": "지성찬",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 3,
       "ab": 3,
       "r": 1,
@@ -131,9 +156,14 @@
       "sb": 0
     },
     {
-      "playerId": "gameone-d-093ac30a5c13198973ec496901578a60",
+      "playerId": "gameone-a-093ac30a5c13198973ec496901578a60",
       "name": "황홍철",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 4,
       "ab": 4,
       "r": 1,
@@ -148,9 +178,14 @@
       "sb": 0
     },
     {
-      "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
+      "playerId": "gameone-a-1j5ef7j5q4eo0000007r6jc",
       "name": "은영환",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 3,
       "ab": 3,
       "r": 1,
@@ -165,9 +200,14 @@
       "sb": 3
     },
     {
-      "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
+      "playerId": "gameone-a-b01da1508ee2bc2ddb2b896766876c1a",
       "name": "최정훈",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 2,
       "ab": 2,
       "r": 0,
@@ -185,6 +225,8 @@
       "playerId": "temp-001",
       "name": "김선양",
       "group": "D",
+      "gameoneClubId": "",
+      "gameoneClubIds": [],
       "pa": 1,
       "ab": 1,
       "r": 0,
@@ -199,9 +241,14 @@
       "sb": 0
     },
     {
-      "playerId": "gameone-d-1eeu7stkh4ig000000bfkln",
+      "playerId": "gameone-a-1eeu7stkh4ig000000bfkln",
       "name": "조영중",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 2,
       "ab": 2,
       "r": 1,
@@ -218,9 +265,14 @@
   ],
   "pitching": [
     {
-      "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
+      "playerId": "gameone-a-1j5ef7j5q4eo0000007r6jc",
       "name": "은영환",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "ip": "0.0",
       "outs": 0,
       "h": 1,
@@ -234,9 +286,14 @@
       "save": 0
     },
     {
-      "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
+      "playerId": "gameone-a-1d34d17vqm50000000g3aw1",
       "name": "반석훈",
       "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "ip": "3.0",
       "outs": 9,
       "h": 1,

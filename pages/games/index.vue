@@ -6,14 +6,28 @@
         :pending="pending"
         :error="error"
     >
-        <AppTabs
-            v-if="games.length"
-            v-model:active-id="selectedGroup"
-            :items="groupTabItems"
-            variant="pill"
-            size="sm"
-            class="bmc-game-list__tabs"
-        />
+        <div v-if="seasonYears.length" class="bmc-game-list__controls">
+            <div class="bmc-record-controls">
+                <button
+                    v-for="year in seasonYears"
+                    :key="year"
+                    class="bmc-chip"
+                    :class="{ 'is-active': selectedYear === year }"
+                    type="button"
+                    @click="selectedYear = year"
+                >
+                    {{ year }}년
+                </button>
+            </div>
+
+            <AppTabs
+                v-model:active-id="selectedGroup"
+                :items="groupTabItems"
+                variant="pill"
+                size="sm"
+                class="bmc-game-list__tabs"
+            />
+        </div>
 
         <div v-if="filteredGames.length" class="bmc-game-season-summary">
             <span class="bmc-game-season-summary__chip">
@@ -42,7 +56,9 @@
             </div>
         </div>
 
-        <div class="bmc-grid bmc-grid--2">
+        <p v-if="!filteredGames.length && games.length" class="bmc-state">선택한 조건의 경기가 없습니다.</p>
+
+        <div v-else class="bmc-grid bmc-grid--2">
             <NuxtLink
                 v-for="game in filteredGames"
                 :key="game.gameId"
@@ -107,18 +123,39 @@ const legendKinds: GameResultKind[] = ['win', 'loss', 'cold-win', 'cold-loss', '
 const { data, pending, error } = useSiteData<Game[]>('generated/games.json');
 const games = computed(() => [...(data.value ?? [])].sort((a, b) => b.gameDate.localeCompare(a.gameDate)));
 
+const selectedYear = ref<number | null>(null);
 const selectedGroup = ref('all');
 const { tabItemsForYear } = useSeasonTeams();
-const gamesSeasonYear = computed(() => {
-    const years = games.value
-        .map((game) => getSeasonYear(game))
-        .filter((year): year is number => Boolean(year));
-    return years.length ? Math.max(...years) : new Date().getFullYear();
+
+const seasonYears = computed(() => {
+    const years = new Set<number>();
+
+    for (const game of games.value) {
+        const year = getSeasonYear(game);
+        if (year) years.add(year);
+    }
+
+    return [...years].sort((a, b) => b - a);
 });
-const groupTabItems = computed(() => tabItemsForYear(gamesSeasonYear.value));
+
+watchEffect(() => {
+    if (!selectedYear.value && seasonYears.value.length) {
+        selectedYear.value = seasonYears.value[0];
+    }
+});
+
+watch(selectedYear, () => {
+    selectedGroup.value = 'all';
+});
+
+const groupTabItems = computed(() => tabItemsForYear(selectedYear.value ?? new Date().getFullYear()));
+
+const yearGames = computed(() =>
+    games.value.filter((game) => getSeasonYear(game) === selectedYear.value),
+);
 
 const filteredGames = computed(() =>
-    games.value.filter((game) => selectedGroup.value === 'all' || game.group === selectedGroup.value),
+    yearGames.value.filter((game) => selectedGroup.value === 'all' || game.group === selectedGroup.value),
 );
 
 const seasonCounts = computed(() => summarizeSeasonResults(filteredGames.value));
@@ -160,8 +197,19 @@ function scoreClass(game: Game) {
 </script>
 
 <style scoped lang="scss">
-.bmc-game-list__tabs {
+.bmc-game-list__controls {
     margin-bottom: 20px;
+}
+
+.bmc-record-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+}
+
+.bmc-game-list__tabs {
+    margin-bottom: 0;
 }
 
 .bmc-game-season-summary__sub {

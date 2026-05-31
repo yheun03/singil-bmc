@@ -58,18 +58,8 @@
     "backNumber": 14,
     "position": "P",
     "image": "https://file.gameone.kr/player/member_default_gameone2.png",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
-    "name": "권태헌",
-    "group": "D",
-    "backNumber": 14,
-    "position": "P",
-    "image": "https://file.gameone.kr/player/member_default_gameone2.png",
     "batting": {
-      "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
+      "playerId": "gameone-a-2c7kl0dudmkg0000006h1nm",
       "name": "권태헌",
       "group": "A",
       "g": 2,
@@ -92,7 +82,7 @@
       "ops": "1.333"
     },
     "pitching": {
-      "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
+      "playerId": "gameone-a-2c7kl0dudmkg0000006h1nm",
       "name": "권태헌",
       "group": "E",
       "g": 3,
@@ -112,24 +102,24 @@
     }
   },
   {
+    "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
+    "name": "권태헌",
+    "group": "D",
+    "backNumber": 14,
+    "position": "P",
+    "image": "https://file.gameone.kr/player/member_default_gameone2.png",
+    "batting": null,
+    "pitching": null
+  },
+  {
     "playerId": "gameone-a-10t99plcau4o000000xsozw",
     "name": "김가현",
     "group": "A",
     "backNumber": 2,
     "position": "미지정",
     "image": "https://file.gameone.kr/player/member_default_gameone2.png",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-10t99plcau4o000000xsozw",
-    "name": "김가현",
-    "group": "D",
-    "backNumber": 2,
-    "position": "LF",
-    "image": "https://file.gameone.kr/player/member_default_gameone2.png",
     "batting": {
-      "playerId": "gameone-d-10t99plcau4o000000xsozw",
+      "playerId": "gameone-a-10t99plcau4o000000xsozw",
       "name": "김가현",
       "group": "A",
       "g": 1,
@@ -151,6 +141,16 @@
       "slg": ".000",
       "ops": ".000"
     },
+    "pitching": null
+  },
+  {
+    "playerId": "gameone-d-10t99plcau4o000000xsozw",
+    "name": "김가현",
+    "group": "D",
+    "backNumber": 2,
+    "position": "LF",
+    "image": "https://file.gameone.kr/player/member_default_gameone2.png",
+    "batting": null,
     "pitching": null
   },
   {
@@ -180,21 +180,11 @@
     "backNumber": 54,
     "position": "미지정",
     "image": "https://file.gameone.kr/player/6538905709b391hdif7kvv_thumb.png",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
-    "name": "김명선",
-    "group": "D",
-    "backNumber": 54,
-    "position": "P",
-    "image": "https://file.gameone.kr/player/6538905709b391hdif7kvv_thumb.png",
     "batting": {
-      "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
+      "playerId": "gameone-a-4f760d727f4b2b95a202ae678b563d74",
       "name": "김명선",
       "group": "A",
-      "g": 7,
+      "g": 6,
       "pa": 15,
       "ab": 15,
       "r": 8,
@@ -206,7 +196,7 @@
       "bb": 0,
       "hbp": 0,
       "so": 0,
-      "sb": 2,
+      "sb": 0,
       "tb": 6,
       "avg": ".400",
       "obp": ".400",
@@ -214,71 +204,34 @@
       "ops": ".800"
     },
     "pitching": {
-      "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
+      "playerId": "gameone-a-4f760d727f4b2b95a202ae678b563d74",
       "name": "김명선",
       "group": "E",
-      "g": 3,
-      "outs": 14,
-      "h": 6,
-      "r": 5,
-      "er": 0,
-      "bb": 1,
+      "g": 4,
+      "outs": 23,
+      "h": 12,
+      "r": 11,
+      "er": 3,
+      "bb": 2,
       "hbp": 1,
-      "so": 5,
-      "win": 0,
+      "so": 9,
+      "win": 1,
       "loss": 0,
       "save": 0,
-      "ip": "4.2",
-      "era": "0.00",
-      "whip": "1.50"
+      "ip": "7.2",
+      "era": "3.52",
+      "whip": "1.83"
     }
   },
   {
-    "playerId": "temp-001",
-    "name": "김선양",
-    "group": "E",
-    "batting": {
-      "playerId": "temp-001",
-      "name": "김선양",
-      "group": "D",
-      "g": 3,
-      "pa": 5,
-      "ab": 5,
-      "r": 1,
-      "h": 2,
-      "double": 0,
-      "triple": 0,
-      "hr": 0,
-      "rbi": 0,
-      "bb": 0,
-      "hbp": 0,
-      "so": 0,
-      "sb": 1,
-      "tb": 2,
-      "avg": ".400",
-      "obp": ".400",
-      "slg": ".400",
-      "ops": ".800"
-    },
-    "pitching": {
-      "playerId": "temp-001",
-      "name": "김선양",
-      "group": "E",
-      "g": 3,
-      "outs": 15,
-      "h": 10,
-      "r": 8,
-      "er": 4,
-      "bb": 3,
-      "hbp": 0,
-      "so": 8,
-      "win": 1,
-      "loss": 1,
-      "save": 0,
-      "ip": "5.0",
-      "era": "7.20",
-      "whip": "2.60"
-    }
+    "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
+    "name": "김명선",
+    "group": "D",
+    "backNumber": 54,
+    "position": "P",
+    "image": "https://file.gameone.kr/player/6538905709b391hdif7kvv_thumb.png",
+    "batting": null,
+    "pitching": null
   },
   {
     "playerId": "gameone-a-1qf37hte2ngo000000u7kjy",
@@ -287,7 +240,29 @@
     "backNumber": 88,
     "position": "미지정",
     "image": "https://file.gameone.kr/player/member_default_gameone2.png",
-    "batting": null,
+    "batting": {
+      "playerId": "gameone-a-1qf37hte2ngo000000u7kjy",
+      "name": "김재영",
+      "group": "A",
+      "g": 5,
+      "pa": 12,
+      "ab": 12,
+      "r": 5,
+      "h": 4,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 7,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 5,
+      "tb": 4,
+      "avg": ".333",
+      "obp": ".333",
+      "slg": ".333",
+      "ops": ".667"
+    },
     "pitching": null
   },
   {
@@ -297,29 +272,7 @@
     "backNumber": 88,
     "position": "CF",
     "image": "https://file.gameone.kr/player/member_default_gameone2.png",
-    "batting": {
-      "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
-      "name": "김재영",
-      "group": "A",
-      "g": 6,
-      "pa": 14,
-      "ab": 14,
-      "r": 7,
-      "h": 4,
-      "double": 0,
-      "triple": 0,
-      "hr": 0,
-      "rbi": 7,
-      "bb": 0,
-      "hbp": 0,
-      "so": 0,
-      "sb": 7,
-      "tb": 4,
-      "avg": ".286",
-      "obp": ".286",
-      "slg": ".286",
-      "ops": ".571"
-    },
+    "batting": null,
     "pitching": null
   },
   {
@@ -361,18 +314,8 @@
     "backNumber": 37,
     "position": "미지정",
     "image": "https://file.gameone.kr/player/member_default_gameone2.png",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-7qgdtcsthhi0000013j4",
-    "name": "김희열",
-    "group": "D",
-    "backNumber": 37,
-    "position": "미지정",
-    "image": "https://file.gameone.kr/player/member_default_gameone2.png",
     "batting": {
-      "playerId": "gameone-d-7qgdtcsthhi0000013j4",
+      "playerId": "gameone-a-7qgdtcsthhi0000013j4",
       "name": "김희열",
       "group": "D",
       "g": 3,
@@ -397,24 +340,24 @@
     "pitching": null
   },
   {
+    "playerId": "gameone-d-7qgdtcsthhi0000013j4",
+    "name": "김희열",
+    "group": "D",
+    "backNumber": 37,
+    "position": "미지정",
+    "image": "https://file.gameone.kr/player/member_default_gameone2.png",
+    "batting": null,
+    "pitching": null
+  },
+  {
     "playerId": "gameone-a-248r3oooaq6g0000002wmga",
     "name": "남주영",
     "group": "A",
     "backNumber": 12,
     "position": "P",
     "image": "https://file.gameone.kr/player/thumb_08d5c45695b14452b343e887100c6466.jpg",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-248r3oooaq6g0000002wmga",
-    "name": "남주영",
-    "group": "D",
-    "backNumber": 12,
-    "position": "2B",
-    "image": "https://file.gameone.kr/player/thumb_08d5c45695b14452b343e887100c6466.jpg",
     "batting": {
-      "playerId": "gameone-d-248r3oooaq6g0000002wmga",
+      "playerId": "gameone-a-248r3oooaq6g0000002wmga",
       "name": "남주영",
       "group": "E",
       "g": 5,
@@ -437,7 +380,7 @@
       "ops": ".222"
     },
     "pitching": {
-      "playerId": "gameone-d-248r3oooaq6g0000002wmga",
+      "playerId": "gameone-a-248r3oooaq6g0000002wmga",
       "name": "남주영",
       "group": "E",
       "g": 1,
@@ -457,24 +400,24 @@
     }
   },
   {
+    "playerId": "gameone-d-248r3oooaq6g0000002wmga",
+    "name": "남주영",
+    "group": "D",
+    "backNumber": 12,
+    "position": "2B",
+    "image": "https://file.gameone.kr/player/thumb_08d5c45695b14452b343e887100c6466.jpg",
+    "batting": null,
+    "pitching": null
+  },
+  {
     "playerId": "gameone-a-9u3q0framj200000073oqd",
     "name": "노승원",
     "group": "A",
     "backNumber": 21,
     "position": "3B",
     "image": "https://file.gameone.kr/player/thumb_709ed9371cd94502b4427ac01519eec4.jpg",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-9u3q0framj200000073oqd",
-    "name": "노승원",
-    "group": "D",
-    "backNumber": 21,
-    "position": "RF",
-    "image": "https://file.gameone.kr/player/thumb_709ed9371cd94502b4427ac01519eec4.jpg",
     "batting": {
-      "playerId": "gameone-d-9u3q0framj200000073oqd",
+      "playerId": "gameone-a-9u3q0framj200000073oqd",
       "name": "노승원",
       "group": "E",
       "g": 1,
@@ -497,7 +440,7 @@
       "ops": "2.000"
     },
     "pitching": {
-      "playerId": "gameone-d-9u3q0framj200000073oqd",
+      "playerId": "gameone-a-9u3q0framj200000073oqd",
       "name": "노승원",
       "group": "D",
       "g": 5,
@@ -517,24 +460,24 @@
     }
   },
   {
+    "playerId": "gameone-d-9u3q0framj200000073oqd",
+    "name": "노승원",
+    "group": "D",
+    "backNumber": 21,
+    "position": "RF",
+    "image": "https://file.gameone.kr/player/thumb_709ed9371cd94502b4427ac01519eec4.jpg",
+    "batting": null,
+    "pitching": null
+  },
+  {
     "playerId": "gameone-a-fu6nchb8g90000000jkmd0",
     "name": "노재흥",
     "group": "A",
     "backNumber": 38,
     "position": "P",
     "image": "https://file.gameone.kr/player/thumb_8fde73247a174899a86b7e01d9674c91.jpg",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-fu6nchb8g90000000jkmd0",
-    "name": "노재흥",
-    "group": "D",
-    "backNumber": 38,
-    "position": "P",
-    "image": "https://file.gameone.kr/player/thumb_8fde73247a174899a86b7e01d9674c91.jpg",
     "batting": {
-      "playerId": "gameone-d-fu6nchb8g90000000jkmd0",
+      "playerId": "gameone-a-fu6nchb8g90000000jkmd0",
       "name": "노재흥",
       "group": "E",
       "g": 1,
@@ -559,24 +502,24 @@
     "pitching": null
   },
   {
+    "playerId": "gameone-d-fu6nchb8g90000000jkmd0",
+    "name": "노재흥",
+    "group": "D",
+    "backNumber": 38,
+    "position": "P",
+    "image": "https://file.gameone.kr/player/thumb_8fde73247a174899a86b7e01d9674c91.jpg",
+    "batting": null,
+    "pitching": null
+  },
+  {
     "playerId": "gameone-a-1ssvastjhsl00000px3n",
     "name": "노혁진",
     "group": "A",
     "backNumber": 55,
     "position": "미지정",
     "image": "https://file.gameone.kr/player/member_default_gameone2.png",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-1ssvastjhsl00000px3n",
-    "name": "노혁진",
-    "group": "D",
-    "backNumber": 55,
-    "position": "미지정",
-    "image": "https://file.gameone.kr/player/member_default_gameone2.png",
     "batting": {
-      "playerId": "gameone-d-1ssvastjhsl00000px3n",
+      "playerId": "gameone-a-1ssvastjhsl00000px3n",
       "name": "노혁진",
       "group": "D",
       "g": 5,
@@ -599,7 +542,7 @@
       "ops": ".889"
     },
     "pitching": {
-      "playerId": "gameone-d-1ssvastjhsl00000px3n",
+      "playerId": "gameone-a-1ssvastjhsl00000px3n",
       "name": "노혁진",
       "group": "D",
       "g": 1,
@@ -619,59 +562,30 @@
     }
   },
   {
+    "playerId": "gameone-d-1ssvastjhsl00000px3n",
+    "name": "노혁진",
+    "group": "D",
+    "backNumber": 55,
+    "position": "미지정",
+    "image": "https://file.gameone.kr/player/member_default_gameone2.png",
+    "batting": null,
+    "pitching": null
+  },
+  {
     "playerId": "gameone-a-2ebo2ah1vkt0000000ptwfl",
     "name": "민재홍",
     "group": "A",
     "backNumber": 28,
     "position": "SS",
     "image": "https://file.gameone.kr/player/thumb_6807147c9556b1ipdqg1m3.jpeg",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-2ebo2ah1vkt0000000ptwfl",
-    "name": "민재홍",
-    "group": "D",
-    "backNumber": 28,
-    "position": "SS",
-    "image": "https://file.gameone.kr/player/thumb_6807147c9556b1ipdqg1m3.jpeg",
     "batting": {
-      "playerId": "gameone-d-2ebo2ah1vkt0000000ptwfl",
+      "playerId": "gameone-a-2ebo2ah1vkt0000000ptwfl",
       "name": "민재홍",
       "group": "D",
-      "g": 3,
-      "pa": 7,
-      "ab": 7,
+      "g": 2,
+      "pa": 5,
+      "ab": 5,
       "r": 1,
-      "h": 1,
-      "double": 0,
-      "triple": 0,
-      "hr": 0,
-      "rbi": 2,
-      "bb": 0,
-      "hbp": 0,
-      "so": 0,
-      "sb": 0,
-      "tb": 1,
-      "avg": ".143",
-      "obp": ".143",
-      "slg": ".143",
-      "ops": ".286"
-    },
-    "pitching": null
-  },
-  {
-    "playerId": "temp-002",
-    "name": "박근",
-    "group": "D",
-    "batting": {
-      "playerId": "temp-002",
-      "name": "박근",
-      "group": "D",
-      "g": 1,
-      "pa": 1,
-      "ab": 1,
-      "r": 0,
       "h": 0,
       "double": 0,
       "triple": 0,
@@ -690,47 +604,47 @@
     "pitching": null
   },
   {
+    "playerId": "gameone-d-2ebo2ah1vkt0000000ptwfl",
+    "name": "민재홍",
+    "group": "D",
+    "backNumber": 28,
+    "position": "SS",
+    "image": "https://file.gameone.kr/player/thumb_6807147c9556b1ipdqg1m3.jpeg",
+    "batting": null,
+    "pitching": null
+  },
+  {
     "playerId": "gameone-a-1sqi41sdcma80000009ta4r",
     "name": "박의현",
     "group": "A",
     "backNumber": 99,
     "position": "P",
     "image": "https://file.gameone.kr/player/thumb_b3da3f0a6575415fa161946addb25566.jpg",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
-    "name": "박의현",
-    "group": "D",
-    "backNumber": 99,
-    "position": "P",
-    "image": "https://file.gameone.kr/player/thumb_b3da3f0a6575415fa161946addb25566.jpg",
     "batting": {
-      "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
+      "playerId": "gameone-a-1sqi41sdcma80000009ta4r",
       "name": "박의현",
       "group": "A",
-      "g": 7,
-      "pa": 17,
-      "ab": 17,
+      "g": 6,
+      "pa": 14,
+      "ab": 14,
       "r": 10,
-      "h": 10,
+      "h": 8,
       "double": 0,
       "triple": 0,
       "hr": 0,
-      "rbi": 5,
+      "rbi": 4,
       "bb": 0,
       "hbp": 0,
       "so": 0,
-      "sb": 7,
-      "tb": 10,
-      "avg": ".588",
-      "obp": ".588",
-      "slg": ".588",
-      "ops": "1.176"
+      "sb": 6,
+      "tb": 8,
+      "avg": ".571",
+      "obp": ".571",
+      "slg": ".571",
+      "ops": "1.143"
     },
     "pitching": {
-      "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
+      "playerId": "gameone-a-1sqi41sdcma80000009ta4r",
       "name": "박의현",
       "group": "A",
       "g": 1,
@@ -748,6 +662,16 @@
       "era": "9.00",
       "whip": "2.00"
     }
+  },
+  {
+    "playerId": "gameone-d-1sqi41sdcma80000009ta4r",
+    "name": "박의현",
+    "group": "D",
+    "backNumber": 99,
+    "position": "P",
+    "image": "https://file.gameone.kr/player/thumb_b3da3f0a6575415fa161946addb25566.jpg",
+    "batting": null,
+    "pitching": null
   },
   {
     "playerId": "gameone-a-36c04a615d75c11dc6960c15c36fb2fc",
@@ -796,41 +720,31 @@
     "backNumber": 39,
     "position": "P",
     "image": "https://file.gameone.kr/player/thumb_670b4142429031ia1vdqn0.jpg",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
-    "name": "반석훈",
-    "group": "D",
-    "backNumber": 39,
-    "position": "P",
-    "image": "https://file.gameone.kr/player/thumb_670b4142429031ia1vdqn0.jpg",
     "batting": {
-      "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
+      "playerId": "gameone-a-1d34d17vqm50000000g3aw1",
       "name": "반석훈",
       "group": "E",
-      "g": 5,
-      "pa": 11,
-      "ab": 11,
-      "r": 9,
-      "h": 9,
+      "g": 6,
+      "pa": 13,
+      "ab": 13,
+      "r": 10,
+      "h": 11,
       "double": 0,
       "triple": 0,
       "hr": 0,
-      "rbi": 9,
+      "rbi": 10,
       "bb": 0,
       "hbp": 0,
       "so": 0,
-      "sb": 7,
-      "tb": 9,
-      "avg": ".818",
-      "obp": ".818",
-      "slg": ".818",
-      "ops": "1.636"
+      "sb": 8,
+      "tb": 11,
+      "avg": ".846",
+      "obp": ".846",
+      "slg": ".846",
+      "ops": "1.692"
     },
     "pitching": {
-      "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
+      "playerId": "gameone-a-1d34d17vqm50000000g3aw1",
       "name": "반석훈",
       "group": "A",
       "g": 2,
@@ -848,6 +762,16 @@
       "era": "0.00",
       "whip": "0.67"
     }
+  },
+  {
+    "playerId": "gameone-d-1d34d17vqm50000000g3aw1",
+    "name": "반석훈",
+    "group": "D",
+    "backNumber": 39,
+    "position": "P",
+    "image": "https://file.gameone.kr/player/thumb_670b4142429031ia1vdqn0.jpg",
+    "batting": null,
+    "pitching": null
   },
   {
     "playerId": "gameone-a-d98c1117394e06b6fc4e3ab21796d017",
@@ -896,18 +820,8 @@
     "backNumber": 18,
     "position": "CF",
     "image": "https://file.gameone.kr/player/member_default_gameone2.png",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-9u0diupqb7600000023mwz",
-    "name": "서우성",
-    "group": "D",
-    "backNumber": 18,
-    "position": "CF",
-    "image": "https://file.gameone.kr/player/member_default_gameone2.png",
     "batting": {
-      "playerId": "gameone-d-9u0diupqb7600000023mwz",
+      "playerId": "gameone-a-9u0diupqb7600000023mwz",
       "name": "서우성",
       "group": "A",
       "g": 4,
@@ -932,47 +846,47 @@
     "pitching": null
   },
   {
+    "playerId": "gameone-d-9u0diupqb7600000023mwz",
+    "name": "서우성",
+    "group": "D",
+    "backNumber": 18,
+    "position": "CF",
+    "image": "https://file.gameone.kr/player/member_default_gameone2.png",
+    "batting": null,
+    "pitching": null
+  },
+  {
     "playerId": "gameone-a-htnjgpl47440000009rhn8",
     "name": "선예환",
     "group": "A",
     "backNumber": 27,
     "position": "C",
     "image": "https://file.gameone.kr/player/thumb_6409f8514daf71gr3f3vd6.jpg",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-htnjgpl47440000009rhn8",
-    "name": "선예환",
-    "group": "D",
-    "backNumber": 32,
-    "position": "P",
-    "image": "https://file.gameone.kr/player/thumb_6409f8514daf71gr3f3vd6.jpg",
     "batting": {
-      "playerId": "gameone-d-htnjgpl47440000009rhn8",
+      "playerId": "gameone-a-htnjgpl47440000009rhn8",
       "name": "선예환",
       "group": "E",
-      "g": 5,
-      "pa": 12,
-      "ab": 12,
-      "r": 11,
-      "h": 10,
+      "g": 6,
+      "pa": 16,
+      "ab": 16,
+      "r": 12,
+      "h": 12,
       "double": 0,
       "triple": 0,
       "hr": 0,
-      "rbi": 9,
+      "rbi": 10,
       "bb": 0,
       "hbp": 0,
       "so": 0,
-      "sb": 5,
-      "tb": 10,
-      "avg": ".833",
-      "obp": ".833",
-      "slg": ".833",
-      "ops": "1.667"
+      "sb": 6,
+      "tb": 12,
+      "avg": ".750",
+      "obp": ".750",
+      "slg": ".750",
+      "ops": "1.500"
     },
     "pitching": {
-      "playerId": "gameone-d-htnjgpl47440000009rhn8",
+      "playerId": "gameone-a-htnjgpl47440000009rhn8",
       "name": "선예환",
       "group": "A",
       "g": 2,
@@ -992,13 +906,45 @@
     }
   },
   {
+    "playerId": "gameone-d-htnjgpl47440000009rhn8",
+    "name": "선예환",
+    "group": "D",
+    "backNumber": 32,
+    "position": "P",
+    "image": "https://file.gameone.kr/player/thumb_6409f8514daf71gr3f3vd6.jpg",
+    "batting": null,
+    "pitching": null
+  },
+  {
     "playerId": "gameone-a-7a25ad45db6397812c86dd69fffe7687",
     "name": "성백동",
     "group": "A",
     "backNumber": 5,
     "position": "P",
     "image": "https://file.gameone.kr/player/thumb_66469d3a131df1hu1tcamu.jpg",
-    "batting": null,
+    "batting": {
+      "playerId": "gameone-a-7a25ad45db6397812c86dd69fffe7687",
+      "name": "성백동",
+      "group": "E",
+      "g": 4,
+      "pa": 13,
+      "ab": 13,
+      "r": 4,
+      "h": 6,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 8,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 2,
+      "tb": 6,
+      "avg": ".462",
+      "obp": ".462",
+      "slg": ".462",
+      "ops": ".923"
+    },
     "pitching": null
   },
   {
@@ -1008,29 +954,7 @@
     "backNumber": 5,
     "position": "P",
     "image": "https://file.gameone.kr/player/thumb_66469d3a131df1hu1tcamu.jpg",
-    "batting": {
-      "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
-      "name": "성백동",
-      "group": "E",
-      "g": 3,
-      "pa": 9,
-      "ab": 9,
-      "r": 3,
-      "h": 3,
-      "double": 0,
-      "triple": 0,
-      "hr": 0,
-      "rbi": 3,
-      "bb": 0,
-      "hbp": 0,
-      "so": 0,
-      "sb": 0,
-      "tb": 3,
-      "avg": ".333",
-      "obp": ".333",
-      "slg": ".333",
-      "ops": ".667"
-    },
+    "batting": null,
     "pitching": null
   },
   {
@@ -1040,18 +964,8 @@
     "backNumber": 53,
     "position": "1B",
     "image": "https://file.gameone.kr/player/member_default.jpg",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-8d7be3d44e44be0e075c27f98a9fa2c5",
-    "name": "송성보",
-    "group": "D",
-    "backNumber": 53,
-    "position": "1B",
-    "image": "https://file.gameone.kr/player/member_default.jpg",
     "batting": {
-      "playerId": "gameone-d-8d7be3d44e44be0e075c27f98a9fa2c5",
+      "playerId": "gameone-a-8d7be3d44e44be0e075c27f98a9fa2c5",
       "name": "송성보",
       "group": "D",
       "g": 1,
@@ -1073,6 +987,16 @@
       "slg": ".000",
       "ops": ".000"
     },
+    "pitching": null
+  },
+  {
+    "playerId": "gameone-d-8d7be3d44e44be0e075c27f98a9fa2c5",
+    "name": "송성보",
+    "group": "D",
+    "backNumber": 53,
+    "position": "1B",
+    "image": "https://file.gameone.kr/player/member_default.jpg",
+    "batting": null,
     "pitching": null
   },
   {
@@ -1102,18 +1026,8 @@
     "backNumber": 9,
     "position": "SS",
     "image": "https://file.gameone.kr/player/member_default.jpg",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-a1562c235c3ef4edd273263a9a726ed1",
-    "name": "안영진",
-    "group": "D",
-    "backNumber": 9,
-    "position": "SS",
-    "image": "https://file.gameone.kr/player/member_default.jpg",
     "batting": {
-      "playerId": "gameone-d-a1562c235c3ef4edd273263a9a726ed1",
+      "playerId": "gameone-a-a1562c235c3ef4edd273263a9a726ed1",
       "name": "안영진",
       "group": "D",
       "g": 1,
@@ -1138,24 +1052,24 @@
     "pitching": null
   },
   {
+    "playerId": "gameone-d-a1562c235c3ef4edd273263a9a726ed1",
+    "name": "안영진",
+    "group": "D",
+    "backNumber": 9,
+    "position": "SS",
+    "image": "https://file.gameone.kr/player/member_default.jpg",
+    "batting": null,
+    "pitching": null
+  },
+  {
     "playerId": "gameone-a-kk8hul65kok000000wyq9z",
     "name": "오치송",
     "group": "A",
     "backNumber": 52,
     "position": "LF",
     "image": "https://file.gameone.kr/player/member_default_gameone2.png",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-kk8hul65kok000000wyq9z",
-    "name": "오치송",
-    "group": "D",
-    "backNumber": 52,
-    "position": "LF",
-    "image": "https://file.gameone.kr/player/member_default_gameone2.png",
     "batting": {
-      "playerId": "gameone-d-kk8hul65kok000000wyq9z",
+      "playerId": "gameone-a-kk8hul65kok000000wyq9z",
       "name": "오치송",
       "group": "A",
       "g": 1,
@@ -1177,6 +1091,16 @@
       "slg": "1.000",
       "ops": "2.000"
     },
+    "pitching": null
+  },
+  {
+    "playerId": "gameone-d-kk8hul65kok000000wyq9z",
+    "name": "오치송",
+    "group": "D",
+    "backNumber": 52,
+    "position": "LF",
+    "image": "https://file.gameone.kr/player/member_default_gameone2.png",
+    "batting": null,
     "pitching": null
   },
   {
@@ -1226,18 +1150,8 @@
     "backNumber": 0,
     "position": "미지정",
     "image": "https://file.gameone.kr/player/thumb_66ce9fff245221i6bi1v5c.jpg",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-25t354agg9q0000000uq981",
-    "name": "유병호",
-    "group": "D",
-    "backNumber": 32,
-    "position": "미지정",
-    "image": "https://file.gameone.kr/player/thumb_66ce9fff245221i6bi1v5c.jpg",
     "batting": {
-      "playerId": "gameone-d-25t354agg9q0000000uq981",
+      "playerId": "gameone-a-25t354agg9q0000000uq981",
       "name": "유병호",
       "group": "D",
       "g": 1,
@@ -1259,6 +1173,16 @@
       "slg": ".000",
       "ops": ".000"
     },
+    "pitching": null
+  },
+  {
+    "playerId": "gameone-d-25t354agg9q0000000uq981",
+    "name": "유병호",
+    "group": "D",
+    "backNumber": 32,
+    "position": "미지정",
+    "image": "https://file.gameone.kr/player/thumb_66ce9fff245221i6bi1v5c.jpg",
+    "batting": null,
     "pitching": null
   },
   {
@@ -1288,18 +1212,8 @@
     "backNumber": 33,
     "position": "SS",
     "image": "https://file.gameone.kr/player/thumb_6402ed49979d61gqlmtpsl.jpg",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-a9b9fe76109dccd1a78f7dc413d80c5c",
-    "name": "윤성수",
-    "group": "D",
-    "backNumber": 33,
-    "position": "SS",
-    "image": "https://file.gameone.kr/player/thumb_6402ed49979d61gqlmtpsl.jpg",
     "batting": {
-      "playerId": "gameone-d-a9b9fe76109dccd1a78f7dc413d80c5c",
+      "playerId": "gameone-a-a9b9fe76109dccd1a78f7dc413d80c5c",
       "name": "윤성수",
       "group": "D",
       "g": 1,
@@ -1324,24 +1238,24 @@
     "pitching": null
   },
   {
+    "playerId": "gameone-d-a9b9fe76109dccd1a78f7dc413d80c5c",
+    "name": "윤성수",
+    "group": "D",
+    "backNumber": 33,
+    "position": "SS",
+    "image": "https://file.gameone.kr/player/thumb_6402ed49979d61gqlmtpsl.jpg",
+    "batting": null,
+    "pitching": null
+  },
+  {
     "playerId": "gameone-a-20tba4fnto7g000000mvlrt",
     "name": "윤제중",
     "group": "A",
     "backNumber": 93,
     "position": "1B",
     "image": "https://file.gameone.kr/player/thumb_6666574fdfca31hvvsa41c.png",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-20tba4fnto7g000000mvlrt",
-    "name": "윤제중",
-    "group": "D",
-    "backNumber": 93,
-    "position": "RF",
-    "image": "https://file.gameone.kr/player/thumb_6666574fdfca31hvvsa41c.png",
     "batting": {
-      "playerId": "gameone-d-20tba4fnto7g000000mvlrt",
+      "playerId": "gameone-a-20tba4fnto7g000000mvlrt",
       "name": "윤제중",
       "group": "E",
       "g": 4,
@@ -1366,14 +1280,64 @@
     "pitching": null
   },
   {
+    "playerId": "gameone-d-20tba4fnto7g000000mvlrt",
+    "name": "윤제중",
+    "group": "D",
+    "backNumber": 93,
+    "position": "RF",
+    "image": "https://file.gameone.kr/player/thumb_6666574fdfca31hvvsa41c.png",
+    "batting": null,
+    "pitching": null
+  },
+  {
     "playerId": "gameone-a-1j5ef7j5q4eo0000007r6jc",
     "name": "은영환",
     "group": "A",
     "backNumber": 4,
     "position": "미지정",
     "image": "https://file.gameone.kr/player/67231a6c6ae881ibghudsl_thumb.jpg",
-    "batting": null,
-    "pitching": null
+    "batting": {
+      "playerId": "gameone-a-1j5ef7j5q4eo0000007r6jc",
+      "name": "은영환",
+      "group": "E",
+      "g": 6,
+      "pa": 8,
+      "ab": 8,
+      "r": 8,
+      "h": 5,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 11,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 4,
+      "tb": 5,
+      "avg": ".625",
+      "obp": ".625",
+      "slg": ".625",
+      "ops": "1.250"
+    },
+    "pitching": {
+      "playerId": "gameone-a-1j5ef7j5q4eo0000007r6jc",
+      "name": "은영환",
+      "group": "E",
+      "g": 2,
+      "outs": 11,
+      "h": 3,
+      "r": 5,
+      "er": 1,
+      "bb": 7,
+      "hbp": 1,
+      "so": 10,
+      "win": 1,
+      "loss": 0,
+      "save": 1,
+      "ip": "3.2",
+      "era": "2.45",
+      "whip": "2.73"
+    }
   },
   {
     "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
@@ -1382,48 +1346,8 @@
     "backNumber": 4,
     "position": "CF",
     "image": "https://file.gameone.kr/player/67231a6c6ae881ibghudsl_thumb.jpg",
-    "batting": {
-      "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
-      "name": "은영환",
-      "group": "E",
-      "g": 5,
-      "pa": 7,
-      "ab": 7,
-      "r": 7,
-      "h": 4,
-      "double": 0,
-      "triple": 0,
-      "hr": 0,
-      "rbi": 11,
-      "bb": 0,
-      "hbp": 0,
-      "so": 0,
-      "sb": 3,
-      "tb": 4,
-      "avg": ".571",
-      "obp": ".571",
-      "slg": ".571",
-      "ops": "1.143"
-    },
-    "pitching": {
-      "playerId": "gameone-d-1j5ef7j5q4eo0000007r6jc",
-      "name": "은영환",
-      "group": "E",
-      "g": 1,
-      "outs": 7,
-      "h": 2,
-      "r": 2,
-      "er": 0,
-      "bb": 5,
-      "hbp": 1,
-      "so": 6,
-      "win": 1,
-      "loss": 0,
-      "save": 0,
-      "ip": "2.1",
-      "era": "0.00",
-      "whip": "3.00"
-    }
+    "batting": null,
+    "pitching": null
   },
   {
     "playerId": "gameone-d-vnj46eltfss000000qos2k",
@@ -1512,18 +1436,8 @@
     "backNumber": 11,
     "position": "미지정",
     "image": "https://file.gameone.kr/player/thumb_96808d81b47a4a0dbcb201dade172609.jpg",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
-    "name": "이효재",
-    "group": "D",
-    "backNumber": 153,
-    "position": "미지정",
-    "image": "https://file.gameone.kr/player/thumb_96808d81b47a4a0dbcb201dade172609.jpg",
     "batting": {
-      "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
+      "playerId": "gameone-a-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
       "name": "이효재",
       "group": "A",
       "g": 5,
@@ -1548,13 +1462,45 @@
     "pitching": null
   },
   {
+    "playerId": "gameone-d-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
+    "name": "이효재",
+    "group": "D",
+    "backNumber": 153,
+    "position": "미지정",
+    "image": "https://file.gameone.kr/player/thumb_96808d81b47a4a0dbcb201dade172609.jpg",
+    "batting": null,
+    "pitching": null
+  },
+  {
     "playerId": "gameone-a-5e8071b4ba9a16bf9cbfb1abdf4e4fe3",
     "name": "전병진",
     "group": "A",
     "backNumber": 0,
     "position": "미지정",
     "image": "https://file.gameone.kr/player/thumb_hkbj11_130323032352.png",
-    "batting": null,
+    "batting": {
+      "playerId": "gameone-a-5e8071b4ba9a16bf9cbfb1abdf4e4fe3",
+      "name": "전병진",
+      "group": "E",
+      "g": 1,
+      "pa": 2,
+      "ab": 2,
+      "r": 2,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 1,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 1,
+      "tb": 1,
+      "avg": ".500",
+      "obp": ".500",
+      "slg": ".500",
+      "ops": "1.000"
+    },
     "pitching": null
   },
   {
@@ -1564,29 +1510,7 @@
     "backNumber": 153,
     "position": "3B",
     "image": "https://file.gameone.kr/player/thumb_hkbj11_130323032352.png",
-    "batting": {
-      "playerId": "gameone-d-5e8071b4ba9a16bf9cbfb1abdf4e4fe3",
-      "name": "전병진",
-      "group": "A",
-      "g": 1,
-      "pa": 2,
-      "ab": 2,
-      "r": 0,
-      "h": 0,
-      "double": 0,
-      "triple": 0,
-      "hr": 0,
-      "rbi": 0,
-      "bb": 0,
-      "hbp": 0,
-      "so": 0,
-      "sb": 0,
-      "tb": 0,
-      "avg": ".000",
-      "obp": ".000",
-      "slg": ".000",
-      "ops": ".000"
-    },
+    "batting": null,
     "pitching": null
   },
   {
@@ -1616,18 +1540,8 @@
     "backNumber": 16,
     "position": "RF",
     "image": "https://file.gameone.kr/player/member_default.jpg",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-2ifv02d6gqv0000000lgdh7",
-    "name": "정승환",
-    "group": "D",
-    "backNumber": 1,
-    "position": "LF",
-    "image": "https://file.gameone.kr/player/member_default.jpg",
     "batting": {
-      "playerId": "gameone-d-2ifv02d6gqv0000000lgdh7",
+      "playerId": "gameone-a-2ifv02d6gqv0000000lgdh7",
       "name": "정승환",
       "group": "E",
       "g": 1,
@@ -1649,6 +1563,16 @@
       "slg": ".000",
       "ops": ".000"
     },
+    "pitching": null
+  },
+  {
+    "playerId": "gameone-d-2ifv02d6gqv0000000lgdh7",
+    "name": "정승환",
+    "group": "D",
+    "backNumber": 1,
+    "position": "LF",
+    "image": "https://file.gameone.kr/player/member_default.jpg",
+    "batting": null,
     "pitching": null
   },
   {
@@ -1678,23 +1602,13 @@
     "backNumber": 6,
     "position": "RF",
     "image": "https://file.gameone.kr/player/643cc2bd30fe21gu6lhcog_thumb.jpg",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-1eeu7stkh4ig000000bfkln",
-    "name": "조영중",
-    "group": "D",
-    "backNumber": 6,
-    "position": "3B",
-    "image": "https://file.gameone.kr/player/643cc2bd30fe21gu6lhcog_thumb.jpg",
     "batting": {
-      "playerId": "gameone-d-1eeu7stkh4ig000000bfkln",
+      "playerId": "gameone-a-1eeu7stkh4ig000000bfkln",
       "name": "조영중",
       "group": "A",
-      "g": 2,
-      "pa": 3,
-      "ab": 3,
+      "g": 1,
+      "pa": 2,
+      "ab": 2,
       "r": 1,
       "h": 1,
       "double": 0,
@@ -1704,13 +1618,23 @@
       "bb": 0,
       "hbp": 0,
       "so": 0,
-      "sb": 2,
+      "sb": 0,
       "tb": 1,
-      "avg": ".333",
-      "obp": ".333",
-      "slg": ".333",
-      "ops": ".667"
+      "avg": ".500",
+      "obp": ".500",
+      "slg": ".500",
+      "ops": "1.000"
     },
+    "pitching": null
+  },
+  {
+    "playerId": "gameone-d-1eeu7stkh4ig000000bfkln",
+    "name": "조영중",
+    "group": "D",
+    "backNumber": 6,
+    "position": "3B",
+    "image": "https://file.gameone.kr/player/643cc2bd30fe21gu6lhcog_thumb.jpg",
+    "batting": null,
     "pitching": null
   },
   {
@@ -1720,18 +1644,8 @@
     "backNumber": 8,
     "position": "2B",
     "image": "https://file.gameone.kr/player/member_default_gameone2.png",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-mcn9183qr9o000000oaqdt",
-    "name": "조예찬",
-    "group": "D",
-    "backNumber": 8,
-    "position": "LF",
-    "image": "https://file.gameone.kr/player/member_default_gameone2.png",
     "batting": {
-      "playerId": "gameone-d-mcn9183qr9o000000oaqdt",
+      "playerId": "gameone-a-mcn9183qr9o000000oaqdt",
       "name": "조예찬",
       "group": "E",
       "g": 4,
@@ -1754,7 +1668,7 @@
       "ops": "1.111"
     },
     "pitching": {
-      "playerId": "gameone-d-mcn9183qr9o000000oaqdt",
+      "playerId": "gameone-a-mcn9183qr9o000000oaqdt",
       "name": "조예찬",
       "group": "E",
       "g": 3,
@@ -1772,6 +1686,16 @@
       "era": "11.57",
       "whip": "5.14"
     }
+  },
+  {
+    "playerId": "gameone-d-mcn9183qr9o000000oaqdt",
+    "name": "조예찬",
+    "group": "D",
+    "backNumber": 8,
+    "position": "LF",
+    "image": "https://file.gameone.kr/player/member_default_gameone2.png",
+    "batting": null,
+    "pitching": null
   },
   {
     "playerId": "gameone-a-1u10rmftmam000000018imx",
@@ -1800,23 +1724,13 @@
     "backNumber": 42,
     "position": "C",
     "image": "https://file.gameone.kr/player/thumb_greensold_20130925171026.jpg",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
-    "name": "지성찬",
-    "group": "D",
-    "backNumber": 42,
-    "position": "C",
-    "image": "https://file.gameone.kr/player/thumb_greensold_20130925171026.jpg",
     "batting": {
-      "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
+      "playerId": "gameone-a-162bc666dfc834c896631e3398ab87e8",
       "name": "지성찬",
       "group": "A",
-      "g": 3,
-      "pa": 7,
-      "ab": 7,
+      "g": 2,
+      "pa": 5,
+      "ab": 5,
       "r": 2,
       "h": 2,
       "double": 0,
@@ -1828,13 +1742,13 @@
       "so": 0,
       "sb": 0,
       "tb": 2,
-      "avg": ".286",
-      "obp": ".286",
-      "slg": ".286",
-      "ops": ".571"
+      "avg": ".400",
+      "obp": ".400",
+      "slg": ".400",
+      "ops": ".800"
     },
     "pitching": {
-      "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
+      "playerId": "gameone-a-162bc666dfc834c896631e3398ab87e8",
       "name": "지성찬",
       "group": "E",
       "g": 1,
@@ -1854,24 +1768,24 @@
     }
   },
   {
+    "playerId": "gameone-d-162bc666dfc834c896631e3398ab87e8",
+    "name": "지성찬",
+    "group": "D",
+    "backNumber": 42,
+    "position": "C",
+    "image": "https://file.gameone.kr/player/thumb_greensold_20130925171026.jpg",
+    "batting": null,
+    "pitching": null
+  },
+  {
     "playerId": "gameone-a-23dmt2nbqnp0000000trczx",
     "name": "진승용",
     "group": "A",
     "backNumber": 22,
     "position": "C",
     "image": "https://file.gameone.kr/player/member_default.jpg",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-23dmt2nbqnp0000000trczx",
-    "name": "진승용",
-    "group": "D",
-    "backNumber": 22,
-    "position": "C",
-    "image": "https://file.gameone.kr/player/member_default.jpg",
     "batting": {
-      "playerId": "gameone-d-23dmt2nbqnp0000000trczx",
+      "playerId": "gameone-a-23dmt2nbqnp0000000trczx",
       "name": "진승용",
       "group": "A",
       "g": 3,
@@ -1896,29 +1810,29 @@
     "pitching": null
   },
   {
+    "playerId": "gameone-d-23dmt2nbqnp0000000trczx",
+    "name": "진승용",
+    "group": "D",
+    "backNumber": 22,
+    "position": "C",
+    "image": "https://file.gameone.kr/player/member_default.jpg",
+    "batting": null,
+    "pitching": null
+  },
+  {
     "playerId": "gameone-a-b01da1508ee2bc2ddb2b896766876c1a",
     "name": "최정훈",
     "group": "A",
     "backNumber": 43,
     "position": "2B",
     "image": "https://file.gameone.kr/player/thumb_yuproman_130315114945.jpg",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
-    "name": "최정훈",
-    "group": "D",
-    "backNumber": 43,
-    "position": "3B",
-    "image": "https://file.gameone.kr/player/thumb_yuproman_130315114945.jpg",
     "batting": {
-      "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
+      "playerId": "gameone-a-b01da1508ee2bc2ddb2b896766876c1a",
       "name": "최정훈",
       "group": "A",
-      "g": 7,
-      "pa": 15,
-      "ab": 15,
+      "g": 6,
+      "pa": 14,
+      "ab": 14,
       "r": 7,
       "h": 6,
       "double": 0,
@@ -1930,11 +1844,21 @@
       "so": 0,
       "sb": 0,
       "tb": 6,
-      "avg": ".400",
-      "obp": ".400",
-      "slg": ".400",
-      "ops": ".800"
+      "avg": ".429",
+      "obp": ".429",
+      "slg": ".429",
+      "ops": ".857"
     },
+    "pitching": null
+  },
+  {
+    "playerId": "gameone-d-b01da1508ee2bc2ddb2b896766876c1a",
+    "name": "최정훈",
+    "group": "D",
+    "backNumber": 43,
+    "position": "3B",
+    "image": "https://file.gameone.kr/player/thumb_yuproman_130315114945.jpg",
+    "batting": null,
     "pitching": null
   },
   {
@@ -1954,18 +1878,8 @@
     "backNumber": 23,
     "position": "SS",
     "image": "https://file.gameone.kr/player/thumb_65cb2b995f0131hmgq4jpd.jpg",
-    "batting": null,
-    "pitching": null
-  },
-  {
-    "playerId": "gameone-d-093ac30a5c13198973ec496901578a60",
-    "name": "황홍철",
-    "group": "D",
-    "backNumber": 23,
-    "position": "SS",
-    "image": "https://file.gameone.kr/player/thumb_65cb2b995f0131hmgq4jpd.jpg",
     "batting": {
-      "playerId": "gameone-d-093ac30a5c13198973ec496901578a60",
+      "playerId": "gameone-a-093ac30a5c13198973ec496901578a60",
       "name": "황홍철",
       "group": "D",
       "g": 3,
@@ -1987,6 +1901,16 @@
       "slg": ".333",
       "ops": ".667"
     },
+    "pitching": null
+  },
+  {
+    "playerId": "gameone-d-093ac30a5c13198973ec496901578a60",
+    "name": "황홍철",
+    "group": "D",
+    "backNumber": 23,
+    "position": "SS",
+    "image": "https://file.gameone.kr/player/thumb_65cb2b995f0131hmgq4jpd.jpg",
+    "batting": null,
     "pitching": null
   }
 ]

@@ -4,6 +4,7 @@
       {
         "id": "A",
         "label": "A조",
+        "clubId": "40303",
         "teamNames": [
           "Davids 야구 선교단"
         ]
@@ -11,6 +12,7 @@
       {
         "id": "D",
         "label": "D조",
+        "clubId": "34557",
         "teamNames": [
           "다윗 야구 선교단"
         ]
@@ -23,6 +25,7 @@
         {
           "id": "D",
           "label": "D조",
+          "clubId": "40303",
           "teamNames": [
             "Davids 야구 선교단"
           ]
@@ -30,6 +33,7 @@
         {
           "id": "E",
           "label": "E조",
+          "clubId": "34557",
           "teamNames": [
             "다윗 야구 선교단"
           ]
@@ -41,6 +45,7 @@
         {
           "id": "A",
           "label": "A조",
+          "clubId": "40303",
           "teamNames": [
             "Davids 야구 선교단"
           ]
@@ -48,6 +53,7 @@
         {
           "id": "D",
           "label": "D조",
+          "clubId": "34557",
           "teamNames": [
             "다윗 야구 선교단"
           ]

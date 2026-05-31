@@ -16,7 +16,7 @@ import {
     formatRate,
     outsToIp,
 } from './lib/records-utils.js';
-import { collectRecordGroups, loadSeasonTeamsConfig } from './lib/season-teams.js';
+import { collectRecordGroups, getSeasonGroups, loadSeasonTeamsConfig } from './lib/season-teams.js';
 import { applySeasonYear, getSeasonYear, loadSeasonsConfig } from './lib/seasons.js';
 import { applyForfeitPresentation, filterRecordableGames } from './lib/game-result.js';
 
@@ -43,6 +43,38 @@ function mergeGameOverrides(games, overrides, seasonsConfig) {
         const merged = patch ? { ...game, ...patch } : game;
         return applyForfeitPresentation(applySeasonYear(merged, seasonsConfig, overrides));
     });
+}
+
+function createSeasonGroupClubIdMap(seasonTeamsConfig) {
+    const map = new Map();
+
+    for (const season of Object.keys(seasonTeamsConfig?.seasons || {})) {
+        for (const group of getSeasonGroups(seasonTeamsConfig, season)) {
+            if (group.clubId) {
+                map.set(`${season}:${group.id}`, group.clubId);
+            }
+        }
+    }
+
+    return map;
+}
+
+function isOfficialRosterRow(row, game, groupClubIds) {
+    const expectedClubId = groupClubIds.get(`${getSeasonYear(game)}:${row.group || game.group || ''}`);
+    if (!expectedClubId) return true;
+
+    const clubIds = row.gameoneClubIds?.length ? row.gameoneClubIds : [row.gameoneClubId];
+    return clubIds.map((clubId) => String(clubId || '')).includes(expectedClubId);
+}
+
+function filterOfficialRosterRows(games, seasonTeamsConfig) {
+    const groupClubIds = createSeasonGroupClubIdMap(seasonTeamsConfig);
+
+    return games.map((game) => ({
+        ...game,
+        batting: (game.batting || []).filter((row) => isOfficialRosterRow(row, game, groupClubIds)),
+        pitching: (game.pitching || []).filter((row) => isOfficialRosterRow(row, game, groupClubIds)),
+    }));
 }
 
 function normalizeYoutubeLink(link) {
@@ -74,6 +106,8 @@ function aggregateBatting(games) {
     const map = new Map();
 
     for (const game of games) {
+        const gameKeys = new Set();
+
         for (const row of game.batting || []) {
             const key = `${row.playerId}:${row.group || ''}`;
             const current = map.get(key) || {
@@ -95,7 +129,11 @@ function aggregateBatting(games) {
                 sb: 0,
             };
 
-            current.g += 1;
+            if (!gameKeys.has(key)) {
+                current.g += 1;
+                gameKeys.add(key);
+            }
+
             current.pa += row.pa || 0;
             current.ab += row.ab || 0;
             current.r += row.r || 0;
@@ -136,6 +174,8 @@ function aggregatePitching(games) {
     const map = new Map();
 
     for (const game of games) {
+        const gameKeys = new Set();
+
         for (const row of game.pitching || []) {
             const key = `${row.playerId}:${row.group || ''}`;
             const current = map.get(key) || {
@@ -155,7 +195,11 @@ function aggregatePitching(games) {
                 save: 0,
             };
 
-            current.g += 1;
+            if (!gameKeys.has(key)) {
+                current.g += 1;
+                gameKeys.add(key);
+            }
+
             current.outs += row.outs || 0;
             current.h += row.h || 0;
             current.r += row.r || 0;
@@ -270,8 +314,8 @@ function buildPeriodGroupRecords(games, recordGroups) {
                     games: groupGames.length,
                     hits: battingRows.reduce((sum, row) => sum + (row.h || 0), 0),
                     runs: battingRows.reduce((sum, row) => sum + (row.r || 0), 0),
-                    batting: aggregateBatting([{ batting: battingRows }]),
-                    pitching: aggregatePitching([{ pitching: pitchingRows }]),
+                    batting: aggregateBatting(groupGames),
+                    pitching: aggregatePitching(groupGames),
                 },
             ];
         }),
@@ -299,8 +343,8 @@ function buildYearlyRecords(games, seasonTeamsConfig) {
             games: item.games,
             hits: item.hits,
             runs: item.runs,
-            batting: aggregateBatting([{ batting: item.batting }]),
-            pitching: aggregatePitching([{ pitching: item.pitching }]),
+            batting: aggregateBatting(item.sourceGames),
+            pitching: aggregatePitching(item.sourceGames),
             groups: buildPeriodGroupRecords(
                 item.sourceGames,
                 collectRecordGroups(item.sourceGames, seasonTeamsConfig),
@@ -345,8 +389,8 @@ function buildMonthlyRecords(games, seasonTeamsConfig) {
             games: item.games,
             hits: item.hits,
             runs: item.runs,
-            batting: aggregateBatting([{ batting: item.batting }]),
-            pitching: aggregatePitching([{ pitching: item.pitching }]),
+            batting: aggregateBatting(item.sourceGames),
+            pitching: aggregatePitching(item.sourceGames),
             groups: buildPeriodGroupRecords(
                 item.sourceGames,
                 collectRecordGroups(item.sourceGames, seasonTeamsConfig),
@@ -403,8 +447,8 @@ function buildMvpByPeriod(games, getKey, label) {
     return [...map.values()]
         .sort((a, b) => b.key.localeCompare(a.key))
         .flatMap((period) => {
-            const battingLeaders = pickTop(aggregateBatting([{ batting: period.batting }]), battingScore, 3);
-            const pitchingLeaders = pickTop(aggregatePitching([{ pitching: period.pitching }]), pitchingScore, 3);
+            const battingLeaders = pickTop(aggregateBatting(period.games), battingScore, 3);
+            const pitchingLeaders = pickTop(aggregatePitching(period.games), pitchingScore, 3);
             const result = [];
             const groupLabel = period.group ? `${period.group}조 ` : '';
 
@@ -525,24 +569,32 @@ function buildGroupRecords(games, recordGroups) {
         const teamAvg = ab > 0 ? formatAvg(hits / ab) : '.000';
 
         const playerMap = new Map();
-        for (const row of battingRows) {
-            const current = playerMap.get(row.playerId) || {
-                playerId: row.playerId,
-                name: row.name,
-                group: row.group,
-                g: 0,
-                ab: 0,
-                h: 0,
-                rbi: 0,
-                hr: 0,
-            };
+        for (const game of groupGames) {
+            const gameKeys = new Set();
 
-            current.g += 1;
-            current.ab += row.ab || 0;
-            current.h += row.h || 0;
-            current.rbi += row.rbi || 0;
-            current.hr += row.hr || 0;
-            playerMap.set(row.playerId, current);
+            for (const row of game.batting || []) {
+                const current = playerMap.get(row.playerId) || {
+                    playerId: row.playerId,
+                    name: row.name,
+                    group: row.group,
+                    g: 0,
+                    ab: 0,
+                    h: 0,
+                    rbi: 0,
+                    hr: 0,
+                };
+
+                if (!gameKeys.has(row.playerId)) {
+                    current.g += 1;
+                    gameKeys.add(row.playerId);
+                }
+
+                current.ab += row.ab || 0;
+                current.h += row.h || 0;
+                current.rbi += row.rbi || 0;
+                current.hr += row.hr || 0;
+                playerMap.set(row.playerId, current);
+            }
         }
 
         const battingRanking = [...playerMap.values()]
@@ -575,7 +627,7 @@ export function buildAllRecords() {
     const seasonsConfig = loadSeasonsConfig();
     const seasonTeamsConfig = loadSeasonTeamsConfig();
     const games = mergeYoutubeLinks(mergeGameOverrides(loadAllGames(), gameOverrides, seasonsConfig), youtubeLinks);
-    const recordGames = filterRecordableGames(games);
+    const recordGames = filterOfficialRosterRows(filterRecordableGames(games), seasonTeamsConfig);
     const recordGroups = collectRecordGroups(recordGames, seasonTeamsConfig);
 
     if (!games.length) {

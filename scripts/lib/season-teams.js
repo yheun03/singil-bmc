@@ -7,21 +7,21 @@ export const SEASON_TEAMS_FILENAME = 'season-teams.json';
 export const DEFAULT_SEASON_TEAMS_CONFIG = {
     fallback: {
         groups: [
-            { id: 'A', label: 'A조', teamNames: ['Davids 야구 선교단'] },
-            { id: 'D', label: 'D조', teamNames: ['다윗 야구 선교단'] },
+            { id: 'A', label: 'A조', clubId: '40303', teamNames: ['Davids 야구 선교단'] },
+            { id: 'D', label: 'D조', clubId: '34557', teamNames: ['다윗 야구 선교단'] },
         ],
     },
     seasons: {
         2026: {
             groups: [
-                { id: 'A', label: 'A조', teamNames: ['Davids 야구 선교단'] },
-                { id: 'D', label: 'D조', teamNames: ['다윗 야구 선교단'] },
+                { id: 'A', label: 'A조', clubId: '40303', teamNames: ['Davids 야구 선교단'] },
+                { id: 'D', label: 'D조', clubId: '34557', teamNames: ['다윗 야구 선교단'] },
             ],
         },
         2025: {
             groups: [
-                { id: 'D', label: 'D조', teamNames: ['Davids 야구 선교단'] },
-                { id: 'E', label: 'E조', teamNames: ['다윗 야구 선교단'] },
+                { id: 'D', label: 'D조', clubId: '40303', teamNames: ['Davids 야구 선교단'] },
+                { id: 'E', label: 'E조', clubId: '34557', teamNames: ['다윗 야구 선교단'] },
             ],
         },
     },
@@ -48,6 +48,7 @@ function normalizeSeasonGroups(season) {
         .map((group) => ({
             id: String(group.id).trim(),
             label: group.label?.trim() || `${group.id}조`,
+            clubId: group.clubId == null ? '' : String(group.clubId).trim(),
             teamNames: (group.teamNames || []).map((name) => normalizeTeamText(name)).filter(Boolean),
         }));
 }

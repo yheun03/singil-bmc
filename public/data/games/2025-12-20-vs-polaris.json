@@ -50,9 +50,14 @@
   ],
   "batting": [
     {
-      "playerId": "gameone-d-1qf37hte2ngo000000u7kjy",
+      "playerId": "gameone-a-1qf37hte2ngo000000u7kjy",
       "name": "김재영",
       "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 3,
       "ab": 3,
       "r": 2,
@@ -67,9 +72,14 @@
       "sb": 2
     },
     {
-      "playerId": "gameone-d-a9b9fe76109dccd1a78f7dc413d80c5c",
+      "playerId": "gameone-a-a9b9fe76109dccd1a78f7dc413d80c5c",
       "name": "윤성수",
       "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 4,
       "ab": 4,
       "r": 2,
@@ -84,9 +94,14 @@
       "sb": 1
     },
     {
-      "playerId": "gameone-d-htnjgpl47440000009rhn8",
+      "playerId": "gameone-a-htnjgpl47440000009rhn8",
       "name": "선예환",
       "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 3,
       "ab": 3,
       "r": 3,
@@ -101,9 +116,14 @@
       "sb": 1
     },
     {
-      "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
+      "playerId": "gameone-a-4f760d727f4b2b95a202ae678b563d74",
       "name": "김명선",
       "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 4,
       "ab": 4,
       "r": 3,
@@ -118,9 +138,14 @@
       "sb": 2
     },
     {
-      "playerId": "gameone-d-7a25ad45db6397812c86dd69fffe7687",
+      "playerId": "gameone-a-7a25ad45db6397812c86dd69fffe7687",
       "name": "성백동",
       "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 4,
       "ab": 4,
       "r": 1,
@@ -135,9 +160,14 @@
       "sb": 0
     },
     {
-      "playerId": "gameone-d-9u0diupqb7600000023mwz",
+      "playerId": "gameone-a-9u0diupqb7600000023mwz",
       "name": "서우성",
       "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 3,
       "ab": 3,
       "r": 1,
@@ -152,9 +182,14 @@
       "sb": 1
     },
     {
-      "playerId": "gameone-d-248r3oooaq6g0000002wmga",
+      "playerId": "gameone-a-248r3oooaq6g0000002wmga",
       "name": "남주영",
       "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 3,
       "ab": 3,
       "r": 1,
@@ -169,9 +204,14 @@
       "sb": 0
     },
     {
-      "playerId": "gameone-d-2c7kl0dudmkg0000006h1nm",
+      "playerId": "gameone-a-2c7kl0dudmkg0000006h1nm",
       "name": "권태헌",
       "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 2,
       "ab": 2,
       "r": 3,
@@ -186,9 +226,14 @@
       "sb": 2
     },
     {
-      "playerId": "gameone-d-20tba4fnto7g000000mvlrt",
+      "playerId": "gameone-a-20tba4fnto7g000000mvlrt",
       "name": "윤제중",
       "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 1,
       "ab": 1,
       "r": 2,
@@ -205,9 +250,14 @@
   ],
   "pitching": [
     {
-      "playerId": "gameone-d-htnjgpl47440000009rhn8",
+      "playerId": "gameone-a-htnjgpl47440000009rhn8",
       "name": "선예환",
       "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "ip": "2.0",
       "outs": 6,
       "h": 2,
@@ -221,9 +271,14 @@
       "save": 0
     },
     {
-      "playerId": "gameone-d-4f760d727f4b2b95a202ae678b563d74",
+      "playerId": "gameone-a-4f760d727f4b2b95a202ae678b563d74",
       "name": "김명선",
       "group": "E",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "ip": "2.0",
       "outs": 6,
       "h": 4,

@@ -133,7 +133,10 @@ export function loadPlayersMap() {
     const byGameoneName = new Map();
 
     for (const player of players) {
-        byGameoneName.set(normalizeText(player.gameoneName || player.name), player);
+        const key = normalizeText(player.gameoneName || player.name);
+        const entries = byGameoneName.get(key) || [];
+        entries.push(player);
+        byGameoneName.set(key, entries);
     }
 
     return { players, byGameoneName };
@@ -141,13 +144,16 @@ export function loadPlayersMap() {
 
 export function resolvePlayer(name, playersMap, tempCounter) {
     const key = normalizeText(name);
-    const matched = playersMap.byGameoneName.get(key);
+    const matches = playersMap.byGameoneName.get(key) || [];
+    const matched = matches[0];
 
     if (matched) {
         return {
             playerId: matched.playerId,
             name: matched.name,
             group: matched.group,
+            gameoneClubId: matched.gameoneClubId || '',
+            gameoneClubIds: [...new Set(matches.map((entry) => entry.gameoneClubId).filter(Boolean))],
         };
     }
 
@@ -168,6 +174,8 @@ export function resolvePlayer(name, playersMap, tempCounter) {
         playerId: tempId,
         name,
         group: '',
+        gameoneClubId: '',
+        gameoneClubIds: [],
     };
 
     tempCounter.unknownByName.set(key, player);
@@ -179,6 +187,8 @@ export function createEmptyBattingRow(player) {
         playerId: player.playerId,
         name: player.name,
         group: player.group,
+        gameoneClubId: player.gameoneClubId || '',
+        gameoneClubIds: player.gameoneClubIds || [],
         pa: 0,
         ab: 0,
         r: 0,
@@ -199,6 +209,8 @@ export function createEmptyPitchingRow(player) {
         playerId: player.playerId,
         name: player.name,
         group: player.group,
+        gameoneClubId: player.gameoneClubId || '',
+        gameoneClubIds: player.gameoneClubIds || [],
         ip: '0.0',
         outs: 0,
         h: 0,
