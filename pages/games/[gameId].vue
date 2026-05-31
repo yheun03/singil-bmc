@@ -7,10 +7,13 @@
         :error="error || (!game && !pending ? '경기 기록을 찾을 수 없습니다.' : '')"
     >
         <template v-if="game">
-            <section class="bmc-game-detail">
+            <section class="bmc-game-detail" :class="detailResultClass">
                 <div>
-                    <p class="bmc-game-detail__label">Final Score</p>
-                    <strong>{{ game.score?.our ?? 0 }} : {{ game.score?.opponent ?? 0 }}</strong>
+                    <div class="bmc-game-detail__head">
+                        <p class="bmc-game-detail__label">Final Score</p>
+                        <SiteGameResultBadge v-if="gameResult" :kind="gameResult" size="lg" />
+                    </div>
+                    <strong class="bmc-game-detail__score">{{ game.score?.our ?? 0 }} : {{ game.score?.opponent ?? 0 }}</strong>
                     <p>다윗 야구 선교단 vs {{ game.opponentSummary?.teamName || formatOpponent(game.opponent) }}</p>
                 </div>
                 <a
@@ -49,6 +52,7 @@
 
 <script setup lang="ts">
 import { YOUTUBE_CHANNEL_URL } from '~/constants/site';
+import { resolveGameResult, type GameResultKind } from '~/utils/game-result';
 
 type Summary = {
     teamName?: string;
@@ -69,6 +73,8 @@ type Game = {
     opponentSummary?: Summary;
     highlights?: Array<{ type: string; text: string }>;
     youtube?: { youtubeUrl: string } | null;
+    result?: GameResultKind | null;
+    inningsPlayed?: number | null;
 };
 
 definePageMeta({ title: '경기 상세' });
@@ -78,6 +84,18 @@ const { fetchJson } = useBasePath();
 const game = ref<Game | null>(null);
 const pending = ref(true);
 const error = ref('');
+
+const gameResult = computed(() =>
+    game.value
+        ? resolveGameResult({
+              score: game.value.score,
+              result: game.value.result,
+              inningsPlayed: game.value.inningsPlayed,
+          })
+        : null,
+);
+
+const detailResultClass = computed(() => (gameResult.value ? `bmc-game-detail--${gameResult.value}` : ''));
 
 function formatOpponent(opponent = '') {
     return opponent.replace(/-/g, ' ');
@@ -98,6 +116,36 @@ onMounted(async () => {
         pending.value = false;
     }
 });
+
+watch(
+    game,
+    (item) => {
+        if (!item) {
+            setSeoPageOverride(null);
+            return;
+        }
+
+        const opponent = item.opponentSummary?.teamName || formatOpponent(item.opponent);
+        const title = `vs ${opponent}`;
+        const description = `${item.gameDate} · ${item.group || '-'}조 · ${item.score?.our ?? 0}:${item.score?.opponent ?? 0} — 신길교회 야구 선교단 경기 기록`;
+        const path = `/games/${item.gameId}`;
+
+        setSeoPageOverride({
+            title,
+            description,
+            path,
+            jsonLd: buildSportsEventJsonLd({
+                name: `다윗 야구 선교단 vs ${opponent}`,
+                description,
+                path,
+                startDate: item.gameDate,
+            }),
+        });
+    },
+    { immediate: true },
+);
+
+onUnmounted(() => setSeoPageOverride(null));
 </script>
 
 <style scoped lang="scss">
@@ -117,11 +165,36 @@ onMounted(async () => {
     gap: 16px;
     flex-wrap: wrap;
 
-    strong {
+    &__head {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin-bottom: 8px;
+    }
+
+    &__score {
         display: block;
         font-size: 2.5rem;
         font-weight: 900;
         color: #10203f;
+    }
+
+    &--win .bmc-game-detail__score {
+        color: #0f5c2e;
+    }
+
+    &--loss .bmc-game-detail__score {
+        color: #9b1c1c;
+    }
+
+    &--cold-win {
+        border-color: #c9a227;
+        background: linear-gradient(135deg, #fffdf5 0%, #fff 55%);
+    }
+
+    &--cold-loss {
+        border-color: #94a3b8;
     }
 
     p {

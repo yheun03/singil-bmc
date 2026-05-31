@@ -34,6 +34,36 @@ onMounted(async () => {
         pending.value = false;
     }
 });
+
+watch(
+    article,
+    (item) => {
+        if (!item) {
+            setSeoPageOverride(null);
+            return;
+        }
+
+        const path = `/news/${item.slug}`;
+        const description =
+            stripHtmlForSeo(item.content).slice(0, 160) || `${item.title} — 신길교회 야구 선교단 소식`;
+
+        setSeoPageOverride({
+            title: item.title,
+            description,
+            path,
+            type: 'article',
+            jsonLd: buildNewsArticleJsonLd({
+                title: item.title,
+                description,
+                path,
+                datePublished: item.date,
+            }),
+        });
+    },
+    { immediate: true },
+);
+
+onUnmounted(() => setSeoPageOverride(null));
 </script>
 
 <style scoped>

@@ -1,3 +1,5 @@
+import { collectDynamicPrerenderRoutes } from './config/prerender-routes';
+
 const APP_BASE = (process.env.NUXT_APP_BASE_URL || '/singil-bmc/').replace(/\/?$/, '/');
 
 export default defineNuxtConfig({
@@ -13,12 +15,13 @@ export default defineNuxtConfig({
         head: {
             title: '신길교회 야구 선교단',
             htmlAttrs: { lang: 'ko' },
+            meta: [{ name: 'theme-color', content: '#1e56c8' }],
             link: [{ rel: 'icon', type: 'image/svg+xml', href: `${APP_BASE}favicon.svg` }],
         },
     },
 
     site: {
-        url: 'https://yheun03.github.io/singil-bmc',
+        url: 'https://yheun03.github.io/singil-bmc/',
         name: '신길교회 야구 선교단',
     },
 
@@ -47,6 +50,7 @@ export default defineNuxtConfig({
         '~/plugins/ag-grid.client',
         '~/plugins/route-tabs.client',
         '~/plugins/global-css-no-inline.client',
+        '~/plugins/seo',
     ],
 
     devServer: {
@@ -94,6 +98,12 @@ export default defineNuxtConfig({
     },
 
     hooks: {
+        'prerender:routes'(ctx) {
+            ctx.routes.add('/sitemap.xml');
+            for (const path of collectDynamicPrerenderRoutes()) {
+                ctx.routes.add(path);
+            }
+        },
         'pages:extend'(pages) {
             const frameworkPrefixes = ['/demos', '/auth', '/workspace', '/settings'];
 

@@ -1360,3 +1360,263 @@
         }
     }
 }
+
+// 경기 결과 배지 (승·패·콜드승·콜드패)
+.bmc-game-result {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    font-weight: 800;
+    line-height: 1;
+    white-space: nowrap;
+
+    &__abbr {
+        display: inline-grid;
+        place-items: center;
+        min-width: 1.75rem;
+        padding: 2px 6px;
+        border-radius: 6px;
+        font-size: 0.6875rem;
+        letter-spacing: 0.04em;
+    }
+
+    &__label {
+        font-size: 0.8125rem;
+        letter-spacing: -0.01em;
+    }
+
+    &.is-sm {
+        padding: 3px 8px;
+        gap: 4px;
+
+        .bmc-game-result__abbr {
+            min-width: 1.5rem;
+            font-size: 0.625rem;
+        }
+
+        .bmc-game-result__label {
+            font-size: 0.75rem;
+        }
+    }
+
+    &.is-lg {
+        padding: 7px 14px;
+
+        .bmc-game-result__abbr {
+            min-width: 2rem;
+            font-size: 0.75rem;
+        }
+
+        .bmc-game-result__label {
+            font-size: 0.9375rem;
+        }
+    }
+
+    &.is-win {
+        background: #e8f5ec;
+        border-color: #86c89a;
+        color: #0f5c2e;
+
+        .bmc-game-result__abbr {
+            background: #16a34a;
+            color: $bmc-white;
+        }
+    }
+
+    &.is-loss {
+        background: #fdeeee;
+        border-color: #f0a8a8;
+        color: #9b1c1c;
+
+        .bmc-game-result__abbr {
+            background: #dc2626;
+            color: $bmc-white;
+        }
+    }
+
+    &.is-cold-win {
+        background: linear-gradient(135deg, #fff9e8 0%, #fef3c7 100%);
+        border-color: $bmc-gold-500;
+        color: #7a5a08;
+        box-shadow: 0 0 0 1px rgba($bmc-gold-500, 0.25);
+
+        .bmc-game-result__abbr {
+            background: $bmc-gold-500;
+            color: $bmc-navy-900;
+        }
+    }
+
+    &.is-cold-loss {
+        background: #f1f3f8;
+        border-color: #94a3b8;
+        color: #334155;
+
+        .bmc-game-result__abbr {
+            background: #64748b;
+            color: $bmc-white;
+        }
+    }
+
+    &.is-tie {
+        background: $bmc-gray-100;
+        border-color: $bmc-gray-200;
+        color: $bmc-gray-800;
+
+        .bmc-game-result__abbr {
+            background: $bmc-gray-500;
+            color: $bmc-white;
+        }
+    }
+}
+
+.bmc-game-results-legend {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px 14px;
+    margin-bottom: 22px;
+    padding: 14px 16px;
+    border: 1px solid $bmc-gray-200;
+    border-radius: 12px;
+    background: $bmc-gray-100;
+
+    &__title {
+        margin: 0;
+        font-size: 0.8125rem;
+        font-weight: 800;
+        color: $bmc-navy-900;
+    }
+
+    &__hint {
+        margin: 4px 0 0;
+        font-size: 0.75rem;
+        font-weight: 500;
+        color: $bmc-gray-500;
+    }
+
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+}
+
+.bmc-game-season-summary {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0 0 16px;
+
+    &__chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: $bmc-white;
+        border: 1px solid $bmc-gray-200;
+        font-size: 0.8125rem;
+        font-weight: 700;
+        color: $bmc-navy-900;
+
+        strong {
+            font-size: 1rem;
+            font-weight: 900;
+        }
+    }
+}
+
+.bmc-game-card {
+    display: grid;
+    gap: 10px;
+    padding: 22px;
+    border: 1px solid #d8dee9;
+    border-radius: 12px;
+    background: #fff;
+    color: inherit;
+    text-decoration: none;
+    transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease,
+        transform 0.15s ease;
+
+    &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 28px rgba($bmc-navy-900, 0.08);
+    }
+
+    &__top {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    &__date {
+        font-size: 0.8125rem;
+        font-weight: 800;
+        color: #1e56c8;
+    }
+
+    &__matchup {
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 900;
+        line-height: 1.45;
+        color: $bmc-navy-900;
+    }
+
+    &__score-row {
+        display: flex;
+        align-items: baseline;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    &__score {
+        font-size: 2rem;
+        font-weight: 900;
+        color: #10203f;
+        letter-spacing: 0.02em;
+    }
+
+    &__stats {
+        margin: 0;
+        font-size: 0.875rem;
+        color: $bmc-gray-500;
+    }
+
+    &__video {
+        font-size: 0.8125rem;
+        font-weight: 800;
+        color: #1e56c8;
+    }
+
+    &--win {
+        border-left: 4px solid #16a34a;
+        background: linear-gradient(90deg, rgba(22, 163, 74, 0.06) 0%, #fff 28%);
+    }
+
+    &--loss {
+        border-left: 4px solid #dc2626;
+        background: linear-gradient(90deg, rgba(220, 38, 38, 0.05) 0%, #fff 28%);
+    }
+
+    &--cold-win {
+        border-left: 4px solid $bmc-gold-500;
+        background: linear-gradient(90deg, rgba($bmc-gold-500, 0.14) 0%, #fff 32%);
+        box-shadow: inset 0 0 0 1px rgba($bmc-gold-500, 0.2);
+    }
+
+    &--cold-loss {
+        border-left: 4px solid #64748b;
+        background: linear-gradient(90deg, rgba(100, 116, 139, 0.1) 0%, #fff 28%);
+    }
+
+    &--tie {
+        border-left: 4px solid $bmc-gray-500;
+    }
+}

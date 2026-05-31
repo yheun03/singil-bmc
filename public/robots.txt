@@ -1,0 +1,11 @@
+# 신길교회 야구 선교단 — https://yheun03.github.io/singil-bmc/
+User-agent: *
+Allow: /
+
+# 프레임워크·데모·인증 페이지 (SEO noindex와 동일)
+Disallow: /demos/
+Disallow: /auth/
+Disallow: /workspace
+Disallow: /settings
+
+Sitemap: https://yheun03.github.io/singil-bmc/sitemap.xml
