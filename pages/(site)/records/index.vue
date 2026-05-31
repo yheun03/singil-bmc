@@ -25,6 +25,8 @@
             </article>
         </div>
 
+        <AppTabs v-model:active-id="selectedGroup" :items="groupTabItems" variant="pill" size="sm" class="bmc-record-grid__tabs" />
+
         <section class="bmc-record-grid">
             <h3 class="bmc-record-grid__title">타자 기록</h3>
             <AppGridToolbar target="batting-grid">
@@ -109,57 +111,33 @@ const { data: pitching, pending: pitchingPending, error: pitchingError } = useSi
 const pending = computed(() => teamPending.value || battingPending.value || pitchingPending.value);
 const error = computed(() => teamError.value || battingError.value || pitchingError.value);
 
-const battingRows = computed(() => batting.value ?? []);
-const pitchingRows = computed(() => pitching.value ?? []);
-
-const groupOptions = computed(() => {
-    const groups = new Set<string>();
-
-    for (const row of battingRows.value) {
-        if (row.group) groups.add(row.group);
-    }
-
-    for (const row of pitchingRows.value) {
-        if (row.group) groups.add(row.group);
-    }
-
-    return [...groups]
-        .sort()
-        .map((group) => ({ label: `${group}조`, value: group }));
-});
+const selectedGroup = ref('all');
+const groupTabItems = [
+    { id: 'all', title: '전체', bodyRenderer: () => null },
+    { id: 'A', title: 'A조', bodyRenderer: () => null },
+    { id: 'D', title: 'D조', bodyRenderer: () => null },
+];
+const battingRows = computed(() =>
+    (batting.value ?? []).filter((row) => selectedGroup.value === 'all' || row.group === selectedGroup.value),
+);
+const pitchingRows = computed(() =>
+    (pitching.value ?? []).filter((row) => selectedGroup.value === 'all' || row.group === selectedGroup.value),
+);
 
 const battingSearch = reactive({
     name: '',
-    group: null as string | null,
 });
 
 const pitchingSearch = reactive({
     name: '',
-    group: null as string | null,
 });
 
 const battingSearchFields = computed<AppGridSearchField[]>(() => [
     { field: 'name', label: '이름', type: 'input', placeholder: '이름 검색' },
-    {
-        field: 'group',
-        label: '조',
-        type: 'select',
-        setFilter: true,
-        placeholderSelect: '전체',
-        options: groupOptions.value,
-    },
 ]);
 
 const pitchingSearchFields = computed<AppGridSearchField[]>(() => [
     { field: 'name', label: '이름', type: 'input', placeholder: '이름 검색' },
-    {
-        field: 'group',
-        label: '조',
-        type: 'select',
-        setFilter: true,
-        placeholderSelect: '전체',
-        options: groupOptions.value,
-    },
 ]);
 
 const defaultColDef: ColDef = {
@@ -230,6 +208,10 @@ const pitchingGridHeight = computed(() => gridHeight(pitchingRows.value.length))
     }
 
     &__stats {
+        margin-bottom: 24px;
+    }
+
+    &__tabs {
         margin-bottom: 24px;
     }
 

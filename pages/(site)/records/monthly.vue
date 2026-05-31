@@ -17,18 +17,19 @@
                 </button>
             </div>
         </div>
+        <AppTabs v-model:active-id="selectedGroup" :items="groupTabItems" variant="pill" size="sm" class="bmc-record-tabs" />
 
-        <div v-if="selectedRecord" class="bmc-grid bmc-grid--3 bmc-record-summary">
+        <div v-if="displayRecord" class="bmc-grid bmc-grid--3 bmc-record-summary">
             <article class="bmc-stat-card">
-                <strong>{{ selectedRecord.games }}</strong>
+                <strong>{{ displayRecord.games }}</strong>
                 <span>경기</span>
             </article>
             <article class="bmc-stat-card">
-                <strong>{{ selectedRecord.hits }}</strong>
+                <strong>{{ displayRecord.hits }}</strong>
                 <span>안타</span>
             </article>
             <article class="bmc-stat-card">
-                <strong>{{ selectedRecord.runs }}</strong>
+                <strong>{{ displayRecord.runs }}</strong>
                 <span>득점</span>
             </article>
         </div>
@@ -55,6 +56,13 @@
 import type { ColDef } from 'ag-grid-community';
 
 type StatRow = Record<string, string | number>;
+type PeriodGroupRecord = {
+    games: number;
+    hits: number;
+    runs: number;
+    batting: StatRow[];
+    pitching: StatRow[];
+};
 type MonthlyRecord = {
     key: string;
     year: number;
@@ -64,6 +72,7 @@ type MonthlyRecord = {
     runs: number;
     batting: StatRow[];
     pitching: StatRow[];
+    groups?: Record<string, PeriodGroupRecord>;
 };
 
 definePageMeta({ title: '월별 기록' });
@@ -71,7 +80,13 @@ definePageMeta({ title: '월별 기록' });
 const { data, pending, error } = useSiteData<MonthlyRecord[]>('summary/monthly-records.json');
 const monthlyRecords = computed(() => data.value ?? []);
 const selectedKey = ref('');
+const selectedGroup = ref('all');
 const activeTab = ref<'batting' | 'pitching'>('batting');
+const groupTabItems = [
+    { id: 'all', title: '전체', bodyRenderer: () => null },
+    { id: 'A', title: 'A조', bodyRenderer: () => null },
+    { id: 'D', title: 'D조', bodyRenderer: () => null },
+];
 
 watchEffect(() => {
     if (!selectedKey.value && monthlyRecords.value.length) {
@@ -86,7 +101,14 @@ const monthOptions = computed(() =>
     })),
 );
 const selectedRecord = computed(() => monthlyRecords.value.find((item) => item.key === selectedKey.value) ?? null);
-const gridRows = computed(() => selectedRecord.value?.[activeTab.value] ?? []);
+const displayRecord = computed(() => {
+    if (!selectedRecord.value || selectedGroup.value === 'all') {
+        return selectedRecord.value;
+    }
+
+    return selectedRecord.value.groups?.[selectedGroup.value] ?? null;
+});
+const gridRows = computed(() => displayRecord.value?.[activeTab.value] ?? []);
 
 const defaultColDef: ColDef = { flex: 1, minWidth: 76, sortable: true, filter: true, resizable: true };
 const battingColumns: ColDef[] = [
@@ -126,6 +148,10 @@ function gridHeight(rowCount: number) {
 }
 
 .bmc-record-summary {
+    margin-bottom: 20px;
+}
+
+.bmc-record-tabs {
     margin-bottom: 20px;
 }
 

@@ -57,7 +57,7 @@
       "sb": 0
     },
     {
-      "playerId": "temp-005",
+      "playerId": "temp-006",
       "name": "민재홍",
       "group": "D",
       "pa": 2,
@@ -93,7 +93,7 @@
     {
       "playerId": "player-003",
       "name": "김호태",
-      "group": "A",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 0,
@@ -110,7 +110,7 @@
     {
       "playerId": "player-008",
       "name": "지성찬",
-      "group": "A",
+      "group": "D",
       "pa": 1,
       "ab": 1,
       "r": 1,
@@ -125,7 +125,7 @@
       "sb": 2
     },
     {
-      "playerId": "temp-006",
+      "playerId": "temp-007",
       "name": "유병호",
       "group": "D",
       "pa": 2,
@@ -142,7 +142,7 @@
       "sb": 0
     },
     {
-      "playerId": "temp-007",
+      "playerId": "temp-008",
       "name": "김희열",
       "group": "D",
       "pa": 1,
@@ -161,7 +161,7 @@
     {
       "playerId": "player-012",
       "name": "노혁진",
-      "group": "A",
+      "group": "D",
       "pa": 1,
       "ab": 1,
       "r": 1,
@@ -178,7 +178,7 @@
     {
       "playerId": "player-006",
       "name": "선예환",
-      "group": "A",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 1,
@@ -197,7 +197,7 @@
     {
       "playerId": "player-013",
       "name": "노승원",
-      "group": "A",
+      "group": "D",
       "ip": "1.0",
       "outs": 3,
       "h": 2,
@@ -229,7 +229,7 @@
     {
       "playerId": "player-012",
       "name": "노혁진",
-      "group": "A",
+      "group": "D",
       "ip": "0.1",
       "outs": 1,
       "h": 2,

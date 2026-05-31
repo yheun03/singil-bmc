@@ -19,6 +19,7 @@ import {
 
 const YOUTUBE_CHANNEL_URL =
     'https://www.youtube.com/@%EB%8B%A4%EC%9C%97%EC%95%BC%EA%B5%AC%EC%84%A0%EA%B5%90%EB%8B%A8';
+const RECORD_GROUPS = ['A', 'D'];
 
 function loadAllGames() {
     const files = listFiles(GAMES_DIR, '.json');
@@ -41,7 +42,7 @@ function aggregateBatting(games) {
 
     for (const game of games) {
         for (const row of game.batting || []) {
-            const key = row.playerId;
+            const key = `${row.playerId}:${row.group || ''}`;
             const current = map.get(key) || {
                 playerId: row.playerId,
                 name: row.name,
@@ -103,7 +104,7 @@ function aggregatePitching(games) {
 
     for (const game of games) {
         for (const row of game.pitching || []) {
-            const key = row.playerId;
+            const key = `${row.playerId}:${row.group || ''}`;
             const current = map.get(key) || {
                 playerId: row.playerId,
                 name: row.name,
@@ -221,13 +222,36 @@ function buildPlayersTotal(battingTotal, pitchingTotal) {
     return [...map.values()].sort((a, b) => a.name.localeCompare(b.name, 'ko'));
 }
 
+function buildPeriodGroupRecords(games) {
+    return Object.fromEntries(
+        RECORD_GROUPS.map((group) => {
+            const groupGames = games.filter((game) => game.group === group);
+            const battingRows = groupGames.flatMap((game) => game.batting || []);
+            const pitchingRows = groupGames.flatMap((game) => game.pitching || []);
+
+            return [
+                group,
+                {
+                    group,
+                    games: groupGames.length,
+                    hits: battingRows.reduce((sum, row) => sum + (row.h || 0), 0),
+                    runs: battingRows.reduce((sum, row) => sum + (row.r || 0), 0),
+                    batting: aggregateBatting([{ batting: battingRows }]),
+                    pitching: aggregatePitching([{ pitching: pitchingRows }]),
+                },
+            ];
+        }),
+    );
+}
+
 function buildYearlyRecords(games) {
     const yearMap = new Map();
 
     for (const game of games) {
         const year = game.year;
-        const current = yearMap.get(year) || { year, games: 0, hits: 0, runs: 0, batting: [], pitching: [] };
+        const current = yearMap.get(year) || { year, games: 0, hits: 0, runs: 0, sourceGames: [], batting: [], pitching: [] };
         current.games += 1;
+        current.sourceGames.push(game);
         current.hits += (game.batting || []).reduce((sum, row) => sum + (row.h || 0), 0);
         current.runs += (game.batting || []).reduce((sum, row) => sum + (row.r || 0), 0);
         current.batting.push(...(game.batting || []));
@@ -237,9 +261,13 @@ function buildYearlyRecords(games) {
 
     return [...yearMap.values()]
         .map((item) => ({
-            ...item,
+            year: item.year,
+            games: item.games,
+            hits: item.hits,
+            runs: item.runs,
             batting: aggregateBatting([{ batting: item.batting }]),
             pitching: aggregatePitching([{ pitching: item.pitching }]),
+            groups: buildPeriodGroupRecords(item.sourceGames),
         }))
         .sort((a, b) => b.year - a.year);
 }
@@ -257,12 +285,14 @@ function buildMonthlyRecords(games) {
             hits: 0,
             runs: 0,
             gameIds: [],
+            sourceGames: [],
             batting: [],
             pitching: [],
         };
 
         current.games += 1;
         current.gameIds.push(game.gameId);
+        current.sourceGames.push(game);
         current.hits += (game.batting || []).reduce((sum, row) => sum + (row.h || 0), 0);
         current.runs += (game.batting || []).reduce((sum, row) => sum + (row.r || 0), 0);
         current.batting.push(...(game.batting || []));
@@ -280,6 +310,7 @@ function buildMonthlyRecords(games) {
             runs: item.runs,
             batting: aggregateBatting([{ batting: item.batting }]),
             pitching: aggregatePitching([{ pitching: item.pitching }]),
+            groups: buildPeriodGroupRecords(item.sourceGames),
         }))
         .sort((a, b) => {
             if (a.year !== b.year) return b.year - a.year;
@@ -308,18 +339,21 @@ function pitchingScore(row) {
     return (row.outs || 0) * 1.5 + (row.so || 0) * 2 + (row.win || 0) * 8 + (row.save || 0) * 5 - (row.er || 0) * 2;
 }
 
-function pickTop(rows, scoreFn) {
+function pickTop(rows, scoreFn, limit = 3) {
     return [...rows]
         .map((row) => ({ ...row, mvpScore: Number(scoreFn(row).toFixed(1)) }))
-        .sort((a, b) => b.mvpScore - a.mvpScore)[0];
+        .sort((a, b) => b.mvpScore - a.mvpScore)
+        .slice(0, limit);
 }
 
 function buildMvpByPeriod(games, getKey, label) {
     const map = new Map();
 
     for (const game of games) {
-        const key = getKey(game);
-        const current = map.get(key) || { key, games: [], batting: [], pitching: [] };
+        const periodKey = getKey(game);
+        const group = game.group || '';
+        const key = `${periodKey}:${group || 'unknown'}`;
+        const current = map.get(key) || { key, periodKey, group, games: [], batting: [], pitching: [] };
         current.games.push(game);
         current.batting.push(...(game.batting || []));
         current.pitching.push(...(game.pitching || []));
@@ -329,35 +363,38 @@ function buildMvpByPeriod(games, getKey, label) {
     return [...map.values()]
         .sort((a, b) => b.key.localeCompare(a.key))
         .flatMap((period) => {
-            const batting = pickTop(aggregateBatting([{ batting: period.batting }]), battingScore);
-            const pitching = pickTop(aggregatePitching([{ pitching: period.pitching }]), pitchingScore);
+            const battingLeaders = pickTop(aggregateBatting([{ batting: period.batting }]), battingScore, 3);
+            const pitchingLeaders = pickTop(aggregatePitching([{ pitching: period.pitching }]), pitchingScore, 3);
             const result = [];
+            const groupLabel = period.group ? `${period.group}조 ` : '';
 
-            if (batting) {
+            battingLeaders.forEach((batting, index) => {
                 result.push({
-                    id: `${period.key}-batting`,
-                    key: period.key,
+                    id: `${period.periodKey}-${period.group || 'unknown'}-batting-${index + 1}`,
+                    key: period.periodKey,
+                    group: period.group,
+                    rank: index + 1,
                     type: 'batting',
-                    title: `${period.key} ${label} 타자 MVP`,
+                    title: `${period.periodKey} ${groupLabel}${label} 타자 MVP ${index + 1}위`,
                     name: batting.name,
-                    group: batting.group,
                     summary: `${period.games.length}경기 ${batting.h}안타 ${batting.rbi}타점 ${batting.r}득점`,
                     stats: { avg: batting.avg, h: batting.h, rbi: batting.rbi, hr: batting.hr, score: batting.mvpScore },
                 });
-            }
+            });
 
-            if (pitching) {
+            pitchingLeaders.forEach((pitching, index) => {
                 result.push({
-                    id: `${period.key}-pitching`,
-                    key: period.key,
+                    id: `${period.periodKey}-${period.group || 'unknown'}-pitching-${index + 1}`,
+                    key: period.periodKey,
+                    group: period.group,
+                    rank: index + 1,
                     type: 'pitching',
-                    title: `${period.key} ${label} 투수 MVP`,
+                    title: `${period.periodKey} ${groupLabel}${label} 투수 MVP ${index + 1}위`,
                     name: pitching.name,
-                    group: pitching.group,
                     summary: `${period.games.length}경기 ${pitching.ip}이닝 ${pitching.so}탈삼진`,
                     stats: { ip: pitching.ip, era: pitching.era, so: pitching.so, win: pitching.win, score: pitching.mvpScore },
                 });
-            }
+            });
 
             return result;
         });
@@ -437,10 +474,9 @@ function buildVideos(games) {
 }
 
 function buildGroupRecords(games) {
-    const groups = ['A', 'D'];
     const result = {};
 
-    for (const group of groups) {
+    for (const group of RECORD_GROUPS) {
         const groupGames = games.filter((game) => game.group === group);
         const battingRows = groupGames.flatMap((game) => game.batting || []);
         const hits = battingRows.reduce((sum, row) => sum + (row.h || 0), 0);

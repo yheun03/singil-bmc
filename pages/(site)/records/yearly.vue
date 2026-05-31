@@ -19,17 +19,19 @@
             </button>
         </div>
 
-        <div v-if="selectedRecord" class="bmc-grid bmc-grid--3 bmc-record-summary">
+        <AppTabs v-model:active-id="selectedGroup" :items="groupTabItems" variant="pill" size="sm" class="bmc-record-tabs" />
+
+        <div v-if="displayRecord" class="bmc-grid bmc-grid--3 bmc-record-summary">
             <article class="bmc-stat-card">
-                <strong>{{ selectedRecord.games }}</strong>
+                <strong>{{ displayRecord.games }}</strong>
                 <span>경기</span>
             </article>
             <article class="bmc-stat-card">
-                <strong>{{ selectedRecord.hits }}</strong>
+                <strong>{{ displayRecord.hits }}</strong>
                 <span>안타</span>
             </article>
             <article class="bmc-stat-card">
-                <strong>{{ selectedRecord.runs }}</strong>
+                <strong>{{ displayRecord.runs }}</strong>
                 <span>득점</span>
             </article>
         </div>
@@ -40,10 +42,10 @@
                 <AppGrid
                     grid-id="yearly-batting-grid"
                     class="bmc-record-grid__grid ag-theme-quartz"
-                    :row-data="selectedRecord?.batting ?? []"
+                    :row-data="displayRecord?.batting ?? []"
                     :column-defs="battingColumns"
                     :default-col-def="defaultColDef"
-                    :style="{ height: gridHeight(selectedRecord?.batting?.length ?? 0), width: '100%' }"
+                    :style="{ height: gridHeight(displayRecord?.batting?.length ?? 0), width: '100%' }"
                 />
             </ClientOnly>
         </section>
@@ -54,10 +56,10 @@
                 <AppGrid
                     grid-id="yearly-pitching-grid"
                     class="bmc-record-grid__grid ag-theme-quartz"
-                    :row-data="selectedRecord?.pitching ?? []"
+                    :row-data="displayRecord?.pitching ?? []"
                     :column-defs="pitchingColumns"
                     :default-col-def="defaultColDef"
-                    :style="{ height: gridHeight(selectedRecord?.pitching?.length ?? 0), width: '100%' }"
+                    :style="{ height: gridHeight(displayRecord?.pitching?.length ?? 0), width: '100%' }"
                 />
             </ClientOnly>
         </section>
@@ -68,6 +70,13 @@
 import type { ColDef } from 'ag-grid-community';
 
 type StatRow = Record<string, string | number>;
+type PeriodGroupRecord = {
+    games: number;
+    hits: number;
+    runs: number;
+    batting: StatRow[];
+    pitching: StatRow[];
+};
 type YearlyRecord = {
     year: number;
     games: number;
@@ -75,6 +84,7 @@ type YearlyRecord = {
     runs: number;
     batting: StatRow[];
     pitching: StatRow[];
+    groups?: Record<string, PeriodGroupRecord>;
 };
 
 definePageMeta({ title: '연도별 기록' });
@@ -82,6 +92,12 @@ definePageMeta({ title: '연도별 기록' });
 const { data, pending, error } = useSiteData<YearlyRecord[]>('summary/yearly-records.json');
 const yearlyRecords = computed(() => data.value ?? []);
 const selectedYear = ref<number | null>(null);
+const selectedGroup = ref('all');
+const groupTabItems = [
+    { id: 'all', title: '전체', bodyRenderer: () => null },
+    { id: 'A', title: 'A조', bodyRenderer: () => null },
+    { id: 'D', title: 'D조', bodyRenderer: () => null },
+];
 
 watchEffect(() => {
     if (!selectedYear.value && yearlyRecords.value.length) {
@@ -90,6 +106,13 @@ watchEffect(() => {
 });
 
 const selectedRecord = computed(() => yearlyRecords.value.find((item) => item.year === selectedYear.value) ?? null);
+const displayRecord = computed(() => {
+    if (!selectedRecord.value || selectedGroup.value === 'all') {
+        return selectedRecord.value;
+    }
+
+    return selectedRecord.value.groups?.[selectedGroup.value] ?? null;
+});
 
 const defaultColDef: ColDef = { flex: 1, minWidth: 76, sortable: true, filter: true, resizable: true };
 const battingColumns: ColDef[] = [
@@ -121,6 +144,10 @@ function gridHeight(rowCount: number) {
 <style scoped lang="scss">
 .bmc-record-controls,
 .bmc-record-summary {
+    margin-bottom: 20px;
+}
+
+.bmc-record-tabs {
     margin-bottom: 20px;
 }
 

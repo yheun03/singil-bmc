@@ -52,13 +52,28 @@ const news = ref<NewsItem[]>([]);
 const pending = ref(true);
 const error = ref('');
 
+function getDateTime(item: NewsItem) {
+    const time = new Date(`${item.date}T00:00:00+09:00`).getTime();
+    return Number.isFinite(time) ? time : 0;
+}
+
+function sortNewsByDateDesc(items: NewsItem[]) {
+    return items
+        .map((item, index) => ({ item, index }))
+        .sort((a, b) => {
+            const dateDiff = getDateTime(b.item) - getDateTime(a.item);
+            return dateDiff || a.index - b.index;
+        })
+        .map(({ item }) => item);
+}
+
 onMounted(async () => {
     try {
         const [manualNews, generatedNews] = await Promise.all([
             fetchJson<NewsItem[]>('meta/news.json'),
             fetchJson<NewsItem[]>('generated/news.json').catch(() => []),
         ]);
-        news.value = [...generatedNews, ...manualNews].sort((a, b) => b.date.localeCompare(a.date));
+        news.value = sortNewsByDateDesc([...generatedNews, ...manualNews]);
     } catch (err) {
         error.value = err instanceof Error ? err.message : '소식 데이터를 불러오지 못했습니다.';
     } finally {

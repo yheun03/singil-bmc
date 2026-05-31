@@ -1,8 +1,8 @@
 {
-  "totalGames": 12,
+  "totalGames": 13,
   "totalPlayers": 23,
-  "totalHits": 107,
-  "totalRuns": 137,
+  "totalHits": 116,
+  "totalRuns": 146,
   "lastGameDate": "2026-05-30",
   "recentGames": [
     {
@@ -23,7 +23,7 @@
         "our": 14,
         "opponent": 7
       },
-      "group": "A"
+      "group": "D"
     },
     {
       "gameId": "2026-05-09-vs-deloitte",
@@ -43,7 +43,7 @@
         "our": 13,
         "opponent": 5
       },
-      "group": "A"
+      "group": "D"
     },
     {
       "gameId": "2026-05-30-vs-11stwyverns",
@@ -53,7 +53,7 @@
         "our": 10,
         "opponent": 9
       },
-      "group": "A"
+      "group": "D"
     }
   ]
 }

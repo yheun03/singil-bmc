@@ -202,12 +202,11 @@ function getStatTextFromRow($, rowEl, mapping, field) {
     return $(tds[tdIndex]).text().trim();
 }
 
-function applyDefaultGroup(player, defaultGroup) {
-    if (!player.group && defaultGroup) {
-        player.group = defaultGroup;
-    }
-
-    return player;
+function applyRecordGroup(player, recordGroup) {
+    return {
+        ...player,
+        group: recordGroup || player.group || '',
+    };
 }
 
 export function parseGameoneBattingTable($, table, playersMap, tempCounter, defaultGroup = '') {
@@ -225,7 +224,7 @@ export function parseGameoneBattingTable($, table, playersMap, tempCounter, defa
             const name = extractPlayerName($, rowEl);
             if (!name) return;
 
-            const player = applyDefaultGroup(resolvePlayer(name, playersMap, tempCounter), defaultGroup);
+            const player = applyRecordGroup(resolvePlayer(name, playersMap, tempCounter), defaultGroup);
             const batting = createEmptyBattingRow(player);
 
             batting.ab = getStatFromRow($, rowEl, mapping, 'ab');
@@ -260,7 +259,7 @@ export function parseGameonePitchingTable($, table, playersMap, tempCounter, def
             const name = extractPlayerName($, rowEl);
             if (!name) return;
 
-            const player = applyDefaultGroup(resolvePlayer(name, playersMap, tempCounter), defaultGroup);
+            const player = applyRecordGroup(resolvePlayer(name, playersMap, tempCounter), defaultGroup);
             const pitching = createEmptyPitchingRow(player);
 
             const ipText = getStatTextFromRow($, rowEl, mapping, 'ip');

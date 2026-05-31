@@ -5,7 +5,7 @@
   "year": 2026,
   "month": 5,
   "opponent": "mavericks",
-  "group": "A",
+  "group": "D",
   "status": "completed",
   "score": {
     "our": 14,
@@ -46,7 +46,7 @@
     {
       "playerId": "player-005",
       "name": "박의현",
-      "group": "A",
+      "group": "D",
       "pa": 4,
       "ab": 4,
       "r": 2,
@@ -63,7 +63,7 @@
     {
       "playerId": "player-011",
       "name": "은영환",
-      "group": "A",
+      "group": "D",
       "pa": 3,
       "ab": 3,
       "r": 2,
@@ -80,7 +80,7 @@
     {
       "playerId": "player-006",
       "name": "선예환",
-      "group": "A",
+      "group": "D",
       "pa": 3,
       "ab": 3,
       "r": 2,
@@ -114,7 +114,7 @@
     {
       "playerId": "player-004",
       "name": "서우성",
-      "group": "A",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 0,
@@ -131,7 +131,7 @@
     {
       "playerId": "player-003",
       "name": "김호태",
-      "group": "A",
+      "group": "D",
       "pa": 1,
       "ab": 1,
       "r": 1,
@@ -148,7 +148,7 @@
     {
       "playerId": "player-002",
       "name": "최정훈",
-      "group": "A",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 2,
@@ -163,7 +163,7 @@
       "sb": 3
     },
     {
-      "playerId": "temp-009",
+      "playerId": "temp-005",
       "name": "조영중",
       "group": "D",
       "pa": 2,
@@ -180,7 +180,7 @@
       "sb": 2
     },
     {
-      "playerId": "temp-007",
+      "playerId": "temp-008",
       "name": "김희열",
       "group": "D",
       "pa": 3,
@@ -199,7 +199,7 @@
     {
       "playerId": "player-012",
       "name": "노혁진",
-      "group": "A",
+      "group": "D",
       "pa": 3,
       "ab": 3,
       "r": 1,
@@ -218,7 +218,7 @@
     {
       "playerId": "player-013",
       "name": "노승원",
-      "group": "A",
+      "group": "D",
       "ip": "0.2",
       "outs": 2,
       "h": 1,

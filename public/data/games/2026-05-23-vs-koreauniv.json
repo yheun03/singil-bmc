@@ -5,7 +5,7 @@
   "year": 2026,
   "month": 5,
   "opponent": "koreauniv",
-  "group": "A",
+  "group": "D",
   "status": "completed",
   "score": {
     "our": 13,
@@ -50,7 +50,7 @@
     {
       "playerId": "player-001",
       "name": "이효재",
-      "group": "A",
+      "group": "D",
       "pa": 4,
       "ab": 4,
       "r": 3,
@@ -67,7 +67,7 @@
     {
       "playerId": "player-002",
       "name": "최정훈",
-      "group": "A",
+      "group": "D",
       "pa": 4,
       "ab": 4,
       "r": 2,
@@ -101,7 +101,7 @@
     {
       "playerId": "player-011",
       "name": "은영환",
-      "group": "A",
+      "group": "D",
       "pa": 4,
       "ab": 4,
       "r": 3,
@@ -118,7 +118,7 @@
     {
       "playerId": "player-009",
       "name": "김명선",
-      "group": "A",
+      "group": "D",
       "pa": 4,
       "ab": 4,
       "r": 0,
@@ -152,7 +152,7 @@
     {
       "playerId": "player-004",
       "name": "서우성",
-      "group": "A",
+      "group": "D",
       "pa": 3,
       "ab": 3,
       "r": 1,
@@ -169,7 +169,7 @@
     {
       "playerId": "player-010",
       "name": "성백동",
-      "group": "A",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 1,
@@ -186,7 +186,7 @@
     {
       "playerId": "player-003",
       "name": "김호태",
-      "group": "A",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 0,
@@ -203,7 +203,7 @@
     {
       "playerId": "player-013",
       "name": "노승원",
-      "group": "A",
+      "group": "D",
       "pa": 0,
       "ab": 0,
       "r": 0,
@@ -239,7 +239,7 @@
     {
       "playerId": "player-013",
       "name": "노승원",
-      "group": "A",
+      "group": "D",
       "ip": "1.0",
       "outs": 3,
       "h": 0,
@@ -271,7 +271,7 @@
     {
       "playerId": "player-009",
       "name": "김명선",
-      "group": "A",
+      "group": "D",
       "ip": "2.0",
       "outs": 6,
       "h": 1,

@@ -105,13 +105,13 @@ export function formatRate(value, digits = 2) {
 }
 
 export function parseGameFilename(filename) {
-    const match = filename.match(/^(\d{4}-\d{2}-\d{2})-vs-(.+)\.html$/i);
+    const match = filename.match(/^(\d{4}-\d{2})[-.](\d{2})-vs-(.+)\.html$/i);
     if (!match) {
         throw new Error(`Invalid game filename: ${filename}`);
     }
 
-    const gameDate = match[1];
-    const opponent = match[2];
+    const gameDate = `${match[1]}-${match[2]}`;
+    const opponent = match[3];
     const [yearText, monthText] = gameDate.split('-');
 
     return {

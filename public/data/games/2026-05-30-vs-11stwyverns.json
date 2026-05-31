@@ -5,7 +5,7 @@
   "year": 2026,
   "month": 5,
   "opponent": "11stwyverns",
-  "group": "A",
+  "group": "D",
   "status": "completed",
   "score": {
     "our": 10,
@@ -50,7 +50,7 @@
     {
       "playerId": "player-001",
       "name": "이효재",
-      "group": "A",
+      "group": "D",
       "pa": 3,
       "ab": 3,
       "r": 2,
@@ -67,7 +67,7 @@
     {
       "playerId": "player-002",
       "name": "최정훈",
-      "group": "A",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 1,
@@ -84,7 +84,7 @@
     {
       "playerId": "player-003",
       "name": "김호태",
-      "group": "A",
+      "group": "D",
       "pa": 1,
       "ab": 1,
       "r": 0,
@@ -101,7 +101,7 @@
     {
       "playerId": "player-004",
       "name": "서우성",
-      "group": "A",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 1,
@@ -118,7 +118,7 @@
     {
       "playerId": "player-005",
       "name": "박의현",
-      "group": "A",
+      "group": "D",
       "pa": 0,
       "ab": 0,
       "r": 0,
@@ -135,7 +135,7 @@
     {
       "playerId": "player-006",
       "name": "선예환",
-      "group": "A",
+      "group": "D",
       "pa": 1,
       "ab": 1,
       "r": 0,
@@ -152,7 +152,7 @@
     {
       "playerId": "player-007",
       "name": "김가현",
-      "group": "A",
+      "group": "D",
       "pa": 3,
       "ab": 3,
       "r": 0,
@@ -169,7 +169,7 @@
     {
       "playerId": "player-008",
       "name": "지성찬",
-      "group": "A",
+      "group": "D",
       "pa": 3,
       "ab": 3,
       "r": 0,
@@ -186,7 +186,7 @@
     {
       "playerId": "player-009",
       "name": "김명선",
-      "group": "A",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 0,
@@ -203,7 +203,7 @@
     {
       "playerId": "player-010",
       "name": "성백동",
-      "group": "A",
+      "group": "D",
       "pa": 1,
       "ab": 1,
       "r": 1,
@@ -220,7 +220,7 @@
     {
       "playerId": "player-011",
       "name": "은영환",
-      "group": "A",
+      "group": "D",
       "pa": 3,
       "ab": 3,
       "r": 3,
@@ -237,7 +237,7 @@
     {
       "playerId": "player-012",
       "name": "노혁진",
-      "group": "A",
+      "group": "D",
       "pa": 2,
       "ab": 2,
       "r": 2,
@@ -256,7 +256,7 @@
     {
       "playerId": "player-013",
       "name": "노승원",
-      "group": "A",
+      "group": "D",
       "ip": "0.1",
       "outs": 1,
       "h": 2,
@@ -272,7 +272,7 @@
     {
       "playerId": "player-014",
       "name": "반석훈",
-      "group": "A",
+      "group": "D",
       "ip": "2.2",
       "outs": 8,
       "h": 1,
@@ -288,7 +288,7 @@
     {
       "playerId": "player-009",
       "name": "김명선",
-      "group": "A",
+      "group": "D",
       "ip": "1.0",
       "outs": 3,
       "h": 4,

@@ -100,68 +100,20 @@ const teamTotal = await fetchJson('summary/team-total.json');
 
 ## 기록 갱신 절차
 
-경기 종료 후 아래 순서로 기록을 갱신합니다.
+경기 종료 후 운영 절차는 [GAME_RECORD_UPDATE_HANDOFF.md](./GAME_RECORD_UPDATE_HANDOFF.md)를 기준으로 진행합니다.
 
-### 1. 경기 HTML 저장
-
-게임원 경기 기록 페이지에서 **table 태그가 포함된 HTML**을 저장합니다.
-
-### 2. raw-games 폴더에 추가
-
-`public/data/raw-games/` 폴더에 아래 형식으로 파일을 추가합니다.
-
-```text
-yyyy-mm-dd-vs-opponent.html
-```
-
-예시:
-
-게임원 경기 기록 페이지 HTML(`.article.on`, `summary="타자기록"`, `summary="투수기록"`)을 그대로 저장해도 파싱됩니다.  
-**다윗 야구 선교단** 팀 테이블만 추출하며, `game_sum`에서 홈런/2루타/3루타도 반영합니다.
-
-```text
-public/data/raw-games/2025-09-28-vs-11st-wyverns.html
-```
-
-### 3. JSON 생성 명령어 실행
+핵심 명령어:
 
 ```bash
-npm run records:update
+npm run update
 ```
 
-내부 동작:
+요약:
 
-1. `public/data/raw-games/*.html` 전체 파싱
-2. `public/data/games/{gameId}.json` 생성
-3. `public/data/games/*.json` 전체를 다시 읽어 summary 재계산
-4. `public/data/summary/*.json` 갱신
-
-개별 실행:
-
-```bash
-npm run records:parse   # HTML → games JSON
-npm run records:build   # games → summary JSON
-```
-
-> summary는 **기존 JSON에 덧셈하지 않고**, games 폴더 전체를 매번 재계산합니다.  
-> 특정 HTML을 수정한 뒤 다시 실행하면 전체 기록이 정확히 재생성됩니다.
-
-### 4. 생성 결과 확인
-
-- `public/data/games/`
-- `public/data/summary/`
-
-### 5. 로컬 화면 확인
-
-```bash
-npm run dev
-```
-
-`/records` 등 기록 페이지에서 JSON이 정상 표시되는지 확인합니다.
-
-### 6. 커밋 및 배포
-
-이상 없으면 변경된 JSON과 HTML을 커밋한 뒤 `main` 브랜치에 push하면 GitHub Actions가 GitHub Pages에 배포합니다.
+- `public/data/raw-games/*.html`만 기준으로 자동 생성 데이터를 초기화 후 재생성합니다.
+- `Davids 야구 선교단` 경기는 A조, `다윗 야구 선교단` 경기는 D조로 자동 구분합니다.
+- 상대팀 선수 기록은 누적 타자/투수 기록에 포함하지 않습니다.
+- `public/data/manual/youtube-links.json`은 수동 관리 파일이며 update 시 삭제하지 않습니다.
 
 ---
 
