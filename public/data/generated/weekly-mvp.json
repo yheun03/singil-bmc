@@ -1,5 +1,107 @@
 [
   {
+    "id": "2026-06-W1-D-batting-1",
+    "key": "2026-06-W1",
+    "group": "D",
+    "rank": 1,
+    "type": "batting",
+    "title": "2026-06-W1 D조 주간 타자 MVP 1위",
+    "name": "김명선",
+    "summary": "1경기 1안타 1타점 1득점",
+    "stats": {
+      "avg": ".500",
+      "h": 1,
+      "rbi": 1,
+      "hr": 0,
+      "score": 10.5
+    }
+  },
+  {
+    "id": "2026-06-W1-D-batting-2",
+    "key": "2026-06-W1",
+    "group": "D",
+    "rank": 2,
+    "type": "batting",
+    "title": "2026-06-W1 D조 주간 타자 MVP 2위",
+    "name": "박의현",
+    "summary": "1경기 1안타 0타점 1득점",
+    "stats": {
+      "avg": ".500",
+      "h": 1,
+      "rbi": 0,
+      "hr": 0,
+      "score": 9
+    }
+  },
+  {
+    "id": "2026-06-W1-D-batting-3",
+    "key": "2026-06-W1",
+    "group": "D",
+    "rank": 3,
+    "type": "batting",
+    "title": "2026-06-W1 D조 주간 타자 MVP 3위",
+    "name": "선예환",
+    "summary": "1경기 1안타 0타점 1득점",
+    "stats": {
+      "avg": ".500",
+      "h": 1,
+      "rbi": 0,
+      "hr": 0,
+      "score": 7.5
+    }
+  },
+  {
+    "id": "2026-06-W1-D-pitching-1",
+    "key": "2026-06-W1",
+    "group": "D",
+    "rank": 1,
+    "type": "pitching",
+    "title": "2026-06-W1 D조 주간 투수 MVP 1위",
+    "name": "권태헌",
+    "summary": "1경기 3.0이닝 5탈삼진",
+    "stats": {
+      "ip": "3.0",
+      "era": "4.67",
+      "so": 5,
+      "win": 0,
+      "score": 19.5
+    }
+  },
+  {
+    "id": "2026-06-W1-D-pitching-2",
+    "key": "2026-06-W1",
+    "group": "D",
+    "rank": 2,
+    "type": "pitching",
+    "title": "2026-06-W1 D조 주간 투수 MVP 2위",
+    "name": "김명선",
+    "summary": "1경기 1.2이닝 1탈삼진",
+    "stats": {
+      "ip": "1.2",
+      "era": "0.00",
+      "so": 1,
+      "win": 0,
+      "score": 9.5
+    }
+  },
+  {
+    "id": "2026-06-W1-D-pitching-3",
+    "key": "2026-06-W1",
+    "group": "D",
+    "rank": 3,
+    "type": "pitching",
+    "title": "2026-06-W1 D조 주간 투수 MVP 3위",
+    "name": "김희열",
+    "summary": "1경기 0.1이닝 0탈삼진",
+    "stats": {
+      "ip": "0.1",
+      "era": "0.00",
+      "so": 0,
+      "win": 0,
+      "score": 1.5
+    }
+  },
+  {
     "id": "2026-05-W4-D-batting-1",
     "key": "2026-05-W4",
     "group": "D",

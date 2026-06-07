@@ -1,57 +1,53 @@
 {
-  "gameId": "2026-05-30-vs-11st",
-  "gameDate": "2026-05-30",
-  "date": "2026-05-30",
+  "gameId": "2026-06-06-vs-lx",
+  "gameDate": "2026-06-06",
+  "date": "2026-06-06",
   "year": 2026,
   "seasonYear": 2026,
-  "month": 5,
-  "opponent": "11st",
-  "opponentName": "11번가 와이번스",
+  "month": 6,
+  "opponent": "lx",
+  "opponentName": "LX 일스야구단",
   "group": "D",
   "status": "completed",
   "score": {
-    "our": 10,
-    "opponent": 9
+    "our": 6,
+    "opponent": 7
   },
   "summary": {
     "hits": 7,
-    "homeRuns": 1,
-    "steals": 2,
-    "strikeouts": 4,
+    "homeRuns": 0,
+    "steals": 5,
+    "strikeouts": 8,
     "errors": 1,
-    "walksAndHbp": 2
+    "walksAndHbp": 4
   },
   "opponentSummary": {
-    "teamName": "11번가 와이번스",
-    "hits": 7,
+    "teamName": "LX 일스야구단",
+    "hits": 6,
     "homeRuns": 0,
-    "steals": 4,
+    "steals": 9,
     "strikeouts": 6,
-    "errors": 6,
-    "walksAndHbp": 7
+    "errors": 2,
+    "walksAndHbp": 5
   },
   "highlights": [
     {
-      "type": "홈런",
-      "text": "은영환(4회)"
-    },
-    {
-      "type": "3루타",
-      "text": "은영환(2회)"
-    },
-    {
       "type": "2루타",
-      "text": "박상현(1회) 정의민(1회,4회) 박성진(4회)"
+      "text": "최지민(3회)"
     },
     {
       "type": "도루",
-      "text": "은영환(3회) 노혁진(2회) 정의민(1회,4회) 박성진(1회) 신수진(1회)"
+      "text": "최지민(3회,5회) 장재형(1회,3회) 이영원(1회,5회) 박양원(4회) 김영지(3회) 박의현(3회,5회) 선예환(5회) 김명선(2회) 지성찬(2회)"
+    },
+    {
+      "type": "병살타",
+      "text": "장순봉(2회)"
     }
   ],
   "batting": [
     {
-      "playerId": "gameone-a-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
-      "name": "이효재",
+      "playerId": "gameone-a-7a25ad45db6397812c86dd69fffe7687",
+      "name": "성백동",
       "group": "D",
       "gameoneClubId": "40303",
       "gameoneClubIds": [
@@ -60,29 +56,7 @@
       ],
       "pa": 3,
       "ab": 3,
-      "r": 2,
-      "h": 0,
-      "double": 0,
-      "triple": 0,
-      "hr": 0,
-      "rbi": 1,
-      "bb": 0,
-      "hbp": 0,
-      "so": 0,
-      "sb": 0
-    },
-    {
-      "playerId": "gameone-a-b01da1508ee2bc2ddb2b896766876c1a",
-      "name": "최정훈",
-      "group": "D",
-      "gameoneClubId": "40303",
-      "gameoneClubIds": [
-        "40303",
-        "34557"
-      ],
-      "pa": 2,
-      "ab": 2,
-      "r": 1,
+      "r": 0,
       "h": 1,
       "double": 0,
       "triple": 0,
@@ -94,17 +68,18 @@
       "sb": 0
     },
     {
-      "playerId": "gameone-d-14atmtkekqko000000creao",
-      "name": "김호태",
+      "playerId": "gameone-a-a9b9fe76109dccd1a78f7dc413d80c5c",
+      "name": "윤성수",
       "group": "D",
-      "gameoneClubId": "34557",
+      "gameoneClubId": "40303",
       "gameoneClubIds": [
+        "40303",
         "34557"
       ],
-      "pa": 1,
-      "ab": 1,
+      "pa": 2,
+      "ab": 2,
       "r": 0,
-      "h": 0,
+      "h": 1,
       "double": 0,
       "triple": 0,
       "hr": 0,
@@ -123,6 +98,94 @@
         "40303",
         "34557"
       ],
+      "pa": 1,
+      "ab": 1,
+      "r": 0,
+      "h": 0,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-b01da1508ee2bc2ddb2b896766876c1a",
+      "name": "최정훈",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 3,
+      "ab": 3,
+      "r": 1,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-1sqi41sdcma80000009ta4r",
+      "name": "박의현",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 2,
+      "ab": 2,
+      "r": 1,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 2
+    },
+    {
+      "playerId": "gameone-a-htnjgpl47440000009rhn8",
+      "name": "선예환",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 2,
+      "ab": 2,
+      "r": 1,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 1
+    },
+    {
+      "playerId": "gameone-a-1ssvastjhsl00000px3n",
+      "name": "노혁진",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
       "pa": 2,
       "ab": 2,
       "r": 1,
@@ -137,8 +200,74 @@
       "sb": 0
     },
     {
-      "playerId": "gameone-a-1sqi41sdcma80000009ta4r",
-      "name": "박의현",
+      "playerId": "gameone-a-4f760d727f4b2b95a202ae678b563d74",
+      "name": "김명선",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 2,
+      "ab": 2,
+      "r": 1,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 1,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 1
+    },
+    {
+      "playerId": "gameone-a-1eeu7stkh4ig000000bfkln",
+      "name": "조영중",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 1,
+      "ab": 1,
+      "r": 0,
+      "h": 0,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 1,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-162bc666dfc834c896631e3398ab87e8",
+      "name": "지성찬",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 2,
+      "ab": 2,
+      "r": 1,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 1
+    },
+    {
+      "playerId": "gameone-a-25t354agg9q0000000uq981",
+      "name": "유병호",
       "group": "D",
       "gameoneClubId": "40303",
       "gameoneClubIds": [
@@ -159,74 +288,8 @@
       "sb": 0
     },
     {
-      "playerId": "gameone-a-htnjgpl47440000009rhn8",
-      "name": "선예환",
-      "group": "D",
-      "gameoneClubId": "40303",
-      "gameoneClubIds": [
-        "40303",
-        "34557"
-      ],
-      "pa": 1,
-      "ab": 1,
-      "r": 0,
-      "h": 1,
-      "double": 0,
-      "triple": 0,
-      "hr": 0,
-      "rbi": 2,
-      "bb": 0,
-      "hbp": 0,
-      "so": 0,
-      "sb": 0
-    },
-    {
-      "playerId": "gameone-a-10t99plcau4o000000xsozw",
-      "name": "김가현",
-      "group": "D",
-      "gameoneClubId": "40303",
-      "gameoneClubIds": [
-        "40303",
-        "34557"
-      ],
-      "pa": 3,
-      "ab": 3,
-      "r": 0,
-      "h": 0,
-      "double": 0,
-      "triple": 0,
-      "hr": 0,
-      "rbi": 0,
-      "bb": 0,
-      "hbp": 0,
-      "so": 0,
-      "sb": 0
-    },
-    {
-      "playerId": "gameone-a-162bc666dfc834c896631e3398ab87e8",
-      "name": "지성찬",
-      "group": "D",
-      "gameoneClubId": "40303",
-      "gameoneClubIds": [
-        "40303",
-        "34557"
-      ],
-      "pa": 3,
-      "ab": 3,
-      "r": 0,
-      "h": 1,
-      "double": 0,
-      "triple": 0,
-      "hr": 0,
-      "rbi": 0,
-      "bb": 0,
-      "hbp": 0,
-      "so": 0,
-      "sb": 0
-    },
-    {
-      "playerId": "gameone-a-4f760d727f4b2b95a202ae678b563d74",
-      "name": "김명선",
+      "playerId": "gameone-a-7qgdtcsthhi0000013j4",
+      "name": "김희열",
       "group": "D",
       "gameoneClubId": "40303",
       "gameoneClubIds": [
@@ -247,8 +310,8 @@
       "sb": 0
     },
     {
-      "playerId": "gameone-a-7a25ad45db6397812c86dd69fffe7687",
-      "name": "성백동",
+      "playerId": "gameone-a-2c7kl0dudmkg0000006h1nm",
+      "name": "권태헌",
       "group": "D",
       "gameoneClubId": "40303",
       "gameoneClubIds": [
@@ -257,7 +320,7 @@
       ],
       "pa": 1,
       "ab": 1,
-      "r": 1,
+      "r": 0,
       "h": 0,
       "double": 0,
       "triple": 0,
@@ -267,56 +330,33 @@
       "hbp": 0,
       "so": 0,
       "sb": 0
-    },
-    {
-      "playerId": "gameone-a-1j5ef7j5q4eo0000007r6jc",
-      "name": "은영환",
-      "group": "D",
-      "gameoneClubId": "40303",
-      "gameoneClubIds": [
-        "40303",
-        "34557"
-      ],
-      "pa": 3,
-      "ab": 3,
-      "r": 3,
-      "h": 2,
-      "double": 0,
-      "triple": 0,
-      "hr": 0,
-      "rbi": 1,
-      "bb": 0,
-      "hbp": 0,
-      "so": 0,
-      "sb": 1
-    },
-    {
-      "playerId": "gameone-a-1ssvastjhsl00000px3n",
-      "name": "노혁진",
-      "group": "D",
-      "gameoneClubId": "40303",
-      "gameoneClubIds": [
-        "40303",
-        "34557"
-      ],
-      "pa": 2,
-      "ab": 2,
-      "r": 2,
-      "h": 2,
-      "double": 0,
-      "triple": 0,
-      "hr": 0,
-      "rbi": 1,
-      "bb": 0,
-      "hbp": 0,
-      "so": 0,
-      "sb": 1
     }
   ],
   "pitching": [
     {
-      "playerId": "gameone-a-9u3q0framj200000073oqd",
-      "name": "노승원",
+      "playerId": "gameone-a-2c7kl0dudmkg0000006h1nm",
+      "name": "권태헌",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "ip": "3.0",
+      "outs": 9,
+      "h": 4,
+      "r": 3,
+      "er": 2,
+      "bb": 2,
+      "hbp": 0,
+      "so": 5,
+      "win": 0,
+      "loss": 0,
+      "save": 0
+    },
+    {
+      "playerId": "gameone-a-7qgdtcsthhi0000013j4",
+      "name": "김희열",
       "group": "D",
       "gameoneClubId": "40303",
       "gameoneClubIds": [
@@ -325,35 +365,14 @@
       ],
       "ip": "0.1",
       "outs": 1,
-      "h": 2,
-      "r": 3,
-      "er": 3,
-      "bb": 4,
-      "hbp": 0,
-      "so": 0,
-      "win": 0,
-      "loss": 0,
-      "save": 0
-    },
-    {
-      "playerId": "gameone-a-1d34d17vqm50000000g3aw1",
-      "name": "반석훈",
-      "group": "D",
-      "gameoneClubId": "40303",
-      "gameoneClubIds": [
-        "40303",
-        "34557"
-      ],
-      "ip": "2.2",
-      "outs": 8,
-      "h": 1,
-      "r": 1,
+      "h": 0,
+      "r": 2,
       "er": 0,
       "bb": 2,
       "hbp": 0,
-      "so": 6,
-      "win": 1,
-      "loss": 0,
+      "so": 0,
+      "win": 0,
+      "loss": 1,
       "save": 0
     },
     {
@@ -365,24 +384,24 @@
         "40303",
         "34557"
       ],
-      "ip": "1.0",
-      "outs": 3,
-      "h": 4,
-      "r": 4,
-      "er": 3,
+      "ip": "1.2",
+      "outs": 5,
+      "h": 2,
+      "r": 2,
+      "er": 0,
       "bb": 1,
       "hbp": 0,
-      "so": 0,
+      "so": 1,
       "win": 0,
       "loss": 0,
       "save": 0
     }
   ],
   "youtube": {
-    "videoCode": "v9PPNTJB5lE",
-    "title": "26.05.30 D조 vs 11번가 와이번스",
-    "publishedAt": "2026-05-30",
-    "youtubeUrl": "https://www.youtube.com/watch?v=v9PPNTJB5lE",
-    "thumbnail": "https://i.ytimg.com/vi/v9PPNTJB5lE/hq720.jpg"
+    "videoCode": "JXliKeGGe14",
+    "title": "26.06.06 D조 vs LX 일스야구단",
+    "publishedAt": "2026-06-06",
+    "youtubeUrl": "https://www.youtube.com/watch?v=JXliKeGGe14",
+    "thumbnail": "https://i.ytimg.com/vi/JXliKeGGe14/hq720.jpg"
   }
 }
