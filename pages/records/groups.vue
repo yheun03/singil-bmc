@@ -40,7 +40,9 @@ const selectedRecord = computed(() => groupRecords.value?.[selectedGroup.value] 
 </script>
 
 <style scoped lang="scss">
+@use "~/assets/scss/pages/records" as *;
+
 .bmc-group-tabs {
-    margin-bottom: 20px;
+    @include bmc-record-tabs;
 }
 </style>

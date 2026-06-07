@@ -147,19 +147,17 @@ const pitchingGridHeight = computed(() => gridHeight(pitchingRows.value.length))
 </script>
 
 <style scoped lang="scss">
+@use "~/assets/scss/pages/records" as *;
+
 .bmc-record-grid {
-    &+& {
-        margin-top: 28px;
-    }
+    @include bmc-record-grid-stack;
 
     &__stats {
         margin-bottom: 24px;
     }
 
     &__title {
-        margin: 0 0 12px;
-        font-size: 1.125rem;
-        font-weight: 800;
+        @include bmc-record-grid-title;
     }
 
     &__grid {

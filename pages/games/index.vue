@@ -197,15 +197,14 @@ function scoreClass(game: Game) {
 </script>
 
 <style scoped lang="scss">
+@use "~/assets/scss/pages/records" as *;
+
 .bmc-game-list__controls {
     margin-bottom: 20px;
 }
 
 .bmc-record-controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 16px;
+    @include bmc-record-controls(8px, 16px, stretch);
 }
 
 .bmc-game-list__tabs {

@@ -141,71 +141,29 @@ function gridHeight(rowCount: number) {
 </script>
 
 <style scoped lang="scss">
+@use "~/assets/scss/pages/records" as *;
+
 .bmc-record-controls {
-    display: flex;
-    gap: 12px;
-    align-items: center;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
+    @include bmc-record-controls;
 }
 
 .bmc-record-period {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-
-    &__label {
-        font-size: 0.875rem;
-        font-weight: 700;
-        color: #374151;
-        white-space: nowrap;
-    }
-
-    &__select {
-        min-width: 160px;
-        border: 1px solid #d8dee9;
-        border-radius: 8px;
-        padding: 10px 12px;
-        background: #fff;
-        font-weight: 700;
-        color: #10203f;
-    }
+    @include bmc-record-period;
 }
 
 .bmc-record-summary {
-    margin-bottom: 20px;
+    @include bmc-record-summary;
 }
 
 .bmc-record-tabs {
-    margin-bottom: 20px;
+    @include bmc-record-tabs;
 }
 
 .bmc-segmented {
-    display: inline-flex;
-    padding: 4px;
-    border: 1px solid #d8dee9;
-    border-radius: 8px;
-    background: #fff;
-
-    button {
-        min-width: 72px;
-        border: 0;
-        border-radius: 6px;
-        padding: 9px 12px;
-        background: transparent;
-        font-weight: 800;
-        cursor: pointer;
-
-        &.is-active {
-            background: #10203f;
-            color: #fff;
-        }
-    }
+    @include bmc-segmented;
 }
 
 .bmc-record-grid__title {
-    margin: 0 0 12px;
-    font-size: 1.125rem;
-    font-weight: 800;
+    @include bmc-record-grid-title;
 }
 </style>

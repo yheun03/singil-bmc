@@ -131,22 +131,22 @@ function gridHeight(rowCount: number) {
 </script>
 
 <style scoped lang="scss">
+@use "~/assets/scss/pages/records" as *;
+
 .bmc-record-controls,
 .bmc-record-summary {
-    margin-bottom: 20px;
+    @include bmc-record-summary;
 }
 
 .bmc-record-tabs {
-    margin-bottom: 20px;
+    @include bmc-record-tabs;
 }
 
-.bmc-record-grid + .bmc-record-grid {
-    margin-top: 28px;
+.bmc-record-grid {
+    @include bmc-record-grid-stack;
 }
 
 .bmc-record-grid__title {
-    margin: 0 0 12px;
-    font-size: 1.125rem;
-    font-weight: 800;
+    @include bmc-record-grid-title;
 }
 </style>
