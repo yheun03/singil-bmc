@@ -397,5 +397,11 @@
       "save": 0
     }
   ],
-  "youtube": null
+  "youtube": {
+    "videoCode": "JXliKeGGe14",
+    "title": "26.06.06 D조 vs LX 일스야구단",
+    "publishedAt": "2026-06-06",
+    "youtubeUrl": "https://www.youtube.com/watch?v=JXliKeGGe14",
+    "thumbnail": "https://i.ytimg.com/vi/JXliKeGGe14/hq720.jpg"
+  }
 }

@@ -88,5 +88,25 @@
     "thumbnail": "https://i.ytimg.com/vi/jWTJ8OXmQig/hq720.jpg",
     "category": "경기",
     "date": "2026-05-23"
+  },
+  {
+    "id": "game-2026-05-30-vs-11st",
+    "gameId": "2026-05-30-vs-11st",
+    "title": "26.05.30 D조 vs 11번가 와이번스",
+    "youtubeUrl": "https://www.youtube.com/watch?v=v9PPNTJB5lE",
+    "embedUrl": "",
+    "thumbnail": "https://i.ytimg.com/vi/v9PPNTJB5lE/hq720.jpg",
+    "category": "경기",
+    "date": "2026-05-30"
+  },
+  {
+    "id": "game-2026-06-06-vs-lx",
+    "gameId": "2026-06-06-vs-lx",
+    "title": "26.06.06 D조 vs LX 일스야구단",
+    "youtubeUrl": "https://www.youtube.com/watch?v=JXliKeGGe14",
+    "embedUrl": "",
+    "thumbnail": "https://i.ytimg.com/vi/JXliKeGGe14/hq720.jpg",
+    "category": "경기",
+    "date": "2026-06-06"
   }
 ]

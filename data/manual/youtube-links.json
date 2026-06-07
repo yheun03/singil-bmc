@@ -49,9 +49,14 @@
         "title": "26.05.23 D조 vs 서강가브리엘스",
         "publishedAt": "2026-05-23"
     },
-    "2026-05-30-vs-11stwyverns": {
+    "2026-05-30-vs-11st": {
         "videoCode": "v9PPNTJB5lE",
         "title": "26.05.30 D조 vs 11번가 와이번스",
         "publishedAt": "2026-05-30"
+    },
+    "2026-06-06-vs-lx": {
+        "videoCode": "JXliKeGGe14",
+        "title": "26.06.06 D조 vs LX 일스야구단",
+        "publishedAt": "2026-06-06"
     }
 }

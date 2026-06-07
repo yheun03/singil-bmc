@@ -11,7 +11,13 @@
     "content": "<p>다윗 야구 선교단은 LX 일스야구단전에서 7안타 0홈런 5도루를 기록했습니다.</p><p>주요 기록은 2루타 최지민(3회), 도루 최지민(3회,5회) 장재형(1회,3회) 이영원(1회,5회) 박양원(4회) 김영지(3회) 박의현(3회,5회) 선예환(5회) 김명선(2회) 지성찬(2회)입니다.</p><p><a href=\"/games/2026-06-06-vs-lx\">경기 상세 기록 보기</a></p>",
     "link": "/games/2026-06-06-vs-lx",
     "gameId": "2026-06-06-vs-lx",
-    "youtube": null
+    "youtube": {
+      "videoCode": "JXliKeGGe14",
+      "title": "26.06.06 D조 vs LX 일스야구단",
+      "publishedAt": "2026-06-06",
+      "youtubeUrl": "https://www.youtube.com/watch?v=JXliKeGGe14",
+      "thumbnail": "https://i.ytimg.com/vi/JXliKeGGe14/hq720.jpg"
+    }
   },
   {
     "id": "game-2026-05-30-vs-11st",
@@ -25,7 +31,13 @@
     "content": "<p>다윗 야구 선교단은 11번가 와이번스전에서 7안타 1홈런 2도루를 기록했습니다.</p><p>주요 기록은 홈런 은영환(4회), 3루타 은영환(2회)입니다.</p><p><a href=\"/games/2026-05-30-vs-11st\">경기 상세 기록 보기</a></p>",
     "link": "/games/2026-05-30-vs-11st",
     "gameId": "2026-05-30-vs-11st",
-    "youtube": null
+    "youtube": {
+      "videoCode": "v9PPNTJB5lE",
+      "title": "26.05.30 D조 vs 11번가 와이번스",
+      "publishedAt": "2026-05-30",
+      "youtubeUrl": "https://www.youtube.com/watch?v=v9PPNTJB5lE",
+      "thumbnail": "https://i.ytimg.com/vi/v9PPNTJB5lE/hq720.jpg"
+    }
   },
   {
     "id": "game-2026-05-23-vs-koreauniv",

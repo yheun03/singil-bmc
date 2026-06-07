@@ -378,5 +378,11 @@
       "save": 0
     }
   ],
-  "youtube": null
+  "youtube": {
+    "videoCode": "v9PPNTJB5lE",
+    "title": "26.05.30 D조 vs 11번가 와이번스",
+    "publishedAt": "2026-05-30",
+    "youtubeUrl": "https://www.youtube.com/watch?v=v9PPNTJB5lE",
+    "thumbnail": "https://i.ytimg.com/vi/v9PPNTJB5lE/hq720.jpg"
+  }
 }
