@@ -1,1 +1,0 @@
-import{d as a,G as n,H as o}from"./C_K15KTS.js";const _=a({__name:"monthly",async setup(s){let t,e;return[t,e]=n(()=>o({path:"/mvp",query:{type:"monthly"}},{})),await t,e(),()=>{}}});export{_ as default};
