@@ -1,0 +1,335 @@
+{
+  "gameId": "2026-04-11-vs-mavericks",
+  "gameDate": "2026-04-11",
+  "date": "2026-04-11",
+  "year": 2026,
+  "seasonYear": 2026,
+  "month": 4,
+  "opponent": "mavericks",
+  "opponentName": "Mavericks",
+  "group": "D",
+  "status": "completed",
+  "score": {
+    "our": 7,
+    "opponent": 8
+  },
+  "summary": {
+    "hits": 4,
+    "homeRuns": 0,
+    "steals": 7,
+    "strikeouts": 6,
+    "errors": 1,
+    "walksAndHbp": 3
+  },
+  "opponentSummary": {
+    "teamName": "Mavericks",
+    "hits": 6,
+    "homeRuns": 0,
+    "steals": 12,
+    "strikeouts": 7,
+    "errors": 2,
+    "walksAndHbp": 7
+  },
+  "highlights": [
+    {
+      "type": "2루타",
+      "text": "정선호(3회) 김재영(1회)"
+    },
+    {
+      "type": "도루",
+      "text": "곽우섭(1회,2회,4회) 서상원(1회,4회) 신상윤(4회) 정선호(1회,3회) 지성찬(3회) 김희열(2회) 노혁진(2회) 선예환(2회)"
+    }
+  ],
+  "batting": [
+    {
+      "playerId": "gameone-a-1qf37hte2ngo000000u7kjy",
+      "name": "김재영",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 2,
+      "ab": 2,
+      "r": 1,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 1,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-2ebo2ah1vkt0000000ptwfl",
+      "name": "민재홍",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 2,
+      "ab": 2,
+      "r": 1,
+      "h": 0,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-2c7kl0dudmkg0000006h1nm",
+      "name": "권태헌",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 3,
+      "ab": 3,
+      "r": 0,
+      "h": 0,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-d-14atmtkekqko000000creao",
+      "name": "김호태",
+      "group": "D",
+      "gameoneClubId": "34557",
+      "gameoneClubIds": [
+        "34557"
+      ],
+      "pa": 2,
+      "ab": 2,
+      "r": 0,
+      "h": 0,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-162bc666dfc834c896631e3398ab87e8",
+      "name": "지성찬",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 1,
+      "ab": 1,
+      "r": 1,
+      "h": 0,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 2
+    },
+    {
+      "playerId": "gameone-a-25t354agg9q0000000uq981",
+      "name": "유병호",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 2,
+      "ab": 2,
+      "r": 0,
+      "h": 0,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-7qgdtcsthhi0000013j4",
+      "name": "김희열",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 1,
+      "ab": 1,
+      "r": 2,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 1,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 2
+    },
+    {
+      "playerId": "gameone-a-1ssvastjhsl00000px3n",
+      "name": "노혁진",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 1,
+      "ab": 1,
+      "r": 1,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 1
+    },
+    {
+      "playerId": "gameone-a-htnjgpl47440000009rhn8",
+      "name": "선예환",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 2,
+      "ab": 2,
+      "r": 1,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 2,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 2
+    }
+  ],
+  "pitching": [
+    {
+      "playerId": "gameone-a-9u3q0framj200000073oqd",
+      "name": "노승원",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "ip": "1.0",
+      "outs": 3,
+      "h": 2,
+      "r": 4,
+      "er": 3,
+      "bb": 3,
+      "hbp": 2,
+      "so": 2,
+      "win": 0,
+      "loss": 0,
+      "save": 0
+    },
+    {
+      "playerId": "gameone-a-2c7kl0dudmkg0000006h1nm",
+      "name": "권태헌",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "ip": "2.0",
+      "outs": 6,
+      "h": 1,
+      "r": 0,
+      "er": 0,
+      "bb": 0,
+      "hbp": 1,
+      "so": 4,
+      "win": 0,
+      "loss": 0,
+      "save": 0
+    },
+    {
+      "playerId": "gameone-a-1ssvastjhsl00000px3n",
+      "name": "노혁진",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "ip": "0.1",
+      "outs": 1,
+      "h": 2,
+      "r": 3,
+      "er": 1,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "win": 0,
+      "loss": 0,
+      "save": 0
+    },
+    {
+      "playerId": "gameone-a-2c7kl0dudmkg0000006h1nm",
+      "name": "권태헌",
+      "group": "D",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "ip": "0.2",
+      "outs": 2,
+      "h": 1,
+      "r": 1,
+      "er": 0,
+      "bb": 1,
+      "hbp": 0,
+      "so": 1,
+      "win": 0,
+      "loss": 1,
+      "save": 0
+    }
+  ],
+  "youtube": {
+    "videoCode": "KlNeh6USsR8",
+    "title": "26.04.11 D조 vs Mavericks",
+    "publishedAt": "2026-04-11",
+    "youtubeUrl": "https://www.youtube.com/watch?v=KlNeh6USsR8",
+    "thumbnail": "https://i.ytimg.com/vi/KlNeh6USsR8/hq720.jpg"
+  }
+}

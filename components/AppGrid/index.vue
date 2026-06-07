@@ -5,75 +5,133 @@
 
 <script setup lang="ts">
 defineOptions({
-    ssr: false
-})
-import { AgGridVue } from 'ag-grid-vue3'
-import type { GridOptions, GridReadyEvent, FilterChangedEvent } from 'ag-grid-community'
-import { useAgGridRegistry } from '~/composables/useAgGridRegistry'
+    ssr: false,
+    inheritAttrs: false,
+});
+import { AgGridVue } from 'ag-grid-vue3';
+import type {
+    ColDef,
+    FilterChangedEvent,
+    GridApi,
+    GridOptions,
+    GridReadyEvent,
+    ModelUpdatedEvent,
+    RowClassParams,
+    SortChangedEvent,
+} from 'ag-grid-community';
+import { useAgGridRegistry } from '~/composables/useAgGridRegistry';
+import {
+    combineGridRowClass,
+    enhanceGridColumnDefs,
+    enhanceGridDefaultColDef,
+    getGridRowStripeClass,
+} from '~/utils/ag-grid-decimal';
 
-const { register } = useAgGridRegistry()
+const props = defineProps<{
+    gridId?: string;
+    columnDefs?: ColDef[];
+    defaultColDef?: ColDef;
+    rowData?: unknown[];
+}>();
 
-const { $agGridLocale } = useNuxtApp()
-const attrs = useAttrs()
+const { register } = useAgGridRegistry();
 
-function onGridReady(e: GridReadyEvent) {
+const { $agGridLocale } = useNuxtApp();
+const attrs = useAttrs();
 
-    const id = e.api.getGridId()
-
-    if (!id) {
-        console.warn('gridId missing')
-        return
-    }
-
-    register(id, e.api)
+function refreshRowStripes(api: GridApi) {
+    api.redrawRows();
 }
 
-/* attrs -> grid-id 전달 */
+function onGridReady(e: GridReadyEvent) {
+    const id = e.api.getGridId();
 
-const gridAttrs = computed(() => {
-
-    const a = attrs as Record<string, any>
-
-    const {
-        localeText: _,
-        class: __,
-        gridId,
-        'grid-id': gridIdKebab,
-        ...rest
-    } = a
-
-    const id = gridId ?? gridIdKebab
-
-    return {
-
-        overlayLoadingTemplate:
-            '<div class="ag-overlay-loading">로딩중...</div>',
-
-        overlayNoRowsTemplate:
-            '<div class="ag-overlay-no-rows">검색된 결과가 없습니다</div>',
-
-        rowHeight: rest.rowHeight ?? 42,
-        getRowHeight: rest.getRowHeight,
-
-        onFilterChanged(params: FilterChangedEvent) {
-
-            const api = params.api
-
-            if (api.getDisplayedRowCount() === 0 && api.isAnyFilterPresent()) {
-                api.showNoRowsOverlay()
-            } else {
-                api.hideOverlay()
-            }
-
-        },
-
-        ...rest,
-        gridId: id
+    if (!id) {
+        console.warn('gridId missing');
+    } else {
+        register(id, e.api);
     }
 
-})
+    refreshRowStripes(e.api);
+
+    const userHandler = (attrs as Record<string, unknown>)['onGridReady'] ?? (attrs as Record<string, unknown>)['on-grid-ready'];
+    if (typeof userHandler === 'function') {
+        userHandler(e);
+    }
+}
+
+const gridAttrs = computed(() => {
+    const a = attrs as Record<string, unknown>;
+
+    const {
+        localeText: _localeText,
+        class: _class,
+        gridId: _gridId,
+        'grid-id': _gridIdKebab,
+        columnDefs: _columnDefs,
+        'column-defs': _columnDefsKebab,
+        defaultColDef: _defaultColDef,
+        'default-col-def': _defaultColDefKebab,
+        rowData: _rowData,
+        'row-data': _rowDataKebab,
+        getRowClass,
+        'get-row-class': getRowClassKebab,
+        onFilterChanged,
+        'on-filter-changed': onFilterChangedKebab,
+        onSortChanged,
+        'on-sort-changed': onSortChangedKebab,
+        onModelUpdated,
+        'on-model-updated': onModelUpdatedKebab,
+        onGridReady: _onGridReady,
+        'on-grid-ready': _onGridReadyKebab,
+        ...rest
+    } = a;
+
+    const id = props.gridId ?? _gridId ?? _gridIdKebab;
+    const rawColumnDefs = props.columnDefs ?? _columnDefs ?? _columnDefsKebab;
+    const rawDefaultColDef = props.defaultColDef ?? _defaultColDef ?? _defaultColDefKebab;
+    const rawRowData = props.rowData ?? _rowData ?? _rowDataKebab;
+
+    const userGetRowClass = (getRowClass ?? getRowClassKebab) as ((params: RowClassParams) => string | string[] | undefined) | undefined;
+    const userOnFilterChanged = (onFilterChanged ?? onFilterChangedKebab) as ((event: FilterChangedEvent) => void) | undefined;
+    const userOnSortChanged = (onSortChanged ?? onSortChangedKebab) as ((event: SortChangedEvent) => void) | undefined;
+    const userOnModelUpdated = (onModelUpdated ?? onModelUpdatedKebab) as ((event: ModelUpdatedEvent) => void) | undefined;
+
+    return {
+        ...rest,
+        overlayLoadingTemplate: '<div class="ag-overlay-loading">로딩중...</div>',
+        overlayNoRowsTemplate: '<div class="ag-overlay-no-rows">검색된 결과가 없습니다</div>',
+        rowHeight: (rest.rowHeight as number | undefined) ?? 42,
+        getRowHeight: rest.getRowHeight ?? rest['get-row-height'],
+        rowData: rawRowData as GridOptions['rowData'],
+        columnDefs: enhanceGridColumnDefs(rawColumnDefs as GridOptions['columnDefs']),
+        defaultColDef: enhanceGridDefaultColDef(rawDefaultColDef as GridOptions['defaultColDef']),
+        getRowClass: combineGridRowClass(getGridRowStripeClass, userGetRowClass),
+        onFilterChanged(params: FilterChangedEvent) {
+            const api = params.api;
+
+            if (api.getDisplayedRowCount() === 0 && api.isAnyFilterPresent()) {
+                api.showNoRowsOverlay();
+            } else {
+                api.hideOverlay();
+            }
+
+            refreshRowStripes(api);
+            userOnFilterChanged?.(params);
+        },
+        onSortChanged(params: SortChangedEvent) {
+            refreshRowStripes(params.api);
+            userOnSortChanged?.(params);
+        },
+        onModelUpdated(params: ModelUpdatedEvent) {
+            refreshRowStripes(params.api);
+            userOnModelUpdated?.(params);
+        },
+        gridId: id,
+    };
+});
 
 const localeText = computed<GridOptions['localeText']>(() => {
-    return (attrs.localeText as GridOptions['localeText']) ?? $agGridLocale
-})
+    return (attrs.localeText as GridOptions['localeText']) ?? $agGridLocale;
+});
 </script>

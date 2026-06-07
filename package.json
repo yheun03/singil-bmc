@@ -10,9 +10,17 @@
     "scripts": {
         "build": "nuxt build",
         "clean": "rm -rf .nuxt .output node_modules/.vite",
-        "dev": "nuxt dev",
-        "generate": "nuxt generate",
-        "generate:gh-pages": "NUXT_APP_BASE_URL=/singil-bmc/ nuxt generate && gh-pages -d .output/public --dotfiles",
+        "dev:prepare": "npm run clean && npm run records:update && npm run generate:sitemap",
+        "dev": "npm run dev:prepare && nuxt dev",
+        "dev:only": "nuxt dev",
+        "generate:sitemap": "node scripts/generate-sitemap.mjs",
+        "generate": "npm run generate:sitemap && nuxt generate",
+        "deploy": "NUXT_APP_BASE_URL=/singil-bmc/ npm run generate && gh-pages -d .output/public --dotfiles",
+        "update": "node scripts/update-records.js",
+        "records:parse": "node scripts/parse-game-html.js",
+        "records:build": "node scripts/build-records.js",
+        "records:sync": "npm run records:parse && npm run records:build",
+        "records:update": "node scripts/update-records.js",
         "preview": "nuxt preview",
         "postinstall": "nuxt prepare",
         "sync:team": "node scripts/sync-team-repo.mjs",
@@ -38,6 +46,7 @@
     },
     "devDependencies": {
         "@types/node": "^22.19.19",
+        "cheerio": "^1.0.0",
         "gh-pages": "^6.3.0",
         "sass": "^1.80.4"
     }

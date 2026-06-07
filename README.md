@@ -1,289 +1,164 @@
-# Framework → 팀 Git 동기화 가이드
+# 신길교회 야구 선교단 (singil-bmc)
 
-개인 GitHub 저장소([yheun03/singil-bmc](https://github.com/yheun03/singil-bmc))에서 개발한 내용을, 팀 GitLab 저장소(`devops/client`)에 **커밋 이력·메시지까지 그대로** 반영하기 위한 절차입니다.
+GitHub Pages에 정적으로 배포되는 **신길교회 야구 선교단** 홈페이지입니다.  
+서버 API 없이, 빌드 전 Node.js 스크립트로 경기 HTML을 JSON으로 변환하고 프론트에서 정적 JSON을 fetch해 화면을 렌더링합니다.
 
-클론을 받은 **로컬 경로는 PC마다 달라도** 됩니다. 스크립트가 `git` 저장소 루트를 자동으로 찾습니다.
-
-### 팀 반영 브랜치
-
-| 브랜치                           | 용도                           |
-| -------------------------------- | ------------------------------ |
-| `main` (GitHub framework)        | 개인 개발·푸시                 |
-| **`feature/yh.eun`** (팀 GitLab) | 팀 공유·MR용 (**여기에 push**) |
-
-`master`에는 push하지 않습니다. 스크립트 기본값도 `feature/yh.eun`입니다.
+- **배포 주소:** https://yheun03.github.io/singil-bmc/
+- **baseURL:** `/singil-bmc/`
 
 ---
 
-## 저장소 역할
+## 기술 스택
 
-| 저장소             | URL (예시)                                    | 역할                                        |
-| ------------------ | --------------------------------------------- | ------------------------------------------- |
-| **개인 framework** | `https://github.com/yheun03/framework.git`    | 평소 개발·커밋·푸시하는 곳                  |
-| **팀 client**      | `https://git.jonsoft.co.kr/devops/client.git` | 팀 공유용. 개인 repo 내용을 주기적으로 이관 |
-
-```mermaid
-flowchart LR
-  A[개인 PC에서 개발] --> B[GitHub framework]
-  B --> C["npm run sync:team"]
-  C --> D[팀 GitLab client]
-```
+- **프레임워크:** Nuxt 3 (Vite / Nitro static preset)
+- **UI:** Vue 3, SCSS (BEM), 기존 framework 컴포넌트
+- **상태관리:** Pinia
+- **기록 파싱:** Node.js + cheerio
+- **배포:** GitHub Pages
 
 ---
 
-## 개인 레포에 추가해야 하는 파일
+## 페이지 구조
 
-아래 **2가지**를 개인 framework 저장소에 넣고, GitHub에 **커밋·푸시**해 두어야 합니다.  
-팀 쪽에서 `sync:team`을 실행할 때 이 파일들도 함께 내려받습니다.
-
-### 1. `scripts/sync-team-repo.mjs`
-
-동기화를 수행하는 Node 스크립트입니다. 저장소 루트 기준으로 동작합니다.
-
-### 2. `package.json` — `scripts` 항목 추가
-
-`package.json`의 `"scripts"` 블록에 다음 두 줄이 있어야 합니다.
-
-```json
-"sync:team": "node scripts/sync-team-repo.mjs",
-"sync:team:init": "node scripts/sync-team-repo.mjs --init"
-```
-
-> 이미 프로젝트에 포함되어 있다면, 개인 레포에서 한 번만 커밋·푸시하면 됩니다.
-
-### 개인 레포에 반영하는 방법 (최초 1회)
-
-개인 framework 저장소 루트에서:
-
-```bash
-# 파일이 있는지 확인
-ls scripts/sync-team-repo.mjs
-grep sync:team package.json
-
-# 커밋 & GitHub 푸시
-git add scripts/sync-team-repo.mjs package.json
-git commit -m "chore: 팀 Git 주간 동기화 npm 스크립트 추가"
-git push origin main
-```
-
-이 단계를 건너뛰면, 팀 클론에서 `npm run sync:team` 실행 시 **스크립트가 없어지거나** 동기화 후 삭제될 수 있습니다.
-
----
-
-## npm 명령어 요약
-
-| 명령                     | 언제 쓰나            | 하는 일                                                                 |
-| ------------------------ | -------------------- | ----------------------------------------------------------------------- |
-| `npm run sync:team`      | **매주·수시**        | GitHub framework 최신을 가져와 `feature/yh.eun` 브랜치·작업 트리를 맞춤 |
-| `npm run sync:team:init` | **팀 클론 최초 1회** | 팀 저장소 파일·`.git` 이력을 framework 기준으로 **통째 교체**           |
-
-선택 환경 변수:
-
-| 변수                  | 기본값                                     | 설명                                       |
-| --------------------- | ------------------------------------------ | ------------------------------------------ |
-| `FRAMEWORK_REPO`      | `https://github.com/yheun03/framework.git` | 개인 framework URL                         |
-| `FRAMEWORK_BRANCH`    | `main`                                     | 가져올 브랜치                              |
-| `TEAM_BRANCH`         | `feature/yh.eun`                           | 팀 저장소에서 맞출 브랜치                  |
-| `KEEP_NODE_MODULES=1` | (없음)                                     | 설정 시 `git clean` 때 `node_modules` 유지 |
-
-```bash
-# node_modules 재설치를 피하고 싶을 때
-KEEP_NODE_MODULES=1 npm run sync:team
-```
-
----
-
-## 전체 작업 순서
-
-### 0단계 — 사전 준비 (한 번만)
-
-- Node.js **20 이상** (`package.json` engines 참고)
-- 팀 GitLab 계정·접근 권한
-- 개인 GitHub framework 저장소에 위 **스크립트 2종** 커밋·푸시 완료
-
----
-
-### 1단계 — 평소: 개인 레포에서 개발
-
-```bash
-cd /원하는/경로/framework   # 개인 클론 경로는 자유
-
-npm install
-npm run dev
-
-# 작업 후
-git add .
-git commit -m "feat: ..."
-git push origin main
-```
-
-개발·커밋·푸시는 **항상 GitHub framework**에서만 진행합니다.
-
----
-
-### 2단계 — 팀 Git 클론 (최초 1회)
-
-팀 저장소를 로컬에 받습니다. **경로는 팀원마다 달라도 됩니다.**
-
-```bash
-git clone https://git.jonsoft.co.kr/devops/client.git
-cd client   # 예: /Users/me/work/client 등 임의 경로
-
-npm install
-```
-
-`origin`이 팀 GitLab URL인지 확인합니다.
-
-```bash
-git remote -v
-# origin  https://git.jonsoft.co.kr/devops/client.git (fetch)
-```
-
----
-
-### 3단계 — 팀 클론 최초 이관 (`sync:team:init`)
-
-팀 저장소가 **아직 예전 구조**이거나, framework 이력으로 **처음 맞출 때** 한 번만 실행합니다.
-
-```bash
-cd /팀/client/클론/경로
-
-npm run sync:team:init
-```
-
-동작 요약:
-
-1. GitHub에서 framework를 임시 클론
-2. 팀 클론의 기존 파일·`.git` 제거 후 framework 이력으로 교체
-3. `origin`은 **팀 GitLab URL 유지**
-4. `framework` remote 추가 후 `feature/yh.eun` ← `framework/main` 정렬
-
-완료 후 로컬 `feature/yh.eun`에 framework 커밋 이력이 올라와 있어야 합니다.
-
-```bash
-git log --oneline -5
-git rev-list --count HEAD
-```
-
----
-
-### 4단계 — 팀 서버에 반영 (최초 이관 직후)
-
-로컬 이력이 팀 서버와 완전히 다르므로 **force push**가 필요합니다.
-
-```bash
-git push -u origin feature/yh.eun --force
-```
-
-> 팀 공유 브랜치는 **`feature/yh.eun`** 입니다. `master`에 push하지 마세요.
-
----
-
-### 5단계 — 매주(또는 이관할 때마다) 반복
-
-개인 repo에 푸시한 뒤, **팀 클론**에서:
-
-```bash
-cd /팀/client/클론/경로
-
-# 1) framework 최신 반영
-npm run sync:team
-
-# 2) 상태 확인
-git status
-git log --oneline -3
-
-# 3) 팀 GitLab에 올리기
-git push origin feature/yh.eun --force
-```
-
-`sync:team` 내부 동작:
-
-1. `origin` URL(팀 Git) 저장
-2. `framework` remote로 GitHub fetch
-3. `feature/yh.eun`을 `framework/main`과 동일 커밋으로 `reset --hard`
-4. 추적되지 않은 파일 정리 (`git clean -fdx`)
-5. `origin` URL이 바뀌었으면 팀 URL로 복구
-
----
-
-## 한 주기 체크리스트 (복사용)
+홈페이지 라우트는 `pages/` 아래에 두었습니다. `nuxt.config`의 `pages:extend` 훅으로 데모·인증을 제외한 페이지에 `site` 레이아웃을 적용합니다.  
+프레임워크 데모(`pages/demos/`, `pages/workspace.vue` 등)는 기존 `layouts/default.vue`를 그대로 사용합니다.
 
 ```text
-[ ] 개인 framework에서 개발·커밋·push (origin main)
-[ ] 팀 client 클론으로 이동
-[ ] npm run sync:team
-[ ] git log / git status 확인
-[ ] git push origin feature/yh.eun --force
-[ ] (필요 시) 팀원에게 반영 알림
+pages/
+  index.vue               # 홈
+  about/index.vue         # 선교단 소개
+  about/leaders.vue       # 조직/섬김이
+  about/history.vue       # 히스토리
+  gallery/team.vue        # 단체사진
+  records/index.vue       # 전체 기록
+  records/yearly.vue      # 연도별 기록
+  records/monthly.vue     # 월별 기록
+  records/groups.vue      # 조별 기록
+  mvp/monthly.vue         # 월별 MVP
+  mvp/weekly.vue          # 주간 MVP
+  players/                # 선수 명단
+  games/                  # 경기
+  videos/index.vue        # YouTube 영상
+  news/index.vue          # 소식 목록
+  news/[slug].vue         # 소식 상세
+  contact/index.vue       # 문의
+  demos/                  # framework UI 데모
+  workspace.vue           # framework 워크스페이스
 ```
 
 ---
 
-## 자주 묻는 상황
+## 데이터 디렉터리 구조
 
-### Q. 클론 경로가 달라도 되나요?
-
-됩니다. `npm run sync:team`은 **현재 디렉터리가 속한 git 저장소 루트**에서 실행하면 됩니다. (`git rev-parse --show-toplevel`)
-
-### Q. `sync:team`과 `sync:team:init` 차이는?
-
-|             | `sync:team`            | `sync:team:init`                      |
-| ----------- | ---------------------- | ------------------------------------- |
-| 빈도        | 매주·수시              | 팀 클론 최초 1회                      |
-| `.git` 교체 | 아니오 (fetch + reset) | 예 (framework `.git` 기준으로 재구성) |
-| 속도        | 빠름                   | 느림 (전체 클론)                      |
-
-이미 `init`으로 맞춘 뒤에는 **`sync:team`만** 쓰면 됩니다.
-
-### Q. `sync:team` 후에 추가한 로컬 파일이 사라졌어요
-
-`git reset --hard`와 `git clean -fdx` 때문에 **GitHub framework에 없는 파일**은 제거됩니다.  
-팀에 반영할 변경은
-반드시 **개인 repo에 먼저 커밋·푸시**하세요.
-
-### Q. `node_modules`를 매번 지우기 싫어요
-
-```bash
-KEEP_NODE_MODULES=1 npm run sync:team
+```text
+public/data/
+  raw-games/          # 게임원 경기 기록 HTML (입력)
+  games/              # 경기별 JSON (자동 생성)
+  summary/            # 누적 기록 JSON (자동 생성)
+  meta/               # 선수, 운영진, 갤러리, 영상, 소식 (수동 관리)
 ```
 
-의존성이 바뀌었다면 그때만 `npm install`을 다시 실행하세요.
+| 경로                           | 설명                   |
+| ------------------------------ | ---------------------- |
+| `raw-games/*.html`             | 게임원 table HTML 저장 |
+| `games/*.json`                 | 경기별 파싱 결과       |
+| `summary/batting-total.json`   | 타자 누적 기록         |
+| `summary/pitching-total.json`  | 투수 누적 기록         |
+| `summary/team-total.json`      | 팀 요약                |
+| `summary/players-total.json`   | 선수별 통합 기록       |
+| `summary/yearly-records.json`  | 연도별 기록            |
+| `summary/monthly-records.json` | 월별 기록              |
+| `summary/group-records.json`   | A조/D조 기록           |
+| `summary/mvp-monthly.json`     | 월별 MVP (수동)        |
+| `summary/mvp-weekly.json`      | 주간 MVP (수동)        |
+| `meta/players.json`            | 선수 마스터            |
+| `meta/leaders.json`            | 운영진                 |
+| `meta/history.json`            | 연혁                   |
+| `meta/videos.json`             | YouTube 영상 목록      |
+| `meta/gallery.json`            | 단체사진               |
+| `meta/news.json`               | 소식                   |
 
-### Q. 팀 `origin`이 GitHub로 바뀌었어요
+---
 
-`sync:team` / `sync:team:init`은 실행 전 `origin` URL을 읽어 두었다가 끝에 다시 팀 URL로 맞춥니다.  
-그래도 이상하면:
+## 개발 실행
 
 ```bash
-git remote set-url origin https://git.jonsoft.co.kr/devops/client.git
+npm install
+npm run dev
 ```
 
-### Q. force push가 무서워요
+로컬 개발 시에도 `nuxt.config.ts`의 `app.baseURL`이 `/singil-bmc/`으로 설정되어 GitHub Pages와 동일한 경로 기준으로 동작합니다.
 
-`feature/yh.eun` 이력을 framework 최신으로 **덮어쓰는** 작업이라 필요합니다.  
-팀원과 **동기화 타이밍**을 맞추거나, 팀 정책에 맞는 브랜치 전략을 쓰세요.
+JSON fetch는 `composables/useBasePath.ts`의 `fetchJson()` / `getDataPath()`를 사용합니다.
+
+```ts
+const { fetchJson } = useBasePath();
+const teamTotal = await fetchJson('summary/team-total.json');
+```
+
+---
+
+## 기록 갱신 절차
+
+경기 종료 후 운영 절차는 [GAME_RECORD_UPDATE_HANDOFF.md](./GAME_RECORD_UPDATE_HANDOFF.md)를 기준으로 진행합니다.
+
+핵심 명령어:
+
+```bash
+npm run update
+```
+
+요약:
+
+- `public/data/raw-games/*.html`만 기준으로 자동 생성 데이터를 초기화 후 재생성합니다.
+- `Davids 야구 선교단` 경기는 A조, `다윗 야구 선교단` 경기는 D조로 자동 구분합니다.
+- 상대팀 선수 기록은 누적 타자/투수 기록에 포함하지 않습니다.
+- `public/data/manual/youtube-links.json`은 수동 관리 파일이며 update 시 삭제하지 않습니다.
+
+---
+
+## 빌드 / 배포
+
+```bash
+# 정적 생성
+npm run generate
+
+# GitHub Pages 로컬 배포 (gh-pages CLI)
+npm run generate:gh-pages
+```
+
+GitHub Actions(`.github/workflows/gh-pages.yml`)는 `NUXT_APP_BASE_URL=/singil-bmc/` 환경 변수로 generate 후 배포합니다.
+
+---
+
+## 선수 매칭
+
+HTML의 선수명은 `public/data/meta/players.json`의 `gameoneName`과 매칭됩니다.  
+매칭되지 않는 선수는 임시 `playerId`가 생성되고 콘솔에 warning이 출력됩니다.
+
+```text
+[WARN] players.json에서 매칭되지 않은 선수명: "홍길동"
+```
+
+조(A/D) 정보는 `players.json`의 `group` 값을 우선 사용합니다.
 
 ---
 
 ## 관련 파일
 
-| 파일                         | 설명                                            |
-| ---------------------------- | ----------------------------------------------- |
-| `scripts/sync-team-repo.mjs` | 동기화 스크립트 본체                            |
-| `package.json`               | `sync:team`, `sync:team:init` npm 스크립트 정의 |
-| `project_note.md`            | 프로젝트 구조·개발 규칙                         |
+| 파일                           | 설명                    |
+| ------------------------------ | ----------------------- |
+| `nuxt.config.ts`               | baseURL, static preset  |
+| `composables/useBasePath.ts`   | GitHub Pages 경로 유틸  |
+| `stores/navigation.ts`         | GNB 메뉴                |
+| `scripts/parse-game-html.js`   | HTML 파싱               |
+| `scripts/build-records.js`     | 누적 기록 생성          |
+| `scripts/update-records.js`    | parse + build 일괄 실행 |
+| `scripts/lib/records-utils.js` | 파싱/계산 공통 유틸     |
 
 ---
 
-## 개발 서버 실행 (참고)
+## 팀 Git 동기화 (참고)
 
-동기화와 별개로, 로컬에서 앱을 띄울 때:
-
-```bash
-npm install
-npm run dev
-```
-
-GitHub Pages 배포: `npm run generate:gh-pages`  
-자세한 구조는 `project_note.md`를 참고하세요.
+framework → 팀 GitLab 동기화 절차는 기존 `scripts/sync-team-repo.mjs` 및 `npm run sync:team`을 사용합니다.  
+자세한 내용은 저장소 내 sync 관련 문서를 참고하세요.

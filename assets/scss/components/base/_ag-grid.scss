@@ -104,10 +104,15 @@
 
     .ag-row {
         @include font(c1, rg);
+        background-color: transparent;
+    }
 
-        &:nth-child(even) {
-            background-color: $gray-0;
-        }
+    .ag-row.ag-row--stripe-even {
+        background-color: transparent;
+    }
+
+    .ag-row.ag-row--stripe-odd {
+        background-color: $gray-0;
     }
 
     .ag-row.ag-row-hover {

@@ -1,22 +1,28 @@
+import { collectDynamicPrerenderRoutes } from './config/prerender-routes';
+
+const APP_BASE = (process.env.NUXT_APP_BASE_URL || '/singil-bmc/').replace(/\/?$/, '/');
+
 export default defineNuxtConfig({
+    compatibilityDate: '2026-05-31',
     devtools: { enabled: true },
     experimental: { appManifest: false },
     features: { inlineStyles: false },
 
     app: {
-        // GitHub Pages: https://yheun03.github.io/singil-bmc/ → base는 /singil-bmc/
+        // GitHub Pages: https://yheun03.github.io/singil-bmc/
         // 다른 base는 빌드 시 NUXT_APP_BASE_URL 로 지정 (package.json의 generate:gh-pages).
-        baseURL: process.env.NUXT_APP_BASE_URL || '/singil-bmc/',
+        baseURL: APP_BASE,
         head: {
-            title: 'Singil BMC',
+            title: '신길교회 야구 선교단',
             htmlAttrs: { lang: 'ko' },
-            link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
+            meta: [{ name: 'theme-color', content: '#1e56c8' }],
+            link: [{ rel: 'icon', type: 'image/svg+xml', href: `${APP_BASE}favicon.svg` }],
         },
     },
 
     site: {
-        url: 'https://yheun03.github.io',
-        name: 'Singil BMC',
+        url: 'https://yheun03.github.io/singil-bmc/',
+        name: '신길교회 야구 선교단',
     },
 
     modules: ['@pinia/nuxt'],
@@ -30,6 +36,7 @@ export default defineNuxtConfig({
         { path: '~/components/Table', pathPrefix: false },
         { path: '~/components/Section', pathPrefix: false },
         { path: '~/components/Layout', pathPrefix: false },
+        { path: '~/components/Site', pathPrefix: false },
         { path: '~/components/Modal', pathPrefix: false },
         // 모든 전역 컴포넌트를 components 루트에서 자동 등록
         { path: '~/components', pathPrefix: true },
@@ -43,7 +50,12 @@ export default defineNuxtConfig({
         '~/plugins/ag-grid.client',
         '~/plugins/route-tabs.client',
         '~/plugins/global-css-no-inline.client',
+        '~/plugins/seo',
     ],
+
+    devServer: {
+        port: 3000,
+    },
 
     vite: {
         build: {
@@ -76,11 +88,35 @@ export default defineNuxtConfig({
     runtimeConfig: {
         public: {
             apiBase: '/api',
+            appBase: APP_BASE,
         },
     },
 
     // GitHub Pages 배포 대응
     nitro: {
         preset: 'static',
+    },
+
+    hooks: {
+        'prerender:routes'(ctx) {
+            ctx.routes.add('/sitemap.xml');
+            for (const path of collectDynamicPrerenderRoutes()) {
+                ctx.routes.add(path);
+            }
+        },
+        'pages:extend'(pages) {
+            const frameworkPrefixes = ['/demos', '/auth', '/workspace', '/settings'];
+
+            for (const page of pages) {
+                if (!page.path || frameworkPrefixes.some((prefix) => page.path?.startsWith(prefix))) {
+                    continue;
+                }
+
+                page.meta ||= {};
+                if (!page.meta.layout) {
+                    page.meta.layout = 'site';
+                }
+            }
+        },
     },
 });

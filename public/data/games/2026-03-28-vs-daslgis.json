@@ -1,0 +1,342 @@
+{
+  "gameId": "2026-03-28-vs-daslgis",
+  "gameDate": "2026-03-28",
+  "date": "2026-03-28",
+  "year": 2026,
+  "seasonYear": 2026,
+  "month": 3,
+  "opponent": "daslgis",
+  "opponentName": "다슬기스OB",
+  "group": "A",
+  "status": "completed",
+  "score": {
+    "our": 6,
+    "opponent": 10
+  },
+  "summary": {
+    "hits": 8,
+    "homeRuns": 0,
+    "steals": 5,
+    "strikeouts": 6,
+    "errors": 1,
+    "walksAndHbp": 3
+  },
+  "opponentSummary": {
+    "teamName": "다슬기스OB",
+    "hits": 10,
+    "homeRuns": 0,
+    "steals": 5,
+    "strikeouts": 2,
+    "errors": 1,
+    "walksAndHbp": 3
+  },
+  "highlights": [
+    {
+      "type": "3루타",
+      "text": "은영환(3회)"
+    },
+    {
+      "type": "2루타",
+      "text": "이영빈(2회) 이원재(2회) 조상호(1회) 오세주(2회)"
+    },
+    {
+      "type": "도루",
+      "text": "김재영(1회,3회) 선예환(2회) 정민혁(3회) 김웅기(2회) 권영언(2회) 조상호(2회) 이승준(3회) 이효재(3회)"
+    }
+  ],
+  "batting": [
+    {
+      "playerId": "gameone-a-1d34d17vqm50000000g3aw1",
+      "name": "반석훈",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 2,
+      "ab": 2,
+      "r": 0,
+      "h": 0,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 2,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-1qf37hte2ngo000000u7kjy",
+      "name": "김재영",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 2,
+      "ab": 2,
+      "r": 1,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 1,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 3
+    },
+    {
+      "playerId": "gameone-a-4f760d727f4b2b95a202ae678b563d74",
+      "name": "김명선",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 2,
+      "ab": 2,
+      "r": 0,
+      "h": 0,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-1sqi41sdcma80000009ta4r",
+      "name": "박의현",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 1,
+      "ab": 1,
+      "r": 0,
+      "h": 0,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
+      "name": "이효재",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 2,
+      "ab": 2,
+      "r": 1,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 1,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 1
+    },
+    {
+      "playerId": "gameone-a-htnjgpl47440000009rhn8",
+      "name": "선예환",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 3,
+      "ab": 3,
+      "r": 1,
+      "h": 2,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 1,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 1
+    },
+    {
+      "playerId": "gameone-a-7a25ad45db6397812c86dd69fffe7687",
+      "name": "성백동",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 3,
+      "ab": 3,
+      "r": 0,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 1,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-10t99plcau4o000000xsozw",
+      "name": "김가현",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 1,
+      "ab": 1,
+      "r": 0,
+      "h": 0,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-9u0diupqb7600000023mwz",
+      "name": "서우성",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 0,
+      "ab": 0,
+      "r": 1,
+      "h": 0,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-b01da1508ee2bc2ddb2b896766876c1a",
+      "name": "최정훈",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 2,
+      "ab": 2,
+      "r": 1,
+      "h": 2,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-1j5ef7j5q4eo0000007r6jc",
+      "name": "은영환",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 2,
+      "ab": 2,
+      "r": 1,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    }
+  ],
+  "pitching": [
+    {
+      "playerId": "gameone-a-htnjgpl47440000009rhn8",
+      "name": "선예환",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "ip": "1.2",
+      "outs": 5,
+      "h": 7,
+      "r": 8,
+      "er": 5,
+      "bb": 1,
+      "hbp": 1,
+      "so": 2,
+      "win": 0,
+      "loss": 1,
+      "save": 0
+    },
+    {
+      "playerId": "gameone-a-4f760d727f4b2b95a202ae678b563d74",
+      "name": "김명선",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "ip": "1.1",
+      "outs": 4,
+      "h": 3,
+      "r": 2,
+      "er": 2,
+      "bb": 1,
+      "hbp": 0,
+      "so": 0,
+      "win": 0,
+      "loss": 0,
+      "save": 0
+    }
+  ],
+  "youtube": {
+    "videoCode": "MSCHCzSJfYs",
+    "title": "26.03.28 A조 vs 다슬기스OB",
+    "publishedAt": "2026-03-28",
+    "youtubeUrl": "https://www.youtube.com/watch?v=MSCHCzSJfYs",
+    "thumbnail": "https://i.ytimg.com/vi/MSCHCzSJfYs/hq720.jpg"
+  }
+}

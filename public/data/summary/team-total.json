@@ -1,0 +1,64 @@
+{
+  "totalGames": 40,
+  "totalPlayers": 33,
+  "totalHits": 386,
+  "totalRuns": 449,
+  "lastGameDate": "2026-06-06",
+  "recentGames": [
+    {
+      "gameId": "2026-05-02-vs-mavericks",
+      "gameDate": "2026-05-02",
+      "opponent": "mavericks",
+      "opponentName": "Mavericks",
+      "score": {
+        "our": 14,
+        "opponent": 7
+      },
+      "group": "D"
+    },
+    {
+      "gameId": "2026-05-09-vs-anjin",
+      "gameDate": "2026-05-09",
+      "opponent": "anjin",
+      "opponentName": "안진회계법인",
+      "score": {
+        "our": 10,
+        "opponent": 1
+      },
+      "group": "D"
+    },
+    {
+      "gameId": "2026-05-23-vs-koreauniv",
+      "gameDate": "2026-05-23",
+      "opponent": "koreauniv",
+      "opponentName": "고려대학교 데몽",
+      "score": {
+        "our": 12,
+        "opponent": 5
+      },
+      "group": "A"
+    },
+    {
+      "gameId": "2026-05-30-vs-11st",
+      "gameDate": "2026-05-30",
+      "opponent": "11st",
+      "opponentName": "11번가 와이번스",
+      "score": {
+        "our": 10,
+        "opponent": 9
+      },
+      "group": "D"
+    },
+    {
+      "gameId": "2026-06-06-vs-lx",
+      "gameDate": "2026-06-06",
+      "opponent": "lx",
+      "opponentName": "LX 일스야구단",
+      "score": {
+        "our": 6,
+        "opponent": 7
+      },
+      "group": "D"
+    }
+  ]
+}

@@ -1,0 +1,295 @@
+{
+  "gameId": "2026-03-14-vs-laeob",
+  "gameDate": "2026-03-14",
+  "date": "2026-03-14",
+  "year": 2026,
+  "seasonYear": 2026,
+  "month": 3,
+  "opponent": "laeob",
+  "opponentName": "동국대학교 LAE OB",
+  "group": "A",
+  "status": "completed",
+  "score": {
+    "our": 9,
+    "opponent": 2
+  },
+  "summary": {
+    "hits": 9,
+    "homeRuns": 0,
+    "steals": 3,
+    "strikeouts": 5,
+    "errors": 2,
+    "walksAndHbp": 4
+  },
+  "opponentSummary": {
+    "teamName": "동국대학교 LAE OB",
+    "hits": 3,
+    "homeRuns": 0,
+    "steals": 4,
+    "strikeouts": 5,
+    "errors": 3,
+    "walksAndHbp": 3
+  },
+  "highlights": [
+    {
+      "type": "2루타",
+      "text": "김재영(4회) 선예환(3회) 김명선(3회) 성백동(2회)"
+    },
+    {
+      "type": "도루",
+      "text": "선예환(4회) 성백동(3회) 이효재(4회) 최영규(1회) 이용성(4회) 윤재선(2회,4회)"
+    }
+  ],
+  "batting": [
+    {
+      "playerId": "gameone-a-1qf37hte2ngo000000u7kjy",
+      "name": "김재영",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 3,
+      "ab": 3,
+      "r": 1,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 2,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-htnjgpl47440000009rhn8",
+      "name": "선예환",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 3,
+      "ab": 3,
+      "r": 2,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 1,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 1
+    },
+    {
+      "playerId": "gameone-a-4f760d727f4b2b95a202ae678b563d74",
+      "name": "김명선",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 2,
+      "ab": 2,
+      "r": 1,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 2,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-1sqi41sdcma80000009ta4r",
+      "name": "박의현",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 3,
+      "ab": 3,
+      "r": 0,
+      "h": 0,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-7a25ad45db6397812c86dd69fffe7687",
+      "name": "성백동",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 3,
+      "ab": 3,
+      "r": 1,
+      "h": 3,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 1,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 1
+    },
+    {
+      "playerId": "gameone-a-9u0diupqb7600000023mwz",
+      "name": "서우성",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 2,
+      "ab": 2,
+      "r": 1,
+      "h": 0,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-b01da1508ee2bc2ddb2b896766876c1a",
+      "name": "최정훈",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 3,
+      "ab": 3,
+      "r": 1,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 1,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-ijvwbr1hcylxvqdzr8hysenkttw9pmou",
+      "name": "이효재",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 0,
+      "ab": 0,
+      "r": 1,
+      "h": 0,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 1
+    },
+    {
+      "playerId": "gameone-a-1eeu7stkh4ig000000bfkln",
+      "name": "조영중",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 2,
+      "ab": 2,
+      "r": 1,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 0,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    },
+    {
+      "playerId": "gameone-a-kk8hul65kok000000wyq9z",
+      "name": "오치송",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "pa": 1,
+      "ab": 1,
+      "r": 0,
+      "h": 1,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "rbi": 2,
+      "bb": 0,
+      "hbp": 0,
+      "so": 0,
+      "sb": 0
+    }
+  ],
+  "pitching": [
+    {
+      "playerId": "gameone-a-1j5ef7j5q4eo0000007r6jc",
+      "name": "은영환",
+      "group": "A",
+      "gameoneClubId": "40303",
+      "gameoneClubIds": [
+        "40303",
+        "34557"
+      ],
+      "ip": "4.0",
+      "outs": 12,
+      "h": 3,
+      "r": 2,
+      "er": 0,
+      "bb": 3,
+      "hbp": 0,
+      "so": 5,
+      "win": 1,
+      "loss": 0,
+      "save": 0
+    }
+  ],
+  "youtube": {
+    "videoCode": "9hXt1I94Ves",
+    "title": "26.03.14 A조 vs 동국대학교 LAE OB",
+    "publishedAt": "2026-03-14",
+    "youtubeUrl": "https://www.youtube.com/watch?v=9hXt1I94Ves",
+    "thumbnail": "https://i.ytimg.com/vi/9hXt1I94Ves/hq720.jpg"
+  }
+}
