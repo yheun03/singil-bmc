@@ -93,12 +93,15 @@
         min-height: 76px;
         color: $bmc-navy-900;
         text-decoration: none;
+        font-family: inherit;
         font-size: 0.9375rem;
         font-weight: 900;
+        line-height: 1;
         letter-spacing: 0.02em;
         padding: 0 12px;
         border-radius: 0;
         white-space: nowrap;
+        border: 0;
         border-bottom: 3px solid transparent;
         box-sizing: border-box;
         background: transparent;
@@ -115,7 +118,6 @@
     }
 
     &__trigger {
-        border: 0;
         cursor: pointer;
         user-select: none;
 

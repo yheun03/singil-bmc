@@ -30,14 +30,34 @@
                 </article>
             </div>
 
-            <section v-if="!isForfeit && filteredHighlights.length" class="bmc-stat-panel">
+            <section v-if="!isForfeit && gameMvpCards.length" class="bmc-stat-panel bmc-game-mvp">
+                <div class="bmc-section-head">
+                    <h3>경기 MVP</h3>
+                    <span>MVP 점수 기준</span>
+                </div>
+                <div class="bmc-game-mvp__grid">
+                    <article v-for="item in gameMvpCards" :key="item.kind" class="bmc-game-mvp__card">
+                        <span class="bmc-game-mvp__badge">{{ item.label }}</span>
+                        <strong>{{ item.name }}</strong>
+                        <p>{{ item.summary }}</p>
+                        <span class="bmc-game-mvp__score">{{ item.score }}점</span>
+                    </article>
+                </div>
+            </section>
+
+            <section v-if="!isForfeit && highlightCards.length" class="bmc-stat-panel bmc-highlights">
                 <h3>하이라이트</h3>
-                <ul class="bmc-highlight-list">
-                    <li v-for="item in filteredHighlights" :key="`${item.type}-${item.text}`">
+                <div class="bmc-highlights__grid">
+                    <article v-for="item in highlightCards" :key="item.type" class="bmc-highlights__card">
                         <strong>{{ item.type }}</strong>
-                        <span>{{ item.text }}</span>
-                    </li>
-                </ul>
+                        <ul>
+                            <li v-for="player in item.players" :key="`${item.type}-${player.name}-${player.innings}`">
+                                <span>{{ player.name }}</span>
+                                <em>{{ player.innings }}</em>
+                            </li>
+                        </ul>
+                    </article>
+                </div>
             </section>
 
             <section v-if="!isForfeit && hasTeamRecords" class="bmc-stat-panel bmc-game-records">
@@ -111,6 +131,7 @@
 <script setup lang="ts">
 import type { ColDef } from 'ag-grid-community';
 import { YOUTUBE_CHANNEL_URL } from '~/constants/site';
+import { calcMvpBattingScore, calcMvpPitchingScore } from '~/utils/mvp-display';
 import { formatDisplayScore, isForfeitResult, resolveGameResult, type GameResultKind } from '~/utils/game-result';
 
 type Summary = {
@@ -180,6 +201,14 @@ type DetailedRecordRow = {
     firstInning: number;
 };
 
+type GameMvpCard = {
+    kind: 'batting' | 'pitching';
+    label: string;
+    name: string;
+    summary: string;
+    score: string;
+};
+
 definePageMeta({ title: '경기 상세' });
 
 const route = useRoute();
@@ -224,6 +253,61 @@ const filteredHighlights = computed(() =>
         }))
         .filter((item) => item.text),
 );
+
+const highlightCards = computed(() =>
+    filteredHighlights.value
+        .map((item) => ({
+            type: item.type,
+            players: parseHighlightPlayers(item.text),
+        }))
+        .filter((item) => item.players.length),
+);
+
+const battingMvp = computed(() => {
+    const candidates = battingRows.value
+        .map((row) => ({ row, score: calcMvpBattingScore(row) }))
+        .filter((item) => item.score > 0)
+        .sort((a, b) => b.score - a.score || (b.row.h ?? 0) - (a.row.h ?? 0) || a.row.name.localeCompare(b.row.name, 'ko'));
+
+    return candidates[0] ?? null;
+});
+
+const pitchingMvp = computed(() => {
+    const candidates = pitchingRows.value
+        .map((row) => ({ row, score: calcMvpPitchingScore(row) }))
+        .filter((item) => item.score > 0)
+        .sort((a, b) => b.score - a.score || (b.row.outs ?? 0) - (a.row.outs ?? 0) || a.row.name.localeCompare(b.row.name, 'ko'));
+
+    return candidates[0] ?? null;
+});
+
+const gameMvpCards = computed<GameMvpCard[]>(() => {
+    const cards: GameMvpCard[] = [];
+
+    if (battingMvp.value) {
+        const row = battingMvp.value.row;
+        cards.push({
+            kind: 'batting',
+            label: '타자 MVP',
+            name: row.name,
+            summary: `${row.h ?? 0}안타 · ${row.rbi ?? 0}타점 · ${row.r ?? 0}득점 · ${row.sb ?? 0}도루`,
+            score: battingMvp.value.score.toFixed(1),
+        });
+    }
+
+    if (pitchingMvp.value) {
+        const row = pitchingMvp.value.row;
+        cards.push({
+            kind: 'pitching',
+            label: '투수 MVP',
+            name: row.name,
+            summary: `${row.ip ?? '0.0'}이닝 · ${row.so ?? 0}삼진 · ${row.er ?? 0}자책`,
+            score: pitchingMvp.value.score.toFixed(1),
+        });
+    }
+
+    return cards;
+});
 
 const defaultColDef: ColDef = {
     flex: 1,
@@ -297,6 +381,15 @@ function filterHighlightText(text: string, playerNames: Set<string>) {
     });
 
     return filtered.join(' ');
+}
+
+function parseHighlightPlayers(text: string) {
+    return (text.match(/[^()\s]+\([^)]*\)/g) ?? [])
+        .map((chunk) => {
+            const match = chunk.match(/^([^()]+)\(([^)]*)\)$/);
+            return match ? { name: match[1].trim(), innings: match[2].trim() } : null;
+        })
+        .filter((item): item is { name: string; innings: string } => !!item);
 }
 
 function normalizeText(value = '') {
@@ -490,17 +583,165 @@ onUnmounted(() => setSeoPageOverride(null));
     line-height: 1.65;
 }
 
-.bmc-highlight-list {
-    display: grid;
-    gap: 8px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
+.bmc-section-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
 
-    li {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
+    h3 {
+        margin: 0;
+    }
+
+    span {
+        color: #64748b;
+        font-size: 0.8125rem;
+        font-weight: 800;
+    }
+}
+
+.bmc-game-mvp {
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    &__card {
+        position: relative;
+        display: grid;
+        gap: 8px;
+        min-height: 132px;
+        padding: 18px;
+        overflow: hidden;
+        border: 1px solid #dbeafe;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #eff6ff 0%, #fff 62%);
+
+        &::after {
+            content: 'MVP';
+            position: absolute;
+            right: 14px;
+            bottom: -6px;
+            color: rgba(37, 99, 235, 0.08);
+            font-size: 3.25rem;
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        strong {
+            position: relative;
+            z-index: 1;
+            color: #10203f;
+            font-size: 1.375rem;
+            font-weight: 900;
+        }
+
+        p {
+            position: relative;
+            z-index: 1;
+            color: #475569;
+            font-size: 0.9375rem;
+            font-weight: 700;
+        }
+    }
+
+    &__badge,
+    &__score {
+        position: relative;
+        z-index: 1;
+        width: fit-content;
+        border-radius: 999px;
+        font-weight: 900;
+    }
+
+    &__badge {
+        padding: 5px 10px;
+        background: #1d4ed8;
+        color: #fff;
+        font-size: 0.75rem;
+    }
+
+    &__score {
+        padding: 6px 11px;
+        background: #fef3c7;
+        color: #92400e;
+        font-size: 0.8125rem;
+    }
+}
+
+.bmc-highlights {
+    h3 {
+        margin-bottom: 16px;
+    }
+
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 12px;
+    }
+
+    &__card {
+        padding: 16px;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        background: #f8fafc;
+
+        > strong {
+            display: inline-flex;
+            align-items: center;
+            min-height: 30px;
+            margin-bottom: 12px;
+            padding: 5px 10px;
+            border-radius: 999px;
+            background: #10203f;
+            color: #fff;
+            font-size: 0.8125rem;
+            font-weight: 900;
+        }
+
+        ul {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        li {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            min-height: 32px;
+            padding: 6px 10px;
+            border: 1px solid #dbeafe;
+            border-radius: 999px;
+            background: #fff;
+            color: #10203f;
+            font-size: 0.875rem;
+            font-weight: 900;
+            box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+        }
+
+        em {
+            color: #2563eb;
+            font-size: 0.75rem;
+            font-style: normal;
+            font-weight: 900;
+        }
+    }
+}
+
+@media (max-width: 640px) {
+    .bmc-game-mvp__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bmc-section-head {
+        align-items: flex-start;
+        flex-direction: column;
     }
 }
 
