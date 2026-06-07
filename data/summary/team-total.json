@@ -1,21 +1,10 @@
 {
-  "totalGames": 39,
+  "totalGames": 40,
   "totalPlayers": 33,
-  "totalHits": 379,
-  "totalRuns": 443,
-  "lastGameDate": "2026-05-30",
+  "totalHits": 386,
+  "totalRuns": 449,
+  "lastGameDate": "2026-06-06",
   "recentGames": [
-    {
-      "gameId": "2026-04-18-vs-sungnamob",
-      "gameDate": "2026-04-18",
-      "opponent": "sungnamob",
-      "opponentName": "성남OB",
-      "score": {
-        "our": 9,
-        "opponent": 5
-      },
-      "group": "A"
-    },
     {
       "gameId": "2026-05-02-vs-mavericks",
       "gameDate": "2026-05-02",
@@ -57,6 +46,17 @@
       "score": {
         "our": 10,
         "opponent": 9
+      },
+      "group": "D"
+    },
+    {
+      "gameId": "2026-06-06-vs-lx",
+      "gameDate": "2026-06-06",
+      "opponent": "lx",
+      "opponentName": "LX 일스야구단",
+      "score": {
+        "our": 6,
+        "opponent": 7
       },
       "group": "D"
     }
