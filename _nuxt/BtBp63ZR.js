@@ -1,0 +1,1 @@
+import{d as a,G as n,H as r}from"./vSR4jfaK.js";const p=a({__name:"yearly",async setup(s){let e,t;return[e,t]=n(()=>r({path:"/mvp",query:{type:"yearly"}},{})),await e,t(),()=>{}}});export{p as default};
