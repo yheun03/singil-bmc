@@ -136,7 +136,8 @@ function pickMvpBattingLeadersFromItems(items: MvpBoardEntry[], periodKey: strin
         current.h += Number(stats.h ?? 0);
         current.rbi += Number(stats.rbi ?? 0);
         current.hr += Number(stats.hr ?? 0);
-        current.r += rMatch ? Number(rMatch[1]) : 0;
+        current.sb += Number(stats.sb ?? 0);
+        current.r += Number(stats.r ?? (rMatch ? Number(rMatch[1]) : 0));
         if (stats.avg != null) current.avg = stats.avg;
         map.set(key, current);
     }

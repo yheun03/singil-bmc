@@ -462,7 +462,7 @@ function buildMvpByPeriod(games, getKey, label) {
                     title: `${period.periodKey} ${groupLabel}${label} 타자 MVP ${index + 1}위`,
                     name: batting.name,
                     summary: `${period.games.length}경기 ${batting.h}안타 ${batting.rbi}타점 ${batting.r}득점`,
-                    stats: { avg: batting.avg, h: batting.h, rbi: batting.rbi, hr: batting.hr, score: batting.mvpScore },
+                    stats: { avg: batting.avg, h: batting.h, rbi: batting.rbi, r: batting.r, sb: batting.sb, hr: batting.hr, score: batting.mvpScore },
                 });
             });
 
@@ -476,7 +476,7 @@ function buildMvpByPeriod(games, getKey, label) {
                     title: `${period.periodKey} ${groupLabel}${label} 투수 MVP ${index + 1}위`,
                     name: pitching.name,
                     summary: `${period.games.length}경기 ${pitching.ip}이닝 ${pitching.so}탈삼진`,
-                    stats: { ip: pitching.ip, era: pitching.era, so: pitching.so, win: pitching.win, score: pitching.mvpScore },
+                    stats: { ip: pitching.ip, era: pitching.era, so: pitching.so, win: pitching.win, save: pitching.save, er: pitching.er, score: pitching.mvpScore },
                 });
             });
 
