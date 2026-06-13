@@ -1,21 +1,10 @@
 {
-  "totalGames": 40,
+  "totalGames": 41,
   "totalPlayers": 33,
-  "totalHits": 386,
-  "totalRuns": 449,
-  "lastGameDate": "2026-06-06",
+  "totalHits": 396,
+  "totalRuns": 457,
+  "lastGameDate": "2026-06-13",
   "recentGames": [
-    {
-      "gameId": "2026-05-02-vs-mavericks",
-      "gameDate": "2026-05-02",
-      "opponent": "mavericks",
-      "opponentName": "Mavericks",
-      "score": {
-        "our": 14,
-        "opponent": 7
-      },
-      "group": "D"
-    },
     {
       "gameId": "2026-05-09-vs-anjin",
       "gameDate": "2026-05-09",
@@ -57,6 +46,17 @@
       "score": {
         "our": 6,
         "opponent": 7
+      },
+      "group": "D"
+    },
+    {
+      "gameId": "2026-06-13-vs-raptors",
+      "gameDate": "2026-06-13",
+      "opponent": "raptors",
+      "opponentName": "Team Raptors",
+      "score": {
+        "our": 8,
+        "opponent": 10
       },
       "group": "D"
     }
