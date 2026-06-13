@@ -416,17 +416,36 @@ function getMondayWeekKey(dateText) {
 }
 
 function battingScore(row) {
-    return (row.h || 0) * 4 + (row.rbi || 0) * 3 + (row.r || 0) * 2 + (row.sb || 0) * 1.5 + (row.hr || 0) * 5;
+    const singles = Math.max(0, (row.h || 0) - (row.double || 0) - (row.triple || 0) - (row.hr || 0));
+    const tb = singles + (row.double || 0) * 2 + (row.triple || 0) * 3 + (row.hr || 0) * 4;
+    return tb * 5 + ((row.bb || 0) + (row.hbp || 0)) * 2 + (row.rbi || 0) * 3 + (row.r || 0) * 2 + (row.sb || 0) * 1.5 - (row.so || 0);
 }
 
 function pitchingScore(row) {
-    return (row.outs || 0) * 1.5 + (row.so || 0) * 2 + (row.win || 0) * 8 + (row.save || 0) * 5 - (row.er || 0) * 2;
+    return (
+        (row.outs || 0) * 2 +
+        (row.so || 0) * 2 +
+        (row.win || 0) * 8 +
+        (row.save || 0) * 6 -
+        (row.er || 0) * 4 -
+        ((row.bb || 0) + (row.hbp || 0)) -
+        (row.h || 0) * 0.5
+    );
+}
+
+function compareMvpRows(a, b) {
+    return (
+        b.mvpScore - a.mvpScore ||
+        (b.tb || 0) - (a.tb || 0) ||
+        (b.outs || 0) - (a.outs || 0) ||
+        a.name.localeCompare(b.name, 'ko')
+    );
 }
 
 function pickTop(rows, scoreFn, limit = 3) {
     return [...rows]
         .map((row) => ({ ...row, mvpScore: Number(scoreFn(row).toFixed(1)) }))
-        .sort((a, b) => b.mvpScore - a.mvpScore)
+        .sort(compareMvpRows)
         .slice(0, limit);
 }
 
@@ -462,7 +481,21 @@ function buildMvpByPeriod(games, getKey, label) {
                     title: `${period.periodKey} ${groupLabel}${label} 타자 MVP ${index + 1}위`,
                     name: batting.name,
                     summary: `${period.games.length}경기 ${batting.h}안타 ${batting.rbi}타점 ${batting.r}득점`,
-                    stats: { avg: batting.avg, h: batting.h, rbi: batting.rbi, r: batting.r, sb: batting.sb, hr: batting.hr, score: batting.mvpScore },
+                    stats: {
+                        avg: batting.avg,
+                        h: batting.h,
+                        double: batting.double,
+                        triple: batting.triple,
+                        hr: batting.hr,
+                        tb: batting.tb,
+                        bb: batting.bb,
+                        hbp: batting.hbp,
+                        rbi: batting.rbi,
+                        r: batting.r,
+                        sb: batting.sb,
+                        so: batting.so,
+                        score: batting.mvpScore,
+                    },
                 });
             });
 
@@ -476,7 +509,19 @@ function buildMvpByPeriod(games, getKey, label) {
                     title: `${period.periodKey} ${groupLabel}${label} 투수 MVP ${index + 1}위`,
                     name: pitching.name,
                     summary: `${period.games.length}경기 ${pitching.ip}이닝 ${pitching.so}탈삼진`,
-                    stats: { ip: pitching.ip, era: pitching.era, so: pitching.so, win: pitching.win, save: pitching.save, er: pitching.er, score: pitching.mvpScore },
+                    stats: {
+                        ip: pitching.ip,
+                        outs: pitching.outs,
+                        era: pitching.era,
+                        h: pitching.h,
+                        bb: pitching.bb,
+                        hbp: pitching.hbp,
+                        so: pitching.so,
+                        win: pitching.win,
+                        save: pitching.save,
+                        er: pitching.er,
+                        score: pitching.mvpScore,
+                    },
                 });
             });
 
@@ -490,6 +535,10 @@ function buildMonthlyMvp(games) {
 
 function buildWeeklyMvp(games) {
     return buildMvpByPeriod(games, (game) => getMondayWeekKey(game.gameDate), '주간');
+}
+
+function buildYearlyMvp(games) {
+    return buildMvpByPeriod(games, (game) => String(game.year), '연간');
 }
 
 function formatOpponent(opponent = '') {
@@ -643,6 +692,7 @@ export function buildAllRecords() {
     const groupRecords = buildGroupRecords(recordGames, recordGroups);
     const monthlyMvp = buildMonthlyMvp(recordGames);
     const weeklyMvp = buildWeeklyMvp(recordGames);
+    const yearlyMvp = buildYearlyMvp(recordGames);
     const news = buildAutoNews(games);
     const videos = buildVideos(games);
 
@@ -659,6 +709,7 @@ export function buildAllRecords() {
     writeJson(path.join(SUMMARY_DIR, 'group-records.json'), groupRecords);
     writeJson(path.join(SUMMARY_DIR, 'mvp-monthly.json'), monthlyMvp);
     writeJson(path.join(SUMMARY_DIR, 'mvp-weekly.json'), weeklyMvp);
+    writeJson(path.join(SUMMARY_DIR, 'mvp-yearly.json'), yearlyMvp);
     writeJson(path.join(GENERATED_DIR, 'games.json'), games);
     writeJson(path.join(GENERATED_DIR, 'season-stats.json'), {
         batting: battingTotal,
@@ -668,6 +719,7 @@ export function buildAllRecords() {
     writeJson(path.join(GENERATED_DIR, 'monthly-stats.json'), monthlyRecords);
     writeJson(path.join(GENERATED_DIR, 'monthly-mvp.json'), monthlyMvp);
     writeJson(path.join(GENERATED_DIR, 'weekly-mvp.json'), weeklyMvp);
+    writeJson(path.join(GENERATED_DIR, 'yearly-mvp.json'), yearlyMvp);
     writeJson(path.join(GENERATED_DIR, 'news.json'), news);
     writeJson(path.join(GENERATED_DIR, 'videos.json'), videos);
     writeJson(path.join(META_DIR, 'season-teams.json'), seasonTeamsConfig);

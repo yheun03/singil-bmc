@@ -23,6 +23,7 @@ const En = {
     'nav.records.monthly': 'Monthly Records',
     'nav.records.groups': 'Group Records',
     'nav.mvp': 'MVP',
+    'nav.mvp.yearly': 'Yearly MVP',
     'nav.mvp.monthly': 'Monthly MVP',
     'nav.mvp.weekly': 'Weekly MVP',
     'nav.gallery': 'Gallery',

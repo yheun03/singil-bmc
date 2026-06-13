@@ -206,6 +206,7 @@ import {
     buildMvpPeriodBlocks,
     buildMvpRulesContent,
     formatMvpStatsLine,
+    type MvpMode,
     mvpRankLabel,
     type MvpBoardEntry,
 } from '~/utils/mvp-display';
@@ -213,7 +214,7 @@ import type { PeriodRecordSlice } from '~/utils/record-aggregate';
 
 const props = defineProps<{
     items: MvpBoardEntry[];
-    mode: 'monthly' | 'weekly';
+    mode: MvpMode;
 }>();
 
 const rules = computed(() => buildMvpRulesContent(props.mode));
@@ -227,19 +228,33 @@ const { tabItemsForYear, groupIdsForYear } = useSeasonTeams();
 const { data: monthlyRecords } = useSiteData<Array<PeriodRecordSlice & { key: string }>>(
     'summary/monthly-records.json',
 );
+const { data: yearlyRecords } = useSiteData<Array<PeriodRecordSlice & { year: number }>>(
+    'summary/yearly-records.json',
+);
 
 const periodRecordsByKey = computed(() => {
-    if (props.mode !== 'monthly') return {};
     const map: Record<string, PeriodRecordSlice> = {};
-    for (const record of monthlyRecords.value ?? []) {
-        map[record.key] = record;
+
+    if (props.mode === 'monthly') {
+        for (const record of monthlyRecords.value ?? []) {
+            map[record.key] = record;
+        }
     }
+
+    if (props.mode === 'yearly') {
+        for (const record of yearlyRecords.value ?? []) {
+            map[String(record.year)] = record;
+        }
+    }
+
     return map;
 });
 
 const mvpSeasonYear = computed(() => {
     const key = selectedPeriodKey.value;
     if (!key) return new Date().getFullYear();
+    const yearly = key.match(/^(\d{4})$/);
+    if (yearly) return Number(yearly[1]);
     const monthly = key.match(/^(\d{4})-\d{2}$/);
     if (monthly) return Number(monthly[1]);
     const weekly = key.match(/^(\d{4})-\d{2}-W\d+$/);

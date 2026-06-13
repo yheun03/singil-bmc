@@ -20,9 +20,14 @@
             mode="monthly"
         />
         <SiteMvpBoard
-            v-else
+            v-else-if="mvpType === 'weekly'"
             :items="weeklyList ?? []"
             mode="weekly"
+        />
+        <SiteMvpBoard
+            v-else
+            :items="yearlyList ?? []"
+            mode="yearly"
         />
     </SitePageLayout>
 </template>
@@ -35,11 +40,12 @@ definePageMeta({ title: 'MVP' });
 const route = useRoute();
 const router = useRouter();
 
-type MvpType = 'monthly' | 'weekly';
+type MvpType = 'yearly' | 'monthly' | 'weekly';
 
 function readMvpType(): MvpType {
     const raw = route.query.type;
     const value = Array.isArray(raw) ? raw[0] : raw;
+    if (value === 'yearly') return 'yearly';
     return value === 'weekly' ? 'weekly' : 'monthly';
 }
 
@@ -62,14 +68,25 @@ const { data: monthlyList, pending: monthlyPending, error: monthlyError } =
     useSiteData<MvpBoardEntry[]>('summary/mvp-monthly.json');
 const { data: weeklyList, pending: weeklyPending, error: weeklyError } =
     useSiteData<MvpBoardEntry[]>('summary/mvp-weekly.json');
+const { data: yearlyList, pending: yearlyPending, error: yearlyError } =
+    useSiteData<MvpBoardEntry[]>('summary/mvp-yearly.json');
 
-const pending = computed(() => (mvpType.value === 'monthly' ? monthlyPending.value : weeklyPending.value));
+const pending = computed(() => {
+    if (mvpType.value === 'yearly') return yearlyPending.value;
+    return mvpType.value === 'monthly' ? monthlyPending.value : weeklyPending.value;
+});
 const error = computed(() => {
-    const err = mvpType.value === 'monthly' ? monthlyError.value : weeklyError.value;
+    const err = mvpType.value === 'yearly' ? yearlyError.value : mvpType.value === 'monthly' ? monthlyError.value : weeklyError.value;
     return err ? 'MVP 데이터를 불러오지 못했습니다.' : '';
 });
 
 const typeTabItems = [
+    {
+        id: 'yearly',
+        title: '연도별 MVP',
+        desc: '연간 타자·투수 순위',
+        icon: 'mdi:calendar-star',
+    },
     {
         id: 'monthly',
         title: '월별 MVP',

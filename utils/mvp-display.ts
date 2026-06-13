@@ -27,7 +27,13 @@ export type MvpPeriodBlock = {
     }[];
 };
 
-export function formatMvpPeriodKey(key: string, mode: 'monthly' | 'weekly') {
+export type MvpMode = 'yearly' | 'monthly' | 'weekly';
+
+export function formatMvpPeriodKey(key: string, mode: MvpMode) {
+    if (mode === 'yearly') {
+        return `${key}년`;
+    }
+
     if (mode === 'monthly') {
         const [year, month] = key.split('-');
         if (year && month) return `${year}년 ${Number(month)}월`;
@@ -57,7 +63,7 @@ function ipToOuts(ip: string | number) {
 function pickMvpBattingLeaders(rows: BattingAggregateRow[], periodKey: string): MvpBoardEntry[] {
     return [...rows]
         .map((row) => ({ row, score: calcMvpBattingScore(row) }))
-        .sort((a, b) => b.score - a.score)
+        .sort((a, b) => b.score - a.score || (b.row.tb ?? 0) - (a.row.tb ?? 0) || a.row.name.localeCompare(b.row.name, 'ko'))
         .slice(0, 3)
         .map(({ row, score }, index) => ({
             id: `${periodKey}-all-batting-${index + 1}`,
@@ -70,8 +76,16 @@ function pickMvpBattingLeaders(rows: BattingAggregateRow[], periodKey: string): 
             stats: {
                 avg: row.avg,
                 h: row.h,
+                double: row.double,
+                triple: row.triple,
+                tb: row.tb ?? 0,
+                bb: row.bb,
+                hbp: row.hbp,
                 rbi: row.rbi,
+                r: row.r,
+                sb: row.sb,
                 hr: row.hr,
+                so: row.so,
                 score: Number(score.toFixed(1)),
             },
         }));
@@ -80,7 +94,7 @@ function pickMvpBattingLeaders(rows: BattingAggregateRow[], periodKey: string): 
 function pickMvpPitchingLeaders(rows: PitchingAggregateRow[], periodKey: string): MvpBoardEntry[] {
     return [...rows]
         .map((row) => ({ row, score: calcMvpPitchingScore(row) }))
-        .sort((a, b) => b.score - a.score)
+        .sort((a, b) => b.score - a.score || b.row.outs - a.row.outs || a.row.name.localeCompare(b.row.name, 'ko'))
         .slice(0, 3)
         .map(({ row, score }, index) => ({
             id: `${periodKey}-all-pitching-${index + 1}`,
@@ -92,9 +106,15 @@ function pickMvpPitchingLeaders(rows: PitchingAggregateRow[], periodKey: string)
             summary: `${row.ip}이닝 ${row.so}탈삼진`,
             stats: {
                 ip: row.ip,
+                outs: row.outs,
                 era: row.era,
+                h: row.h,
+                bb: row.bb,
+                hbp: row.hbp,
                 so: row.so,
                 win: row.win,
+                save: row.save ?? 0,
+                er: row.er,
                 score: Number(score.toFixed(1)),
             },
         }));
@@ -124,7 +144,7 @@ function buildMergedMvpGroupBlock(
 }
 
 function pickMvpBattingLeadersFromItems(items: MvpBoardEntry[], periodKey: string): MvpBoardEntry[] {
-    const map = new Map<string, { name: string; h: number; rbi: number; r: number; sb: number; hr: number; avg?: string | number }>();
+    const map = new Map<string, { name: string; h: number; double: number; triple: number; hr: number; tb: number; bb: number; hbp: number; rbi: number; r: number; sb: number; so: number; avg?: string | number }>();
 
     for (const item of items) {
         const key = normalizePlayerName(item.name);
@@ -132,11 +152,17 @@ function pickMvpBattingLeadersFromItems(items: MvpBoardEntry[], periodKey: strin
 
         const stats = item.stats ?? {};
         const rMatch = item.summary.match(/(\d+)득점/);
-        const current = map.get(key) ?? { name: item.name, h: 0, rbi: 0, r: 0, sb: 0, hr: 0 };
+        const current = map.get(key) ?? { name: item.name, h: 0, double: 0, triple: 0, hr: 0, tb: 0, bb: 0, hbp: 0, rbi: 0, r: 0, sb: 0, so: 0 };
         current.h += Number(stats.h ?? 0);
+        current.double += Number(stats.double ?? 0);
+        current.triple += Number(stats.triple ?? 0);
         current.rbi += Number(stats.rbi ?? 0);
         current.hr += Number(stats.hr ?? 0);
+        current.tb += Number(stats.tb ?? 0);
+        current.bb += Number(stats.bb ?? 0);
+        current.hbp += Number(stats.hbp ?? 0);
         current.sb += Number(stats.sb ?? 0);
+        current.so += Number(stats.so ?? 0);
         current.r += Number(stats.r ?? (rMatch ? Number(rMatch[1]) : 0));
         if (stats.avg != null) current.avg = stats.avg;
         map.set(key, current);
@@ -163,7 +189,7 @@ function pickMvpBattingLeadersFromItems(items: MvpBoardEntry[], periodKey: strin
 function pickMvpPitchingLeadersFromItems(items: MvpBoardEntry[], periodKey: string): MvpBoardEntry[] {
     const map = new Map<
         string,
-        { name: string; outs: number; so: number; win: number; save: number; er: number; ip?: string | number; era?: string | number }
+        { name: string; outs: number; h: number; bb: number; hbp: number; so: number; win: number; save: number; er: number; ip?: string | number; era?: string | number }
     >();
 
     for (const item of items) {
@@ -171,11 +197,15 @@ function pickMvpPitchingLeadersFromItems(items: MvpBoardEntry[], periodKey: stri
         if (!key) continue;
 
         const stats = item.stats ?? {};
-        const current = map.get(key) ?? { name: item.name, outs: 0, so: 0, win: 0, save: 0, er: 0 };
-        current.outs += ipToOuts(stats.ip ?? 0);
+        const current = map.get(key) ?? { name: item.name, outs: 0, h: 0, bb: 0, hbp: 0, so: 0, win: 0, save: 0, er: 0 };
+        current.outs += Number(stats.outs ?? ipToOuts(stats.ip ?? 0));
+        current.h += Number(stats.h ?? 0);
+        current.bb += Number(stats.bb ?? 0);
+        current.hbp += Number(stats.hbp ?? 0);
         current.so += Number(stats.so ?? 0);
         current.win += Number(stats.win ?? 0);
         current.save += Number(stats.save ?? 0);
+        current.er += Number(stats.er ?? 0);
         if (stats.ip != null) current.ip = stats.ip;
         if (stats.era != null) current.era = stats.era;
         map.set(key, current);
@@ -200,7 +230,7 @@ function pickMvpPitchingLeadersFromItems(items: MvpBoardEntry[], periodKey: stri
 
 export function buildMvpPeriodBlocks(
     items: MvpBoardEntry[],
-    mode: 'monthly' | 'weekly',
+    mode: MvpMode,
     groupFilter: string,
     groupIds: string[] = ['A', 'D'],
     periodRecordsByKey: Record<string, PeriodRecordSlice> = {},
@@ -209,7 +239,7 @@ export function buildMvpPeriodBlocks(
 
     return keys.map((periodKey) => {
         if (groupFilter === 'all') {
-            const periodRecord = mode === 'monthly' ? periodRecordsByKey[periodKey] : undefined;
+            const periodRecord = mode === 'monthly' || mode === 'yearly' ? periodRecordsByKey[periodKey] : undefined;
             return {
                 key: periodKey,
                 label: formatMvpPeriodKey(periodKey, mode),
@@ -246,15 +276,18 @@ export function formatMvpStatsLine(entry: MvpBoardEntry) {
             stats.era != null ? `ERA ${stats.era}` : null,
             stats.so != null ? `K ${stats.so}` : null,
             stats.win != null ? `승 ${stats.win}` : null,
+            stats.er != null ? `자책 ${stats.er}` : null,
         ].filter(Boolean);
         return parts.length ? parts.join(' · ') : entry.summary;
     }
 
     const parts = [
         stats.avg != null ? `AVG ${stats.avg}` : null,
+        stats.tb != null ? `${stats.tb}루타` : null,
         stats.h != null ? `${stats.h}안타` : null,
         stats.rbi != null ? `${stats.rbi}타점` : null,
-        stats.hr != null && Number(stats.hr) > 0 ? `HR ${stats.hr}` : null,
+        stats.r != null ? `${stats.r}득점` : null,
+        stats.sb != null ? `${stats.sb}도루` : null,
     ].filter(Boolean);
     return parts.length ? parts.join(' · ') : entry.summary;
 }
@@ -269,33 +302,39 @@ export function mvpRankLabel(rank: number) {
 /** build-records.js MVP 점수와 동일 */
 export function calcMvpBattingScore(row: {
     h?: number;
+    double?: number;
+    triple?: number;
     rbi?: number;
     r?: number;
     sb?: number;
     hr?: number;
+    bb?: number;
+    hbp?: number;
+    so?: number;
+    tb?: number;
 }) {
-    return (
-        (row.h || 0) * 4 +
-        (row.rbi || 0) * 3 +
-        (row.r || 0) * 2 +
-        (row.sb || 0) * 1.5 +
-        (row.hr || 0) * 5
-    );
+    const tb = row.tb ?? Math.max(0, (row.h || 0) - (row.double || 0) - (row.triple || 0) - (row.hr || 0)) + (row.double || 0) * 2 + (row.triple || 0) * 3 + (row.hr || 0) * 4;
+    return tb * 5 + ((row.bb || 0) + (row.hbp || 0)) * 2 + (row.rbi || 0) * 3 + (row.r || 0) * 2 + (row.sb || 0) * 1.5 - (row.so || 0);
 }
 
 export function calcMvpPitchingScore(row: {
     outs?: number;
+    h?: number;
+    bb?: number;
+    hbp?: number;
     so?: number;
     win?: number;
     save?: number;
     er?: number;
 }) {
     return (
-        (row.outs || 0) * 1.5 +
+        (row.outs || 0) * 2 +
         (row.so || 0) * 2 +
         (row.win || 0) * 8 +
-        (row.save || 0) * 5 -
-        (row.er || 0) * 2
+        (row.save || 0) * 6 -
+        (row.er || 0) * 4 -
+        ((row.bb || 0) + (row.hbp || 0)) -
+        (row.h || 0) * 0.5
     );
 }
 
@@ -325,23 +364,33 @@ export type MvpRulesContent = {
     };
 };
 
-export function buildMvpRulesContent(mode: 'monthly' | 'weekly'): MvpRulesContent {
+export function buildMvpRulesContent(mode: MvpMode): MvpRulesContent {
     const periodLabel =
-        mode === 'monthly'
+        mode === 'yearly'
+            ? '해당 연도(YYYY)에 치른 경기 기록만 합산합니다.'
+            : mode === 'monthly'
             ? '해당 월(YYYY-MM)에 치른 경기 기록만 합산합니다.'
             : '해당 주차(월요일 시작)에 치른 경기 기록만 합산합니다.';
 
     const battingExample = {
         h: 5,
+        double: 1,
+        triple: 0,
+        hr: 1,
+        bb: 2,
+        hbp: 0,
         rbi: 6,
         r: 4,
         sb: 2,
-        hr: 1,
+        so: 1,
     };
     const battingTotal = calcMvpBattingScore(battingExample);
 
     const pitchingExample = {
         outs: 18,
+        h: 5,
+        bb: 2,
+        hbp: 0,
         so: 8,
         win: 1,
         save: 0,
@@ -352,47 +401,53 @@ export function buildMvpRulesContent(mode: 'monthly' | 'weekly'): MvpRulesConten
     return {
         periodLabel,
         batting: {
-            formula: 'MVP 점수 = 안타×4 + 타점×3 + 득점×2 + 도루×1.5 + 홈런×5',
+            formula: 'MVP 점수 = 총루타×5 + 출루(BB+HBP)×2 + 타점×3 + 득점×2 + 도루×1.5 − 삼진×1',
             weights: [
-                { label: '안타 (H)', weight: '×4' },
+                { label: '총루타 (TB)', weight: '×5' },
+                { label: '볼넷+사구 (BB+HBP)', weight: '×2' },
                 { label: '타점 (RBI)', weight: '×3' },
                 { label: '득점 (R)', weight: '×2' },
                 { label: '도루 (SB)', weight: '×1.5' },
-                { label: '홈런 (HR)', weight: '×5' },
+                { label: '삼진 (SO)', weight: '−×1' },
             ],
             example: {
                 name: '선예환',
-                period: mode === 'monthly' ? '2026년 5월 A조' : '2026년 5월 3주차 A조',
-                stats: '5안타 · 6타점 · 4득점 · 2도루 · 1홈런 (기간 내 경기 합산)',
+                period: mode === 'yearly' ? '2026년 A조' : mode === 'monthly' ? '2026년 5월 A조' : '2026년 5월 3주차 A조',
+                stats: '5안타(2루타 1, 홈런 1) · 2볼넷 · 6타점 · 4득점 · 2도루 · 1삼진',
                 steps: [
-                    `5×4(안타) = 20`,
+                    `9×5(총루타) = 45`,
+                    `2×2(출루) = 4`,
                     `6×3(타점) = 18`,
                     `4×2(득점) = 8`,
                     `2×1.5(도루) = 3`,
-                    `1×5(홈런) = 5`,
+                    `1×1(삼진) = -1`,
                 ],
                 total: `${battingTotal.toFixed(1)}점`,
             },
         },
         pitching: {
-            formula: 'MVP 점수 = 아웃카운트×1.5 + 탈삼진×2 + 승×8 + 세이브×5 − 자책점×2',
+            formula: 'MVP 점수 = 아웃카운트×2 + 탈삼진×2 + 승×8 + 세이브×6 − 자책점×4 − 사사구×1 − 피안타×0.5',
             weights: [
-                { label: '아웃카운트 (Outs)', weight: '×1.5' },
+                { label: '아웃카운트 (Outs)', weight: '×2' },
                 { label: '탈삼진 (SO)', weight: '×2' },
                 { label: '승 (W)', weight: '×8' },
-                { label: '세이브 (SV)', weight: '×5' },
-                { label: '자책점 (ER)', weight: '−×2' },
+                { label: '세이브 (SV)', weight: '×6' },
+                { label: '자책점 (ER)', weight: '−×4' },
+                { label: '사사구 (BB+HBP)', weight: '−×1' },
+                { label: '피안타 (H)', weight: '−×0.5' },
             ],
             example: {
                 name: '박의현',
-                period: mode === 'monthly' ? '2026년 5월 D조' : '2026년 5월 3주차 D조',
-                stats: '6.0이닝(18 outs) · 8탈삼진 · 1승 · 0세이브 · 3자책 (기간 내 경기 합산)',
+                period: mode === 'yearly' ? '2026년 D조' : mode === 'monthly' ? '2026년 5월 D조' : '2026년 5월 3주차 D조',
+                stats: '6.0이닝(18 outs) · 8탈삼진 · 1승 · 0세이브 · 3자책 · 2사사구 · 5피안타',
                 steps: [
-                    `18×1.5(아웃) = 27`,
+                    `18×2(아웃) = 36`,
                     `8×2(탈삼진) = 16`,
                     `1×8(승) = 8`,
-                    `0×5(세이브) = 0`,
-                    `3×2(자책) = −6`,
+                    `0×6(세이브) = 0`,
+                    `3×4(자책) = -12`,
+                    `2×1(사사구) = -2`,
+                    `5×0.5(피안타) = -2.5`,
                 ],
                 total: `${pitchingTotal.toFixed(1)}점`,
             },

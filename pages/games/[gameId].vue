@@ -263,11 +263,15 @@ const highlightCards = computed(() =>
         .filter((item) => item.players.length),
 );
 
+function calcBattingTotalBases(row: BattingRow) {
+    return Math.max(0, (row.h ?? 0) - (row.double ?? 0) - (row.triple ?? 0) - (row.hr ?? 0)) + (row.double ?? 0) * 2 + (row.triple ?? 0) * 3 + (row.hr ?? 0) * 4;
+}
+
 const battingMvp = computed(() => {
     const candidates = battingRows.value
         .map((row) => ({ row, score: calcMvpBattingScore(row) }))
         .filter((item) => item.score > 0)
-        .sort((a, b) => b.score - a.score || (b.row.h ?? 0) - (a.row.h ?? 0) || a.row.name.localeCompare(b.row.name, 'ko'));
+        .sort((a, b) => b.score - a.score || calcBattingTotalBases(b.row) - calcBattingTotalBases(a.row) || a.row.name.localeCompare(b.row.name, 'ko'));
 
     return candidates[0] ?? null;
 });

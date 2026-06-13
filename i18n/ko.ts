@@ -23,6 +23,7 @@ const Ko = {
     'nav.records.monthly': '월별 기록',
     'nav.records.groups': '조별 기록',
     'nav.mvp': 'MVP',
+    'nav.mvp.yearly': '연도별 MVP',
     'nav.mvp.monthly': '월별 MVP',
     'nav.mvp.weekly': '주간 MVP',
     'nav.gallery': '사진',

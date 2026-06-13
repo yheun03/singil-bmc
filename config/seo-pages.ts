@@ -82,7 +82,13 @@ export const seoPageDefaults: Record<string, SeoPageDefaults> = {
     '/mvp': {
         title: 'MVP',
         description: {
-            ko: '신길교회 야구 선교단 월별·주간 MVP 수상자를 확인합니다.',
+            ko: '신길교회 야구 선교단 연도별·월별·주간 MVP 수상자를 확인합니다.',
+        },
+    },
+    '/mvp/yearly': {
+        title: '연도별 MVP',
+        description: {
+            ko: '연도별 MVP 수상 선수와 활약을 확인합니다.',
         },
     },
     '/mvp/monthly': {
