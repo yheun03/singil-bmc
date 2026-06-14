@@ -108,5 +108,15 @@
     "thumbnail": "https://i.ytimg.com/vi/JXliKeGGe14/hq720.jpg",
     "category": "경기",
     "date": "2026-06-06"
+  },
+  {
+    "id": "game-2026-06-13-vs-raptors",
+    "gameId": "2026-06-13-vs-raptors",
+    "title": "26.06.13 D조 vs Team Raptors",
+    "youtubeUrl": "https://www.youtube.com/watch?v=Cj0hxQm8fgI",
+    "embedUrl": "",
+    "thumbnail": "https://i.ytimg.com/vi/Cj0hxQm8fgI/hq720.jpg",
+    "category": "경기",
+    "date": "2026-06-13"
   }
 ]

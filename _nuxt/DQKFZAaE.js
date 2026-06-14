@@ -1,0 +1,1 @@
+import{d as a,a as t,c as o,i as s,W as n,g as c,t as l}from"./DUN8igGx.js";const p=a({__name:"SiteLoading",props:{error:{type:Boolean}},setup(e){return(r,i)=>(t(),o("p",{class:s(["bmc-state",{"bmc-state--error":e.error}])},[n(r.$slots,"default",{},()=>[c(l(e.error||"데이터를 불러오는 중..."),1)])],2))}});export{p as _};
