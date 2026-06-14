@@ -15,8 +15,16 @@ export default defineNuxtConfig({
         head: {
             title: '신길교회 야구 선교단',
             htmlAttrs: { lang: 'ko' },
-            meta: [{ name: 'theme-color', content: '#1e56c8' }],
-            link: [{ rel: 'icon', type: 'image/svg+xml', href: `${APP_BASE}favicon.svg` }],
+            meta: [{ name: 'theme-color', content: '#0a1124' }],
+            link: [
+                { rel: 'icon', type: 'image/svg+xml', href: `${APP_BASE}favicon.svg` },
+                { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+                { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+                {
+                    rel: 'stylesheet',
+                    href: 'https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Black&display=swap',
+                },
+            ],
         },
     },
 

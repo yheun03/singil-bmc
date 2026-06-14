@@ -11,6 +11,17 @@ $bmc-gray-200: #e4e8f0;
 $bmc-gray-500: #6b7280;
 $bmc-gray-800: #1f2937;
 
+// Doosan Bears 톤: 거의 블랙에 가까운 네이비 + 레드 액센트
+$bmc-ink-900: #060b18;
+$bmc-ink-800: #0a1124;
+$bmc-ink-700: #111a33;
+$bmc-red-500: #e11d2a;
+$bmc-red-400: #f23643;
+
+// 영문 디스플레이 폰트 (스포츠 임팩트용)
+$bmc-font-display: 'Anton', 'Pretendard', sans-serif;
+$bmc-font-display-alt: 'Archivo Black', 'Pretendard', sans-serif;
+
 @mixin bmc-container {
     width: min(1200px, 100%);
     margin-inline: auto;

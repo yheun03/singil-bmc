@@ -1,5 +1,6 @@
 <template>
     <section class="bmc-page-hero">
+        <span v-if="eyebrow" class="bmc-page-hero__watermark" aria-hidden="true">{{ eyebrow }}</span>
         <div class="bmc-page-hero__inner">
             <p v-if="eyebrow" class="bmc-page-hero__eyebrow">{{ eyebrow }}</p>
             <h1 class="bmc-page-hero__title">{{ title }}</h1>
