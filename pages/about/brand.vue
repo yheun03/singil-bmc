@@ -342,7 +342,8 @@ const palette = [
         height: 52px;
         margin-bottom: 16px;
         border-radius: 14px;
-        background: rgba($bmc-red-500, 0.18);
+        background: rgba($bmc-white, 0.07);
+        border: 1px solid rgba($bmc-white, 0.08);
         font-size: 1.5rem;
     }
 
@@ -562,9 +563,39 @@ const palette = [
     }
 }
 
-// ─── 라이트 테마: 자체 배경이 없는 흰색 텍스트(리드/스와치 라벨) 보정 ───
-// (값·심볼·타이포 카드와 슬로건은 자체 다크 배경이라 그대로 둔다)
+// ─── 라이트 테마 보정 ───
+// 다크 기반으로 만든 히어로·카드들을 라이트에서는 밝은 면으로 되돌려
+// 본문 사이 갑작스러운 다크 블록을 없앤다.
+// (상단 페이지 히어로와 하단 슬로건 밴드는 의도된 다크 밴드라 유지)
 :root[data-theme='light'] {
+    // 엠블럼 히어로
+    .bmc-brand-hero {
+        background: linear-gradient(135deg, $bmc-white 0%, $bmc-gray-100 100%);
+    }
+
+    .bmc-brand-hero__title {
+        color: $bmc-navy-900;
+
+        span {
+            color: $bmc-red-500;
+        }
+    }
+
+    .bmc-brand-hero__desc {
+        color: $bmc-gray-800;
+
+        strong {
+            color: $bmc-red-500;
+        }
+    }
+
+    .bmc-brand-chip {
+        border-color: $bmc-gray-200;
+        background: $bmc-white;
+        color: $bmc-navy-900;
+    }
+
+    // 리드 문단
     .bmc-brand-lead {
         color: rgba($bmc-navy-900, 0.82);
 
@@ -573,6 +604,56 @@ const palette = [
         }
     }
 
+    // 가치 카드
+    .bmc-brand-value {
+        background: $bmc-white;
+        border-color: $bmc-gray-200;
+        box-shadow: 0 10px 24px rgba($bmc-navy-900, 0.06);
+
+        &:hover {
+            border-color: rgba($bmc-red-500, 0.5);
+        }
+
+        &__icon {
+            background: rgba($bmc-navy-900, 0.05);
+            border-color: $bmc-gray-200;
+        }
+
+        h3 {
+            color: $bmc-navy-900;
+
+            small {
+                color: $bmc-red-500;
+            }
+        }
+
+        p {
+            color: $bmc-gray-500;
+        }
+    }
+
+    // 심볼 카드
+    .bmc-brand-symbol {
+        background: $bmc-white;
+        border-color: $bmc-gray-200;
+        box-shadow: 0 10px 24px rgba($bmc-navy-900, 0.06);
+
+        &__mark {
+            background: rgba($bmc-navy-900, 0.05);
+            border-color: $bmc-gray-200;
+            color: $bmc-red-500;
+        }
+
+        &__title {
+            color: $bmc-navy-900;
+        }
+
+        &__desc {
+            color: $bmc-gray-500;
+        }
+    }
+
+    // 팀 컬러 스와치 라벨
     .bmc-brand-swatch {
         strong {
             color: $bmc-navy-900;
@@ -580,6 +661,29 @@ const palette = [
 
         code {
             color: $bmc-red-500;
+        }
+
+        span {
+            color: $bmc-gray-500;
+        }
+    }
+
+    // 타이포그래피 카드
+    .bmc-brand-type {
+        background: $bmc-white;
+        border-color: $bmc-gray-200;
+        box-shadow: 0 10px 24px rgba($bmc-navy-900, 0.06);
+
+        &__sample {
+            color: $bmc-navy-900;
+
+            &--archivo {
+                color: $bmc-red-500;
+            }
+        }
+
+        strong {
+            color: $bmc-navy-900;
         }
 
         span {
