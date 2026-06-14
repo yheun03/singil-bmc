@@ -99,6 +99,10 @@ const gridAttrs = computed(() => {
 
     return {
         ...rest,
+        // v33 기본값은 Theming API라 import한 ag-theme-quartz.css / .ag-theme-quartz
+        // 오버라이드(_dark.scss의 --ag-* 다크 변수)가 무시된다. 레거시 모드로 두어
+        // CSS 기반 테마(라이트/다크)를 그대로 적용한다.
+        theme: 'legacy',
         overlayLoadingTemplate: '<div class="ag-overlay-loading">로딩중...</div>',
         overlayNoRowsTemplate: '<div class="ag-overlay-no-rows">검색된 결과가 없습니다</div>',
         rowHeight: (rest.rowHeight as number | undefined) ?? 42,

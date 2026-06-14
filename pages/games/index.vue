@@ -44,46 +44,56 @@
             </span>
         </div>
 
-        <div class="bmc-game-results-legend" aria-label="경기 결과 표기 안내">
-            <div>
-                <p class="bmc-game-results-legend__title">결과 표기</p>
-                <p class="bmc-game-results-legend__hint">
-                    콜드·몰수승은 game-overrides.json에서 수동 지정합니다. 몰수승은 0:7 표기·기록 미포함입니다.
-                </p>
-            </div>
-            <div class="bmc-game-results-legend__items">
-                <SiteGameResultBadge v-for="kind in legendKinds" :key="kind" :kind="kind" size="sm" />
-            </div>
-        </div>
+        <details class="bmc-game-legend">
+            <summary>
+                <span class="bmc-game-legend__label">결과 표기 안내</span>
+                <span class="bmc-game-legend__preview">
+                    <SiteGameResultBadge v-for="kind in legendKinds" :key="kind" :kind="kind" size="sm" />
+                </span>
+            </summary>
+            <p class="bmc-game-legend__hint">
+                콜드·몰수승은 game-overrides.json에서 수동 지정합니다. 몰수승은 0:7 표기·기록 미포함입니다.
+            </p>
+        </details>
 
         <p v-if="!filteredGames.length && games.length" class="bmc-state">선택한 조건의 경기가 없습니다.</p>
 
-        <div v-else class="bmc-grid bmc-grid--2">
+        <div v-else class="bmc-game-grid">
             <NuxtLink
                 v-for="game in filteredGames"
                 :key="game.gameId"
                 class="bmc-game-card"
-                :class="cardClass(game)"
+                :class="{ 'is-ourwin': ourWinner(game) }"
                 :to="`/games/${game.gameId}`"
             >
-                <div class="bmc-game-card__top">
-                    <span class="bmc-game-card__date">{{ game.gameDate }} · {{ game.group || '-' }}조</span>
+                <div class="bmc-game-card__head">
+                    <span class="bmc-game-card__date">
+                        <strong>{{ dateLabel(game) }}</strong>
+                        <span>{{ weekdayLabel(game) }} · {{ game.group || '-' }}조</span>
+                    </span>
                     <SiteGameResultBadge :kind="resultKind(game)" size="sm" />
                 </div>
-                <h3 class="bmc-game-card__matchup">
-                    다윗 야구 선교단 vs {{ game.opponentName || game.opponentSummary?.teamName || formatOpponent(game.opponent) }}
-                </h3>
-                <div class="bmc-game-card__score-row">
-                    <span class="bmc-game-card__score" :class="scoreClass(game)">
-                        {{ displayScore(game) }}
-                    </span>
+
+                <div class="bmc-game-card__board">
+                    <div class="bmc-game-card__team bmc-game-card__team--ours">
+                        <span class="bmc-game-card__name">다윗 야구 선교단</span>
+                        <span class="bmc-game-card__pts">{{ scoreOf(game).our }}</span>
+                    </div>
+                    <div class="bmc-game-card__team">
+                        <span class="bmc-game-card__name">{{ opponentLabel(game) }}</span>
+                        <span class="bmc-game-card__pts">{{ scoreOf(game).opponent }}</span>
+                    </div>
                 </div>
-                <p v-if="isForfeitGame(game)" class="bmc-game-card__stats">몰수승 · 타·투수 기록 없음</p>
-                <p v-else class="bmc-game-card__stats">
-                    {{ game.summary?.hits ?? 0 }}안타 · {{ game.summary?.homeRuns ?? 0 }}홈런 ·
-                    {{ game.summary?.steals ?? 0 }}도루
-                </p>
-                <span class="bmc-game-card__video">{{ game.youtube ? '경기 영상 연결됨' : 'YouTube 채널에서 영상 확인' }}</span>
+
+                <div class="bmc-game-card__foot">
+                    <span class="bmc-game-card__stats">
+                        <template v-if="isForfeitGame(game)">몰수승 · 기록 미포함</template>
+                        <template v-else>
+                            {{ game.summary?.hits ?? 0 }}안타 · {{ game.summary?.homeRuns ?? 0 }}홈런 · {{ game.summary?.steals ?? 0 }}도루
+                        </template>
+                    </span>
+                    <span v-if="game.youtube" class="bmc-game-card__video">경기 영상</span>
+                </div>
             </NuxtLink>
         </div>
     </SitePageLayout>
@@ -91,14 +101,15 @@
 
 <script setup lang="ts">
 import {
-    formatDisplayScore,
     isForfeitResult,
-    isLossResult,
     isWinResult,
+    resolveDisplayScore,
     resolveGameResult,
     summarizeSeasonResults,
     type GameResultKind,
 } from '~/utils/game-result';
+
+const WEEKDAYS = ['일', '월', '화', '수', '목', '금', '토'];
 
 type Game = {
     gameId: string;
@@ -180,27 +191,35 @@ function isForfeitGame(game: Game) {
     return isForfeitResult(game.result);
 }
 
-function displayScore(game: Game) {
-    return formatDisplayScore(gameInput(game));
+function scoreOf(game: Game) {
+    return resolveDisplayScore(gameInput(game));
 }
 
-function cardClass(game: Game) {
-    return `bmc-game-card--${resultKind(game)}`;
+function opponentLabel(game: Game) {
+    return game.opponentName || game.opponentSummary?.teamName || formatOpponent(game.opponent);
 }
 
-function scoreClass(game: Game) {
-    const kind = resultKind(game);
-    if (isWinResult(kind)) return 'is-our-ahead';
-    if (isLossResult(kind)) return 'is-our-behind';
-    return '';
+function dateLabel(game: Game) {
+    const [, month, day] = game.gameDate.split('-');
+    return `${month}.${day}`;
+}
+
+function weekdayLabel(game: Game) {
+    const day = new Date(game.gameDate).getDay();
+    return Number.isNaN(day) ? '' : `${WEEKDAYS[day]}요일`;
+}
+
+function ourWinner(game: Game) {
+    return isWinResult(resultKind(game));
 }
 </script>
 
 <style scoped lang="scss">
 @use "~/assets/scss/pages/records" as *;
+@use "site/tokens" as *;
 
 .bmc-game-list__controls {
-    margin-bottom: 20px;
+    margin-bottom: 28px;
 }
 
 .bmc-record-controls {
@@ -211,17 +230,95 @@ function scoreClass(game: Game) {
     margin-bottom: 0;
 }
 
+.bmc-game-season-summary {
+    margin-bottom: 24px;
+}
+
 .bmc-game-season-summary__sub {
     font-size: 0.75rem;
     font-weight: 600;
-    color: #6b7280;
+    color: rgba(#fff, 0.5);
 }
 
-.bmc-game-card__score.is-our-ahead {
-    color: #0f5c2e;
+// 결과 표기: 접이식(애플처럼 군더더기 없이)
+.bmc-game-legend {
+    margin-bottom: 32px;
+    border: 1px solid rgba(#fff, 0.08);
+    border-radius: 14px;
+    background: rgba(#fff, 0.02);
+
+    summary {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        padding: 14px 18px;
+        cursor: pointer;
+        list-style: none;
+        user-select: none;
+
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &::after {
+            content: '⌄';
+            margin-left: auto;
+            font-size: 1.1rem;
+            line-height: 1;
+            color: rgba(#fff, 0.4);
+            transition: transform 0.2s ease;
+        }
+    }
+
+    &[open] summary::after {
+        transform: rotate(180deg);
+    }
+
+    &__label {
+        font-size: 0.875rem;
+        font-weight: 800;
+        color: #fff;
+    }
+
+    &__preview {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+    }
+
+    &__hint {
+        margin: 0;
+        padding: 0 18px 16px;
+        font-size: 0.8125rem;
+        line-height: 1.6;
+        color: rgba(#fff, 0.55);
+    }
+
+    @media (max-width: 560px) {
+        summary {
+            flex-wrap: wrap;
+
+            &::after {
+                order: 1;
+                margin-left: 0;
+            }
+        }
+
+        &__preview {
+            flex-basis: 100%;
+            order: 2;
+        }
+    }
 }
 
-.bmc-game-card__score.is-our-behind {
-    color: #9b1c1c;
+// 경기 카드 그리드 — 넉넉한 여백
+.bmc-game-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+
+    @media (max-width: 720px) {
+        grid-template-columns: 1fr;
+    }
 }
 </style>

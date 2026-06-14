@@ -14,7 +14,15 @@ export default defineNuxtConfig({
         baseURL: APP_BASE,
         head: {
             title: '신길교회 야구 선교단',
-            htmlAttrs: { lang: 'ko' },
+            htmlAttrs: { lang: 'ko', 'data-theme': 'dark' },
+            // 페인트 전에 저장된 모드(또는 기기 설정)로 data-theme 결정 → 플래시 방지
+            script: [
+                {
+                    innerHTML:
+                        "(function(){try{var m=localStorage.getItem('framework:theme-mode')||'system';var d=m==='system'?(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'):m;document.documentElement.setAttribute('data-theme',d);}catch(e){}})();",
+                    tagPosition: 'head',
+                },
+            ],
             meta: [{ name: 'theme-color', content: '#0a1124' }],
             link: [
                 { rel: 'icon', type: 'image/svg+xml', href: `${APP_BASE}favicon.svg` },
@@ -35,7 +43,8 @@ export default defineNuxtConfig({
 
     modules: ['@pinia/nuxt'],
     css: [
-        // AG Grid 테마 CSS는 전역 link 로드로 고정 (dev 인라인 주입 최소화)
+        // AG Grid 레거시 테마: 구조(ag-grid.css) + 테마(ag-theme-quartz.css) 모두 필요
+        'ag-grid-community/styles/ag-grid.css',
         'ag-grid-community/styles/ag-theme-quartz.css',
         '~/assets/scss/main.scss',
     ],

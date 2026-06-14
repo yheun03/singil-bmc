@@ -14,7 +14,7 @@ $d-border-strong: rgba($bmc-white, 0.16);
 $d-text: rgba($bmc-white, 0.92);
 $d-muted: rgba($bmc-white, 0.56);
 
-.site-layout {
+:root[data-theme='dark'] .site-layout {
     background: $d-bg;
     color: $d-text;
 
@@ -25,7 +25,6 @@ $d-muted: rgba($bmc-white, 0.56);
     .bmc-video-card,
     .bmc-gallery-card,
     .bmc-news-card,
-    .bmc-game-card,
     .bmc-about-intro,
     .bmc-contact-box,
     .bmc-mvp-board__panel {
@@ -119,51 +118,11 @@ $d-muted: rgba($bmc-white, 0.56);
         color: $d-muted;
     }
 
-    // ─── 경기 카드 ───────────────────────────────────────
-    .bmc-game-card {
-        &__matchup {
-            color: $bmc-white;
-        }
-
-        &__score {
-            color: $bmc-white;
-        }
-
-        &__stats {
-            color: $d-muted;
-        }
-
-        &--win {
-            background: linear-gradient(90deg, rgba(22, 163, 74, 0.16) 0%, $d-card 30%);
-        }
-
-        &--loss {
-            background: linear-gradient(90deg, rgba($bmc-red-500, 0.16) 0%, $d-card 30%);
-        }
-
-        &--cold-win {
-            background: linear-gradient(90deg, rgba($bmc-gold-500, 0.2) 0%, $d-card 32%);
-        }
-    }
-
     // ─── 시즌 요약 칩 ─────────────────────────────────────
     .bmc-game-season-summary__chip {
         background: $d-card;
         border-color: $d-border;
         color: $d-text;
-    }
-
-    .bmc-game-results-legend {
-        background: $d-card;
-        border-color: $d-border;
-
-        &__title {
-            color: $bmc-white;
-        }
-
-        &__hint {
-            color: $d-muted;
-        }
     }
 
     // ─── 표 ──────────────────────────────────────────────
@@ -329,12 +288,60 @@ $d-muted: rgba($bmc-white, 0.56);
     .bmc-roster__summary {
         color: $d-muted;
     }
+
+    // ─── 기록 컨트롤(기간 라벨/셀렉트·세그먼트) 다크 ───────
+    .bmc-record-period__label {
+        color: $d-text;
+    }
+
+    .bmc-record-period__select {
+        background: $d-card;
+        border-color: $d-border;
+        color: $d-text;
+    }
+
+    .bmc-segmented {
+        background: $d-card;
+        border-color: $d-border;
+
+        button {
+            color: $d-muted;
+
+            &.is-active {
+                background: $bmc-red-500;
+                color: $bmc-white;
+            }
+        }
+    }
+
+    // ─── 필 탭(전체/조별 등) 다크 ─────────────────────────
+    // MVP 타입 탭은 자체 스타일(.bmc-mvp-type-tabs)을 유지하도록 제외
+    .app-tabs--pill:not(.bmc-mvp-type-tabs) {
+        .app-tabs__list {
+            background: $d-card;
+            border: 1px solid $d-border;
+        }
+
+        .app-tabs__tab {
+            color: $d-muted;
+
+            &:hover:not(:disabled) {
+                color: $bmc-white;
+            }
+
+            &.is-active {
+                background: $bmc-red-500;
+                color: $bmc-white;
+                box-shadow: none;
+            }
+        }
+    }
 }
 
 // ════════════════════════════════════════════════════════════
 // GNB(헤더) 다크
 // ════════════════════════════════════════════════════════════
-.bmc-header {
+:root[data-theme='dark'] .bmc-header {
     background: rgba($bmc-ink-900, 0.92);
     border-bottom-color: $d-border;
     box-shadow: 0 8px 30px rgba(#000, 0.45);
@@ -353,27 +360,13 @@ $d-muted: rgba($bmc-white, 0.56);
         color: $d-muted;
     }
 
+    // 구조(타이포·언더라인)는 _components.scss 공통 — 여기선 색만 덮는다.
     &__link,
     &__trigger {
-        position: relative;
         color: rgba($bmc-white, 0.82);
-        font-family: $bmc-font-display-alt;
-        font-weight: 400;
-        letter-spacing: 0.06em;
-        border-bottom: 0;
 
-        // 가운데에서 퍼지는 언더라인 인터랙션
         &::after {
-            content: '';
-            position: absolute;
-            left: 12px;
-            right: 12px;
-            bottom: 18px;
-            height: 3px;
             background: $bmc-red-500;
-            transform: scaleX(0);
-            transform-origin: center;
-            transition: transform 0.24s cubic-bezier(0.2, 0.7, 0.2, 1);
         }
     }
 
@@ -383,24 +376,15 @@ $d-muted: rgba($bmc-white, 0.56);
         &.router-link-exact-active,
         &.is-current {
             color: $bmc-white;
-            border-bottom-color: transparent;
-
-            &::after {
-                transform: scaleX(1);
-            }
         }
     }
 
-    &__trigger {
-        .bmc-header__dropdown:hover &,
-        .bmc-header__dropdown:focus-within &,
-        .bmc-header__dropdown.is-current & {
+    // 그룹(드롭다운) 트리거 활성/호버 색상(언더라인 동작은 공통 구조가 처리)
+    &__dropdown {
+        &:hover .bmc-header__trigger,
+        &:focus-within .bmc-header__trigger,
+        &.is-current .bmc-header__trigger {
             color: $bmc-white;
-            border-bottom-color: transparent;
-
-            &::after {
-                transform: scaleX(1);
-            }
         }
     }
 
@@ -426,10 +410,6 @@ $d-muted: rgba($bmc-white, 0.56);
             background: $bmc-ink-800;
             border: 1px solid $d-border;
             color: $d-text;
-
-            &::after {
-                display: none;
-            }
 
             &.router-link-active,
             &.router-link-exact-active,
@@ -466,7 +446,7 @@ $d-muted: rgba($bmc-white, 0.56);
 // ════════════════════════════════════════════════════════════
 // LNB(서브 내비) 다크
 // ════════════════════════════════════════════════════════════
-.bmc-lnb {
+:root[data-theme='dark'] .bmc-lnb {
     background: $bmc-ink-800;
     border-bottom-color: $d-border;
     box-shadow: 0 8px 20px rgba(#000, 0.4);
@@ -516,7 +496,7 @@ $d-muted: rgba($bmc-white, 0.56);
 // ════════════════════════════════════════════════════════════
 // AG Grid 다크 (Quartz 변수 오버라이드)
 // ════════════════════════════════════════════════════════════
-.site-layout .ag-theme-quartz {
+:root[data-theme='dark'] .site-layout .ag-theme-quartz {
     --ag-background-color: #{$bmc-ink-800};
     --ag-foreground-color: rgba(255, 255, 255, 0.9);
     --ag-data-color: rgba(255, 255, 255, 0.88);
@@ -542,14 +522,69 @@ $d-muted: rgba($bmc-white, 0.56);
     color: rgba(255, 255, 255, 0.9);
     border-radius: 12px;
     overflow: hidden;
+
+    // 베이스(_ag-grid.scss)가 변수 대신 밝은 색을 직접 지정해 다크에서 흰 배경/
+    // 어두운 글씨가 보이는 문제 → 동일 셀렉터를 다크 값으로 덮는다.
+    .ag-root-wrapper {
+        background: $bmc-ink-800;
+        border-color: rgba($bmc-white, 0.08);
+        box-shadow: 0 18px 40px rgba(#000, 0.4);
+    }
+
+    .ag-center-cols-viewport {
+        background: transparent;
+    }
+
+    .ag-header {
+        border-bottom-color: rgba($bmc-white, 0.08);
+    }
+
+    .ag-header-cell {
+        color: rgba($bmc-white, 0.8);
+    }
+
+    .ag-cell {
+        color: rgba($bmc-white, 0.88);
+    }
+
+    .ag-row {
+        &.ag-row--stripe-even {
+            background-color: transparent;
+        }
+
+        &.ag-row--stripe-odd {
+            background-color: rgba($bmc-white, 0.03);
+        }
+
+        &.ag-row-hover {
+            background-color: rgba($bmc-white, 0.07);
+        }
+
+        &.ag-row-selected {
+            background-color: rgba($bmc-red-500, 0.18);
+        }
+    }
+
+    .ag-status-bar,
+    .ag-paging-panel {
+        background: $bmc-ink-900;
+        color: rgba($bmc-white, 0.6);
+        border-top-color: rgba($bmc-white, 0.08);
+    }
 }
 
 // ════════════════════════════════════════════════════════════
 // 푸터 — 잉크 톤으로 통일
 // ════════════════════════════════════════════════════════════
-.bmc-footer {
+:root[data-theme='dark'] .bmc-footer {
     background: $bmc-ink-900;
     border-top: 1px solid $d-border;
+}
+
+// 테마 토글 스위치 — 트랙/노브 색은 [aria-checked] 로 처리하므로
+// 다크에서는 호버 시 테두리만 살짝 밝힌다.
+:root[data-theme='dark'] .bmc-header__theme:hover {
+    border-color: rgba($bmc-white, 0.4);
 }
 
 // ════════════════════════════════════════════════════════════

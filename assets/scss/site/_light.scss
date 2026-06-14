@@ -1,0 +1,179 @@
+// ════════════════════════════════════════════════════════════
+// 라이트 테마 오버라이드
+// _dark.scss 의 색 오버라이드는 [data-theme='dark'] 로 게이팅되어 있어
+// 라이트에서는 기본(밝은) 스타일이 그대로 보인다. 여기서는 "다크 네이티브"로
+// 작성된 컴포넌트(홈/매치/경기/선수 카드)만 밝게 되돌린다.
+// 히어로·전적바 등은 의도적으로 양쪽 테마 모두 다크 밴드로 유지.
+// ════════════════════════════════════════════════════════════
+@use 'tokens' as *;
+
+:root[data-theme='light'] {
+    // 라우트 전환(리마운트) 중 본문이 비어도 검은 배경이 비치지 않도록
+    color-scheme: light;
+    background: $bmc-gray-100;
+
+    body {
+        background: $bmc-gray-100;
+        color: $bmc-gray-800;
+    }
+
+    .bmc-home {
+        background: $bmc-gray-100;
+    }
+
+    // ─── MATCHES 섹션 ────────────────────────────────────
+    .bmc-matches {
+        background: $bmc-gray-100;
+        color: $bmc-navy-900;
+
+        &__title {
+            color: $bmc-navy-900;
+        }
+
+        &__range {
+            color: $bmc-gray-500;
+        }
+
+        &__more {
+            color: $bmc-navy-900;
+
+            &:hover {
+                color: $bmc-blue-500;
+            }
+        }
+    }
+
+    .bmc-match-card {
+        background: $bmc-white;
+        border-color: $bmc-gray-200;
+        color: $bmc-navy-900;
+        box-shadow: 0 10px 24px rgba($bmc-navy-900, 0.06);
+
+        &::after {
+            opacity: 0.04;
+        }
+
+        &:hover {
+            border-color: rgba($bmc-blue-500, 0.45);
+            background: $bmc-white;
+        }
+
+        &__date {
+            color: $bmc-gray-500;
+        }
+
+        &__weekday {
+            color: $bmc-gray-500;
+        }
+
+        &__team {
+            color: $bmc-navy-900;
+        }
+
+        &__vs {
+            color: $bmc-gray-500;
+        }
+
+        &__num {
+            color: $bmc-navy-900;
+        }
+
+        &__cta {
+            color: $bmc-blue-500;
+        }
+    }
+
+    // ─── 경기 카드 ───────────────────────────────────────
+    .bmc-game-card {
+        background: $bmc-white;
+        border-color: $bmc-gray-200;
+        color: $bmc-navy-900;
+        box-shadow: 0 10px 24px rgba($bmc-navy-900, 0.05);
+
+        &:hover {
+            border-color: rgba($bmc-blue-500, 0.4);
+            background: $bmc-white;
+        }
+
+        &__head {
+            border-bottom-color: $bmc-gray-200;
+        }
+
+        &__date strong {
+            color: $bmc-navy-900;
+        }
+
+        &__date span {
+            color: $bmc-gray-500;
+        }
+
+        &__name {
+            color: $bmc-gray-800;
+        }
+
+        &__pts {
+            color: $bmc-gray-500;
+        }
+
+        &.is-ourwin {
+            .bmc-game-card__team--ours {
+                .bmc-game-card__name,
+                .bmc-game-card__pts {
+                    color: $bmc-navy-900;
+                }
+            }
+
+            .bmc-game-card__team:not(.bmc-game-card__team--ours) {
+                .bmc-game-card__name,
+                .bmc-game-card__pts {
+                    color: rgba($bmc-gray-500, 0.7);
+                }
+            }
+        }
+
+        &__foot {
+            border-top-color: $bmc-gray-200;
+        }
+
+        &__stats {
+            color: $bmc-gray-500;
+        }
+
+        &__video {
+            color: $bmc-blue-500;
+        }
+    }
+
+    // ─── 선수 카드 (원래의 밝은 카드로) ───────────────────
+    .bmc-roster-card {
+        background: $bmc-white;
+        border-color: $bmc-gray-200;
+        box-shadow: 0 10px 24px rgba($bmc-navy-900, 0.06);
+
+        &:hover {
+            border-color: rgba($bmc-red-500, 0.5);
+            box-shadow: 0 16px 32px rgba($bmc-navy-900, 0.12);
+        }
+
+        &__photo {
+            background: linear-gradient(180deg, #eef2f8 0%, #d8e0ec 100%);
+
+            &::after {
+                background: linear-gradient(180deg, transparent, rgba($bmc-navy-900, 0.4));
+            }
+        }
+
+        &__body {
+            border-top-color: $bmc-gray-200;
+            background: linear-gradient(180deg, $bmc-white, #f8fafc);
+        }
+
+        &__name {
+            color: $bmc-navy-900;
+        }
+
+        &__meta {
+            color: $bmc-gray-500;
+        }
+    }
+}

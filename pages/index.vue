@@ -90,12 +90,12 @@
                         <header class="bmc-match-card__top">
                             <strong class="bmc-match-card__date">{{ game.dateLabel }}</strong>
                             <span class="bmc-match-card__weekday">{{ game.weekday }} · {{ game.group || 'A' }}조</span>
+                            <SiteGameResultBadge class="bmc-match-card__result" :kind="game.kind" size="sm" />
                         </header>
                         <div class="bmc-match-card__rows">
                             <div class="bmc-match-card__row">
                                 <span class="bmc-match-card__team">SINGIL BMC</span>
                                 <span class="bmc-match-card__num">{{ game.score?.our ?? 0 }}</span>
-                                <SiteGameResultBadge :kind="game.kind" size="sm" />
                             </div>
                             <div class="bmc-match-card__row bmc-match-card__row--away">
                                 <span class="bmc-match-card__team">{{ game.opponentName || formatOpponent(game.opponent) }}</span>

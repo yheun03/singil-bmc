@@ -196,7 +196,11 @@ const palette = [
 <style scoped lang="scss">
 @use 'site/tokens' as *;
 
-// 엠블럼 쇼케이스
+// 엠블럼 쇼케이스 — 흰색 텍스트 기반이라 라이트에서도 다크 밴드로 고정
+.bmc-brand-hero {
+    background: linear-gradient(135deg, $bmc-ink-800 0%, $bmc-ink-900 100%);
+}
+
 .bmc-brand-hero__inner {
     display: grid;
     grid-template-columns: auto 1fr;
@@ -555,6 +559,32 @@ const palette = [
         max-width: 560px;
         line-height: 1.8;
         color: rgba(#fff, 0.72);
+    }
+}
+
+// ─── 라이트 테마: 자체 배경이 없는 흰색 텍스트(리드/스와치 라벨) 보정 ───
+// (값·심볼·타이포 카드와 슬로건은 자체 다크 배경이라 그대로 둔다)
+:root[data-theme='light'] {
+    .bmc-brand-lead {
+        color: rgba($bmc-navy-900, 0.82);
+
+        strong {
+            color: $bmc-red-500;
+        }
+    }
+
+    .bmc-brand-swatch {
+        strong {
+            color: $bmc-navy-900;
+        }
+
+        code {
+            color: $bmc-red-500;
+        }
+
+        span {
+            color: $bmc-gray-500;
+        }
     }
 }
 </style>
