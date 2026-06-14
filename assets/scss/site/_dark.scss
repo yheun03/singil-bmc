@@ -1,0 +1,630 @@
+// ════════════════════════════════════════════════════════════
+// Doosan Bears 스타일 다크 테마 (.site-layout 전역)
+// 모든 표면을 어둡게 재도색. 기존 컴포넌트 마크업은 그대로 두고
+// 여기서 색만 덮어쓴다.
+// ════════════════════════════════════════════════════════════
+@use 'tokens' as *;
+
+$d-bg: $bmc-ink-900;
+$d-panel: $bmc-ink-800;
+$d-card: #0f1730;
+$d-card-2: #131d3a;
+$d-border: rgba($bmc-white, 0.08);
+$d-border-strong: rgba($bmc-white, 0.16);
+$d-text: rgba($bmc-white, 0.92);
+$d-muted: rgba($bmc-white, 0.56);
+
+.site-layout {
+    background: $d-bg;
+    color: $d-text;
+
+    // ─── 공통 카드 표면 ───────────────────────────────────
+    .bmc-stat-card,
+    .bmc-leader-card,
+    .bmc-link-card,
+    .bmc-video-card,
+    .bmc-gallery-card,
+    .bmc-news-card,
+    .bmc-game-card,
+    .bmc-about-intro,
+    .bmc-contact-box,
+    .bmc-mvp-board__panel {
+        background: linear-gradient(180deg, $d-card-2, $d-card);
+        border-color: $d-border;
+        color: $d-text;
+    }
+
+    // ─── 섹션 ────────────────────────────────────────────
+    .bmc-section {
+        &--white {
+            background: $d-panel;
+        }
+
+        &__title {
+            color: $bmc-white;
+        }
+
+        &__desc {
+            color: $d-muted;
+        }
+
+        &__more {
+            color: rgba($bmc-white, 0.82);
+
+            &:hover {
+                color: $bmc-gold-400;
+            }
+        }
+    }
+
+    // ─── 통계/리더/링크 카드 텍스트 ───────────────────────
+    .bmc-stat-card strong {
+        color: $bmc-gold-400;
+    }
+
+    .bmc-stat-card span {
+        color: $d-muted;
+    }
+
+    .bmc-leader-card__name {
+        color: $bmc-white;
+    }
+
+    .bmc-leader-card__message {
+        color: $d-muted;
+    }
+
+    .bmc-link-card {
+        strong {
+            color: $bmc-white;
+        }
+
+        span {
+            color: $d-muted;
+        }
+
+        &__icon {
+            background: rgba($bmc-red-500, 0.18);
+        }
+    }
+
+    // ─── 타임라인 / 연혁 ──────────────────────────────────
+    .bmc-timeline {
+        border-left-color: $d-border;
+
+        &__title {
+            color: $bmc-white;
+        }
+
+        &__desc {
+            color: $d-muted;
+        }
+
+        &__item::before {
+            border-color: $d-card;
+            background: $bmc-red-500;
+        }
+    }
+
+    .bmc-about-intro p {
+        color: rgba($bmc-white, 0.78);
+    }
+
+    // ─── 비디오 / 갤러리 / 뉴스 카드 ──────────────────────
+    .bmc-video-card__title {
+        color: $bmc-white;
+    }
+
+    .bmc-video-card__date {
+        color: $d-muted;
+    }
+
+    // ─── 경기 카드 ───────────────────────────────────────
+    .bmc-game-card {
+        &__matchup {
+            color: $bmc-white;
+        }
+
+        &__score {
+            color: $bmc-white;
+        }
+
+        &__stats {
+            color: $d-muted;
+        }
+
+        &--win {
+            background: linear-gradient(90deg, rgba(22, 163, 74, 0.16) 0%, $d-card 30%);
+        }
+
+        &--loss {
+            background: linear-gradient(90deg, rgba($bmc-red-500, 0.16) 0%, $d-card 30%);
+        }
+
+        &--cold-win {
+            background: linear-gradient(90deg, rgba($bmc-gold-500, 0.2) 0%, $d-card 32%);
+        }
+    }
+
+    // ─── 시즌 요약 칩 ─────────────────────────────────────
+    .bmc-game-season-summary__chip {
+        background: $d-card;
+        border-color: $d-border;
+        color: $d-text;
+    }
+
+    .bmc-game-results-legend {
+        background: $d-card;
+        border-color: $d-border;
+
+        &__title {
+            color: $bmc-white;
+        }
+
+        &__hint {
+            color: $d-muted;
+        }
+    }
+
+    // ─── 표 ──────────────────────────────────────────────
+    .bmc-table-wrap {
+        background: $d-card;
+        border-color: $d-border;
+    }
+
+    .bmc-table {
+        th {
+            background: $bmc-ink-900;
+            color: $bmc-white;
+        }
+
+        td {
+            border-bottom-color: $d-border;
+            color: $d-text;
+        }
+
+        tbody tr:hover {
+            background: rgba($bmc-white, 0.04);
+        }
+    }
+
+    // ─── 칩 / 필터 ───────────────────────────────────────
+    .bmc-chip {
+        background: $d-card;
+        border-color: $d-border;
+        color: $d-text;
+
+        &.is-active,
+        &:hover {
+            background: $bmc-red-500;
+            border-color: $bmc-red-500;
+            color: $bmc-white;
+        }
+    }
+
+    .bmc-filter-bar button {
+        background: $d-card;
+        border-color: $d-border;
+        color: $d-text;
+
+        &:hover {
+            border-color: $bmc-red-500;
+            color: $bmc-white;
+        }
+
+        &.is-active {
+            background: $bmc-red-500;
+            border-color: $bmc-red-500;
+            color: $bmc-white;
+        }
+    }
+
+    // ─── MVP 보드 ────────────────────────────────────────
+    .bmc-mvp-board {
+        &__period-title,
+        &__name {
+            color: $bmc-white;
+        }
+
+        &__period-select {
+            background: $d-card;
+            border-color: $d-border;
+            color: $d-text;
+        }
+
+        &__panel-title {
+            background: linear-gradient(90deg, rgba($bmc-white, 0.05), transparent);
+            border-bottom-color: $d-border;
+            color: $bmc-white;
+        }
+
+        &__table {
+            th {
+                background: rgba($bmc-white, 0.03);
+                color: $d-muted;
+            }
+
+            td {
+                border-bottom-color: $d-border;
+            }
+
+            tbody tr.is-top {
+                background: rgba($bmc-gold-500, 0.12);
+            }
+        }
+
+        &__rank {
+            background: rgba($bmc-white, 0.08);
+            color: $d-text;
+        }
+
+        &__stats {
+            color: $d-muted;
+        }
+
+        &__expand,
+        &__rules {
+            background: $d-card;
+            border-color: $d-border;
+            color: $d-muted;
+        }
+
+        &__rules summary {
+            color: $bmc-white;
+        }
+
+        &__rules-formula,
+        &__rules-example {
+            background: rgba($bmc-white, 0.03);
+            border-color: $d-border;
+            color: $d-text;
+        }
+
+        &__rules-table {
+            th {
+                background: rgba($bmc-white, 0.03);
+                color: $bmc-white;
+            }
+
+            th,
+            td {
+                border-color: $d-border;
+            }
+        }
+
+        &__subperiod {
+            color: $bmc-white;
+            border-top-color: $d-border;
+        }
+    }
+
+    // MVP 타입 탭
+    .bmc-mvp-type-tabs {
+        .app-tabs__list {
+            background: $d-card;
+            border-color: $d-border;
+        }
+
+        .app-tabs__tab {
+            color: $d-muted;
+
+            &.is-active {
+                background: $bmc-ink-700;
+                color: $bmc-white;
+                box-shadow: 0 4px 14px rgba(#000, 0.4);
+            }
+        }
+
+        .app-tabs__tab-desc {
+            color: $d-muted;
+        }
+    }
+
+    // ─── 상태 텍스트 ─────────────────────────────────────
+    .bmc-state {
+        color: $d-muted;
+    }
+
+    // ─── 페이지 탭(LNB 아래) 등 흰 배경 보정 ──────────────
+    .bmc-roster__summary {
+        color: $d-muted;
+    }
+}
+
+// ════════════════════════════════════════════════════════════
+// GNB(헤더) 다크
+// ════════════════════════════════════════════════════════════
+.bmc-header {
+    background: rgba($bmc-ink-900, 0.92);
+    border-bottom-color: $d-border;
+    box-shadow: 0 8px 30px rgba(#000, 0.45);
+    backdrop-filter: blur(12px);
+
+    &__brand {
+        color: $bmc-white;
+    }
+
+    &__emblem {
+        border-color: rgba($bmc-white, 0.7);
+        background: $bmc-ink-800;
+    }
+
+    &__name span {
+        color: $d-muted;
+    }
+
+    &__link,
+    &__trigger {
+        position: relative;
+        color: rgba($bmc-white, 0.82);
+        font-family: $bmc-font-display-alt;
+        font-weight: 400;
+        letter-spacing: 0.06em;
+        border-bottom: 0;
+
+        // 가운데에서 퍼지는 언더라인 인터랙션
+        &::after {
+            content: '';
+            position: absolute;
+            left: 12px;
+            right: 12px;
+            bottom: 18px;
+            height: 3px;
+            background: $bmc-red-500;
+            transform: scaleX(0);
+            transform-origin: center;
+            transition: transform 0.24s cubic-bezier(0.2, 0.7, 0.2, 1);
+        }
+    }
+
+    &__link {
+        &:hover,
+        &.router-link-active,
+        &.router-link-exact-active,
+        &.is-current {
+            color: $bmc-white;
+            border-bottom-color: transparent;
+
+            &::after {
+                transform: scaleX(1);
+            }
+        }
+    }
+
+    &__trigger {
+        .bmc-header__dropdown:hover &,
+        .bmc-header__dropdown:focus-within &,
+        .bmc-header__dropdown.is-current & {
+            color: $bmc-white;
+            border-bottom-color: transparent;
+
+            &::after {
+                transform: scaleX(1);
+            }
+        }
+    }
+
+    &__toggle {
+        background: $bmc-red-500;
+        border-color: transparent;
+    }
+
+    &__submenu {
+        background: $bmc-ink-800;
+        border-color: $d-border;
+        box-shadow: 0 18px 42px rgba(#000, 0.5);
+    }
+
+    @media (max-width: 980px) {
+        &__nav {
+            background: $bmc-ink-900;
+            border-bottom-color: $d-border;
+        }
+
+        &__link,
+        &__trigger {
+            background: $bmc-ink-800;
+            border: 1px solid $d-border;
+            color: $d-text;
+
+            &::after {
+                display: none;
+            }
+
+            &.router-link-active,
+            &.router-link-exact-active,
+            &.is-current {
+                border-color: rgba($bmc-red-500, 0.6);
+                background: rgba($bmc-red-500, 0.14);
+                color: $bmc-white;
+            }
+        }
+
+        &__dropdown.is-current .bmc-header__trigger {
+            border-color: rgba($bmc-red-500, 0.6);
+            background: rgba($bmc-red-500, 0.14);
+            color: $bmc-white;
+        }
+
+        &__submenu {
+            background: $bmc-ink-900;
+            border-color: $d-border;
+        }
+
+        &__sublink {
+            color: rgba($bmc-white, 0.82);
+
+            &.router-link-active,
+            &.is-current {
+                background: $bmc-red-500;
+                color: $bmc-white;
+            }
+        }
+    }
+}
+
+// ════════════════════════════════════════════════════════════
+// LNB(서브 내비) 다크
+// ════════════════════════════════════════════════════════════
+.bmc-lnb {
+    background: $bmc-ink-800;
+    border-bottom-color: $d-border;
+    box-shadow: 0 8px 20px rgba(#000, 0.4);
+
+    &__link {
+        border-left-color: $d-border;
+        color: rgba($bmc-white, 0.7);
+
+        &:last-child {
+            border-right-color: $d-border;
+        }
+
+        &.is-active {
+            background: $bmc-red-500;
+            color: $bmc-white;
+        }
+
+        @media (hover: hover) and (pointer: fine) {
+            &:hover {
+                background: rgba($bmc-white, 0.06);
+                color: $bmc-white;
+            }
+        }
+
+        &.is-active::after {
+            border-bottom-color: $bmc-ink-900;
+        }
+    }
+
+    @media (max-width: 980px) {
+        background: rgba($bmc-ink-900, 0.96);
+        border-bottom-color: $d-border;
+
+        &__link {
+            background: $bmc-ink-800;
+            border-color: $d-border;
+            color: rgba($bmc-white, 0.78);
+
+            &.is-active {
+                border-color: $bmc-red-500;
+                background: $bmc-red-500;
+            }
+        }
+    }
+}
+
+// ════════════════════════════════════════════════════════════
+// AG Grid 다크 (Quartz 변수 오버라이드)
+// ════════════════════════════════════════════════════════════
+.site-layout .ag-theme-quartz {
+    --ag-background-color: #{$bmc-ink-800};
+    --ag-foreground-color: rgba(255, 255, 255, 0.9);
+    --ag-data-color: rgba(255, 255, 255, 0.88);
+    --ag-secondary-foreground-color: rgba(255, 255, 255, 0.55);
+
+    --ag-header-background-color: #{$bmc-ink-900};
+    --ag-header-foreground-color: rgba(255, 255, 255, 0.8);
+    --ag-header-column-separator-color: rgba(255, 255, 255, 0.08);
+
+    --ag-border-color: rgba(255, 255, 255, 0.08);
+    --ag-row-border-color: rgba(255, 255, 255, 0.06);
+    --ag-borders: solid 1px rgba(255, 255, 255, 0.08);
+
+    --ag-odd-row-background-color: rgba(255, 255, 255, 0.02);
+    --ag-row-hover-color: rgba(255, 255, 255, 0.06);
+    --ag-selected-row-background-color: rgba(225, 29, 42, 0.18);
+
+    --ag-input-border-color: rgba(255, 255, 255, 0.16);
+    --ag-input-focus-border-color: #{$bmc-red-500};
+    --ag-control-panel-background-color: #{$bmc-ink-800};
+    --ag-subheader-background-color: #{$bmc-ink-900};
+
+    color: rgba(255, 255, 255, 0.9);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+// ════════════════════════════════════════════════════════════
+// 푸터 — 잉크 톤으로 통일
+// ════════════════════════════════════════════════════════════
+.bmc-footer {
+    background: $bmc-ink-900;
+    border-top: 1px solid $d-border;
+}
+
+// ════════════════════════════════════════════════════════════
+// 스크롤 진입 인터랙션 (reveal.client.ts 와 연동)
+// ════════════════════════════════════════════════════════════
+html.js-reveal {
+    .bmc-section,
+    .bmc-recordbar,
+    .bmc-matches,
+    .bmc-match-card,
+    .bmc-roster-card,
+    .bmc-game-card,
+    .bmc-video-card,
+    .bmc-leader-card,
+    .bmc-link-card,
+    .bmc-stat-card,
+    .bmc-timeline__item {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.7s ease, transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+    }
+
+    .is-in {
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    // 가로 매치 카드 스태거
+    .bmc-matches__track .bmc-match-card {
+        @for $i from 1 through 6 {
+            &:nth-child(#{$i}) {
+                transition-delay: #{($i - 1) * 0.07}s;
+            }
+        }
+    }
+}
+
+// ════════════════════════════════════════════════════════════
+// 추가 호버 인터랙션
+// ════════════════════════════════════════════════════════════
+// 링크 카드: 아이콘 살짝 확대 + 레드 글로우
+.site-layout .bmc-link-card {
+    &:hover .bmc-link-card__icon {
+        transform: scale(1.08);
+        background: rgba($bmc-red-500, 0.28);
+    }
+
+    .bmc-link-card__icon {
+        transition: transform 0.18s ease, background 0.18s ease;
+    }
+}
+
+// 매치 카드: 호버 시 상단 라이트 스윕
+.site-layout .bmc-match-card {
+    &::after {
+        transition: opacity 0.2s ease;
+    }
+
+    &:hover::after {
+        opacity: 0.1;
+    }
+}
+
+// 비디오 썸네일 줌(기존)에 더해 카드 리프트
+.site-layout .bmc-video-card {
+    transition: transform 0.16s ease, box-shadow 0.16s ease, border-color 0.16s ease;
+
+    &:hover {
+        transform: translateY(-4px);
+        border-color: rgba($bmc-red-500, 0.5);
+        box-shadow: 0 18px 36px rgba(#000, 0.4);
+    }
+}
+
+// 푸터 링크 호버
+.bmc-footer__links a:hover {
+    color: $bmc-red-400;
+}

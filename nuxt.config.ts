@@ -58,6 +58,7 @@ export default defineNuxtConfig({
         '~/plugins/ag-grid.client',
         '~/plugins/route-tabs.client',
         '~/plugins/global-css-no-inline.client',
+        '~/plugins/reveal.client',
         '~/plugins/seo',
     ],
 

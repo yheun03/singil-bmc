@@ -7,7 +7,7 @@
             <div class="bmc-hero2__inner">
                 <p class="bmc-hero2__eyebrow">
                     <img class="bmc-hero2__mark" :src="teamLogoUrl" alt="" width="40" height="40" />
-                    <span>SINGIL CHURCH BASEBALL MISSION · EST. 2024</span>
+                    <span>SINGIL CHURCH BASEBALL MISSION · EST. 2017</span>
                 </p>
                 <h1 class="bmc-hero2__title">
                     <span>ONE TEAM</span>
@@ -28,7 +28,7 @@
             </span>
         </section>
 
-        <section class="bmc-recordbar">
+        <section ref="recordbarRef" class="bmc-recordbar">
             <div class="bmc-recordbar__inner">
                 <div class="bmc-recordbar__brand">
                     <span class="bmc-recordbar__season">2025–26 SEASON</span>
@@ -36,16 +36,16 @@
                 </div>
                 <div class="bmc-recordbar__stats">
                     <div class="bmc-recordbar__stat">
-                        <span>경기</span><strong>{{ seasonRecord.games }}</strong>
+                        <span>경기</span><strong>{{ animatedRecord.games }}</strong>
                     </div>
                     <div class="bmc-recordbar__stat">
-                        <span>승</span><strong class="is-win">{{ seasonRecord.win }}</strong>
+                        <span>승</span><strong class="is-win">{{ animatedRecord.win }}</strong>
                     </div>
                     <div class="bmc-recordbar__stat">
-                        <span>패</span><strong class="is-loss">{{ seasonRecord.loss }}</strong>
+                        <span>패</span><strong class="is-loss">{{ animatedRecord.loss }}</strong>
                     </div>
                     <div class="bmc-recordbar__stat">
-                        <span>무</span><strong>{{ seasonRecord.tie }}</strong>
+                        <span>무</span><strong>{{ animatedRecord.tie }}</strong>
                     </div>
                     <div class="bmc-recordbar__stat">
                         <span>승률</span><strong>{{ seasonRecord.pct }}</strong>
@@ -266,6 +266,30 @@ const matches = computed(() =>
 
 const leadersPreview = computed(() => leaders.value.slice(0, 3));
 
+// ─── 전적 바 카운트업 인터랙션 ──────────────────────────────
+const recordbarRef = ref<HTMLElement | null>(null);
+const recordVisible = ref(false);
+const animatedRecord = reactive({ games: 0, win: 0, loss: 0, tie: 0 });
+let counted = false;
+
+function runCountUp() {
+    if (counted) return;
+    counted = true;
+    const target = seasonRecord.value;
+    const keys = ['games', 'win', 'loss', 'tie'] as const;
+    const duration = 1000;
+    const start = performance.now();
+    const tick = (now: number) => {
+        const p = Math.min(1, (now - start) / duration);
+        const eased = 1 - Math.pow(1 - p, 3);
+        for (const key of keys) {
+            animatedRecord[key] = Math.round(target[key] * eased);
+        }
+        if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+}
+
 function formatOpponent(opponent: string) {
     return opponent.replace(/-/g, ' ');
 }
@@ -284,6 +308,43 @@ onMounted(async () => {
         pending.value = false;
         leadersPending.value = false;
     }
+
+    // IntersectionObserver 미지원/감속 선호 시 즉시 최종값 표시
+    const reduce =
+        typeof window !== 'undefined' &&
+        window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if (typeof IntersectionObserver === 'undefined' || reduce) {
+        watch(
+            seasonRecord,
+            (rec) => Object.assign(animatedRecord, {
+                games: rec.games, win: rec.win, loss: rec.loss, tie: rec.tie,
+            }),
+            { immediate: true },
+        );
+        return;
+    }
+
+    // 전적 바가 보이고 + 데이터가 준비되면 카운트업 시작
+    watch(
+        [recordVisible, () => games.value.length],
+        ([visible, len]) => {
+            if (visible && len) runCountUp();
+        },
+        { immediate: true },
+    );
+
+    await nextTick();
+    if (!recordbarRef.value) return;
+    const io = new IntersectionObserver(
+        (entries) => {
+            if (entries.some((e) => e.isIntersecting)) {
+                recordVisible.value = true;
+                io.disconnect();
+            }
+        },
+        { threshold: 0.3 },
+    );
+    io.observe(recordbarRef.value);
 });
 </script>
 

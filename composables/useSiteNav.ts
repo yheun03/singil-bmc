@@ -13,6 +13,7 @@ export const siteHeaderNav: SiteNavItem[] = [
         label: 'TEAM',
         children: [
             { label: '소개', to: '/about' },
+            { label: '브랜드 스토리', to: '/about/brand' },
             { label: '조직/섬김이', to: '/about/leaders' },
             { label: '히스토리', to: '/about/history' },
             { label: '선수 명단', to: '/players' },
