@@ -124,7 +124,7 @@
                         <img
                             v-if="leader.image"
                             class="bmc-leader-card__avatar"
-                            :src="leader.image"
+                            :src="resolveMediaUrl(leader.image)"
                             :alt="leader.name"
                         />
                         <div v-else class="bmc-leader-card__avatar">{{ leader.name.slice(0, 1) }}</div>
@@ -208,7 +208,7 @@ definePageMeta({ title: '홈' });
 
 const WEEKDAYS = ['일', '월', '화', '수', '목', '금', '토'];
 
-const { fetchJson, getAssetPath } = useBasePath();
+const { fetchJson, getAssetPath, resolveMediaUrl } = useBasePath();
 const heroStyle = computed(() => ({
     '--bmc-hero-bg': `url('${getAssetPath('images/image_group.jpg')}')`,
 }));

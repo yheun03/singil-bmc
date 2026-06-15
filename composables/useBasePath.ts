@@ -59,6 +59,12 @@ export function useBasePath() {
         return joinPath(relativePath.replace(/^\//, ''));
     }
 
+    function resolveMediaUrl(path?: string): string {
+        if (!path) return '';
+        if (/^https?:\/\//i.test(path)) return path;
+        return getAssetPath(path.replace(/^\//, ''));
+    }
+
     function toAbsoluteUrl(path: string): string {
         if (import.meta.client) {
             return new URL(path, window.location.origin).href;
@@ -85,6 +91,7 @@ export function useBasePath() {
         joinPath,
         getDataPath,
         getAssetPath,
+        resolveMediaUrl,
         fetchJson,
     };
 }

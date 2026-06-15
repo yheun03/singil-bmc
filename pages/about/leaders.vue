@@ -11,7 +11,7 @@
                 <img
                     v-if="leader.image"
                     class="bmc-leader-card__avatar"
-                    :src="leader.image"
+                    :src="resolveMediaUrl(leader.image)"
                     :alt="leader.name"
                 />
                 <div v-else class="bmc-leader-card__avatar">{{ leader.name.slice(0, 1) }}</div>
@@ -39,5 +39,6 @@ type Leader = {
 
 definePageMeta({ title: '조직/섬김이' });
 
+const { resolveMediaUrl } = useBasePath();
 const { data: leaders, pending, error } = useSiteData<Leader[]>('meta/leaders.json');
 </script>
