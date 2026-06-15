@@ -25,7 +25,7 @@ export default defineNuxtConfig({
             ],
             meta: [{ name: 'theme-color', content: '#0a1124' }],
             link: [
-                { rel: 'icon', type: 'image/svg+xml', href: `${APP_BASE}favicon.svg` },
+                { rel: 'icon', type: 'image/x-icon', href: `${APP_BASE}favicon.ico` },
                 { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
                 { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
                 {
