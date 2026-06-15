@@ -121,12 +121,18 @@
                 <SiteLoading v-if="leadersPending" />
                 <div v-else class="bmc-grid bmc-grid--3">
                     <article v-for="leader in leadersPreview" :key="leader.id" class="bmc-leader-card">
-                        <div class="bmc-leader-card__avatar">{{ leader.name.slice(0, 1) }}</div>
+                        <img
+                            v-if="leader.image"
+                            class="bmc-leader-card__avatar"
+                            :src="leader.image"
+                            :alt="leader.name"
+                        />
+                        <div v-else class="bmc-leader-card__avatar">{{ leader.name.slice(0, 1) }}</div>
                         <div>
                             <p class="bmc-leader-card__role">{{ leader.role }}</p>
                             <h3 class="bmc-leader-card__name">{{ leader.name }}</h3>
-                            <span v-if="leader.group !== '전체'" class="bmc-leader-card__group">{{ leader.group }}조</span>
-                            <p class="bmc-leader-card__message">{{ leader.message }}</p>
+                            <span v-if="leader.title" class="bmc-leader-card__group">{{ leader.title }}</span>
+                            <p v-if="leader.message" class="bmc-leader-card__message">{{ leader.message }}</p>
                         </div>
                     </article>
                 </div>
@@ -193,6 +199,8 @@ type Leader = {
     group: string;
     role: string;
     name: string;
+    title?: string;
+    image?: string;
     message: string;
 };
 
