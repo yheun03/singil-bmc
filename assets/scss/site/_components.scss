@@ -518,7 +518,7 @@
 
         // 좌→가운데 슬라이드 인 (윗줄)
         span:first-child {
-            animation: bmc-slide-in-left 1s cubic-bezier(0.16, 0.84, 0.27, 1) 0.1s both;
+            animation: bmc-slide-in-left 1s cubic-bezier(0.16, 0.84, 0.27, 1) 1.5s both;
         }
 
         // 우→가운데 슬라이드 인 (아랫줄)
@@ -526,7 +526,7 @@
             color: transparent;
             -webkit-text-stroke: clamp(1.5px, 0.3vw, 3px) $bmc-white;
             text-stroke: 2px $bmc-white;
-            animation: bmc-slide-in-right 1s cubic-bezier(0.16, 0.84, 0.27, 1) 0.1s both;
+            animation: bmc-slide-in-right 1s cubic-bezier(0.16, 0.84, 0.27, 1) 1.5s both;
         }
 
         @media (prefers-reduced-motion: reduce) {
