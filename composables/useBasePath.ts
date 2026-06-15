@@ -25,19 +25,17 @@ function normalizeBasePath(value: string): string {
 /**
  * GitHub Pages 하위 경로(/singil-bmc/) 기준 정적 자산·JSON 경로 유틸
  *
- * import.meta.env.BASE_URL 은 dev 클라이언트에서 /_nuxt/ 로 잡히는 경우가 있어 사용하지 않습니다.
- * runtimeConfig.app.baseURL 은 기본값 '/' 로 남는 경우가 있어 public.appBase 를 우선합니다.
+ * runtimeConfig.public.appBase 를 우선합니다.
+ * (dev 클라이언트의 router.options.history.base 는 /_nuxt/ 로 잡히므로 사용하지 않습니다.)
  */
 export function useBasePath() {
     const config = useRuntimeConfig();
-    const router = import.meta.client ? useRouter() : null;
 
     function resolveBase(): string {
-        const fromRouter = normalizeBasePath(router?.options.history.base ?? '');
         const fromPublic = normalizeBasePath(String(config.public.appBase ?? ''));
         const fromRuntime = normalizeBasePath(String(config.app.baseURL ?? ''));
 
-        return fromRouter || fromPublic || fromRuntime || DEFAULT_BASE;
+        return fromPublic || fromRuntime || DEFAULT_BASE;
     }
 
     function joinPath(...segments: string[]): string {
