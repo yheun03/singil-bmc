@@ -1,29 +1,65 @@
 [
   {
-    "id": "leader-head",
+    "id": "pastor",
+    "group": "전체",
+    "role": "목회자",
+    "name": "김준호 목사님",
+    "title": "",
+    "image": "http://www.shingil.kr/user/saveDir/people/193_img_1773295117.jpg",
+    "message": ""
+  },
+  {
+    "id": "support-chair",
+    "group": "전체",
+    "role": "후원회장",
+    "name": "박갑재 장로님",
+    "title": "",
+    "image": "http://www.shingil.kr/user/saveDir/people/85_img.jpg",
+    "message": ""
+  },
+  {
+    "id": "committee-chair",
+    "group": "전체",
+    "role": "위원장",
+    "name": "정기춘 장로님",
+    "title": "",
+    "image": "http://www.shingil.kr/user/saveDir/people/50_img.jpg",
+    "message": ""
+  },
+  {
+    "id": "leader-a",
     "group": "A",
-    "role": "대표 감독",
-    "name": "노재흥",
-    "title": "A조 대표 감독",
+    "role": "감독",
+    "name": "노재흥 안수집사님",
+    "title": "A조 감독",
     "image": "",
-    "message": "함께 뛰고, 함께 배우며, 함께 세워지는 공동체 야구를 지향합니다. 모든 선수가 주님 안에서 joyfully play 할 수 있도록 돕겠습니다."
+    "message": ""
   },
   {
     "id": "leader-d",
     "group": "D",
-    "role": "감독",
-    "name": "성백동",
+    "role": "코치",
+    "name": "성백동 안수집사님",
     "title": "D조 감독",
     "image": "",
-    "message": "D조의 매 경기가 교제와 성장의 자리가 되도록, 기본기와 팀워크를 세심히 챙기겠습니다."
+    "message": ""
+  },
+  {
+    "id": "accounting",
+    "group": "전체",
+    "role": "회계",
+    "name": "이종태 안수집사님",
+    "title": "",
+    "image": "",
+    "message": ""
   },
   {
     "id": "manager",
     "group": "전체",
     "role": "총무",
-    "name": "노승원",
-    "title": "총무",
+    "name": "노승원 안수집사님",
+    "title": "",
     "image": "",
-    "message": "일정, 장비, 경기 기록 등 모든 구성원이 편하게 참여할 수 있도록 섬기겠습니다."
+    "message": ""
   }
 ]

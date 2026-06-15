@@ -1,1 +1,0 @@
-import{d as a,I as n,J as r}from"./DUN8igGx.js";const p=a({__name:"yearly",async setup(s){let e,t;return[e,t]=n(()=>r({path:"/mvp",query:{type:"yearly"}},{})),await e,t(),()=>{}}});export{p as default};
