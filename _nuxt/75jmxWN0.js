@@ -1,1 +1,0 @@
-import{d as a,I as n,J as s}from"./C-yPiO_Q.js";const _=a({__name:"weekly",async setup(o){let e,t;return[e,t]=n(()=>s({path:"/mvp",query:{type:"weekly"}},{})),await e,t(),()=>{}}});export{_ as default};
