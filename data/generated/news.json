@@ -11,7 +11,13 @@
     "content": "<p>다윗 야구 선교단은 (유신)블루후디스전에서 7안타 1홈런 10도루를 기록했습니다.</p><p>주요 기록은 홈런 김희열(1회), 2루타 박현석(5회) 박의현(4회) 최정훈(1회)입니다.</p><p><a href=\"/games/2026-07-04-vs-bluehoodies\">경기 상세 기록 보기</a></p>",
     "link": "/games/2026-07-04-vs-bluehoodies",
     "gameId": "2026-07-04-vs-bluehoodies",
-    "youtube": null
+    "youtube": {
+      "videoCode": "iwioUBtRSVs",
+      "title": "26.07.04 D조 vs (유신)블루후디스",
+      "publishedAt": "2026-07-04",
+      "youtubeUrl": "https://www.youtube.com/watch?v=iwioUBtRSVs",
+      "thumbnail": "https://i.ytimg.com/vi/iwioUBtRSVs/hq720.jpg"
+    }
   },
   {
     "id": "game-2026-06-13-vs-raptors",
