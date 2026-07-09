@@ -118,5 +118,15 @@
     "thumbnail": "https://i.ytimg.com/vi/Cj0hxQm8fgI/hq720.jpg",
     "category": "경기",
     "date": "2026-06-13"
+  },
+  {
+    "id": "game-2026-07-04-vs-bluehoodies",
+    "gameId": "2026-07-04-vs-bluehoodies",
+    "title": "26.07.04 D조 vs (유신)블루후디스",
+    "youtubeUrl": "https://www.youtube.com/watch?v=iwioUBtRSVs",
+    "embedUrl": "",
+    "thumbnail": "https://i.ytimg.com/vi/iwioUBtRSVs/hq720.jpg",
+    "category": "경기",
+    "date": "2026-07-04"
   }
 ]
