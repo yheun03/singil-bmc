@@ -1,21 +1,10 @@
 {
-  "totalGames": 42,
+  "totalGames": 43,
   "totalPlayers": 34,
   "totalHits": 403,
   "totalRuns": 468,
-  "lastGameDate": "2026-07-04",
+  "lastGameDate": "2026-07-25",
   "recentGames": [
-    {
-      "gameId": "2026-05-23-vs-koreauniv",
-      "gameDate": "2026-05-23",
-      "opponent": "koreauniv",
-      "opponentName": "고려대학교 데몽",
-      "score": {
-        "our": 12,
-        "opponent": 5
-      },
-      "group": "A"
-    },
     {
       "gameId": "2026-05-30-vs-11st",
       "gameDate": "2026-05-30",
@@ -59,6 +48,17 @@
         "opponent": 7
       },
       "group": "D"
+    },
+    {
+      "gameId": "2026-07-25-vs-ns",
+      "gameDate": "2026-07-25",
+      "opponent": "ns",
+      "opponentName": "NS페가수스",
+      "score": {
+        "our": 0,
+        "opponent": 10
+      },
+      "group": "A"
     }
   ]
 }
