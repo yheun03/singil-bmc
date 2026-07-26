@@ -295,7 +295,7 @@
     "type": "batting",
     "title": "2026 A조 연간 타자 MVP 1위",
     "name": "선예환",
-    "summary": "6경기 10안타 12타점 10득점",
+    "summary": "7경기 10안타 12타점 10득점",
     "stats": {
       "avg": ".588",
       "h": 10,
@@ -320,9 +320,9 @@
     "type": "batting",
     "title": "2026 A조 연간 타자 MVP 2위",
     "name": "박의현",
-    "summary": "6경기 8안타 4타점 10득점",
+    "summary": "7경기 8안타 4타점 10득점",
     "stats": {
-      "avg": ".571",
+      "avg": ".500",
       "h": 8,
       "double": 0,
       "triple": 0,
@@ -345,7 +345,7 @@
     "type": "batting",
     "title": "2026 A조 연간 타자 MVP 3위",
     "name": "김명선",
-    "summary": "6경기 6안타 8타점 8득점",
+    "summary": "7경기 6안타 8타점 8득점",
     "stats": {
       "avg": ".400",
       "h": 6,
@@ -369,20 +369,20 @@
     "rank": 1,
     "type": "pitching",
     "title": "2026 A조 연간 투수 MVP 1위",
-    "name": "김명선",
-    "summary": "6경기 11.1이닝 11탈삼진",
+    "name": "은영환",
+    "summary": "7경기 9.1이닝 17탈삼진",
     "stats": {
-      "ip": "11.1",
-      "outs": 34,
-      "era": "4.32",
-      "h": 22,
-      "bb": 2,
-      "hbp": 2,
-      "so": 11,
+      "ip": "9.1",
+      "outs": 28,
+      "era": "2.25",
+      "h": 7,
+      "bb": 8,
+      "hbp": 1,
+      "so": 17,
       "win": 2,
       "save": 0,
-      "er": 7,
-      "score": 63
+      "er": 3,
+      "score": 81.5
     }
   },
   {
@@ -392,20 +392,20 @@
     "rank": 2,
     "type": "pitching",
     "title": "2026 A조 연간 투수 MVP 2위",
-    "name": "은영환",
-    "summary": "6경기 7.1이닝 10탈삼진",
+    "name": "김명선",
+    "summary": "7경기 12.0이닝 11탈삼진",
     "stats": {
-      "ip": "7.1",
-      "outs": 22,
-      "era": "2.86",
-      "h": 6,
-      "bb": 6,
-      "hbp": 1,
-      "so": 10,
+      "ip": "12.0",
+      "outs": 36,
+      "era": "4.67",
+      "h": 24,
+      "bb": 3,
+      "hbp": 2,
+      "so": 11,
       "win": 2,
       "save": 0,
-      "er": 3,
-      "score": 58
+      "er": 8,
+      "score": 61
     }
   },
   {
@@ -416,7 +416,7 @@
     "type": "pitching",
     "title": "2026 A조 연간 투수 MVP 3위",
     "name": "반석훈",
-    "summary": "6경기 3.0이닝 4탈삼진",
+    "summary": "7경기 3.0이닝 4탈삼진",
     "stats": {
       "ip": "3.0",
       "outs": 9,
