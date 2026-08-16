@@ -12,5 +12,7 @@
     "2026-02-21-vs-nom": { "result": "cold-win" },
     "2026-05-02-vs-mavericks": { "result": "cold-win" },
     "2026-05-09-vs-anjin": { "result": "cold-win" },
-    "2026-05-23-vs-koreauniv": { "result": "cold-win" }
+    "2026-05-23-vs-koreauniv": { "result": "cold-win" },
+    "2026-07-25-vs-ns": { "result": "cold-loss" },
+    "2026-08-08-vs-sungnamob": { "result": "cold-loss" }
 }

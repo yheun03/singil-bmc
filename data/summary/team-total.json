@@ -1,43 +1,10 @@
 {
-  "totalGames": 43,
+  "totalGames": 46,
   "totalPlayers": 34,
-  "totalHits": 403,
-  "totalRuns": 468,
-  "lastGameDate": "2026-07-25",
+  "totalHits": 410,
+  "totalRuns": 481,
+  "lastGameDate": "2026-08-15",
   "recentGames": [
-    {
-      "gameId": "2026-05-30-vs-11st",
-      "gameDate": "2026-05-30",
-      "opponent": "11st",
-      "opponentName": "11번가 와이번스",
-      "score": {
-        "our": 10,
-        "opponent": 9
-      },
-      "group": "D"
-    },
-    {
-      "gameId": "2026-06-06-vs-lx",
-      "gameDate": "2026-06-06",
-      "opponent": "lx",
-      "opponentName": "LX 일스야구단",
-      "score": {
-        "our": 6,
-        "opponent": 7
-      },
-      "group": "D"
-    },
-    {
-      "gameId": "2026-06-13-vs-raptors",
-      "gameDate": "2026-06-13",
-      "opponent": "raptors",
-      "opponentName": "Team Raptors",
-      "score": {
-        "our": 8,
-        "opponent": 10
-      },
-      "group": "D"
-    },
     {
       "gameId": "2026-07-04-vs-bluehoodies",
       "gameDate": "2026-07-04",
@@ -59,6 +26,39 @@
         "opponent": 10
       },
       "group": "A"
+    },
+    {
+      "gameId": "2026-08-01-vs-raptors",
+      "gameDate": "2026-08-01",
+      "opponent": "raptors",
+      "opponentName": "Team Raptors",
+      "score": {
+        "our": 5,
+        "opponent": 8
+      },
+      "group": "D"
+    },
+    {
+      "gameId": "2026-08-08-vs-sungnamob",
+      "gameDate": "2026-08-08",
+      "opponent": "sungnamob",
+      "opponentName": "성남OB",
+      "score": {
+        "our": 5,
+        "opponent": 12
+      },
+      "group": "A"
+    },
+    {
+      "gameId": "2026-08-15-vs-11st",
+      "gameDate": "2026-08-15",
+      "opponent": "11st",
+      "opponentName": "11번가 와이번스",
+      "score": {
+        "our": 3,
+        "opponent": 12
+      },
+      "group": "D"
     }
   ]
 }
