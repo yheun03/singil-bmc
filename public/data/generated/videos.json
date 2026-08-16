@@ -128,5 +128,15 @@
     "thumbnail": "https://i.ytimg.com/vi/iwioUBtRSVs/hq720.jpg",
     "category": "경기",
     "date": "2026-07-04"
+  },
+  {
+    "id": "game-2026-08-08-vs-sungnamob",
+    "gameId": "2026-08-08-vs-sungnamob",
+    "title": "26.08.08 A조 vs 성남OB",
+    "youtubeUrl": "https://www.youtube.com/watch?v=MRuY6-q0YSo",
+    "embedUrl": "",
+    "thumbnail": "https://i.ytimg.com/vi/MRuY6-q0YSo/hq720.jpg",
+    "category": "경기",
+    "date": "2026-08-08"
   }
 ]

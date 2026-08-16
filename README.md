@@ -105,22 +105,27 @@ const teamTotal = await fetchJson('summary/team-total.json');
 핵심 명령어:
 
 ```bash
-npm run update
+npm run dev
 ```
+
+`npm run dev`는 기록 파싱·통계 생성·sitemap 갱신 후 개발 서버를 띄웁니다. 별도 갱신 명령은 필요 없습니다.
+
+- `npm run dev:only` — 갱신 없이 개발 서버만 실행
+- `npm run records:update` — 갱신만 실행 (서버 없이)
 
 요약:
 
 - `public/data/raw-games/*.html`만 기준으로 자동 생성 데이터를 초기화 후 재생성합니다.
 - `Davids 야구 선교단` 경기는 A조, `다윗 야구 선교단` 경기는 D조로 자동 구분합니다.
 - 상대팀 선수 기록은 누적 타자/투수 기록에 포함하지 않습니다.
-- `public/data/manual/youtube-links.json`은 수동 관리 파일이며 update 시 삭제하지 않습니다.
+- `public/data/manual/youtube-links.json`은 수동 관리 파일이며 갱신 시 삭제하지 않습니다.
 
 ---
 
 ## 빌드 / 배포
 
 ```bash
-# 정적 생성
+# 정적 생성 (기록·sitemap 자동 갱신 포함)
 npm run generate
 
 # GitHub Pages 로컬 배포 (gh-pages CLI)

@@ -15,10 +15,7 @@
 # 3. (선택) 경기 영상 링크 추가
 #    → public/data/manual/youtube-links.json
 
-# 4. 데이터 갱신
-npm run update
-
-# 5. 화면 확인
+# 4. 화면 확인 (기록·sitemap 자동 갱신)
 npm run dev
 
 # 6. 커밋
@@ -72,7 +69,7 @@ HTML `.record h3` / 게임요약 `h4`의 **우리팀명**으로 조를 판정합
 - `seasons`의 키는 **시즌 연도**입니다. 경기일(파일명)과 다를 수 있습니다.
 - `teamNames`는 GameOne에 표시된 팀명과 **포함 관계**로 매칭됩니다(긴 이름을 먼저 비교).
 - 해당 연도 설정이 없으면 `fallback`을 사용합니다.
-- `npm run update` 후 `public/data/meta/season-teams.json`에도 동일 내용이 복사됩니다.
+- `npm run dev` 실행 시 `public/data/meta/season-teams.json`에도 동일 내용이 복사됩니다.
 
 | 2026년 예시 팀명      | 조  |
 | --------------------- | --- |
@@ -106,7 +103,7 @@ HTML `.record h3` / 게임요약 `h4`의 **우리팀명**으로 조를 판정합
 - 파일명 날짜(`gameDate`)는 **실제 경기일** 그대로 유지합니다.
 - 연도별 기록·조 판정은 `seasonYear`를 사용합니다.
 - 개별 경기만 예외 처리하려면 `game-overrides.json`에 `"seasonYear": 2025`를 추가합니다.
-- `npm run update` 후 `public/data/meta/seasons.json`에도 복사됩니다.
+- `npm run dev` 실행 시 `public/data/meta/seasons.json`에도 복사됩니다.
 
 ### 경기 결과 override (선택)
 
@@ -155,7 +152,7 @@ key는 `gameId`(파일명에서 `.html` 제거)입니다.
 ## 커밋 전 체크
 
 - [ ] HTML을 `public/data/raw-games/`에 넣었다
-- [ ] `npm run update` 성공
+- [ ] `npm run dev`로 화면 확인 (데이터 자동 갱신)
 - [ ] `/games`에서 **상대팀 이름이 h4와 일치**한다
 - [ ] A조/D조가 맞다
 - [ ] (선택) YouTube 링크 추가
@@ -178,7 +175,7 @@ key는 `gameId`(파일명에서 `.html` 제거)입니다.
 - `h4` → 상대팀명 (`opponentName`)
 - `ul.game_sum` → 하이라이트
 
-### `npm run update`가 하는 일
+### 기록 갱신 (`npm run dev` / `npm run generate` 실행 시 자동)
 
 1. `raw-games/*.html` 파싱 → `games/*.json` 생성
 2. 시즌/월간/조별 기록, MVP, 뉴스, 영상 목록 생성
