@@ -53,7 +53,7 @@
                 </span>
             </summary>
             <p class="bmc-game-legend__hint">
-                콜드·몰수승·몰수패는 game-overrides.json에서 수동 지정합니다. 몰수승은 0:7, 몰수패는 7:0 표기·기록 미포함입니다.
+                콜드·몰수승·몰수패는 game-overrides.json에서 수동 지정합니다. 몰수승은 7:0, 몰수패는 0:7 표기·기록 미포함입니다.
             </p>
         </details>
 

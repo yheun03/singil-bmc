@@ -1,6 +1,6 @@
 /** 몰수 경기 표기 점수 (우리팀 : 상대팀) */
-export const FORFEIT_WIN_SCORE = { our: 0, opponent: 7 } as const;
-export const FORFEIT_LOSS_SCORE = { our: 7, opponent: 0 } as const;
+export const FORFEIT_WIN_SCORE = { our: 7, opponent: 0 } as const;
+export const FORFEIT_LOSS_SCORE = { our: 0, opponent: 7 } as const;
 
 export type GameScore = { our?: number; opponent?: number };
 
