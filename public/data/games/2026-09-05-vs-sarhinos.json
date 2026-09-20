@@ -10,7 +10,7 @@
   "group": "A",
   "status": "completed",
   "score": {
-    "our": 0,
+    "our": 7,
     "opponent": 0
   },
   "summary": {
@@ -34,5 +34,6 @@
   "batting": [],
   "pitching": [],
   "result": "forfeit-loss",
+  "excludeFromRecords": true,
   "youtube": null
 }

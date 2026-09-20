@@ -1,10 +1,21 @@
 {
-  "totalGames": 50,
+  "totalGames": 49,
   "totalPlayers": 34,
   "totalHits": 432,
   "totalRuns": 508,
   "lastGameDate": "2026-09-19",
   "recentGames": [
+    {
+      "gameId": "2026-08-08-vs-sungnamob",
+      "gameDate": "2026-08-08",
+      "opponent": "sungnamob",
+      "opponentName": "성남OB",
+      "score": {
+        "our": 5,
+        "opponent": 12
+      },
+      "group": "A"
+    },
     {
       "gameId": "2026-08-15-vs-11st",
       "gameDate": "2026-08-15",
@@ -24,17 +35,6 @@
       "score": {
         "our": 3,
         "opponent": 7
-      },
-      "group": "A"
-    },
-    {
-      "gameId": "2026-09-05-vs-sarhinos",
-      "gameDate": "2026-09-05",
-      "opponent": "sarhinos",
-      "opponentName": "SA 라이노스",
-      "score": {
-        "our": 0,
-        "opponent": 0
       },
       "group": "A"
     },
