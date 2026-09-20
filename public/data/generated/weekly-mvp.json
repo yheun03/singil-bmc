@@ -127,22 +127,22 @@
     "rank": 1,
     "type": "batting",
     "title": "2026-09-W1 A조 주간 타자 MVP 1위",
-    "name": "은영환",
-    "summary": "1경기 3안타 5타점 2득점",
+    "name": "김재영",
+    "summary": "1경기 2안타 2타점 2득점",
     "stats": {
-      "avg": ".750",
-      "h": 3,
+      "avg": ".667",
+      "h": 2,
       "double": 0,
       "triple": 0,
       "hr": 0,
-      "tb": 3,
+      "tb": 2,
       "bb": 0,
       "hbp": 0,
-      "rbi": 5,
+      "rbi": 2,
       "r": 2,
       "sb": 2,
       "so": 0,
-      "score": 37
+      "score": 23
     }
   },
   {
@@ -152,10 +152,10 @@
     "rank": 2,
     "type": "batting",
     "title": "2026-09-W1 A조 주간 타자 MVP 2위",
-    "name": "최정훈",
+    "name": "박의현",
     "summary": "1경기 1안타 2타점 2득점",
     "stats": {
-      "avg": ".500",
+      "avg": "1.000",
       "h": 1,
       "double": 0,
       "triple": 0,
@@ -165,9 +165,9 @@
       "hbp": 0,
       "rbi": 2,
       "r": 2,
-      "sb": 2,
+      "sb": 1,
       "so": 0,
-      "score": 18
+      "score": 16.5
     }
   },
   {
@@ -178,9 +178,9 @@
     "type": "batting",
     "title": "2026-09-W1 A조 주간 타자 MVP 3위",
     "name": "이효재",
-    "summary": "1경기 1안타 1타점 3득점",
+    "summary": "1경기 1안타 1타점 2득점",
     "stats": {
-      "avg": ".500",
+      "avg": "1.000",
       "h": 1,
       "double": 0,
       "triple": 0,
@@ -189,10 +189,10 @@
       "bb": 0,
       "hbp": 0,
       "rbi": 1,
-      "r": 3,
+      "r": 2,
       "sb": 2,
       "so": 0,
-      "score": 17
+      "score": 15
     }
   },
   {
@@ -202,43 +202,20 @@
     "rank": 1,
     "type": "pitching",
     "title": "2026-09-W1 A조 주간 투수 MVP 1위",
-    "name": "성백동",
-    "summary": "1경기 2.2이닝 3탈삼진",
+    "name": "반석훈",
+    "summary": "1경기 4.0이닝 10탈삼진",
     "stats": {
-      "ip": "2.2",
-      "outs": 8,
-      "era": "5.26",
-      "h": 3,
-      "bb": 2,
-      "hbp": 3,
-      "so": 3,
+      "ip": "4.0",
+      "outs": 12,
+      "era": "1.75",
+      "h": 4,
+      "bb": 10,
+      "hbp": 2,
+      "so": 10,
       "win": 1,
       "save": 0,
-      "er": 2,
-      "score": 15.5
-    }
-  },
-  {
-    "id": "2026-09-W1-A-pitching-2",
-    "key": "2026-09-W1",
-    "group": "A",
-    "rank": 2,
-    "type": "pitching",
-    "title": "2026-09-W1 A조 주간 투수 MVP 2위",
-    "name": "은영환",
-    "summary": "1경기 2.0이닝 2탈삼진",
-    "stats": {
-      "ip": "2.0",
-      "outs": 6,
-      "era": "7.00",
-      "h": 6,
-      "bb": 2,
-      "hbp": 1,
-      "so": 2,
-      "win": 0,
-      "save": 0,
-      "er": 2,
-      "score": 2
+      "er": 1,
+      "score": 34
     }
   },
   {

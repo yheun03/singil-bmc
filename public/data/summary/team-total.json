@@ -1,8 +1,8 @@
 {
   "totalGames": 49,
   "totalPlayers": 34,
-  "totalHits": 432,
-  "totalRuns": 508,
+  "totalHits": 430,
+  "totalRuns": 507,
   "lastGameDate": "2026-09-19",
   "recentGames": [
     {
@@ -42,10 +42,10 @@
       "gameId": "2026-09-12-vs-sogang",
       "gameDate": "2026-09-12",
       "opponent": "sogang",
-      "opponentName": "YJ클린쳐스3",
+      "opponentName": "서강 알바트로스",
       "score": {
-        "our": 12,
-        "opponent": 10
+        "our": 11,
+        "opponent": 8
       },
       "group": "A"
     },
