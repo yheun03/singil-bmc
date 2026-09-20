@@ -1,7 +1,7 @@
 [
   {
     "year": 2026,
-    "games": 23,
+    "games": 24,
     "hits": 170,
     "runs": 206,
     "batting": [
@@ -1354,7 +1354,7 @@
     "groups": {
       "A": {
         "group": "A",
-        "games": 11,
+        "games": 12,
         "hits": 87,
         "runs": 99,
         "batting": [
@@ -2727,7 +2727,7 @@
   },
   {
     "year": 2025,
-    "games": 26,
+    "games": 27,
     "hits": 260,
     "runs": 301,
     "batting": [
@@ -4534,7 +4534,7 @@
       },
       "E": {
         "group": "E",
-        "games": 13,
+        "games": 14,
         "hits": 120,
         "runs": 144,
         "batting": [
