@@ -300,7 +300,7 @@ function buildPlayersTotal(battingTotal, pitchingTotal) {
     return [...map.values()].sort((a, b) => a.name.localeCompare(b.name, 'ko'));
 }
 
-function buildPeriodGroupRecords(games, recordGroups) {
+function buildPeriodGroupRecords(games, recordGroups, countGames = games) {
     return Object.fromEntries(
         recordGroups.map((group) => {
             const groupGames = games.filter((game) => game.group === group);
@@ -311,7 +311,7 @@ function buildPeriodGroupRecords(games, recordGroups) {
                 group,
                 {
                     group,
-                    games: groupGames.length,
+                    games: countGames.filter((game) => game.group === group).length,
                     hits: battingRows.reduce((sum, row) => sum + (row.h || 0), 0),
                     runs: battingRows.reduce((sum, row) => sum + (row.r || 0), 0),
                     batting: aggregateBatting(groupGames),
@@ -322,13 +322,20 @@ function buildPeriodGroupRecords(games, recordGroups) {
     );
 }
 
-function buildYearlyRecords(games, seasonTeamsConfig) {
+function buildYearlyRecords(games, recordGames, seasonTeamsConfig) {
     const yearMap = new Map();
 
     for (const game of games) {
         const year = getSeasonYear(game);
-        const current = yearMap.get(year) || { year, games: 0, hits: 0, runs: 0, sourceGames: [], batting: [], pitching: [] };
+        const current = yearMap.get(year) || { year, games: 0, hits: 0, runs: 0, allGames: [], sourceGames: [], batting: [], pitching: [] };
         current.games += 1;
+        current.allGames.push(game);
+        yearMap.set(year, current);
+    }
+
+    for (const game of recordGames) {
+        const year = getSeasonYear(game);
+        const current = yearMap.get(year);
         current.sourceGames.push(game);
         current.hits += (game.batting || []).reduce((sum, row) => sum + (row.h || 0), 0);
         current.runs += (game.batting || []).reduce((sum, row) => sum + (row.r || 0), 0);
@@ -347,7 +354,8 @@ function buildYearlyRecords(games, seasonTeamsConfig) {
             pitching: aggregatePitching(item.sourceGames),
             groups: buildPeriodGroupRecords(
                 item.sourceGames,
-                collectRecordGroups(item.sourceGames, seasonTeamsConfig),
+                collectRecordGroups(item.allGames, seasonTeamsConfig),
+                item.allGames,
             ),
         }))
         .sort((a, b) => b.year - a.year);
@@ -687,7 +695,7 @@ export function buildAllRecords() {
     const pitchingTotal = aggregatePitching(recordGames);
     const teamTotal = buildTeamTotal(recordGames, battingTotal);
     const playersTotal = buildPlayersTotal(battingTotal, pitchingTotal);
-    const yearlyRecords = buildYearlyRecords(recordGames, seasonTeamsConfig);
+    const yearlyRecords = buildYearlyRecords(games, recordGames, seasonTeamsConfig);
     const monthlyRecords = buildMonthlyRecords(recordGames, seasonTeamsConfig);
     const groupRecords = buildGroupRecords(recordGames, recordGroups);
     const monthlyMvp = buildMonthlyMvp(recordGames);
