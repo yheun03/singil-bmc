@@ -15755,7 +15755,7 @@
     "group": "A",
     "status": "completed",
     "score": {
-      "our": 0,
+      "our": 7,
       "opponent": 0
     },
     "summary": {
@@ -15778,7 +15778,8 @@
     "highlights": [],
     "batting": [],
     "pitching": [],
-    "result": "forfeit-lose",
+    "result": "forfeit-loss",
+    "excludeFromRecords": true,
     "youtube": null
   },
   {
