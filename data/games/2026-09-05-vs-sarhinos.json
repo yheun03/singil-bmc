@@ -10,8 +10,8 @@
   "group": "A",
   "status": "completed",
   "score": {
-    "our": 7,
-    "opponent": 0
+    "our": 0,
+    "opponent": 7
   },
   "summary": {
     "hits": 0,
