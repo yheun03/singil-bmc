@@ -768,7 +768,8 @@
         }
 
         &.is-loss,
-        &.is-cold-loss {
+        &.is-cold-loss,
+        &.is-forfeit-loss {
             background: $bmc-red-500;
         }
 
@@ -2313,6 +2314,17 @@
 
         .bmc-game-result__abbr {
             background: #6366f1;
+            color: $bmc-white;
+        }
+    }
+
+    &.is-forfeit-loss {
+        background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+        border-color: #f87171;
+        color: #991b1b;
+
+        .bmc-game-result__abbr {
+            background: #dc2626;
             color: $bmc-white;
         }
     }

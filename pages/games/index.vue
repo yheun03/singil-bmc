@@ -36,8 +36,9 @@
                 <span v-if="seasonCounts['forfeit-win']" class="bmc-game-season-summary__sub">(몰수 {{ seasonCounts['forfeit-win'] }})</span>
             </span>
             <span class="bmc-game-season-summary__chip">
-                패 <strong>{{ seasonCounts.loss + seasonCounts['cold-loss'] }}</strong>
+                패 <strong>{{ seasonCounts.loss + seasonCounts['cold-loss'] + seasonCounts['forfeit-loss'] }}</strong>
                 <span v-if="seasonCounts['cold-loss']" class="bmc-game-season-summary__sub">(콜드 {{ seasonCounts['cold-loss'] }})</span>
+                <span v-if="seasonCounts['forfeit-loss']" class="bmc-game-season-summary__sub">(몰수 {{ seasonCounts['forfeit-loss'] }})</span>
             </span>
             <span v-if="seasonCounts.tie" class="bmc-game-season-summary__chip">
                 무 <strong>{{ seasonCounts.tie }}</strong>
@@ -52,7 +53,7 @@
                 </span>
             </summary>
             <p class="bmc-game-legend__hint">
-                콜드·몰수승은 game-overrides.json에서 수동 지정합니다. 몰수승은 0:7 표기·기록 미포함입니다.
+                콜드·몰수승·몰수패는 game-overrides.json에서 수동 지정합니다. 몰수승은 0:7, 몰수패는 7:0 표기·기록 미포함입니다.
             </p>
         </details>
 
@@ -87,7 +88,7 @@
 
                 <div class="bmc-game-card__foot">
                     <span class="bmc-game-card__stats">
-                        <template v-if="isForfeitGame(game)">몰수승 · 기록 미포함</template>
+                        <template v-if="isForfeitGame(game)">{{ game.result === 'forfeit-win' ? '몰수승' : '몰수패' }} · 기록 미포함</template>
                         <template v-else>
                             {{ game.summary?.hits ?? 0 }}안타 · {{ game.summary?.homeRuns ?? 0 }}홈런 · {{ game.summary?.steals ?? 0 }}도루
                         </template>
@@ -129,7 +130,7 @@ type Game = {
 
 definePageMeta({ title: '경기' });
 
-const legendKinds: GameResultKind[] = ['win', 'loss', 'cold-win', 'cold-loss', 'forfeit-win'];
+const legendKinds: GameResultKind[] = ['win', 'loss', 'cold-win', 'cold-loss', 'forfeit-win', 'forfeit-loss'];
 
 const { data, pending, error } = useSiteData<Game[]>('generated/games.json');
 const games = computed(() => [...(data.value ?? [])].sort((a, b) => b.gameDate.localeCompare(a.gameDate)));

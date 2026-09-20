@@ -1,54 +1,10 @@
 {
-  "totalGames": 46,
+  "totalGames": 50,
   "totalPlayers": 34,
-  "totalHits": 410,
-  "totalRuns": 481,
-  "lastGameDate": "2026-08-15",
+  "totalHits": 432,
+  "totalRuns": 508,
+  "lastGameDate": "2026-09-19",
   "recentGames": [
-    {
-      "gameId": "2026-07-04-vs-bluehoodies",
-      "gameDate": "2026-07-04",
-      "opponent": "bluehoodies",
-      "opponentName": "(유신)블루후디스",
-      "score": {
-        "our": 11,
-        "opponent": 7
-      },
-      "group": "D"
-    },
-    {
-      "gameId": "2026-07-25-vs-ns",
-      "gameDate": "2026-07-25",
-      "opponent": "ns",
-      "opponentName": "NS페가수스",
-      "score": {
-        "our": 0,
-        "opponent": 10
-      },
-      "group": "A"
-    },
-    {
-      "gameId": "2026-08-01-vs-raptors",
-      "gameDate": "2026-08-01",
-      "opponent": "raptors",
-      "opponentName": "Team Raptors",
-      "score": {
-        "our": 5,
-        "opponent": 8
-      },
-      "group": "D"
-    },
-    {
-      "gameId": "2026-08-08-vs-sungnamob",
-      "gameDate": "2026-08-08",
-      "opponent": "sungnamob",
-      "opponentName": "성남OB",
-      "score": {
-        "our": 5,
-        "opponent": 12
-      },
-      "group": "A"
-    },
     {
       "gameId": "2026-08-15-vs-11st",
       "gameDate": "2026-08-15",
@@ -59,6 +15,50 @@
         "opponent": 12
       },
       "group": "D"
+    },
+    {
+      "gameId": "2026-08-29-vs-daslgis",
+      "gameDate": "2026-08-29",
+      "opponent": "daslgis",
+      "opponentName": "다슬기스OB",
+      "score": {
+        "our": 3,
+        "opponent": 7
+      },
+      "group": "A"
+    },
+    {
+      "gameId": "2026-09-05-vs-sarhinos",
+      "gameDate": "2026-09-05",
+      "opponent": "sarhinos",
+      "opponentName": "SA 라이노스",
+      "score": {
+        "our": 0,
+        "opponent": 0
+      },
+      "group": "A"
+    },
+    {
+      "gameId": "2026-09-12-vs-sogang",
+      "gameDate": "2026-09-12",
+      "opponent": "sogang",
+      "opponentName": "YJ클린쳐스3",
+      "score": {
+        "our": 12,
+        "opponent": 10
+      },
+      "group": "A"
+    },
+    {
+      "gameId": "2026-09-19-vs-yj",
+      "gameDate": "2026-09-19",
+      "opponent": "yj",
+      "opponentName": "YJ클린쳐스3",
+      "score": {
+        "our": 12,
+        "opponent": 10
+      },
+      "group": "A"
     }
   ]
 }

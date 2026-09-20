@@ -1,5 +1,6 @@
-/** 몰수승 공식 점수 (우리팀 : 상대팀) */
+/** 몰수 경기 표기 점수 (우리팀 : 상대팀) */
 export const FORFEIT_WIN_SCORE = { our: 0, opponent: 7 } as const;
+export const FORFEIT_LOSS_SCORE = { our: 7, opponent: 0 } as const;
 
 export type GameScore = { our?: number; opponent?: number };
 
@@ -9,7 +10,8 @@ export type GameResultKind =
     | 'tie'
     | 'cold-win'
     | 'cold-loss'
-    | 'forfeit-win';
+    | 'forfeit-win'
+    | 'forfeit-loss';
 
 export type GameResultInput = {
     score?: GameScore | null;
@@ -53,6 +55,12 @@ export const gameResultMeta: Record<
         longLabel: '몰수승',
         description: '상대팀 몰수패 승리. 타·투수 기록 미포함',
     },
+    'forfeit-loss': {
+        abbr: 'FL',
+        label: '몰수패',
+        longLabel: '몰수패',
+        description: '우리팀 몰수패. 타·투수 기록 미포함',
+    },
     tie: {
         abbr: 'D',
         label: '무',
@@ -62,7 +70,7 @@ export const gameResultMeta: Record<
 };
 
 export function isForfeitResult(result?: GameResultKind | null): boolean {
-    return result === 'forfeit-win';
+    return result === 'forfeit-win' || result === 'forfeit-loss';
 }
 
 export function shouldExcludeFromRecords(input: GameResultInput): boolean {
@@ -74,12 +82,15 @@ export function isWinResult(kind: GameResultKind): boolean {
 }
 
 export function isLossResult(kind: GameResultKind): boolean {
-    return kind === 'loss' || kind === 'cold-loss';
+    return kind === 'loss' || kind === 'cold-loss' || kind === 'forfeit-loss';
 }
 
 export function resolveDisplayScore(input: GameResultInput): GameScore {
     if (input.result === 'forfeit-win') {
         return { ...FORFEIT_WIN_SCORE };
+    }
+    if (input.result === 'forfeit-loss') {
+        return { ...FORFEIT_LOSS_SCORE };
     }
 
     return {
@@ -112,6 +123,7 @@ export function summarizeSeasonResults(games: GameResultInput[]): Record<GameRes
         'cold-win': 0,
         'cold-loss': 0,
         'forfeit-win': 0,
+        'forfeit-loss': 0,
     };
 
     for (const game of games) {

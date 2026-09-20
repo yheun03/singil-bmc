@@ -11,7 +11,7 @@
                     </div>
                     <strong class="bmc-game-detail__score">{{ displayScore }}</strong>
                     <p>다윗 야구 선교단 vs {{ opponentLabel(game) }}</p>
-                    <p v-if="isForfeit" class="bmc-game-detail__forfeit-note">몰수승 경기로 타·투수 기록이 없습니다.</p>
+                    <p v-if="isForfeit" class="bmc-game-detail__forfeit-note">{{ game.result === 'forfeit-win' ? '몰수승' : '몰수패' }} 경기로 타·투수 기록이 없습니다.</p>
                 </div>
                 <a class="bmc-btn bmc-btn--primary" :href="game.youtube?.youtubeUrl || YOUTUBE_CHANNEL_URL"
                     target="_blank" rel="noopener noreferrer">
@@ -557,6 +557,15 @@ onUnmounted(() => setSeoPageOverride(null));
 
     &--forfeit-win .bmc-game-detail__score {
         color: #4338ca;
+    }
+
+    &--forfeit-loss {
+        border-color: #f87171;
+        background: linear-gradient(135deg, #fef2f2 0%, #fff 55%);
+    }
+
+    &--forfeit-loss .bmc-game-detail__score {
+        color: #b91c1c;
     }
 
     &__forfeit-note {

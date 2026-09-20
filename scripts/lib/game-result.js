@@ -1,7 +1,8 @@
-/** @typedef {'win'|'loss'|'tie'|'cold-win'|'cold-loss'|'forfeit-win'} GameResultKind */
+/** @typedef {'win'|'loss'|'tie'|'cold-win'|'cold-loss'|'forfeit-win'|'forfeit-loss'} GameResultKind */
 
-/** 몰수승 공식 점수 (우리팀 : 상대팀) */
+/** 몰수 경기 표기 점수 (우리팀 : 상대팀) */
 export const FORFEIT_WIN_SCORE = { our: 0, opponent: 7 };
+export const FORFEIT_LOSS_SCORE = { our: 7, opponent: 0 };
 
 const EMPTY_SUMMARY = {
     hits: 0,
@@ -13,7 +14,7 @@ const EMPTY_SUMMARY = {
 };
 
 export function isForfeitResult(result) {
-    return result === 'forfeit-win';
+    return result === 'forfeit-win' || result === 'forfeit-loss';
 }
 
 export function shouldExcludeFromRecords(game) {
@@ -27,7 +28,7 @@ export function applyForfeitPresentation(game) {
 
     return {
         ...game,
-        score: { ...FORFEIT_WIN_SCORE },
+        score: { ...(game.result === 'forfeit-win' ? FORFEIT_WIN_SCORE : FORFEIT_LOSS_SCORE) },
         excludeFromRecords: true,
         batting: [],
         pitching: [],

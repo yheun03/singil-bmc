@@ -1,0 +1,38 @@
+{
+  "gameId": "2026-09-05-vs-sarhinos",
+  "gameDate": "2026-09-05",
+  "date": "2026-09-05",
+  "year": 2026,
+  "seasonYear": 2026,
+  "month": 9,
+  "opponent": "sarhinos",
+  "opponentName": "SA 라이노스",
+  "group": "A",
+  "status": "completed",
+  "score": {
+    "our": 0,
+    "opponent": 0
+  },
+  "summary": {
+    "hits": 0,
+    "homeRuns": 0,
+    "steals": 0,
+    "strikeouts": 0,
+    "errors": 0,
+    "walksAndHbp": 0
+  },
+  "opponentSummary": {
+    "teamName": "SA 라이노스",
+    "hits": 9,
+    "homeRuns": 0,
+    "steals": 0,
+    "strikeouts": 0,
+    "errors": 0,
+    "walksAndHbp": 9
+  },
+  "highlights": [],
+  "batting": [],
+  "pitching": [],
+  "result": "forfeit-lose",
+  "youtube": null
+}
