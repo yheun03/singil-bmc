@@ -294,31 +294,6 @@
     "rank": 1,
     "type": "batting",
     "title": "2026 A조 연간 타자 MVP 1위",
-    "name": "은영환",
-    "summary": "11경기 12안타 16타점 11득점",
-    "stats": {
-      "avg": ".545",
-      "h": 12,
-      "double": 0,
-      "triple": 0,
-      "hr": 0,
-      "tb": 12,
-      "bb": 0,
-      "hbp": 0,
-      "rbi": 16,
-      "r": 11,
-      "sb": 8,
-      "so": 0,
-      "score": 142
-    }
-  },
-  {
-    "id": "2026-A-batting-2",
-    "key": "2026",
-    "group": "A",
-    "rank": 2,
-    "type": "batting",
-    "title": "2026 A조 연간 타자 MVP 2위",
     "name": "선예환",
     "summary": "11경기 11안타 12타점 13득점",
     "stats": {
@@ -338,16 +313,16 @@
     }
   },
   {
-    "id": "2026-A-batting-3",
+    "id": "2026-A-batting-2",
     "key": "2026",
     "group": "A",
-    "rank": 3,
+    "rank": 2,
     "type": "batting",
-    "title": "2026 A조 연간 타자 MVP 3위",
-    "name": "최정훈",
-    "summary": "11경기 9안타 9타점 11득점",
+    "title": "2026 A조 연간 타자 MVP 2위",
+    "name": "은영환",
+    "summary": "11경기 9안타 11타점 10득점",
     "stats": {
-      "avg": ".375",
+      "avg": ".450",
       "h": 9,
       "double": 0,
       "triple": 0,
@@ -355,11 +330,36 @@
       "tb": 9,
       "bb": 0,
       "hbp": 0,
-      "rbi": 9,
-      "r": 11,
-      "sb": 4,
+      "rbi": 11,
+      "r": 10,
+      "sb": 8,
       "so": 0,
-      "score": 100
+      "score": 110
+    }
+  },
+  {
+    "id": "2026-A-batting-3",
+    "key": "2026",
+    "group": "A",
+    "rank": 3,
+    "type": "batting",
+    "title": "2026 A조 연간 타자 MVP 3위",
+    "name": "김재영",
+    "summary": "11경기 8안타 10타점 9득점",
+    "stats": {
+      "avg": ".381",
+      "h": 8,
+      "double": 0,
+      "triple": 0,
+      "hr": 0,
+      "tb": 8,
+      "bb": 0,
+      "hbp": 0,
+      "rbi": 10,
+      "r": 9,
+      "sb": 11,
+      "so": 0,
+      "score": 104.5
     }
   },
   {
@@ -370,19 +370,19 @@
     "type": "pitching",
     "title": "2026 A조 연간 투수 MVP 1위",
     "name": "은영환",
-    "summary": "11경기 14.1이닝 23탈삼진",
+    "summary": "11경기 12.1이닝 21탈삼진",
     "stats": {
-      "ip": "14.1",
-      "outs": 43,
-      "era": "3.42",
-      "h": 19,
-      "bb": 12,
-      "hbp": 3,
-      "so": 23,
+      "ip": "12.1",
+      "outs": 37,
+      "era": "2.84",
+      "h": 13,
+      "bb": 10,
+      "hbp": 2,
+      "so": 21,
       "win": 2,
       "save": 0,
-      "er": 7,
-      "score": 95.5
+      "er": 5,
+      "score": 93.5
     }
   },
   {
@@ -392,6 +392,29 @@
     "rank": 2,
     "type": "pitching",
     "title": "2026 A조 연간 투수 MVP 2위",
+    "name": "반석훈",
+    "summary": "11경기 15.0이닝 21탈삼진",
+    "stats": {
+      "ip": "15.0",
+      "outs": 45,
+      "era": "2.80",
+      "h": 16,
+      "bb": 13,
+      "hbp": 9,
+      "so": 21,
+      "win": 1,
+      "save": 0,
+      "er": 6,
+      "score": 86
+    }
+  },
+  {
+    "id": "2026-A-pitching-3",
+    "key": "2026",
+    "group": "A",
+    "rank": 3,
+    "type": "pitching",
+    "title": "2026 A조 연간 투수 MVP 3위",
     "name": "김명선",
     "summary": "11경기 14.0이닝 13탈삼진",
     "stats": {
@@ -406,29 +429,6 @@
       "save": 0,
       "er": 10,
       "score": 63
-    }
-  },
-  {
-    "id": "2026-A-pitching-3",
-    "key": "2026",
-    "group": "A",
-    "rank": 3,
-    "type": "pitching",
-    "title": "2026 A조 연간 투수 MVP 3위",
-    "name": "반석훈",
-    "summary": "11경기 11.0이닝 11탈삼진",
-    "stats": {
-      "ip": "11.0",
-      "outs": 33,
-      "era": "3.18",
-      "h": 12,
-      "bb": 3,
-      "hbp": 7,
-      "so": 11,
-      "win": 0,
-      "save": 0,
-      "er": 5,
-      "score": 52
     }
   },
   {
