@@ -126,12 +126,17 @@ export default defineNuxtConfig({
             const frameworkPrefixes = ['/demos', '/auth', '/workspace', '/settings'];
 
             for (const page of pages) {
+                // 리캡은 공통 헤더·푸터 없이 독립적으로 노출합니다.
+                if (page.path === '/recap/2026') {
+                    page.meta = { ...page.meta, layout: false };
+                    continue;
+                }
                 if (!page.path || frameworkPrefixes.some((prefix) => page.path?.startsWith(prefix))) {
                     continue;
                 }
 
                 page.meta ||= {};
-                if (!page.meta.layout) {
+                if (page.meta.layout === undefined) {
                     page.meta.layout = 'site';
                 }
             }

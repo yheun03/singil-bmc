@@ -7,6 +7,12 @@ export type SeoPageDefaults = {
 
 /** 정적 라우트별 기본 설명 (플러그인·useSeo에서 path로 조회) */
 export const seoPageDefaults: Record<string, SeoPageDefaults> = {
+    '/recap/2026': {
+        title: '2026 RECAP',
+        description: {
+            ko: '신길교회 야구 선교단의 2026년 시즌 요약과 주요 개인 기록을 확인합니다.',
+        },
+    },
     '/': {
         title: '홈',
         description: {

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+<!-- SVG Repo 43619, CC0. Adapted: filled wooden body, pink grip, highlights; separate ball removed. -->
+<defs>
+    <linearGradient id="wood" x1="150" y1="150" x2="360" y2="360" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#bd793e" />
+        <stop offset=".35" stop-color="#ffe0a3" />
+        <stop offset=".65" stop-color="#e8b774" />
+        <stop offset="1" stop-color="#b7763d" />
+    </linearGradient>
+    <linearGradient id="grip" x1="55" y1="350" x2="170" y2="470" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#eea4c8" />
+        <stop offset="1" stop-color="#ad477d" />
+    </linearGradient>
+    <clipPath id="bat-clip"><path d="M476.943,52.373c-23.657-23.658-62.153-23.659-85.813,0L148.845,308.911l-35.601,37.69l-18.289,18.291l-24.517-24.516
+			L17.314,393.5L135.803,512l53.138-53.138l-24.517-24.504l18.289-18.288l37.689-35.6l256.361-242.112l0.178-0.172
+			C500.6,114.527,500.6,76.031,476.943,52.373z" /></clipPath>
+</defs>
+<path d="M476.943,52.373c-23.657-23.658-62.153-23.659-85.813,0L148.845,308.911l-35.601,37.69l-18.289,18.291l-24.517-24.516
+			L17.314,393.5L135.803,512l53.138-53.138l-24.517-24.504l18.289-18.288l37.689-35.6l256.361-242.112l0.178-0.172
+			C500.6,114.527,500.6,76.031,476.943,52.373z" fill="url(#wood)" />
+<g clip-path="url(#bat-clip)">
+    <path d="M-10 370L145 525L223 435L70 283Z" fill="url(#grip)" />
+    <path d="M58 376L146 464M73 357L165 449M90 341L181 431M105 323L200 413" fill="none" stroke="#ffe1ed" stroke-width="9" opacity=".65" />
+    <path d="M194 307L411 78Q438 50 466 77" fill="none" stroke="#fff0ca" stroke-width="12" stroke-linecap="round" opacity=".75" />
+    <path d="M243 332L438 145" fill="none" stroke="#a96d34" stroke-width="4" stroke-linecap="round" opacity=".25" />
+</g>
+</svg>

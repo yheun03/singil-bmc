@@ -29,6 +29,7 @@ export const siteHeaderNav: SiteNavItem[] = [
             { label: '월별', to: '/records/monthly' },
             // { label: '조별', to: '/records/groups' },
             { label: 'MVP', to: '/mvp' },
+            { label: '2026 RECAP', to: '/recap/2026' },
         ],
     },
     {

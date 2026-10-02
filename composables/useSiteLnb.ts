@@ -27,13 +27,14 @@ export const siteLnbMenus: SiteLnbMenu[] = [
         ],
     },
     {
-        matcher: /^\/(records|mvp)/,
+        matcher: /^\/(records|mvp|recap)/,
         items: [
             { label: '전체 기록', to: '/records' },
             { label: '연도별', to: '/records/yearly' },
             { label: '월별', to: '/records/monthly' },
             // { label: '조별', to: '/records/groups' },
             { label: 'MVP', to: '/mvp' },
+            { label: '2026 RECAP', to: '/recap/2026' },
         ],
     },
     {
